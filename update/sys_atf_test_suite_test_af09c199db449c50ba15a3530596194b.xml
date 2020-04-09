@@ -15,6 +15,6 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-07 09:41:56</sys_updated_on>
         <test display_value="DataSilos - Incident - Using Server Side Script only">77284159db449c50ba15a35305961904</test>
-        <test_suite display_value="Data Silos">23e924dddb809c50ba15a353059619ae</test_suite>
+        <test_suite display_value="DataSilos">23e924dddb809c50ba15a353059619ae</test_suite>
     </sys_atf_test_suite_test>
 </record_update>
