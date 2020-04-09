@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.ExecuteRule</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ExecuteRule</name>
+        <script><![CDATA[function ExecuteRule(strTableName, current, previous)
+{
+	var strOperation = '';
+	
+	function Log(strText)
+	{
+		gs.info('DataSilos: ExecuteRule: '+strTableName+': '+strOperation+': '+gs.getUserName()+': '+strText);
+	}
+	
+	function IsActive(strTableName)
+	{
+		var bActive = gs.getProperty('x_snc_datasilos.active');
+		if (bActive == false)
+			return false;
+		if (strTableName == 'incident')
+			return true;
+		if (strTableName == 'incident_task')
+			return true;
+		if (strTableName == 'change_request')
+			return true;
+		return false;
+	}
+	
+	function GetOperation(current)
+	{
+		var strOperation = '';
+		if (current != null)
+		{
+			strOperation = current.operation();
+			if (strOperation == null)
+			{
+				strOperation = 'query';
+			}
+		}
+		else
+		{
+			strOperation = 'undefined';
+		}		
+		return strOperation;
+	}
+	
+	function AddWhiteListGroup(current, strNewGroupSysId)
+	{
+		Log('AddWhiteListGroup('+strNewGroupSysId+')');
+		if (strNewGroupSysId != '')
+		{
+			var strGroupSysIds = current.x_snc_datasilos_group_whitelist;
+			if (strGroupSysIds == '')
+			{
+				current.x_snc_datasilos_group_whitelist = strNewGroupSysId;
+			}
+			else
+			{
+				if (strGroupSysIds.includes(strNewGroupSysId) == false)
+				{
+					current.x_snc_datasilos_group_whitelist = strGroupSysIds + ',' + strNewGroupSysId; 
+				}
+			}
+		}		
+	}
+	
+	function AddWhiteListQuery(current)
+	{
+		/*
+		if (gs.getSession().isInteractive() == false)
+		{
+			return;
+		}
+		*/
+
+		if (gs.hasRole('admin') == true)
+		{
+			return;
+		}
+		
+		var aUserGroups = gs.getUser().getMyGroups();
+			
+		//var RenderValue = x_snc_devtools.RenderValue;
+		//Log('modifying query: User Groups: '+RenderValue(groups));
+			
+		if (aUserGroups.length > 0)
+		{
+			var query = current.addQuery('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[0]);
+			for (var nIndex = 1; nIndex < aUserGroups.length; nIndex++)
+			{
+				query.addOrCondition('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[nIndex]);
+			}
+		}
+		else
+		{
+			// If a user does not have any groups (and is not an admin) they should not see anything
+
+			// current.setAbortAction(true); <- this can't be done due to cross scope restrictions
+			// but we can set up a condition that will definitely fail
+			var query = current.addQuery('sys_id','=','');
+		}
+	}
+	
+	if (IsActive(strTableName) == false)
+	{
+		return;
+	}
+
+	strOperation = GetOperation(current);
+	
+	Log('');
+	
+	if (strTableName == 'incident')
+	{
+		if (strOperation == 'query')
+		{
+			AddWhiteListQuery(current);
+			return;
+		}
+
+		if (strOperation == 'insert')
+		{
+			var aUserGroups = gs.getUser().getMyGroups();
+			aUserGroups.forEach( function(strUserGroupSysId)
+			{
+				AddWhiteListGroup(current,strUserGroupSysId);
+			});
+			return;
+		}
+		
+		if (strOperation == 'update')
+		{
+			AddWhiteListGroup(current,current.assignment_group);
+			return;
+		}
+	}
+	
+	
+
+	if (strTableName == 'incident_task')
+	{
+		if (strOperation == 'query')
+		{
+			AddWhiteListQuery(current);
+			return;
+		}
+
+		if (strOperation == 'insert')
+		{
+			// Inherit groups from parent
+			var strParentIncidentSysId = current.incident;
+			//Log('strParentIncidentSysId: '+strParentIncidentSysId);
+			var grParentIncident = new GlideRecord('incident');
+			if (grParentIncident.get(strParentIncidentSysId ))
+			{
+				var strWhiteListGroupSysIds = grParentIncident.x_snc_datasilos_group_whitelist;
+				//Log('strWhiteListGroupSysIds: '+strWhiteListGroupSysIds);
+				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
+				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
+				{
+					AddWhiteListGroup(current,strWhiteListGroupSysId);
+				});
+			}
+			return;
+		}
+		
+		if (strOperation == 'update')
+		{
+			AddWhiteListGroup(current,current.assignment_group);
+
+			// Propagate groups to parent ticket
+			var strParentIncidentSysId = current.incident;
+			//Log('strParentIncidentSysId: '+strParentIncidentSysId);
+			var grParentIncident = new GlideRecord('incident');
+			if (grParentIncident.get(strParentIncidentSysId ))
+			{
+				var strWhiteListGroupSysIds = current.x_snc_datasilos_group_whitelist;
+				//Log('strWhiteListGroupSysIds: '+strWhiteListGroupSysIds);
+				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
+				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
+				{
+					AddWhiteListGroup(grParentIncident,strWhiteListGroupSysId);
+				});
+				grParentIncident.update();
+			}			
+			return;
+		}
+	}
+	
+	
+	
+	
+	if (strTableName == 'change_request')
+	{
+	
+		if (strOperation == 'query')
+		{
+			AddWhiteListQuery(current);
+			return;
+		}
+
+		if (strOperation == 'insert')
+		{
+			AddWhiteListGroup(current,current.assignment_group);
+			return;
+		}
+		
+		if (strOperation == 'update')
+		{
+			AddWhiteListGroup(current,current.assignment_group);
+			return;
+		}	
+	}
+	
+	
+	
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-02 12:55:57</sys_created_on>
+        <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
+        <sys_mod_count>57</sys_mod_count>
+        <sys_name>ExecuteRule</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-09 15:27:53</sys_updated_on>
+    </sys_script_include>
+</record_update>

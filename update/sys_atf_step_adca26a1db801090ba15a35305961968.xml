@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Create a User">8a8de455dbc09c50ba15a35305961978</copied_from>
+        <description>Create user '_ATF_DATASILOS C'
+With roles: itil
+With groups: </description>
+        <display_name>Create a User</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Create user C</notes>
+        <order>8</order>
+        <snapshot/>
+        <step_config display_value="Create a User">d9bc5f21ff6033008d3f5d9ad53bf12d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>adca26a1db801090ba15a35305961968</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Create a User</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_adca26a1db801090ba15a35305961968</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 15:56:53</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - Incident Task">0dcaae61db801090ba15a353059619fb</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=adca26a1db801090ba15a35305961968"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>adca26a1db801090ba15a35305961968</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>21ca26a1db801090ba15a3530596196a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 11:26:36</sys_updated_on>
+        <value>0</value>
+        <variable display_value="">98c44875ffa033008d3f5d9ad53bf1fa</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>adca26a1db801090ba15a35305961968</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>2dca26a1db801090ba15a3530596196a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 11:26:36</sys_updated_on>
+        <value>_ATF_DATASILOS</value>
+        <variable display_value="">1985e0ceff2433008d3f5d9ad53bf1ba</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>adca26a1db801090ba15a35305961968</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>69ca26a1db801090ba15a3530596196a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 15:56:53</sys_updated_on>
+        <value>C</value>
+        <variable display_value="">6f69fc4aff6433008d3f5d9ad53bf18c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>adca26a1db801090ba15a35305961968</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>a5ca26a1db801090ba15a3530596196a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 11:26:36</sys_updated_on>
+        <value>gem-placeholder</value>
+        <variable display_value="">b27b2b29ff6033008d3f5d9ad53bf164</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>adca26a1db801090ba15a35305961968</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>e1ca26a1db801090ba15a3530596196a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 11:26:36</sys_updated_on>
+        <value>282bf1fac6112285017366cb5f867469</value>
+        <variable display_value="">8c07aba5ff6033008d3f5d9ad53bf13b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=adca26a1db801090ba15a35305961968"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>first_name</field>
+        <id>adca26a1db801090ba15a35305961968</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>a5ca26a1db801090ba15a3530596196b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 11:26:36</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value>_ATF_DATASILOS</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>groups</field>
+        <id>adca26a1db801090ba15a35305961968</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>21ca26a1db801090ba15a3530596196b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 15:56:53</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value>{{step['89382725dbc41090ba15a353059619fc'].record_id}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>last_name</field>
+        <id>adca26a1db801090ba15a35305961968</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 11:26:36</sys_created_on>
+        <sys_id>e1ca26a1db801090ba15a3530596196b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 15:56:53</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value>C</value>
+    </sys_element_mapping>
+</record_update>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="DELETE">
+        <operation>execute</operation>
+        <source_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>_TEST_A</sys_created_by>
+        <sys_created_on>2020-04-06 13:51:51</sys_created_on>
+        <sys_id>a9d8744ddbcc1c50ba15a353059619fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RenderValue</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_scope_privilege_a9d8744ddbcc1c50ba15a353059619fb</sys_update_name>
+        <sys_updated_by>_TEST_A</sys_updated_by>
+        <sys_updated_on>2020-04-06 13:51:51</sys_updated_on>
+        <target_name>RenderValue</target_name>
+        <target_scope display_value="DevTools">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
+        <target_type>sys_script_include</target_type>
+    </sys_scope_privilege>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
+        <instance_name>empswildgrube1</instance_name>
+        <name>sys_scope_privilege_a9d8744ddbcc1c50ba15a353059619fb</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>execute</operation><source_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>_TEST_A</sys_created_by><sys_created_on>2020-04-06 13:51:51</sys_created_on><sys_id>a9d8744ddbcc1c50ba15a353059619fb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>RenderValue</sys_name><sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_scope_privilege_a9d8744ddbcc1c50ba15a353059619fb</sys_update_name><sys_updated_by>_TEST_A</sys_updated_by><sys_updated_on>2020-04-06 13:51:51</sys_updated_on><target_name>RenderValue</target_name><target_scope display_value="DevTools">d689f6901bd38450a89720a8ec4bcbfd</target_scope><target_type>sys_script_include</target_type></sys_scope_privilege></record_update>]]></payload>
+        <payload_hash>-508532026</payload_hash>
+        <record_name>RenderValue</record_name>
+        <reverted_from/>
+        <source>7e542ea61bd20010a89720a8ec4bcb13</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>_TEST_A</sys_created_by>
+        <sys_created_on>2020-04-06 13:51:51</sys_created_on>
+        <sys_id>65d8744ddbcc1c50ba15a353059619fd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1714fc2fdb60000001</sys_recorded_at>
+        <sys_updated_by>_TEST_A</sys_updated_by>
+        <sys_updated_on>2020-04-06 13:51:51</sys_updated_on>
+        <type>Cross scope privilege</type>
+        <update_guid>add8744d26cc1c50c9638038ecde6ffc</update_guid>
+        <update_guid_history>add8744d26cc1c50c9638038ecde6ffc:-508532026</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-08 08:17:52</sys_created_on>
+        <sys_db_object display_value="" name="sys_scope_privilege">sys_scope_privilege</sys_db_object>
+        <sys_id>045a770e296b465c8341108800693210</sys_id>
+        <sys_metadata>a9d8744ddbcc1c50ba15a353059619fb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RenderValue</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_scope_privilege_a9d8744ddbcc1c50ba15a353059619fb</sys_update_name>
+        <sys_update_version display_value="sys_scope_privilege_a9d8744ddbcc1c50ba15a353059619fb">65d8744ddbcc1c50ba15a353059619fd</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-08 08:17:52</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

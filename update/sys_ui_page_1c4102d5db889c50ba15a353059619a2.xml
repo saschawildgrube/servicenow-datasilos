@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_snc_datasilos_Start.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<div style="
+	padding-left: 20px;
+	">
+	<h1>DataSilos</h1>
+	<p>Welcome to DataSilos.<!-- - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.--></p>
+	<p>The DataSilos application helps to separate data between different organisational units - so called "data silos".</p>
+	<p>In contrast to domain separation DataSilos is intended to allow the exchange of data (in form of individual records) between data silos on a need-to-know-basis.</p>
+	<h2>Use DataSilos if</h2>
+	<ul>
+		<li>Domain Separation is too strict</li>
+		<li>Domain Separation is already implemented for a different purpose or if data silos should exist even within separated domains</li> 
+		<li>There is a certain level of collaboration taking place between data silos</li>
+		<li>Visibility of individual records can be defined by a user's assignment to groups</li>
+	</ul>
+	<h2>Do NOT use DataSilos if</h2>
+	<ul>
+		<li>The different data silos NEVER exchange any records</li>
+	</ul>
+	
+	<h2>Supported processes</h2>
+	<ol>
+		<li>Incident</li>
+		<!--<li>Change</li>-->
+		<!--<li>Problem</li>-->
+		<!--<li>Requests</li>-->
+	</ol>
+	
+	<h2>Installation guide</h2>
+	<ol>
+		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
+		<li>Prepare support for incidents:</li>
+		<ol>
+			<li>Switch to the GLOBAL scope.</li>
+			<li>Add a new business rule for the 'incident' table.</li>
+			<li>Configure the business rule as follows:</li>
+			<pre>
+Name: DataSilos - Incident
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+
+	x_snc_datasilos.ExecuteRule('incident',current, previous);
+	
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+			<li>Verify you are still in GLOBAL scope</li>
+			<li>Add a new business rule for the 'incident_task' table.</li>
+			<li>Configure the business rule as follows:</li>
+			<pre>
+Name: DataSilos - Incident Task
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+
+	x_snc_datasilos.ExecuteRule('incident_task',current, previous);
+	
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+		</ol>
+		<li>Go to the "Options" module and activate the DataSilos application in general.</li>
+		<li>Go to "Test Suite" and execute all tests.</li>
+	</ol>
+	
+	<h2>FAQ</h2>
+	<h3>What happens if a user is not associated to any group?</h3>
+	<p>The user will not see any records unless the user has the admin role.</p>
+	<h3>What happens if a record is not associated to any group?</h3>
+	<p>No user - except admins - will see this record.</p>
+	<h3>How does it work?</h3>
+	<p>DataSilos adds a new field to all relevant tables that contains a whitelist of groups. A user that is at least member of one of these whitelisted groups may see the record. Business rules in the global scope will alter the query and act on inserts and updates to control visibility and extend the whitelist where appropriate.</p>
+	
+	<h2>Developer guide</h2>
+	<p>When extending the scope of the DataSilos application the following steps should be considered:</p>
+	<ol>
+		<li>Identify the affected tables</li>
+		<li>Add the whitelist field to all affected tables</li>
+		<li>Extend the ExecuteRule script include to support the extended tables</li>
+		<li>Add correspnding business rules</li>
+		<li>Create an ATF test</li>
+		<li>Update THIS documentation</li>
+	</ol>
+</div>
+</j:jelly>]]></html>
+        <name>Start</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-07 13:52:45</sys_created_on>
+        <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>Start</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-09 09:09:31</sys_updated_on>
+    </sys_ui_page>
+</record_update>

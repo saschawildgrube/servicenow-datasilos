@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="DELETE">
+        <group/>
+        <hidden>false</hidden>
+        <name>data_silos</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-09 17:49:40</sys_created_on>
+        <sys_id>2a0ccd86db049090ba15a35305961903</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Data Silos</sys_name>
+        <sys_package display_value="DataSilos WIP" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WIP">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_ui_view_2a0ccd86db049090ba15a35305961903</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-09 17:49:40</sys_updated_on>
+        <title>Data Silos</title>
+        <user/>
+    </sys_ui_view>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
+        <instance_name>empswildgrube1</instance_name>
+        <name>sys_ui_view_2a0ccd86db049090ba15a35305961903</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view"><sys_ui_view action="INSERT_OR_UPDATE"><group/><hidden>false</hidden><name>data_silos</name><roles/><sys_class_name>sys_ui_view</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-09 17:49:40</sys_created_on><sys_id>2a0ccd86db049090ba15a35305961903</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Data Silos</sys_name><sys_package display_value="DataSilos WIP" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos WIP">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_ui_view_2a0ccd86db049090ba15a35305961903</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-04-09 17:49:40</sys_updated_on><title>Data Silos</title><user/></sys_ui_view></record_update>]]></payload>
+        <payload_hash>760533770</payload_hash>
+        <record_name>Data Silos</record_name>
+        <reverted_from/>
+        <source>27f254131b230010a89720a8ec4bcb86</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by/>
+        <sys_created_on>2020-03-19 14:21:27</sys_created_on>
+        <sys_id>81bc054adb049090ba15a3530596196d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>170f32b9e580000000</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-09 18:07:44</sys_updated_on>
+        <type>UI View</type>
+        <update_guid>41bc054ae004909035f30867f2ff066d</update_guid>
+        <update_guid_history>41bc054ae004909035f30867f2ff066d:760533770</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-09 17:52:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_view">sys_ui_view</sys_db_object>
+        <sys_id>eda242529acc4b98a3675068a7f23c84</sys_id>
+        <sys_metadata>2a0ccd86db049090ba15a35305961903</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Data Silos</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_ui_view_2a0ccd86db049090ba15a35305961903</sys_update_name>
+        <sys_update_version display_value="sys_ui_view_2a0ccd86db049090ba15a35305961903">81bc054adb049090ba15a3530596196d</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-09 17:52:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
