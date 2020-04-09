@@ -91,7 +91,7 @@
     </sys_ui_list>
     <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="DataSilos WIP">dafbffebdbb78450ba15a353059619eb</application>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
         <file_path/>
         <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
         <instance_name>empswildgrube1</instance_name>
@@ -124,10 +124,10 @@
         <sys_metadata>08ca2006db409090ba15a353059619cd</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>syslog_app_scope</sys_name>
-        <sys_package display_value="DataSilos WIP" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_parent display_value="Syslog App Scope">e68f56221b120010a89720a8ec4bcb28</sys_parent>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WIP">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
         <sys_update_name>sys_ui_list_syslog_app_scope_datasilos</sys_update_name>
         <sys_update_version display_value="sys_ui_list_syslog_app_scope_datasilos">84ca2006db409090ba15a353059619d0</sys_update_version>
