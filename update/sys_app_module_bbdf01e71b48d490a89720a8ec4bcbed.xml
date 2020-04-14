@@ -4,39 +4,37 @@
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
         <device_type/>
-        <filter table="sys_ui_view">nameSTARTSWITHdata^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="STARTSWITH" or="false" value="data"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </filter>
+        <filter/>
         <hint/>
         <homepage/>
         <image/>
         <link_type>LIST</link_type>
         <map_page/>
-        <mobile_title>UI Views</mobile_title>
+        <mobile_title>Data Silos</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
-        <name>sys_ui_view</name>
-        <order>900</order>
+        <name>x_snc_datasilos_datasilos</name>
+        <order>50</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
-        <roles/>
+        <roles>x_snc_datasilos.datasilos_manager</roles>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-09 18:14:00</sys_created_on>
+        <sys_created_on>2020-04-14 09:57:19</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>04619106db449090ba15a35305961919</sys_id>
+        <sys_id>bbdf01e71b48d490a89720a8ec4bcbed</sys_id>
         <sys_mod_count>2</sys_mod_count>
-        <sys_name>UI Views</sys_name>
+        <sys_name>Data Silos</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_app_module_04619106db449090ba15a35305961919</sys_update_name>
+        <sys_update_name>sys_app_module_bbdf01e71b48d490a89720a8ec4bcbed</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-09 18:17:03</sys_updated_on>
+        <sys_updated_on>2020-04-14 10:05:17</sys_updated_on>
         <timeline_page/>
-        <title>UI Views</title>
+        <title>Data Silos</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>

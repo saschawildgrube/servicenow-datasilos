@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Data Silos" max_length="40" name="x_snc_datasilos_datasilos" type="collection">
+        <element label="Groups" max_length="4000" name="groups" reference="sys_user_group" type="glide_list"/>
+        <element display="true" label="Name" max_length="40" name="name" type="string"/>
+    </element>
+</database>
