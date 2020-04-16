@@ -26,7 +26,7 @@ With a failure timeout of 5 Seconds</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-08 16:00:30</sys_updated_on>
         <table>incident</table>
-        <test display_value="DataSilos - Incident Task">0dcaae61db801090ba15a353059619fb</test>
+        <test display_value="DataSilos - Incident - Task">0dcaae61db801090ba15a353059619fb</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>
@@ -88,6 +88,18 @@ With a failure timeout of 5 Seconds</description>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=0fcaa6a1db801090ba15a3530596191a"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>enforce_security</field>
+        <id>0fcaa6a1db801090ba15a3530596191a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-16 15:42:47</sys_created_on>
+        <sys_id>8822349cdb505c90ba15a353059619ba</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-16 15:42:47</sys_updated_on>
+        <table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table>
+        <value/>
+    </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
         <id>0fcaa6a1db801090ba15a3530596191a</id>

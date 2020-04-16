@@ -26,7 +26,7 @@ With a failure timeout of 5 Seconds</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-07 15:43:24</sys_updated_on>
         <table>incident</table>
-        <test display_value="DataSilos - Incident">181b2451dbc09c50ba15a3530596191f</test>
+        <test display_value="DataSilos - Incident - Visibility">181b2451dbc09c50ba15a3530596191f</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>

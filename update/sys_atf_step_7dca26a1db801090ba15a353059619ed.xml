@@ -28,7 +28,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-08 16:00:29</sys_updated_on>
         <table>incident</table>
-        <test display_value="DataSilos - Incident Task">0dcaae61db801090ba15a353059619fb</test>
+        <test display_value="DataSilos - Incident - Task">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
@@ -90,6 +90,18 @@ Confirm the record was successfully inserted</description>
         <variable display_value="">e6e3c7535320220002c6435723dc3496</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=7dca26a1db801090ba15a353059619ed"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>enforce_security</field>
+        <id>7dca26a1db801090ba15a353059619ed</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-16 15:42:45</sys_created_on>
+        <sys_id>2712349cdb505c90ba15a3530596193b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-16 15:42:45</sys_updated_on>
+        <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
+        <value/>
+    </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
         <id>7dca26a1db801090ba15a353059619ed</id>

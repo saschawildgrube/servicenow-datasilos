@@ -28,7 +28,7 @@ See the documentation for Test Design Considerations</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-07 13:09:05</sys_updated_on>
         <table>sys_user_group</table>
-        <test display_value="DataSilos - Incident">181b2451dbc09c50ba15a3530596191f</test>
+        <test display_value="DataSilos - Incident - Visibility">181b2451dbc09c50ba15a3530596191f</test>
         <timeout/>
         <warning_message>Warning: Using a system table may cause unexpected behavior for other tests running in parallel&#13;
 See the documentation for Test Design Considerations</warning_message>

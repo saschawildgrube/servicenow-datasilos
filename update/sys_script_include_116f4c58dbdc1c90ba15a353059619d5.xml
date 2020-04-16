@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.InitializeRecord</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>InitializeRecord</name>
+        <script><![CDATA[function InitializeRecord(strTable, record)
+{
+	var Debug = x_snc_devtools.Debug;
+	Debug('DataSilos: InitializeRecord: '+strTable+' '+strSysId);
+
+	strTable = ''.strTable;
+	strSysId = ''.strSysId;
+	if (strTable == '')
+	{
+		return;
+	}
+	/*
+	var gr = new GlideRecord(strTable);
+	if (!gr.get(strSysId))
+	{
+		Debug('SysId not found');
+		return;
+	}
+	*/
+	
+	// Identify the user who created the record
+	var strOpenedByUserSysId = record.opened_by;
+	var grUser = GlideRecord('sys_user');
+	if (grUser.get(strOpenedByUserSysId))
+	{
+		// Identify the user's groups
+		var aUserGroups = [];
+	
+		var grUserGroups = new GlideRecord('sys_user_grmember');
+		grUserGroups.addQuery('user',strOpenedByUserSysId);
+		grUserGroups.query();
+		while(gr.next())
+		{
+			aUserGroups.push(grUserGroups.group);
+		}
+
+		var aSilos = [];
+		
+		// Identify the user's silos based on its groups
+		if (aGroups.length > 0)
+		{
+			var grSilos = new GlideRecord('x_snc_datasilos_datasilos');
+			var query = grSilos.addQuery('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[0]);
+			for (var nIndex = 1; nIndex < aUserGroups.length; nIndex++)
+			{
+				query.addOrCondition('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[nIndex]);
+			}
+			grSilos.query();
+			while (grSilos.next())
+			{
+				aSilos.push(grSilos.sys_id);
+			}
+		}
+		
+		Debug(RenderValue(aSilos));
+	}
+	
+	// 2. Apply the silo's groups to the record's white list
+	
+	
+	// The old mechanism: add the current user's groups
+	
+	var aUserGroups = gs.getUser().getMyGroups();
+	aUserGroups.forEach( function(strUserGroupSysId)
+	{
+		AddWhiteListGroup(record,strUserGroupSysId);
+	});
+	
+	
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-16 13:23:17</sys_created_on>
+        <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>InitializeRecord</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-16 13:39:22</sys_updated_on>
+    </sys_script_include>
+</record_update>
