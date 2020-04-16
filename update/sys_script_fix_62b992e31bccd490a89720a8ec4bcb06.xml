@@ -4,7 +4,8 @@
         <before>false</before>
         <description>WARNING: This script requires "Application Access" for "read", "create" and "delete" for the following tables:&#13;
 * sys_user&#13;
-* sys_user_group</description>
+* sys_user_group&#13;
+* incident</description>
         <flush_cache>false</flush_cache>
         <name>CreateTestData</name>
         <record_for_rollback>false</record_for_rollback>
@@ -17,14 +18,14 @@ Debug('DataSilos: CreateTestData: END');]]></script>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:20:19</sys_created_on>
         <sys_id>62b992e31bccd490a89720a8ec4bcb06</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_fix_62b992e31bccd490a89720a8ec4bcb06</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-15 15:41:03</sys_updated_on>
+        <sys_updated_on>2020-04-16 11:31:00</sys_updated_on>
         <unloadable>false</unloadable>
     </sys_script_fix>
 </record_update>
