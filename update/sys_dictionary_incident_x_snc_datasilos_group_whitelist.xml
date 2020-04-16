@@ -3,7 +3,7 @@
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes/>
+        <attributes>edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true</attributes>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -53,7 +53,7 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:33:49</sys_created_on>
-        <sys_id>e02d990edb849090ba15a3530596198c</sys_id>
+        <sys_id>6fe5194edb449090ba15a35305961951</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>DataSilos Group Whitelist</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>

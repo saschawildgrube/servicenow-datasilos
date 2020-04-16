@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.CreateTestData</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CreateTestData</name>
+        <script><![CDATA[function CreateTestData()
+{
+	var Debug = x_snc_devtools.Debug;
+	var RenderValue = x_snc_devtools.RenderValue;
+	
+	var strPrefix = '_TEST_DATASILOS_';
+	
+	function CreateTestUser(strName, aRoles)
+	{
+		Debug('DataSilos: CreateTestUser '+strName+' '+RenderValue(aRoles));
+		strName = ''+strName;
+		if (Array.isArray(aRoles) == false)
+		{
+			aRoles = [];
+		}
+		var gr = new GlideRecord('sys_user');
+		var strUserSysId = null;
+		var bDeleted = true;
+		if (gr.get('user_name',strPrefix+strName))
+		{
+			strUserSysId = gr.sys_id;
+			bDeleted = gr.deleteRecord();
+		}
+		if (bDeleted == true || strUserSysId == null)
+		{
+			gr.newRecord();
+			gr.user_name = strPrefix+strName;
+			gr.first_name = strPrefix+strName;
+			strUserSysId = gr.insert();
+		}
+
+		if (strUserSysId != null)
+		{
+			var grUserHasRole = new GlideRecord("sys_user_has_role");
+			aRoles.forEach(function(strRole)
+			{
+				if (strRole != '')
+				{
+					var grUserRole = new GlideRecord('sys_user_role');
+					grUserRole.addQuery('name','=',strRole);
+					grUserRole.query();
+					if (grUserRole.getRowCount() == 1)
+					{
+						if (grUserRole.next())
+						{						
+							grUserHasRole.initialize();
+							grUserHasRole.role = grUserRole.sys_id;
+							grUserHasRole.user = strUserSysId;
+							grUserHasRole.insert();
+						}
+					}
+
+				}
+			});
+		}
+		
+	}
+	
+	function CreateTestGroup(strName, aUserNames)
+	{	
+		Debug('DataSilos: CreateTestGroup: '+strName+' '+RenderValue(aUserNames));
+		strName = ''+strName;
+		if (Array.isArray(aUserNames) == false)
+		{
+			aUserNames = [];
+		}
+		var gr = new GlideRecord('sys_user_group');
+		gr.addQuery('name','=',strPrefix+strName);
+		gr.query();
+		gr.deleteMultiple();
+
+		var gr = new GlideRecord('sys_user_group');
+		gr.newRecord();
+		gr.name = strPrefix+strName;
+		var strGroupSysId = gr.insert();
+		Debug('DataSilos: CreateTestGroup gr.insert returned: '+strGroupSysId);
+
+		if (strGroupSysId != null)
+		{
+			var grGroupMember = new GlideRecord('sys_user_grmember');
+			aUserNames.forEach(function(strUserName)
+			{
+				if (strUserName != '')
+				{
+					var grUser = new GlideRecord("sys_user");
+					grUser.addQuery('user_name','=',strPrefix+strUserName);
+					grUser.query();
+					if (grUser.getRowCount() == 1)
+					{
+						if (grUser.next())
+						{						
+							grGroupMember.initialize();
+							grGroupMember.group = strGroupSysId;
+							grGroupMember.user = grUser.sys_id;
+							grGroupMember.insert();
+						}
+					}
+
+				}
+			});
+		}		
+		
+
+	}
+
+	function CreateTestSilo(strName, aGroupNames)
+	{
+		Debug('DataSilos: CreateTestSilo: '+strName+' '+RenderValue(aGroupNames));	
+		strName = ''+strName;
+		if (Array.isArray(aGroupNames) == false)
+		{
+			aGroupNames = [];
+		}
+		var gr = new GlideRecord('x_snc_datasilos_datasilos');
+		gr.addQuery('name','=',strPrefix+strName);
+		gr.query();
+		gr.deleteMultiple();
+
+		var gr = new GlideRecord('x_snc_datasilos_datasilos');
+		gr.newRecord();
+		gr.name = strPrefix+strName;
+		var strGroupList = '';
+		aGroupNames.forEach(function(strGroupName)
+		{
+			if (strGroupName != '')
+			{
+				var grGroup = new GlideRecord("sys_user_group");
+				grGroup.addQuery('name','=',strPrefix+strGroupName);
+				grGroup.query();
+				if (grGroup.getRowCount() == 1)
+				{
+					if (grGroup.next())
+					{
+						if (strGroupList != '')
+						{
+							strGroupList += ',';
+						}
+						strGroupList += grGroup.sys_id;
+					}
+				}
+			}
+		});
+		gr.groups = strGroupList;
+		var strDataSiloSysId = gr.insert();
+		Debug('DataSilos: CreateTestSilo gr.insert returned: '+strDataSiloSysId);
+	}
+	
+	function CreateTestIncident(strName, strUserName, strAssignmentGroupName)
+	{
+		Debug('DataSilos: CreateTestIncident: '+strName+' '+strUserName+' '+strAssignmentGroupName);			
+	}
+
+	function CreateTestChange(strName, strUserName, strAssignmentGroupName)
+	{
+		Debug('DataSilos: CreateTestChange: '+strName+' '+strUserName+' '+strAssignmentGroupName);
+	}	
+	
+	// Users
+	CreateTestUser('ALICE',['itil']);
+	CreateTestUser('BOB',['itil']);
+	CreateTestUser('CHARLIE',['itil']);
+	CreateTestUser('DORIS',['itil']);
+	CreateTestUser('DANIEL-ERIC',['itil']);
+	CreateTestUser('ETHAN',['itil']);
+
+	// Groups
+	CreateTestGroup('TEAM-ALPHA',['ALICE']);
+	CreateTestGroup('TEAM-BETA',['BOB']);
+	CreateTestGroup('TEAM-DELTA',['DORIS','DANIEL-ERIC']);
+	CreateTestGroup('TEAM-EPSILON',['ETHAN','DANIEL-ERIC']);
+	
+	// Silos
+	CreateTestSilo('SILO-ALPHA',['TEAM-ALPHA']);
+	CreateTestSilo('SILO-BETA',['TEAM-BETA']);
+	CreateTestSilo('SILO-GAMMA',['TEAM-DELTA','TEAM-EPSILON']);
+	
+	// Incidents
+	CreateTestIncident('A','ALICE','TEAM-ALPHA');
+	CreateTestIncident('B','BOB','TEAM-BETA');
+	CreateTestIncident('C','CHARLIE','TEAM-DELTA');
+	//CreateTestIncident('AB','ALICE');
+	//CreateTestIncident('ABC','ALICE');
+
+
+	
+	
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-14 15:19:33</sys_created_on>
+        <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
+        <sys_mod_count>36</sys_mod_count>
+        <sys_name>CreateTestData</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-16 08:59:58</sys_updated_on>
+    </sys_script_include>
+</record_update>
