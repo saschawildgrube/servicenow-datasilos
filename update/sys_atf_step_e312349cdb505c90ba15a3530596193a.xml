@@ -4,29 +4,29 @@
         <copied_from display_value="Record Insert">7dca26a1db801090ba15a353059619ed</copied_from>
         <description>Insert a record into 'incident' with the following values:
 Short description = _ATF_DATASILOS_A
-and DataSilos Group Whitelist = {{Step 3: Record Insert.Record}}
 and Caller = System Administrator
+and Opened by = {{Step 10: Create a User.User}}
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>User A1 adds incident A</notes>
-        <order>12</order>
+        <order>17</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 15:42:45</sys_created_on>
         <sys_id>e312349cdb505c90ba15a3530596193a</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_e312349cdb505c90ba15a3530596193a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-16 16:11:04</sys_updated_on>
+        <sys_updated_on>2020-04-22 11:28:02</sys_updated_on>
         <table>incident</table>
         <test display_value="DataSilos - Incident - InitializeRecord">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>
@@ -55,10 +55,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 15:42:45</sys_created_on>
         <sys_id>6312349cdb505c90ba15a3530596193c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-16 16:00:42</sys_updated_on>
-        <value>short_description=_ATF_DATASILOS_A^x_snc_datasilos_group_whitelist={{step['9312f09cdb505c90ba15a353059619e6'].record_id}}^caller_id=6816f79cc0a8016401c5a33be04be441^EQ</value>
+        <sys_updated_on>2020-04-20 17:19:56</sys_updated_on>
+        <value>short_description=_ATF_DATASILOS_A^caller_id=6816f79cc0a8016401c5a33be04be441^opened_by={{step['2312349cdb505c90ba15a35305961905'].user}}^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -96,10 +96,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 15:42:45</sys_created_on>
         <sys_id>6712349cdb505c90ba15a3530596193c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-16 16:00:42</sys_updated_on>
+        <sys_updated_on>2020-04-20 17:19:56</sys_updated_on>
         <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
-        <value>short_description=_ATF_DATASILOS_A^x_snc_datasilos_group_whitelist={{step['9312f09cdb505c90ba15a353059619e6'].record_id}}^caller_id=6816f79cc0a8016401c5a33be04be441^EQ</value>
+        <value>short_description=_ATF_DATASILOS_A^caller_id=6816f79cc0a8016401c5a33be04be441^opened_by={{step['2312349cdb505c90ba15a35305961905'].user}}^EQ</value>
     </sys_element_mapping>
 </record_update>

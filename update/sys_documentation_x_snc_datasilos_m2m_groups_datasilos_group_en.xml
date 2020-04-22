@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="group" label="Group" language="en" table="x_snc_datasilos_m2m_groups_datasilos">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>group</element>
+            <help/>
+            <hint/>
+            <label>Group</label>
+            <language>en</language>
+            <name>x_snc_datasilos_m2m_groups_datasilos</name>
+            <plural>Groups</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-20 12:30:48</sys_created_on>
+            <sys_id>3e8ce0e1db5c50d0ba15a35305961997</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Group</sys_name>
+            <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_datasilos_m2m_groups_datasilos_group_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-20 12:30:48</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

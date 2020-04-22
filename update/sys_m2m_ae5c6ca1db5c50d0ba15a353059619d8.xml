@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_m2m">
+    <sys_m2m action="INSERT_OR_UPDATE">
+        <from_table>x_snc_datasilos_datasilos</from_table>
+        <m2m_from_field>datasilo</m2m_from_field>
+        <m2m_from_label>Groups</m2m_from_label>
+        <m2m_table>x_snc_datasilos_m2m_groups_datasilos</m2m_table>
+        <m2m_to_field>group</m2m_to_field>
+        <m2m_to_label>Data Silos</m2m_to_label>
+        <sys_class_name>sys_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-20 12:30:47</sys_created_on>
+        <sys_id>ae5c6ca1db5c50d0ba15a353059619d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_datasilos_m2m_groups_datasilos</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_m2m_ae5c6ca1db5c50d0ba15a353059619d8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-20 12:30:47</sys_updated_on>
+        <to_table>sys_user_group</to_table>
+    </sys_m2m>
+</record_update>

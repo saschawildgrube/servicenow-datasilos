@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="type" table="x_snc_datasilos_m2m_groups_datasilos" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Fulfiller</label>
+            <language>en</language>
+            <name>x_snc_datasilos_m2m_groups_datasilos</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-20 12:37:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f4ed6065db5c50d0ba15a3530596190d</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-20 12:37:17</sys_updated_on>
+            <value>fulfiller</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Manager</label>
+            <language>en</language>
+            <name>x_snc_datasilos_m2m_groups_datasilos</name>
+            <sequence/>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-20 12:37:07</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>39fda065db5c50d0ba15a3530596193f</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-20 12:37:21</sys_updated_on>
+            <value>manager</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>type</element>
+            <name>x_snc_datasilos_m2m_groups_datasilos</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-04-20 12:37:00</sys_created_on>
+            <sys_id>35fd2065db5c50d0ba15a35305961977</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>type</sys_name>
+            <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+            <sys_update_name>sys_choice_x_snc_datasilos_m2m_groups_datasilos_type</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-04-20 12:37:00</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>
