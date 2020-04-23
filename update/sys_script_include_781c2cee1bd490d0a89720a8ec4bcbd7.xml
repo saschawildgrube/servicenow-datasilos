@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetSilosFromGroup</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns all silos that contain a given group.</description>
+        <name>GetSilosFromGroup</name>
+        <script><![CDATA[function GetSilosFromGroup(strGroupSysId)
+{
+	var RenderValue = x_snc_devtools.RenderValue;
+	var Debug = x_snc_devtools.Debug;
+
+	strGroupSysId = ''+strGroupSysId;
+	var aSilos = [];
+
+	// Identify the silos based on a group
+	var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
+	var query = grSilosToGroups.addQuery('group','=',strGroupSysId);
+	grSilosToGroups.query();
+	while (grSilosToGroups.next())
+	{
+		aSilos.push(grSilosToGroups.getValue('datasilo'));
+	}
+	Debug('DataSilos: GetSilosFromGroup: aSilos: '+RenderValue(aSilos));
+	return aSilos;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-23 15:13:32</sys_created_on>
+        <sys_id>781c2cee1bd490d0a89720a8ec4bcbd7</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GetSilosFromGroup</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_781c2cee1bd490d0a89720a8ec4bcbd7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-23 15:31:41</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -137,4 +137,16 @@ With roles: itil</description>
         <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
         <value>A2</value>
     </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>roles</field>
+        <id>2f12349cdb505c90ba15a3530596191e</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-23 13:12:34</sys_created_on>
+        <sys_id>ebd210e61b9490d0a89720a8ec4bcbd5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-23 13:12:34</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value/>
+    </sys_element_mapping>
 </record_update>
