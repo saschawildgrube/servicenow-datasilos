@@ -114,6 +114,18 @@ With roles: itil</description>
         <value>_ATF_DATASILOS</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>groups</field>
+        <id>ebd210e61b9490d0a89720a8ec4bcbd4</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-24 15:35:31</sys_created_on>
+        <sys_id>672dfdfa1b141010a89720a8ec4bcb40</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-24 15:35:31</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>last_name</field>
         <id>ebd210e61b9490d0a89720a8ec4bcbd4</id>
         <sys_created_by>admin</sys_created_by>
@@ -124,5 +136,17 @@ With roles: itil</description>
         <sys_updated_on>2020-04-24 14:45:53</sys_updated_on>
         <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
         <value>A_SUPERVISOR</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>roles</field>
+        <id>ebd210e61b9490d0a89720a8ec4bcbd4</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-24 15:35:31</sys_created_on>
+        <sys_id>2f2dfdfa1b141010a89720a8ec4bcb40</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-24 15:35:31</sys_updated_on>
+        <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
+        <value/>
     </sys_element_mapping>
 </record_update>
