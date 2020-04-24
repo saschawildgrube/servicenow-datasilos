@@ -18,12 +18,12 @@
 	<ul>
 		<li>Domain Separation is too strict</li>
 		<li>Domain Separation is already implemented for a different purpose or if data silos should exist even within separated domains</li> 
-		<li>There is a certain level of collaboration taking place between data silos</li>
-		<li>Visibility of individual records can be defined by a user's assignment to groups</li>
+		<li>there is a certain level of collaboration taking place between data silos</li>
+		<li>visibility of individual records can be defined by a user's assignment to groups</li>
 	</ul>
 	<h2>Do NOT use DataSilos if</h2>
 	<ul>
-		<li>The different data silos NEVER exchange any records</li>
+		<li>the different data silos shall NEVER exchange any records (in that case Domain Separation may be considered)</li>
 	</ul>
 	
 	<h2>Supported processes</h2>
@@ -38,7 +38,7 @@
 	<ol>
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
 		<li>Assign the x_snc_datasilos.datasilos_manager role to users.</li>
-		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo.</li>
+		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either "Fulfiller" groups or "Supervisor" groups. Supervisor groups see all records that were ever assigned to any group of a silo. Fulfiller groups only see those records that are created within the silo or that were explicitly assigned to them at least once.</li>
 		<li>Prepare support for incidents:</li>
 		<ol>
 			<li>Switch to the GLOBAL scope.</li>
@@ -121,13 +121,13 @@ Requires role: x_snc_datasilos.datasilos_manager
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 12:50:18</sys_updated_on>
+        <sys_updated_on>2020-04-24 14:52:23</sys_updated_on>
     </sys_ui_page>
 </record_update>

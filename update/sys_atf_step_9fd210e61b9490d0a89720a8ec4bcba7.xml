@@ -5,13 +5,13 @@
         <description>Insert a record into 'x_snc_datasilos_m2m_groups_datasilos' with the following values:
 Data Silo = {{Step 9: Record Insert.Record}}
 and Group = {{Step 4: Record Insert.Record}}
-and Type = Manager
+and Type = Supervisor
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Add group A_MANAGERS to silo A</notes>
+        <notes>Add group A_SUPERVISORS to silo A</notes>
         <order>11</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
@@ -19,14 +19,14 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:12:33</sys_created_on>
         <sys_id>9fd210e61b9490d0a89720a8ec4bcba7</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_9fd210e61b9490d0a89720a8ec4bcba7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:44:09</sys_updated_on>
+        <sys_updated_on>2020-04-24 14:44:53</sys_updated_on>
         <table>x_snc_datasilos_m2m_groups_datasilos</table>
         <test display_value="DataSilos - Incident - UpdateRecord (cross-scope)">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>
@@ -83,10 +83,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:12:33</sys_created_on>
         <sys_id>dfd210e61b9490d0a89720a8ec4bcba9</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:19:14</sys_updated_on>
-        <value>datasilo={{step['5fd210e61b9490d0a89720a8ec4bcb8a'].record_id}}^group={{step['d7d210e61b9490d0a89720a8ec4bcb82'].record_id}}^type=manager^EQ</value>
+        <sys_updated_on>2020-04-24 14:44:53</sys_updated_on>
+        <value>datasilo={{step['5fd210e61b9490d0a89720a8ec4bcb8a'].record_id}}^group={{step['d7d210e61b9490d0a89720a8ec4bcb82'].record_id}}^type=supervisor^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=9fd210e61b9490d0a89720a8ec4bcba7"/>
@@ -96,10 +96,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:12:33</sys_created_on>
         <sys_id>d3d210e61b9490d0a89720a8ec4bcbaa</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:19:14</sys_updated_on>
+        <sys_updated_on>2020-04-24 14:44:53</sys_updated_on>
         <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
-        <value>datasilo={{step['5fd210e61b9490d0a89720a8ec4bcb8a'].record_id}}^group={{step['d7d210e61b9490d0a89720a8ec4bcb82'].record_id}}^type=manager^EQ</value>
+        <value>datasilo={{step['5fd210e61b9490d0a89720a8ec4bcb8a'].record_id}}^group={{step['d7d210e61b9490d0a89720a8ec4bcb82'].record_id}}^type=supervisor^EQ</value>
     </sys_element_mapping>
 </record_update>

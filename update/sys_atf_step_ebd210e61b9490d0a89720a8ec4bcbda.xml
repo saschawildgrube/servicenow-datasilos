@@ -13,7 +13,7 @@ See the documentation for Test Design Considerations</description>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Add user A_MANAGER to group A_MANAGERS</notes>
+        <notes>Add user A_SUPERVISOR to group A_SUPERVISORS</notes>
         <order>20</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
@@ -21,14 +21,14 @@ See the documentation for Test Design Considerations</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:12:34</sys_created_on>
         <sys_id>ebd210e61b9490d0a89720a8ec4bcbda</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_ebd210e61b9490d0a89720a8ec4bcbda</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:44:10</sys_updated_on>
+        <sys_updated_on>2020-04-24 14:46:11</sys_updated_on>
         <table>sys_user_grmember</table>
         <test display_value="DataSilos - Incident - UpdateRecord (cross-scope)">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>

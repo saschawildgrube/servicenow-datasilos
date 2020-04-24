@@ -5,7 +5,7 @@
         <element choice="3" default="fulfiller" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Fulfiller" value="fulfiller"/>
-                <element inactive_on_update="false" label="Manager" value="manager"/>
+                <element inactive_on_update="false" label="Supervisor" value="supervisor"/>
             </choice>
         </element>
         <index name="index">

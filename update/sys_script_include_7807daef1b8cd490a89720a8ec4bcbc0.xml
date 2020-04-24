@@ -108,17 +108,17 @@
 
 	}
 
-	function CreateTestSilo(strName, aFulfillerGroupNames, aManagerGroupNames)
+	function CreateTestSilo(strName, aFulfillerGroupNames, aSupervisorGroupNames)
 	{
-		Debug('DataSilos: CreateTestSilo: '+strName+' '+RenderValue(aFulfillerGroupNames)+' '+RenderValue(aManagerGroupNames));	
+		Debug('DataSilos: CreateTestSilo: '+strName+' '+RenderValue(aFulfillerGroupNames)+' '+RenderValue(aSupervisorGroupNames));	
 		strName = ''+strName;
 		if (Array.isArray(aFulfillerGroupNames) == false)
 		{
 			aFulfillerGroupNames = [];
 		}
-		if (Array.isArray(aManagerGroupNames) == false)
+		if (Array.isArray(aSupervisorGroupNames) == false)
 		{
-			aManagerGroupNames = [];
+			aSupervisorGroupNames = [];
 		}
 		var gr = new GlideRecord('x_snc_datasilos_datasilos');
 		gr.addQuery('name','=',strPrefix+strName);
@@ -147,7 +147,7 @@
 					}
 				}
 			});
-			aManagerGroupNames.forEach(function(strGroupName)
+			aSupervisorGroupNames.forEach(function(strGroupName)
 			{
 				if (strGroupName != '')
 				{
@@ -156,7 +156,7 @@
 						grDataSilosToGroups.newRecord();
 						grDataSilosToGroups.datasilo = strDataSiloSysId;
 						grDataSilosToGroups.group = grGroup.sys_id;
-						grDataSilosToGroups.type = 'manager';
+						grDataSilosToGroups.type = 'supervisor';
 						grDataSilosToGroups.insert();
 					}
 				}
@@ -240,11 +240,11 @@
 	CreateTestGroup('TEAM-BETA',['BOB']);
 	CreateTestGroup('TEAM-DELTA',['DORIS','DANIEL-ERIC']);
 	CreateTestGroup('TEAM-EPSILON',['ETHAN','DANIEL-ERIC']);
-	CreateTestGroup('TEAM-ALPHA-MANAGERS',['ALBERT']);
+	CreateTestGroup('TEAM-ALPHA-SUPERVISORS',['ALBERT']);
 
 	
 	// Silos
-	CreateTestSilo('SILO-ALPHA',['TEAM-ALPHA'],['TEAM-ALPHA-MANAGERS']);
+	CreateTestSilo('SILO-ALPHA',['TEAM-ALPHA'],['TEAM-ALPHA-SUPERVISORS']);
 	CreateTestSilo('SILO-BETA',['TEAM-BETA']);
 	CreateTestSilo('SILO-GAMMA',['TEAM-DELTA','TEAM-EPSILON']);
 	
@@ -263,13 +263,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>48</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-22 12:01:02</sys_updated_on>
+        <sys_updated_on>2020-04-24 14:24:37</sys_updated_on>
     </sys_script_include>
 </record_update>
