@@ -96,7 +96,18 @@ Query: true
 	<p>When extending the scope of the DataSilos application the following steps should be considered:</p>
 	<ol>
 		<li>Identify the affected tables</li>
-		<li>Add the whitelist field to all affected tables</li>
+		<li>Add the whitelist field to all affected tables:</li>
+			<pre>
+Type: List
+Column label: DataSilos Group Whitelist
+Column name: x_snc_datasilos_group_whitelist
+Reference: Group
+Reference cascade rule: None (not "--None--"!)
+			</pre>
+		<li>Add create, write and delete Access Controls to the table columns for all affected tables:</li>
+<pre>
+Requires role: x_snc_datasilos.datasilos_manager 
+</pre>
 		<li>Extend the ExecuteRule script include to support the extended tables</li>
 		<li>Add corresponding business rules</li>
 		<li>Create an ATF test</li>
@@ -110,13 +121,13 @@ Query: true
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-15 12:23:03</sys_updated_on>
+        <sys_updated_on>2020-04-24 12:50:18</sys_updated_on>
     </sys_ui_page>
 </record_update>
