@@ -2,87 +2,110 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.InitializeRecord</api_name>
+        <api_name>x_snc_datasilos.RecordInitialize</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
-        <name>InitializeRecord</name>
-        <script><![CDATA[function InitializeRecord(strTable, record)
+        <name>RecordInitialize</name>
+        <script><![CDATA[function RecordInitialize(strTable, record)
 {
 	var Debug = x_snc_devtools.Debug;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	
-	Debug('DataSilos: InitializeRecord: '+strTable+' '+RenderValue(record));
+	Debug('DataSilos: RecordInitialize: '+strTable+' '+RenderValue(record));
 
 	strTable = GetStringValue(strTable);
 	if (strTable == '')
 	{
-		gs.info('DataSilos: InitializeRecord: table not specified');
+		gs.info('DataSilos: RecordInitialize: table not specified');
 		return false;
 	}
 	if (record == undefined)
 	{
-		gs.info('DataSilos: InitializeRecord: record is undefined');
+		gs.info('DataSilos: RecordInitialize: record is undefined');
 		return false;
 	}
 	
-	// Identify the user who created the record
-	var strOpenedByUserSysId = record.opened_by;
-	var grUser = new GlideRecord('sys_user');
-	if (grUser.get(strOpenedByUserSysId) == null)
+	
+	if (IsTableMainRecord(strTableName))
 	{
-		Debug('DataSilos: InitializeRecord: opened_by user NOT found');
-		return false;
-	}
-	
-	Debug('DataSilos: InitializeRecord: opened_by user found: '+strOpenedByUserSysId+' ');
-	
-	
-//	var aUserGroups = GetGroupsFromUser(strOpenedByUserSysId);
-//	Debug('DataSilos: InitializeRecord: aUserGroups: '+RenderValue(aUserGroups)+' ');
-
-
-	var aUserSilos = GetSilosFromUser(strOpenedByUserSysId);
-	Debug('DataSilos: InitializeRecord: GetSilosFromUser: '+RenderValue(aUserSilos));
-
-	// Now add all groups of all silos
-	var aGroupsToAdd = [];
-	if (aUserSilos.length > 0)
-	{
-		var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
-		var query = grSilosToGroups.addQuery('datasilo','=',aUserSilos[0]);
-		for (var nIndexSilo = 1; nIndexSilo < aUserSilos.length; nIndexSilo++) 
+		
+		// Identify the user who created the record
+		var strOpenedByUserSysId = record.opened_by;
+		var grUser = new GlideRecord('sys_user');
+		if (grUser.get(strOpenedByUserSysId) == null)
 		{
-			query.addOrCondition('datasilo','=',aUserSilos[nIndexSilo]);
+			Debug('DataSilos: RecordInitialize: opened_by user NOT found');
+			return false;
 		}
-		grSilosToGroups.query();
-		while (grSilosToGroups.next())
+
+		Debug('DataSilos: RecordInitialize: opened_by user found: '+strOpenedByUserSysId+' ');
+
+		var aUserSilos = GetSilosFromUser(strOpenedByUserSysId);
+		
+		Debug('DataSilos: RecordInitialize: GetSilosFromUser: '+RenderValue(aUserSilos));
+
+		// Now add all groups of all silos
+		var aGroupsToAdd = [];
+		if (aUserSilos.length > 0)
 		{
-			aGroupsToAdd.push(grSilosToGroups.getValue('group'));
+			var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
+			var query = grSilosToGroups.addQuery('datasilo','=',aUserSilos[0]);
+			for (var nIndexSilo = 1; nIndexSilo < aUserSilos.length; nIndexSilo++) 
+			{
+				query.addOrCondition('datasilo','=',aUserSilos[nIndexSilo]);
+			}
+			grSilosToGroups.query();
+			while (grSilosToGroups.next())
+			{
+				aGroupsToAdd.push(grSilosToGroups.getValue('group'));
+			}
 		}
+		Debug('DataSilos: RecordInitialize: aGroupsToAdd: '+RenderValue(aGroupsToAdd));
+
+		// Apply the silo's groups to the record's white list
+		for (var nIndexGroup = 0; nIndexGroup < aGroupsToAdd.length; nIndexGroup++)
+		{
+			RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
+		}
+		return true;
 	}
-	Debug('DataSilos: InitializeRecord: aGroupsToAdd: '+RenderValue(aGroupsToAdd));
 	
-	// Apply the silo's groups to the record's white list
-	for (var nIndexGroup = 0; nIndexGroup < aGroupsToAdd.length; nIndexGroup++)
+	if (IsTableRelatedRecord(strTableName))
 	{
-		RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
+		if (strTableName == 'incident_task')
+		{
+			// Inherit groups from parent
+			var strParentIncidentSysId = record.incident;
+			var grParentIncident = new GlideRecord('incident');
+			if (grParentIncident.get(strParentIncidentSysId ))
+			{
+				var strWhiteListGroupSysIds = grParentIncident.getValue('x_snc_datasilos_group_whitelist');
+				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
+				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
+				{
+					RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
+				});
+			}
+		}
+		return true;
 	}
-	return true;
+	
+	return false;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>34</sys_mod_count>
-        <sys_name>InitializeRecord</sys_name>
+        <sys_mod_count>37</sys_mod_count>
+        <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 14:26:27</sys_updated_on>
+        <sys_updated_on>2020-04-27 11:33:31</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -24,7 +24,7 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-23 14:25:03</sys_updated_on>
         <table/>
-        <test display_value="DataSilos - Incident - UpdateRecord (cross-scope)">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
+        <test display_value="DataSilos - Incident - RecordUpdate (cross-scope)">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>

@@ -9,106 +9,106 @@ With a failure timeout of 5 Seconds</description>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>User B_FULFILLER_1 checks for incident task TEST_TASK</notes>
-        <order>40</order>
+        <notes>User B_SUPERVISOR checks for incident task TEST_TASK</notes>
+        <order>46</order>
         <snapshot/>
         <step_config display_value="Record Query">0270b8005f30220012b44adb7f46666a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:55</sys_created_on>
-        <sys_id>891642361b541010a89720a8ec4bcba6</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_created_on>2020-04-27 08:38:08</sys_created_on>
+        <sys_id>fb0afb271b94d010a89720a8ec4bcbce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_891642361b541010a89720a8ec4bcba6</sys_update_name>
+        <sys_update_name>sys_atf_step_fb0afb271b94d010a89720a8ec4bcbce</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-27 08:34:56</sys_updated_on>
+        <sys_updated_on>2020-04-27 08:38:08</sys_updated_on>
         <table>incident_task</table>
         <test display_value="DataSilos - Incident Task - RecordUpdate (cross-scope)">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=891642361b541010a89720a8ec4bcba6"/>
+    <sys_variable_value action="delete_multiple" query="document_key=fb0afb271b94d010a89720a8ec4bcbce"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>891642361b541010a89720a8ec4bcba6</document_key>
+        <document_key>fb0afb271b94d010a89720a8ec4bcbce</document_key>
         <order>200</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:58</sys_created_on>
-        <sys_id>2d36ca361b541010a89720a8ec4bcbf7</sys_id>
+        <sys_created_on>2020-04-27 08:38:09</sys_created_on>
+        <sys_id>0b6a3f271b94d010a89720a8ec4bcbbf</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 16:14:58</sys_updated_on>
+        <sys_updated_on>2020-04-27 08:38:09</sys_updated_on>
         <value>records_match_query</value>
         <variable display_value="">dd091e22675003007ba405225685ef69</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>891642361b541010a89720a8ec4bcba6</document_key>
+        <document_key>fb0afb271b94d010a89720a8ec4bcbce</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-27 08:38:09</sys_created_on>
+        <sys_id>0f6a3f271b94d010a89720a8ec4bcbbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-27 08:38:09</sys_updated_on>
+        <value>1</value>
+        <variable display_value="">9459c28673103300f660eeadfff6a7dd</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>fb0afb271b94d010a89720a8ec4bcbce</document_key>
         <order>400</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:58</sys_created_on>
-        <sys_id>6536ca361b541010a89720a8ec4bcbf8</sys_id>
+        <sys_created_on>2020-04-27 08:38:09</sys_created_on>
+        <sys_id>836a3f271b94d010a89720a8ec4bcbc0</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 16:14:58</sys_updated_on>
+        <sys_updated_on>2020-04-27 08:38:09</sys_updated_on>
         <value>sys_id={{step['5270ca7e1b141010a89720a8ec4bcb72'].record_id}}^EQ</value>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>891642361b541010a89720a8ec4bcba6</document_key>
+        <document_key>fb0afb271b94d010a89720a8ec4bcbce</document_key>
         <order>300</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:58</sys_created_on>
-        <sys_id>a136ca361b541010a89720a8ec4bcbf8</sys_id>
+        <sys_created_on>2020-04-27 08:38:09</sys_created_on>
+        <sys_id>cf6a3f271b94d010a89720a8ec4bcbbf</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 16:14:58</sys_updated_on>
+        <sys_updated_on>2020-04-27 08:38:09</sys_updated_on>
         <value>incident_task</value>
         <variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable>
     </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_atf_step</document>
-        <document_key>891642361b541010a89720a8ec4bcba6</document_key>
-        <order>100</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:58</sys_created_on>
-        <sys_id>ed36ca361b541010a89720a8ec4bcbf7</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 16:14:58</sys_updated_on>
-        <value>1</value>
-        <variable display_value="">9459c28673103300f660eeadfff6a7dd</variable>
-    </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=891642361b541010a89720a8ec4bcba6"/>
+    <sys_element_mapping action="delete_multiple" query="id=fb0afb271b94d010a89720a8ec4bcbce"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>enforce_security</field>
-        <id>891642361b541010a89720a8ec4bcba6</id>
+        <id>fb0afb271b94d010a89720a8ec4bcbce</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:58</sys_created_on>
-        <sys_id>e536ca361b541010a89720a8ec4bcbf7</sys_id>
+        <sys_created_on>2020-04-27 08:38:09</sys_created_on>
+        <sys_id>c36a3f271b94d010a89720a8ec4bcbbf</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 16:14:58</sys_updated_on>
+        <sys_updated_on>2020-04-27 08:38:09</sys_updated_on>
         <table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table>
         <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
-        <id>891642361b541010a89720a8ec4bcba6</id>
+        <id>fb0afb271b94d010a89720a8ec4bcbce</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-24 16:14:58</sys_created_on>
-        <sys_id>a936ca361b541010a89720a8ec4bcbf7</sys_id>
+        <sys_created_on>2020-04-27 08:38:09</sys_created_on>
+        <sys_id>876a3f271b94d010a89720a8ec4bcbbf</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 16:14:58</sys_updated_on>
+        <sys_updated_on>2020-04-27 08:38:09</sys_updated_on>
         <table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table>
         <value>sys_id={{step['5270ca7e1b141010a89720a8ec4bcb72'].record_id}}^EQ</value>
     </sys_element_mapping>

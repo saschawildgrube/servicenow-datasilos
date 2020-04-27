@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.IsTableMainRecord</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>IsTableMainRecord</name>
+        <script><![CDATA[function IsTableMainRecord(strTable)
+{
+	var aTables = [
+		'incident',
+		'change_request'
+		];
+
+	var bFound = false;
+	aTables.map(function(vValue)
+	{
+		if (strTable == vValue)
+		{
+			bFound = true;
+		}
+	});
+	return bFound;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-27 11:26:47</sys_created_on>
+        <sys_id>9b50a47b1b18d010a89720a8ec4bcb44</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>IsTableMainRecord</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_9b50a47b1b18d010a89720a8ec4bcb44</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-27 12:13:58</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -25,7 +25,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-24 15:35:29</sys_updated_on>
         <table>x_snc_datasilos_datasilos</table>
-        <test display_value="DataSilos - Incident Task - UpdateRecord (cross-scope)">262df9fa1b141010a89720a8ec4bcbe3</test>
+        <test display_value="DataSilos - Incident Task - RecordUpdate (cross-scope)">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>

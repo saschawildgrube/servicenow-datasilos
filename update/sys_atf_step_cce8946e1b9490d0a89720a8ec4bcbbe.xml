@@ -30,7 +30,7 @@ See the documentation for Test Design Considerations</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-23 13:44:10</sys_updated_on>
         <table>sys_user_grmember</table>
-        <test display_value="DataSilos - Incident - UpdateRecord (cross-scope)">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
+        <test display_value="DataSilos - Incident - RecordUpdate (cross-scope)">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>
         <warning_message>Warning: Using a system table may cause unexpected behavior for other tests running in parallel&#13;
 See the documentation for Test Design Considerations</warning_message>
