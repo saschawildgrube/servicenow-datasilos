@@ -13,6 +13,7 @@
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
 
 	strTable = GetStringValue(strTable);
 	
@@ -32,12 +33,13 @@
 	
 	if (IsTableSupported(strTable))
 	{
-		// 
-		var strAssignmentGroup = record.assignment_group.toString();
-
 		// Add current assignment group
-		RecordAddGroupToWhiteList(record,strAssignmentGroup);
-
+		var strAssignmentGroup = GetStringValue(record.getValue('assignment_group'));
+		if (strAssignmentGroup != '')
+		{
+			RecordAddGroupToWhiteList(record,strAssignmentGroup);
+		}
+			
 		Debug('DataSilos: RecordUpdate: '+strTable+': after RecordAddGroupToWhiteList: '+RenderValue(record));
 
 		// Add the corresponding management group(s)
@@ -69,29 +71,32 @@
 		{
 			RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
 		}
-
-	}
-	
-	if (IsTableRelatedRecord(strTable))
-	{
-		if (strTable == 'incident_task')
+		
+		// Apply white listed groups to related records
+		var aWhiteListGroups = GetArrayValue(record.getValue('x_snc_datasilos_group_whitelist'));
+		aRelatedRecords = GetRelatedRecords(record);
+		aRelatedRecords.forEach(function(grRelatedRecord)
 		{
-			// Propagate groups to parent ticket
-			var strParentIncidentSysId = current.incident;
-			//Log('strParentIncidentSysId: '+strParentIncidentSysId);
-			var grParentIncident = new GlideRecord('incident');
-			if (grParentIncident.get(strParentIncidentSysId ))
+			aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
 			{
-				var strWhiteListGroupSysIds = current.x_snc_datasilos_group_whitelist;
-				//Log('strWhiteListGroupSysIds: '+strWhiteListGroupSysIds);
-				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
-				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
-				{
-					RecordAddGroupToWhiteList(grParentIncident,strWhiteListGroupSysId);
-				});
-				grParentIncident.update();
-			}			
+				RecordAddGroupToWhiteList(grRelatedRecord,strWhiteListGroupSysId);
+			});
+			grRelatedRecord.update();
+		});
+		
+		// Apply white listed groups to parent record
+		grParent = GetParentRecord(record);
+		if (grParent != false)
+		{
+			var aWhiteListGroups = GetArrayValue(record.getValue('x_snc_datasilos_group_whitelist'));
+			aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
+			{
+				RecordAddGroupToWhiteList(grParent,strWhiteListGroupSysId);
+			});
+			grParent.update();
 		}
+		
+		return true;
 	}
 	
 	return false;
@@ -100,13 +105,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:00:48</sys_created_on>
         <sys_id>bb00dce21b9490d0a89720a8ec4bcbad</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>RecordUpdate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_bb00dce21b9490d0a89720a8ec4bcbad</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-27 11:56:02</sys_updated_on>
+        <sys_updated_on>2020-04-29 10:32:36</sys_updated_on>
     </sys_script_include>
 </record_update>

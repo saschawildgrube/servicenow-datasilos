@@ -29,7 +29,7 @@
 	}
 	
 	
-	if (IsTableMainRecord(strTableName))
+	if (IsTableMainRecord(strTable))
 	{
 		
 		// Identify the user who created the record
@@ -70,42 +70,44 @@
 		{
 			RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
 		}
+		
+		// Add the current assignment group
+		var strAssignmentGroup = GetStringValue(record.getValue('assignment_group'));
+		if (strAssignmentGroup != '')
+		{
+			RecordAddGroupToWhiteList(record,strAssignmentGroup);
+		}
+		
 		return true;
 	}
 	
-	if (IsTableRelatedRecord(strTableName))
+	if (IsTableRelatedRecord(strTable))
 	{
-		if (strTableName == 'incident_task')
+		grParent = GetParentRecord(record);
+		if (grParent != false)
 		{
-			// Inherit groups from parent
-			var strParentIncidentSysId = record.incident;
-			var grParentIncident = new GlideRecord('incident');
-			if (grParentIncident.get(strParentIncidentSysId ))
+			var strWhiteListGroupSysIds = grParent.getValue('x_snc_datasilos_group_whitelist');
+			var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
+			aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
 			{
-				var strWhiteListGroupSysIds = grParentIncident.getValue('x_snc_datasilos_group_whitelist');
-				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
-				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
-				{
-					RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
-				});
-			}
+				RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
+			});
 		}
 		return true;
 	}
-	
 	return false;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-27 11:33:31</sys_updated_on>
+        <sys_updated_on>2020-04-29 08:28:50</sys_updated_on>
     </sys_script_include>
 </record_update>

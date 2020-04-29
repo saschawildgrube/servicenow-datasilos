@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetRelatedRecords</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GetRelatedRecords</name>
+        <script><![CDATA[function GetRelatedRecords(record)
+{
+	if (record == null)
+	{
+		return [];
+	}
+	
+	var strTable = record.getRecordClassName(); 
+	
+	if (strTable == 'incident')
+	{
+		var aRelatedRecords = [];
+		
+		var grIncidentTasks = new GlideRecord('incident_task');
+		grIncidentTasks.addQuery('incident',record.getValue('sys_id'));
+		grIncidentTasks.query();
+		while (grIncidentTasks.next())
+		{
+			var strIncidentTaskSysId = grIncidentTasks.getValue('sys_id');
+			var grIncidentTask = new GlideRecord('incident_task');
+			if (grIncidentTask.get(strIncidentTaskSysId))
+			{
+				aRelatedRecords.push(grIncidentTask);
+			}
+		}
+		return aRelatedRecords;
+	}
+	return [];
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-29 09:13:13</sys_created_on>
+        <sys_id>3d55d258db209410ba15a353059619af</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GetRelatedRecords</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_3d55d258db209410ba15a353059619af</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-29 10:17:23</sys_updated_on>
+    </sys_script_include>
+</record_update>
