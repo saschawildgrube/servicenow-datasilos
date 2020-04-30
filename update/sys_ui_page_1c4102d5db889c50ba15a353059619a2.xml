@@ -29,7 +29,7 @@
 	<h2>Supported processes</h2>
 	<ol>
 		<li>Incident</li>
-		<!--<li>Change</li>-->
+		<li>Change Request</li>
 		<!--<li>Problem</li>-->
 		<!--<li>Requests</li>-->
 	</ol>
@@ -73,13 +73,49 @@ Query: true
 			<li>Add the following script:</li>
 			<pre>
 (function executeRule(current, previous /*null when async*/) {
-
 	x_snc_datasilos.ExecuteRule('incident_task',current, previous);
-	
 })(current, previous);
 			</pre>
 			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
 		</ol>
+		<li>Prepare support for change requests:</li>
+		<ol>
+			<li>Switch to the GLOBAL scope.</li>
+			<li>Add a new business rule for the 'change_request' table.</li>
+			<li>Configure the business rule as follows:</li>
+			<pre>
+Name: DataSilos - Change Request
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteRule('change_request',current, previous);
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+			<li>Verify you are still in GLOBAL scope</li>
+			<li>Add a new business rule for the 'change_task' table.</li>
+			<li>Configure the business rule as follows:</li>
+			<pre>
+Name: DataSilos - Change Task
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteRule('change_task',current, previous);
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+		</ol>
+
 		<li>Go to the "Options" module and activate the DataSilos application in general.</li>
 		<li>Go to "Test Suite" and execute all tests.</li>
 	</ol>
@@ -104,15 +140,17 @@ Column name: x_snc_datasilos_group_whitelist
 Reference: Group
 Reference cascade rule: None (not "--None--"!)
 			</pre>
-		<li>Add create, write and delete Access Controls to the table columns for all affected tables:</li>
+		<li>Add create, write and delete Access Controls to the table DataSilos whitelist columns for all affected tables:</li>
 <pre>
+Name: DataSilos Group Whitelist
 Requires role: x_snc_datasilos.datasilos_manager 
 </pre>
 		<li>Extend the IsTableMainRecord script include to support the table of the main records (e.g. incident, change_request, etc.).</li>
 		<li>Extend the IsTableRelatedRecord script include to support the tables of related records (e.g. tasks).</li>
 		<li>Extend the GetParentRecord script include to support the identification of parent records of related records (e.g. to get the incident from an incident task)</li>
 		<li>Extend the GetRelatedRecords script include to support the identification of related records of a main record (e.g. to get the incident_tasks from an incident)</li>
-		<li>Add corresponding business rules</li>
+		<li>Switch to global scope and add corresponding business rules for all affected tables</li>
+		<li>Switch back to DataSilos scope</li>
 		<li>Create ATF tests. The following tests can be used as templates:</li>
 			<pre>
 DataSilos - Incident
@@ -130,13 +168,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>38</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-29 11:25:44</sys_updated_on>
+        <sys_updated_on>2020-04-30 10:57:52</sys_updated_on>
     </sys_ui_page>
 </record_update>
