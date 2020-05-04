@@ -7,26 +7,20 @@
         <client_callable>false</client_callable>
         <description/>
         <name>RecordInitialize</name>
-        <script><![CDATA[function RecordInitialize(strTable, record)
+        <script><![CDATA[function RecordInitialize(record)
 {
 	var Debug = x_snc_devtools.Debug;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	
-	Debug('DataSilos: RecordInitialize: '+strTable+' '+RenderValue(record));
 
-	strTable = GetStringValue(strTable);
-	if (strTable == '')
-	{
-		gs.info('DataSilos: RecordInitialize: table not specified');
-		return false;
-	}
 	if (record == undefined)
 	{
 		gs.info('DataSilos: RecordInitialize: record is undefined');
 		return false;
 	}
+	var strTable = current.getRecordClassName(); 
 	
 	
 	if (IsTableMainRecord(strTable))
@@ -101,13 +95,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>43</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-30 10:49:21</sys_updated_on>
+        <sys_updated_on>2020-05-04 09:19:49</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -7,7 +7,7 @@
         <client_callable>false</client_callable>
         <description/>
         <name>RecordUpdate</name>
-        <script><![CDATA[function RecordUpdate(strTable, record)
+        <script><![CDATA[function RecordUpdate(record)
 {
 	var Debug = x_snc_devtools.Debug;
 	var RenderValue = x_snc_devtools.RenderValue;
@@ -15,21 +15,15 @@
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
 
-	strTable = GetStringValue(strTable);
 	
-	Debug('DataSilos: RecordUpdate: '+strTable+': '+RenderValue(record));
-
-
-	if (strTable == '')
-	{
-		gs.info('DataSilos: RecordUpdate: table not specified');
-		return false;
-	}
 	if (record == undefined)
 	{
 		gs.info('DataSilos: RecordUpdate: record is undefined');
 		return false;
 	}
+	
+	var strTable = current.getRecordClassName(); 
+	Debug('DataSilos: RecordUpdate: '+strTable+': '+RenderValue(record));
 	
 	if (IsTableSupported(strTable))
 	{
@@ -105,13 +99,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:00:48</sys_created_on>
         <sys_id>bb00dce21b9490d0a89720a8ec4bcbad</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>RecordUpdate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_bb00dce21b9490d0a89720a8ec4bcbad</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-29 10:32:36</sys_updated_on>
+        <sys_updated_on>2020-05-04 09:21:20</sys_updated_on>
     </sys_script_include>
 </record_update>

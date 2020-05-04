@@ -7,11 +7,10 @@
         <client_callable>false</client_callable>
         <description/>
         <name>ExecuteRule</name>
-        <script><![CDATA[function ExecuteRule(strTable, current, previous)
+        <script><![CDATA[function ExecuteRule(current, previous)
 {
+	var strTable = current.getRecordClassName(); 
 	var strOperation = '';
-	strTable = current.getRecordClassName(); 
-	//Debug('ExecuteRule: '+strTable);
 	
 	function Log(strText)
 	{
@@ -59,19 +58,19 @@
 	{
 		if (strOperation == 'query')
 		{
-			RecordAddWhiteListQuery(strTable,current);
+			RecordAddWhiteListQuery(current);
 			return;
 		}
 
 		if (strOperation == 'insert')
 		{
-			RecordInitialize(strTable,current);
+			RecordInitialize(current);
 			return;
 		}
 		
 		if (strOperation == 'update')
 		{
-			RecordUpdate(strTable,current);
+			RecordUpdate(current);
 			return;
 		}
 	}
@@ -82,19 +81,19 @@
 	{
 		if (strOperation == 'query')
 		{
-			RecordAddWhiteListQuery(strTable,current);
+			RecordAddWhiteListQuery(current);
 			return;
 		}
 
 		if (strOperation == 'insert')
 		{
-			RecordInitialize(strTable,current);
+			RecordInitialize(current);
 			return;
 		}
 		
 		if (strOperation == 'update')
 		{
-			RecordUpdate(strTable,current);
+			RecordUpdate(current);
 			return;
 		}
 	}
@@ -107,19 +106,19 @@
 	
 		if (strOperation == 'query')
 		{
-			RecordAddWhiteListQuery(strTable,current);
+			RecordAddWhiteListQuery(current);
 			return;
 		}
 
 		if (strOperation == 'insert')
 		{
-			RecordInitialize(strTable,current);
+			RecordInitialize(current);
 			return;
 		}
 		
 		if (strOperation == 'update')
 		{
-			RecordUpdate(strTable,current);
+			RecordUpdate(current);
 			return;
 		}	
 	}
@@ -128,19 +127,19 @@
 	{
 		if (strOperation == 'query')
 		{
-			RecordAddWhiteListQuery(strTable,current);
+			RecordAddWhiteListQuery(current);
 			return;
 		}
 
 		if (strOperation == 'insert')
 		{
-			RecordInitialize(strTable,current);
+			RecordInitialize(current);
 			return;
 		}
 		
 		if (strOperation == 'update')
 		{
-			RecordUpdate(strTable,current);
+			RecordUpdate(current);
 			return;
 		}
 	}
@@ -150,13 +149,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_name>ExecuteRule</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-30 10:33:41</sys_updated_on>
+        <sys_updated_on>2020-05-04 09:22:45</sys_updated_on>
     </sys_script_include>
 </record_update>

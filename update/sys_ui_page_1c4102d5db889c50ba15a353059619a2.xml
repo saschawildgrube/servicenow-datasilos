@@ -54,9 +54,7 @@ Query: true
 			<li>Add the following script:</li>
 			<pre>
 (function executeRule(current, previous /*null when async*/) {
-
-	x_snc_datasilos.ExecuteRule('incident',current, previous);
-	
+	x_snc_datasilos.ExecuteRule(current, previous);
 })(current, previous);
 			</pre>
 			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
@@ -73,7 +71,7 @@ Query: true
 			<li>Add the following script:</li>
 			<pre>
 (function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteRule('incident_task',current, previous);
+	x_snc_datasilos.ExecuteRule(current, previous);
 })(current, previous);
 			</pre>
 			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
@@ -93,7 +91,7 @@ Query: true
 			<li>Add the following script:</li>
 			<pre>
 (function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteRule('change_request',current, previous);
+	x_snc_datasilos.ExecuteRule(current, previous);
 })(current, previous);
 			</pre>
 			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
@@ -110,7 +108,7 @@ Query: true
 			<li>Add the following script:</li>
 			<pre>
 (function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteRule('change_task',current, previous);
+	x_snc_datasilos.ExecuteRule(current, previous);
 })(current, previous);
 			</pre>
 			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
@@ -168,13 +166,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>38</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-30 10:57:52</sys_updated_on>
+        <sys_updated_on>2020-05-04 09:12:52</sys_updated_on>
     </sys_ui_page>
 </record_update>
