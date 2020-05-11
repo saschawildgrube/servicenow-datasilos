@@ -2,119 +2,116 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Insert a record into 'sys_user_grmember' with the following values:
-User = {{Step 12: Create a User.User}}
-and Group = {{Step 3: Record Insert.Record}}
-Confirm the record was successfully inserted
-
-Warning: Using a system table may cause unexpected behavior for other tests running in parallel&#13;
-See the documentation for Test Design Considerations</description>
+        <description>Insert a record into 'x_snc_datasilos_m2m_groups_datasilos' with the following values:
+Data Silo = {{Step 7: Record Insert.Record}}
+and Type = Supervisor
+and Group = {{Step 5: Record Insert.Record}}
+Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Add user A-MEMBER to group A-MEMBER</notes>
-        <order>13</order>
+        <notes>Add group A-SUPERVISOR to silo A</notes>
+        <order>10</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:49</sys_created_on>
-        <sys_id>2eac25e5db5090d0ba15a35305961979</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_created_on>2020-05-11 14:53:45</sys_created_on>
+        <sys_id>d176d9981bf05410a89720a8ec4bcba3</sys_id>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_2eac25e5db5090d0ba15a35305961979</sys_update_name>
+        <sys_update_name>sys_atf_step_d176d9981bf05410a89720a8ec4bcba3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-05-11 15:58:04</sys_updated_on>
-        <table>sys_user_grmember</table>
+        <table>x_snc_datasilos_m2m_groups_datasilos</table>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>
-        <warning_message>Warning: Using a system table may cause unexpected behavior for other tests running in parallel&#13;
-See the documentation for Test Design Considerations</warning_message>
+        <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=2eac25e5db5090d0ba15a35305961979"/>
+    <sys_variable_value action="delete_multiple" query="document_key=d176d9981bf05410a89720a8ec4bcba3"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>2eac25e5db5090d0ba15a35305961979</document_key>
+        <document_key>d176d9981bf05410a89720a8ec4bcba3</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:51</sys_created_on>
-        <sys_id>161dade5db5090d0ba15a3530596198b</sys_id>
+        <sys_created_on>2020-05-11 14:53:48</sys_created_on>
+        <sys_id>0aa611d81bf05410a89720a8ec4bcb72</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-20 17:12:51</sys_updated_on>
+        <sys_updated_on>2020-05-11 14:53:48</sys_updated_on>
         <value>record_successfully_inserted</value>
         <variable display_value="">9024a37f671003007ba405225685efe5</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>2eac25e5db5090d0ba15a35305961979</document_key>
+        <document_key>d176d9981bf05410a89720a8ec4bcba3</document_key>
         <order>400</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:51</sys_created_on>
-        <sys_id>5e1dade5db5090d0ba15a3530596198b</sys_id>
+        <sys_created_on>2020-05-11 14:53:48</sys_created_on>
+        <sys_id>42a611d81bf05410a89720a8ec4bcb73</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-22 12:36:23</sys_updated_on>
-        <value>user={{step['2312349cdb505c90ba15a35305961905'].user}}^group={{step['9312f09cdb505c90ba15a353059619e6'].record_id}}^EQ</value>
+        <sys_updated_on>2020-05-11 14:54:22</sys_updated_on>
+        <value>datasilo={{step['d23334dcdb505c90ba15a3530596197f'].record_id}}^type=supervisor^group={{step['d5f5d1981bf05410a89720a8ec4bcb2a'].record_id}}^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>2eac25e5db5090d0ba15a35305961979</document_key>
+        <document_key>d176d9981bf05410a89720a8ec4bcba3</document_key>
         <order>200</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:51</sys_created_on>
-        <sys_id>9a1dade5db5090d0ba15a3530596198b</sys_id>
+        <sys_created_on>2020-05-11 14:53:48</sys_created_on>
+        <sys_id>8ea611d81bf05410a89720a8ec4bcb72</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-20 17:12:51</sys_updated_on>
-        <value>sys_user_grmember</value>
+        <sys_updated_on>2020-05-11 14:53:48</sys_updated_on>
+        <value>x_snc_datasilos_m2m_groups_datasilos</value>
         <variable display_value="">90144b535320220002c6435723dc3488</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>2eac25e5db5090d0ba15a35305961979</document_key>
+        <document_key>d176d9981bf05410a89720a8ec4bcba3</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:51</sys_created_on>
-        <sys_id>d61dade5db5090d0ba15a3530596198b</sys_id>
+        <sys_created_on>2020-05-11 14:53:48</sys_created_on>
+        <sys_id>caa611d81bf05410a89720a8ec4bcb72</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-20 17:12:51</sys_updated_on>
+        <sys_updated_on>2020-05-11 14:53:48</sys_updated_on>
         <value>1</value>
         <variable display_value="">e6e3c7535320220002c6435723dc3496</variable>
     </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=2eac25e5db5090d0ba15a35305961979"/>
+    <sys_element_mapping action="delete_multiple" query="id=d176d9981bf05410a89720a8ec4bcba3"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>enforce_security</field>
-        <id>2eac25e5db5090d0ba15a35305961979</id>
+        <id>d176d9981bf05410a89720a8ec4bcba3</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:51</sys_created_on>
-        <sys_id>de1dade5db5090d0ba15a3530596198a</sys_id>
+        <sys_created_on>2020-05-11 14:53:48</sys_created_on>
+        <sys_id>c2a611d81bf05410a89720a8ec4bcb72</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-20 17:12:51</sys_updated_on>
+        <sys_updated_on>2020-05-11 14:53:48</sys_updated_on>
         <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
         <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
-        <id>2eac25e5db5090d0ba15a35305961979</id>
+        <id>d176d9981bf05410a89720a8ec4bcba3</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-20 17:12:51</sys_created_on>
-        <sys_id>921dade5db5090d0ba15a3530596198b</sys_id>
+        <sys_created_on>2020-05-11 14:53:48</sys_created_on>
+        <sys_id>86a611d81bf05410a89720a8ec4bcb72</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-22 12:36:23</sys_updated_on>
+        <sys_updated_on>2020-05-11 14:54:22</sys_updated_on>
         <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
-        <value>user={{step['2312349cdb505c90ba15a35305961905'].user}}^group={{step['9312f09cdb505c90ba15a353059619e6'].record_id}}^EQ</value>
+        <value>datasilo={{step['d23334dcdb505c90ba15a3530596197f'].record_id}}^type=supervisor^group={{step['d5f5d1981bf05410a89720a8ec4bcb2a'].record_id}}^EQ</value>
     </sys_element_mapping>
 </record_update>

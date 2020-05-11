@@ -9,21 +9,21 @@ Confirm the record was successfully inserted</description>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Create silo A</notes>
-        <order>6</order>
+        <order>7</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 15:48:29</sys_created_on>
         <sys_id>d23334dcdb505c90ba15a3530596197f</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_d23334dcdb505c90ba15a3530596197f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-20 13:38:13</sys_updated_on>
+        <sys_updated_on>2020-05-11 14:51:16</sys_updated_on>
         <table>x_snc_datasilos_datasilos</table>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>

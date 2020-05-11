@@ -34,22 +34,32 @@
 			Debug('DataSilos: RecordInitialize: opened_by user NOT found');
 			return false;
 		}
-
 		Debug('DataSilos: RecordInitialize: opened_by user found: '+strOpenedByUserSysId+' ');
-
-		var aUserSilos = GetSilosFromUser(strOpenedByUserSysId);
 		
+		
+		// Add the user's groups
+		var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
+		var aUserGroups = GetGroupsFromUser(strOpenedByUserSysId); 
+		for (var nIndexGroup = 0; nIndexGroup < aUserGroups.length; nIndexGroup++)
+		{
+			RecordAddGroupToWhiteList(record,aUserGroups[nIndexGroup]);
+		}
+		
+
+		// Now add all fulfiller and supervisor groups of all silos of the user
+		var aUserSilos = GetSilosFromUser(strOpenedByUserSysId);
 		Debug('DataSilos: RecordInitialize: GetSilosFromUser: '+RenderValue(aUserSilos));
 
-		// Now add all groups of all silos
 		var aGroupsToAdd = [];
 		if (aUserSilos.length > 0)
 		{
 			var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
-			var query = grSilosToGroups.addQuery('datasilo','=',aUserSilos[0]);
+			var queryType = grSilosToGroups.addQuery('type','=','supervisor');
+			queryType.addOrCondition('type','=','fulfiller');
+			var queryGroups = grSilosToGroups.addQuery('datasilo','=',aUserSilos[0]);
 			for (var nIndexSilo = 1; nIndexSilo < aUserSilos.length; nIndexSilo++) 
 			{
-				query.addOrCondition('datasilo','=',aUserSilos[nIndexSilo]);
+				queryGroups.addOrCondition('datasilo','=',aUserSilos[nIndexSilo]);
 			}
 			grSilosToGroups.query();
 			while (grSilosToGroups.next())
@@ -63,6 +73,13 @@
 		for (var nIndexGroup = 0; nIndexGroup < aGroupsToAdd.length; nIndexGroup++)
 		{
 			RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
+		}
+		
+		// Add the current assignment group
+		var strAssignmentGroup = GetStringValue(record.getValue('assignment_group'));
+		if (strAssignmentGroup != '')
+		{
+			RecordAddGroupToWhiteList(record,strAssignmentGroup);
 		}
 		
 		// Add the current assignment group
@@ -95,13 +112,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>44</sys_mod_count>
+        <sys_mod_count>47</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-04 09:19:49</sys_updated_on>
+        <sys_updated_on>2020-05-11 15:33:19</sys_updated_on>
     </sys_script_include>
 </record_update>

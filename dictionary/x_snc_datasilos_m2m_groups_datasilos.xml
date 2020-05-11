@@ -4,8 +4,9 @@
         <element attributes="encode_utf8=false" label="Group" max_length="32" name="group" reference="sys_user_group" type="reference"/>
         <element choice="3" default="fulfiller" label="Type" max_length="40" name="type" type="choice">
             <choice>
-                <element inactive_on_update="false" label="Fulfiller" value="fulfiller"/>
-                <element inactive_on_update="false" label="Supervisor" value="supervisor"/>
+                <element inactive_on_update="false" label="Member" sequence="1" value="member"/>
+                <element inactive_on_update="false" label="Fulfiller" sequence="2" value="fulfiller"/>
+                <element inactive_on_update="false" label="Supervisor" sequence="3" value="supervisor"/>
             </choice>
         </element>
         <index name="index">

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Impersonate">22ca66a1db801090ba15a35305961973</copied_from>
-        <description>Impersonate the user: {{Step 12: Create a User.User}}</description>
+        <copied_from/>
+        <description>Impersonate the user: {{Step 16: Create a User.User}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Impersonate user A-MEMBER</notes>
-        <order>20</order>
+        <notes>Impersonate user A-SUPERVISOR</notes>
+        <order>26</order>
         <snapshot/>
         <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-16 15:42:46</sys_created_on>
-        <sys_id>3712349cdb505c90ba15a35305961955</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_created_on>2020-05-11 15:01:39</sys_created_on>
+        <sys_id>5f585d1c1bf05410a89720a8ec4bcbe8</sys_id>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_3712349cdb505c90ba15a35305961955</sys_update_name>
+        <sys_update_name>sys_atf_step_5f585d1c1bf05410a89720a8ec4bcbe8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-05-11 15:58:04</sys_updated_on>
         <table/>
@@ -28,32 +28,32 @@
         <timeout/>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=3712349cdb505c90ba15a35305961955"/>
+    <sys_variable_value action="delete_multiple" query="document_key=5f585d1c1bf05410a89720a8ec4bcbe8"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>3712349cdb505c90ba15a35305961955</document_key>
+        <document_key>5f585d1c1bf05410a89720a8ec4bcbe8</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-16 15:42:46</sys_created_on>
-        <sys_id>3f12349cdb505c90ba15a35305961956</sys_id>
+        <sys_created_on>2020-05-11 15:01:39</sys_created_on>
+        <sys_id>4578dd1c1bf05410a89720a8ec4bcb98</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-16 15:42:46</sys_updated_on>
+        <sys_updated_on>2020-05-11 15:01:39</sys_updated_on>
         <value/>
         <variable display_value="">586e2c4253e0220002c6435723dc3415</variable>
     </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=3712349cdb505c90ba15a35305961955"/>
+    <sys_element_mapping action="delete_multiple" query="id=5f585d1c1bf05410a89720a8ec4bcbe8"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>user</field>
-        <id>3712349cdb505c90ba15a35305961955</id>
+        <id>5f585d1c1bf05410a89720a8ec4bcbe8</id>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-16 15:42:46</sys_created_on>
-        <sys_id>b312349cdb505c90ba15a35305961957</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_created_on>2020-05-11 15:01:39</sys_created_on>
+        <sys_id>c178dd1c1bf05410a89720a8ec4bcb98</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-16 15:42:46</sys_updated_on>
+        <sys_updated_on>2020-05-11 15:01:39</sys_updated_on>
         <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
-        <value>{{step['2312349cdb505c90ba15a35305961905'].user}}</value>
+        <value>{{step['d6571dd81bf05410a89720a8ec4bcb86'].user}}</value>
     </sys_element_mapping>
 </record_update>

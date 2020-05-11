@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="DELETE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>WhatIs</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>true</run_once>
+        <script><![CDATA[var bSuccess = true;
+
+is (bSuccess == true)
+{
+	gs.info('cheer!');
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-29 07:25:40</sys_created_on>
+        <sys_id>27ccb95cdbac5410ba15a3530596193c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WhatIs</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_fix_27ccb95cdbac5410ba15a3530596193c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-29 07:25:40</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
+        <instance_name>empswildgrube1</instance_name>
+        <name>sys_script_fix_27ccb95cdbac5410ba15a3530596193c</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_fix"&gt;&lt;sys_script_fix action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;before&gt;false&lt;/before&gt;&lt;description/&gt;&lt;flush_cache&gt;false&lt;/flush_cache&gt;&lt;name&gt;WhatIs&lt;/name&gt;&lt;record_for_rollback&gt;false&lt;/record_for_rollback&gt;&lt;run_once&gt;true&lt;/run_once&gt;&lt;script&gt;&lt;![CDATA[var bSuccess = true;
+
+is (bSuccess == true)
+{
+	gs.info('cheer!');
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_fix&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-04-29 07:25:40&lt;/sys_created_on&gt;&lt;sys_id&gt;27ccb95cdbac5410ba15a3530596193c&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;WhatIs&lt;/sys_name&gt;&lt;sys_package display_value="DataSilos" source="x_snc_datasilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="DataSilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_fix_27ccb95cdbac5410ba15a3530596193c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-29 07:25:40&lt;/sys_updated_on&gt;&lt;unloadable&gt;false&lt;/unloadable&gt;&lt;/sys_script_fix&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-704629606</payload_hash>
+        <record_name>WhatIs</record_name>
+        <reverted_from/>
+        <source>627c4948db2c1410ba15a35305961906</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-29 07:25:40</sys_created_on>
+        <sys_id>b40db95cdbac5410ba15a35305961943</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>171c4d3b4520000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-29 07:25:40</sys_updated_on>
+        <type>Fix Script</type>
+        <update_guid>fc0db95c9eac54100ad732909de71442</update_guid>
+        <update_guid_history>fc0db95c9eac54100ad732909de71442:-704629606</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-29 07:28:31</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_fix">sys_script_fix</sys_db_object>
+        <sys_id>a794956a1ddd46ccada19191d334c604</sys_id>
+        <sys_metadata>27ccb95cdbac5410ba15a3530596193c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WhatIs</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_script_fix_27ccb95cdbac5410ba15a3530596193c</sys_update_name>
+        <sys_update_version display_value="sys_script_fix_27ccb95cdbac5410ba15a3530596193c">b40db95cdbac5410ba15a35305961943</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-29 07:28:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

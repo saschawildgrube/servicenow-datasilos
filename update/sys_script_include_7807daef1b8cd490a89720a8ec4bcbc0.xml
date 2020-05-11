@@ -22,21 +22,20 @@
 		{
 			aRoles = [];
 		}
-		var gr = new GlideRecord('sys_user');
+		var grUser = new GlideRecord('sys_user');
 		var strUserSysId = null;
 		var bDeleted = true;
-		if (gr.get('user_name',strPrefix+strName))
+		if (grUser.get('user_name',strPrefix+strName))
 		{
-			strUserSysId = gr.sys_id;
-			bDeleted = gr.deleteRecord();
+			strUserSysId = grUser.getValue('sys_id');
+			bDeleted = grUser.deleteRecord();
 		}
 		if (bDeleted == true || strUserSysId == null)
 		{
-			gr.newRecord();
-			gr.user_name = strPrefix+strName;
-			gr.first_name = strPrefix+strName;
-			//Debug(RenderValue(gr));
-			strUserSysId = gr.insert();
+			grUser.newRecord();
+			grUser.user_name = strPrefix+strName;
+			grUser.first_name = strPrefix+strName;
+			strUserSysId = grUser.insert();
 		}
 
 		if (strUserSysId != null)
@@ -63,7 +62,6 @@
 				}
 			});
 		}
-		
 	}
 	
 	function CreateTestGroup(strName, aUserNames)
@@ -74,16 +72,16 @@
 		{
 			aUserNames = [];
 		}
-		var gr = new GlideRecord('sys_user_group');
-		gr.addQuery('name','=',strPrefix+strName);
-		gr.query();
-		gr.deleteMultiple();
+		var grGroup = new GlideRecord('sys_user_group');
+		grGroup.addQuery('name','=',strPrefix+strName);
+		grGroup.query();
+		grGroup.deleteMultiple();
 
-		var gr = new GlideRecord('sys_user_group');
-		gr.newRecord();
-		gr.name = strPrefix+strName;
-		var strGroupSysId = gr.insert();
-		Debug('DataSilos: CreateTestGroup gr.insert returned: '+strGroupSysId);
+		var grGroup = new GlideRecord('sys_user_group');
+		grGroup.newRecord();
+		grGroup.name = strPrefix+strName;
+		var strGroupSysId = grGroup.insert();
+		Debug('DataSilos: CreateTestGroup grGroup.insert returned: '+strGroupSysId);
 
 		if (strGroupSysId != null)
 		{
@@ -108,9 +106,12 @@
 
 	}
 
-	function CreateTestSilo(strName, aFulfillerGroupNames, aSupervisorGroupNames)
+	function CreateTestSilo(strName, aMemberGroupNames, aFulfillerGroupNames, aSupervisorGroupNames)
 	{
-		Debug('DataSilos: CreateTestSilo: '+strName+' '+RenderValue(aFulfillerGroupNames)+' '+RenderValue(aSupervisorGroupNames));	
+		Debug('DataSilos: CreateTestSilo: '+strName+' '
+			+RenderValue(aMemberGroupNames)+' '
+			+RenderValue(aFulfillerGroupNames)+' '
+			+RenderValue(aSupervisorGroupNames));	
 		strName = ''+strName;
 		if (Array.isArray(aFulfillerGroupNames) == false)
 		{
@@ -120,20 +121,34 @@
 		{
 			aSupervisorGroupNames = [];
 		}
-		var gr = new GlideRecord('x_snc_datasilos_datasilos');
-		gr.addQuery('name','=',strPrefix+strName);
-		gr.query();
-		gr.deleteMultiple();
+		var grDataSilo = new GlideRecord('x_snc_datasilos_datasilos');
+		grDataSilo.addQuery('name','=',strPrefix+strName);
+		grDataSilo.query();
+		grDataSilo.deleteMultiple();
 
-		var gr = new GlideRecord('x_snc_datasilos_datasilos');
-		gr.newRecord();
-		gr.name = strPrefix+strName;
-		var strDataSiloSysId = gr.insert();
-		Debug('DataSilos: CreateTestSilo gr.insert returned: '+strDataSiloSysId);
+		var grDataSilo = new GlideRecord('x_snc_datasilos_datasilos');
+		grDataSilo.newRecord();
+		grDataSilo.name = strPrefix+strName;
+		var strDataSiloSysId = grDataSilo.insert();
+		Debug('DataSilos: CreateTestSilo grDataSilo.insert returned: '+strDataSiloSysId);
 		if (strDataSiloSysId != null)
 		{
 			var grGroup = new GlideRecord('sys_user_group');
 			var grDataSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
+			aMemberGroupNames.forEach(function(strGroupName)
+			{
+				if (strGroupName != '')
+				{
+					if (grGroup.get('name',strPrefix+strGroupName))
+					{
+						grDataSilosToGroups.newRecord();
+						grDataSilosToGroups.datasilo = strDataSiloSysId;
+						grDataSilosToGroups.group = grGroup.sys_id;
+						grDataSilosToGroups.type = 'member';
+						grDataSilosToGroups.insert();
+					}
+				}
+			});			
 			aFulfillerGroupNames.forEach(function(strGroupName)
 			{
 				if (strGroupName != '')
@@ -143,6 +158,7 @@
 						grDataSilosToGroups.newRecord();
 						grDataSilosToGroups.datasilo = strDataSiloSysId;
 						grDataSilosToGroups.group = grGroup.sys_id;
+						grDataSilosToGroups.type = 'fulfiller';
 						grDataSilosToGroups.insert();
 					}
 				}
@@ -173,23 +189,10 @@
 		strAssignmentGroupName = ''+strAssignmentGroupName;
 
 
-		var gr = new GlideRecord('incident');
-		gr.addQuery('short_description','=',strPrefix+strName);
-		gr.query();
-		gr.deleteMultiple();
-
-		/*
-		var gr = new GlideRecord('incident');
-		gr.addQuery('short_description','=',strPrefix+strName);
-		gr.query();
-		while (gr.next())
-		{
-			gr.state = 7;
-			gr.close_code = 1;
-			gr.close_notes = 'TEST';
-			gr.update();
-		}
-		*/
+		var grIncident = new GlideRecord('incident');
+		grIncident.addQuery('short_description','=',strPrefix+strName);
+		grIncident.query();
+		grIncident.deleteMultiple();
 
 		var strCallerUserSysId = '';
 		if (strCallerUserName != '')
@@ -211,13 +214,13 @@
 			}
 		}
 		
-		var gr = new GlideRecord('incident');
-		gr.newRecord();
-		gr.short_description = strPrefix+strName;
-		gr.caller_id = strCallerUserSysId;
-		gr.assignment_group = strAssignmentGroupSysId;
-		var strIncidentSysId = gr.insert();
-		Debug('DataSilos: CreateTestIncident gr.insert returned: '+strIncidentSysId);		
+		var grIncident = new GlideRecord('incident');
+		grIncident.newRecord();
+		grIncident.short_description = strPrefix+strName;
+		grIncident.caller_id = strCallerUserSysId;
+		grIncident.assignment_group = strAssignmentGroupSysId;
+		var strIncidentSysId = grIncident.insert();
+		Debug('DataSilos: CreateTestIncident grIncident.insert returned: '+strIncidentSysId);		
 	}
 
 	function CreateTestChange(strName, strUserName, strAssignmentGroupName)
@@ -225,35 +228,45 @@
 		Debug('DataSilos: CreateTestChange: '+strName+' '+strUserName+' '+strAssignmentGroupName);
 	}	
 	
+	
 	// Users
 	CreateTestUser('ALICE',['itil']);
+	CreateTestUser('AMBER',['itil']);
 	CreateTestUser('ALBERT',['itil']);
+	
 	CreateTestUser('BOB',['itil']);
-	CreateTestUser('CHARLIE',['itil']);
-	CreateTestUser('DORIS',['itil']);
-	CreateTestUser('DANIEL-ERIC',['itil']);
-	CreateTestUser('ETHAN',['itil']);
+	CreateTestUser('BELINDA',['itil']);
+	CreateTestUser('BRODY',['itil']);
+	
+	CreateTestUser('GEMMA',['itil']);
+	CreateTestUser('GERRY',['itil']);
+	CreateTestUser('GANDALF',['itil']);
+	
 	CreateTestUser('CALLER',null);
 
 	// Groups
-	CreateTestGroup('TEAM-ALPHA',['ALICE']);
-	CreateTestGroup('TEAM-BETA',['BOB']);
-	CreateTestGroup('TEAM-DELTA',['DORIS','DANIEL-ERIC']);
-	CreateTestGroup('TEAM-EPSILON',['ETHAN','DANIEL-ERIC']);
-	CreateTestGroup('TEAM-ALPHA-SUPERVISORS',['ALBERT']);
+	CreateTestGroup('TEAM-ALPHA-MEMBER',['ALICE']);
+	CreateTestGroup('TEAM-ALPHA-FULFILLER',['AMBER']);
+	CreateTestGroup('TEAM-ALPHA-SUPERVISOR',['ALBERT']);
 
+	CreateTestGroup('TEAM-BETA-MEMBER',['BOB']);
+	CreateTestGroup('TEAM-BETA-FULFILLER',['BELINDA']);
+	CreateTestGroup('TEAM-BETA-SUPERVISOR',['BRODY']);
+	
+	CreateTestGroup('TEAM-GAMMA-MEMBER',['GEMMA']);
+	CreateTestGroup('TEAM-GAMMA-FULFILLER',['GERRY']);
+	CreateTestGroup('TEAM-GAMMA-SUPERVISOR',['GANDALF']);
 	
 	// Silos
-	CreateTestSilo('SILO-ALPHA',['TEAM-ALPHA'],['TEAM-ALPHA-SUPERVISORS']);
-	CreateTestSilo('SILO-BETA',['TEAM-BETA']);
-	CreateTestSilo('SILO-GAMMA',['TEAM-DELTA','TEAM-EPSILON']);
+	CreateTestSilo('SILO-ALPHA',['TEAM-ALPHA-MEMBER'],['TEAM-ALPHA-FULFILLER'],['TEAM-ALPHA-SUPERVISOR']);
+	CreateTestSilo('SILO-BETA',['TEAM-BETA-MEMBER'],['TEAM-BETA-FULFILLER'],['TEAM-BETA-SUPERVISOR']);
+	CreateTestSilo('SILO-GAMMA',['TEAM-GAMMA-MEMBER'],['TEAM-GAMMA-FULFILLER'],['TEAM-GAMMA-SUPERVISOR']);
 	
 	// Incidents
-	CreateTestIncident('A','CALLER','TEAM-ALPHA');
-	CreateTestIncident('B','CALLER','TEAM-BETA');
-	CreateTestIncident('C','CALLER','TEAM-DELTA');
-	//CreateTestIncident('AB','ALICE');
-	//CreateTestIncident('ABC','ALICE');
+	CreateTestIncident('A','CALLER','TEAM-ALPHA-MEMBER');
+	CreateTestIncident('B','CALLER','TEAM-BETA-MEMBER');
+	CreateTestIncident('C','CALLER','TEAM-GAMMA-MEMBER');
+
 
 
 	
@@ -263,13 +276,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 14:24:37</sys_updated_on>
+        <sys_updated_on>2020-05-11 09:09:37</sys_updated_on>
     </sys_script_include>
 </record_update>
