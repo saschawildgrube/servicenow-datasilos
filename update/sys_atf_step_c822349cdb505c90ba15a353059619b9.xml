@@ -3,28 +3,28 @@
         <active>true</active>
         <copied_from display_value="Record Query">0fcaa6a1db801090ba15a3530596191a</copied_from>
         <description>Validate there is at least one record in 'incident' matching query:
-Sys ID = {{Step 21: Record Insert.Record}}
+Sys ID = {{Step 17: Record Insert.Record}}
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>User A-FULFILLER checks for incident A-MEMBER</notes>
-        <order>25</order>
+        <notes>User ALPHA_FULFILLER checks for incident ALPHA_MEMBER</notes>
+        <order>21</order>
         <snapshot/>
         <step_config display_value="Record Query">0270b8005f30220012b44adb7f46666a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 15:42:47</sys_created_on>
         <sys_id>c822349cdb505c90ba15a353059619b9</sys_id>
-        <sys_mod_count>72</sys_mod_count>
+        <sys_mod_count>85</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_c822349cdb505c90ba15a353059619b9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 15:58:04</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:36:00</sys_updated_on>
         <table>incident</table>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout>1970-01-01 00:00:05</timeout>

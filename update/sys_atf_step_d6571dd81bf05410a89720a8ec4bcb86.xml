@@ -2,28 +2,28 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Create user '_ATF_DATASILOS A-SUPERVISOR'
+        <description>Create user '_ATF_DATASILOS_ALPHA_SUPERVISOR User'
 With roles: itil</description>
         <display_name>Create a User</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Create user A-SUPERVISOR</notes>
-        <order>16</order>
+        <notes>Create user ALPHA_SUPERVISOR</notes>
+        <order>13</order>
         <snapshot/>
         <step_config display_value="Create a User">d9bc5f21ff6033008d3f5d9ad53bf12d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-11 14:57:15</sys_created_on>
         <sys_id>d6571dd81bf05410a89720a8ec4bcb86</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Create a User</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_d6571dd81bf05410a89720a8ec4bcb86</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 14:57:32</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:32:57</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>
@@ -52,10 +52,10 @@ With roles: itil</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-11 14:57:17</sys_created_on>
         <sys_id>49779dd81bf05410a89720a8ec4bcbee</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 14:57:17</sys_updated_on>
-        <value>_ATF_DATASILOS</value>
+        <sys_updated_on>2020-05-12 14:32:42</sys_updated_on>
+        <value>_ATF_DATASILOS_ALPHA_SUPERVISOR</value>
         <variable display_value="">1985e0ceff2433008d3f5d9ad53bf1ba</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -80,10 +80,10 @@ With roles: itil</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-11 14:57:17</sys_created_on>
         <sys_id>85779dd81bf05410a89720a8ec4bcbee</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 14:57:32</sys_updated_on>
-        <value>A-SUPERVISOR</value>
+        <sys_updated_on>2020-05-12 14:32:42</sys_updated_on>
+        <value/>
         <variable display_value="">6f69fc4aff6433008d3f5d9ad53bf18c</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -107,11 +107,11 @@ With roles: itil</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-11 14:57:17</sys_created_on>
         <sys_id>09779dd81bf05410a89720a8ec4bcbed</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 14:57:17</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:32:42</sys_updated_on>
         <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
-        <value>_ATF_DATASILOS</value>
+        <value>_ATF_DATASILOS_ALPHA_SUPERVISOR</value>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>groups</field>
@@ -131,11 +131,11 @@ With roles: itil</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-11 14:57:17</sys_created_on>
         <sys_id>45779dd81bf05410a89720a8ec4bcbed</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 14:57:32</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:32:42</sys_updated_on>
         <table>var__m_atf_input_variable_d9bc5f21ff6033008d3f5d9ad53bf12d</table>
-        <value>A-SUPERVISOR</value>
+        <value/>
     </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>roles</field>

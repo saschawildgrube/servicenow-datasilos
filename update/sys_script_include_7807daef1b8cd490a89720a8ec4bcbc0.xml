@@ -245,27 +245,27 @@
 	CreateTestUser('CALLER',null);
 
 	// Groups
-	CreateTestGroup('TEAM-ALPHA-MEMBER',['ALICE']);
-	CreateTestGroup('TEAM-ALPHA-FULFILLER',['AMBER']);
-	CreateTestGroup('TEAM-ALPHA-SUPERVISOR',['ALBERT']);
+	CreateTestGroup('TEAM_ALPHA_MEMBER',['ALICE']);
+	CreateTestGroup('TEAM_ALPHA_FULFILLER',['AMBER']);
+	CreateTestGroup('TEAM_ALPHA_SUPERVISOR',['ALBERT']);
 
-	CreateTestGroup('TEAM-BETA-MEMBER',['BOB']);
-	CreateTestGroup('TEAM-BETA-FULFILLER',['BELINDA']);
-	CreateTestGroup('TEAM-BETA-SUPERVISOR',['BRODY']);
+	CreateTestGroup('TEAM_BETA_MEMBER',['BOB']);
+	CreateTestGroup('TEAM_BETA_FULFILLER',['BELINDA']);
+	CreateTestGroup('TEAM_BETA_SUPERVISOR',['BRODY']);
 	
-	CreateTestGroup('TEAM-GAMMA-MEMBER',['GEMMA']);
-	CreateTestGroup('TEAM-GAMMA-FULFILLER',['GERRY']);
-	CreateTestGroup('TEAM-GAMMA-SUPERVISOR',['GANDALF']);
+	CreateTestGroup('TEAM_GAMMA_MEMBER',['GEMMA']);
+	CreateTestGroup('TEAM_GAMMA_FULFILLER',['GERRY']);
+	CreateTestGroup('TEAM_GAMMA_SUPERVISOR',['GANDALF']);
 	
 	// Silos
-	CreateTestSilo('SILO-ALPHA',['TEAM-ALPHA-MEMBER'],['TEAM-ALPHA-FULFILLER'],['TEAM-ALPHA-SUPERVISOR']);
-	CreateTestSilo('SILO-BETA',['TEAM-BETA-MEMBER'],['TEAM-BETA-FULFILLER'],['TEAM-BETA-SUPERVISOR']);
-	CreateTestSilo('SILO-GAMMA',['TEAM-GAMMA-MEMBER'],['TEAM-GAMMA-FULFILLER'],['TEAM-GAMMA-SUPERVISOR']);
+	CreateTestSilo('SILO_ALPHA',['TEAM_ALPHA_MEMBER'],['TEAM_ALPHA_FULFILLER'],['TEAM_ALPHA_SUPERVISOR']);
+	CreateTestSilo('SILO_BETA',['TEAM_BETA_MEMBER'],['TEAM_BETA_FULFILLER'],['TEAM_BETA_SUPERVISOR']);
+	CreateTestSilo('SILO_GAMMA',['TEAM_GAMMA_MEMBER'],['TEAM_GAMMA_FULFILLER'],['TEAM_GAMMA_SUPERVISOR']);
 	
 	// Incidents
-	CreateTestIncident('A','CALLER','TEAM-ALPHA-MEMBER');
-	CreateTestIncident('B','CALLER','TEAM-BETA-MEMBER');
-	CreateTestIncident('C','CALLER','TEAM-GAMMA-MEMBER');
+	CreateTestIncident('A','CALLER','TEAM_ALPHA_MEMBER');
+	CreateTestIncident('B','CALLER','TEAM_BETA_MEMBER');
+	CreateTestIncident('C','CALLER','TEAM_GAMMA_MEMBER');
 
 
 
@@ -276,13 +276,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 09:09:37</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:20:54</sys_updated_on>
     </sys_script_include>
 </record_update>

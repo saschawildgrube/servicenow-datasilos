@@ -3,8 +3,8 @@
         <active>true</active>
         <copied_from/>
         <description>Insert a record into 'sys_user_grmember' with the following values:
-User = {{Step 14: Create a User.User}}
-and Group = {{Step 4: Record Insert.Record}}
+User = {{Step 11: Create a User.User}}
+and Group = {{Step 3: Record Insert.Record}}
 Confirm the record was successfully inserted
 
 Warning: Using a system table may cause unexpected behavior for other tests running in parallel&#13;
@@ -13,22 +13,22 @@ See the documentation for Test Design Considerations</description>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Add user A-FULFILLER to group A-FULFILLER</notes>
-        <order>15</order>
+        <notes>Add user ALPHA_FULFILLER to group ALPHA_FULFILLER</notes>
+        <order>12</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-20 17:14:42</sys_created_on>
         <sys_id>fd6d6129db5090d0ba15a35305961965</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_fd6d6129db5090d0ba15a35305961965</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 15:58:04</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:32:20</sys_updated_on>
         <table>sys_user_grmember</table>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>

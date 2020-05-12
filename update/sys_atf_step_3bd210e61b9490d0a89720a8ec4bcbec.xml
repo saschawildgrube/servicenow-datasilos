@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Log">2712349cdb505c90ba15a35305961936</copied_from>
+        <copied_from display_value="">2712349cdb505c90ba15a35305961936</copied_from>
         <description>Log: Create incident</description>
         <display_name>Log</display_name>
         <inputs/>

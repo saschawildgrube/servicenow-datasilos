@@ -3,30 +3,30 @@
         <active>true</active>
         <copied_from/>
         <description>Insert a record into 'x_snc_datasilos_m2m_groups_datasilos' with the following values:
-Data Silo = {{Step 7: Record Insert.Record}}
-and Group = {{Step 4: Record Insert.Record}}
+Data Silo = {{Step 5: Record Insert.Record}}
+and Group = {{Step 3: Record Insert.Record}}
 and Type = Fulfiller
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Add group A-FULFILLER to silo A</notes>
-        <order>9</order>
+        <notes>Add group ALPHA_FULFILLER to silo ALPHA</notes>
+        <order>7</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-20 13:41:31</sys_created_on>
         <sys_id>aa9cb0a5db9c50d0ba15a3530596198c</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_aa9cb0a5db9c50d0ba15a3530596198c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-11 15:58:04</sys_updated_on>
+        <sys_updated_on>2020-05-12 14:30:01</sys_updated_on>
         <table>x_snc_datasilos_m2m_groups_datasilos</table>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>

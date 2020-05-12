@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from display_value="Log">7dca26a1db801090ba15a353059619e9</copied_from>
+        <description>Log: Create incident</description>
+        <display_name>Log</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Create incident</notes>
+        <order>16</order>
+        <snapshot/>
+        <step_config display_value="Log">58ab71985f30220012b44adb7f46661e</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-16 15:42:45</sys_created_on>
+        <sys_id>2712349cdb505c90ba15a35305961936</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>Log</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_2712349cdb505c90ba15a35305961936</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-12 14:29:48</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=2712349cdb505c90ba15a35305961936"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>2712349cdb505c90ba15a35305961936</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-16 15:42:45</sys_created_on>
+        <sys_id>af12349cdb505c90ba15a35305961936</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-16 15:57:29</sys_updated_on>
+        <value>Create incident</value>
+        <variable display_value="">523c79985f30220012b44adb7f46663a</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=2712349cdb505c90ba15a35305961936"/>
+    <sys_element_mapping action="DELETE">
+        <field>log</field>
+        <id>2712349cdb505c90ba15a35305961936</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-16 15:42:45</sys_created_on>
+        <sys_id>a312349cdb505c90ba15a35305961937</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-16 15:57:29</sys_updated_on>
+        <table>var__m_atf_input_variable_58ab71985f30220012b44adb7f46661e</table>
+        <value>Create incident</value>
+    </sys_element_mapping>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
+        <instance_name>empswildgrube1</instance_name>
+        <name>sys_atf_step_2712349cdb505c90ba15a35305961936</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from display_value="Log">7dca26a1db801090ba15a353059619e9</copied_from><description>Log: Create incident</description><display_name>Log</display_name><inputs/><inputs/><mugshots_cache_json/><notes>Create incident</notes><order>16</order><snapshot/><step_config display_value="Log">58ab71985f30220012b44adb7f46661e</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-16 15:42:45</sys_created_on><sys_id>2712349cdb505c90ba15a35305961936</sys_id><sys_mod_count>39</sys_mod_count><sys_name>Log</sys_name><sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_atf_step_2712349cdb505c90ba15a35305961936</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-05-12 14:29:48</sys_updated_on><table/><test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=2712349cdb505c90ba15a35305961936"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>2712349cdb505c90ba15a35305961936</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-16 15:42:45</sys_created_on><sys_id>af12349cdb505c90ba15a35305961936</sys_id><sys_mod_count>1</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-04-16 15:57:29</sys_updated_on><value>Create incident</value><variable display_value="">523c79985f30220012b44adb7f46663a</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="id=2712349cdb505c90ba15a35305961936"/><sys_element_mapping action="INSERT_OR_UPDATE"><field>log</field><id>2712349cdb505c90ba15a35305961936</id><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-16 15:42:45</sys_created_on><sys_id>a312349cdb505c90ba15a35305961937</sys_id><sys_mod_count>1</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-04-16 15:57:29</sys_updated_on><table>var__m_atf_input_variable_58ab71985f30220012b44adb7f46661e</table><value>Create incident</value></sys_element_mapping></record_update>]]></payload>
+        <payload_hash>1249617227</payload_hash>
+        <record_name>Log</record_name>
+        <reverted_from/>
+        <source>627c4948db2c1410ba15a35305961906</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-12 14:29:48</sys_created_on>
+        <sys_id>9cca52e41bb49410a89720a8ec4bcba5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>172094aac030000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-12 14:29:48</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>d4ca52e4c8b49410370451054e727fa5</update_guid>
+        <update_guid_history>d4ca52e4c8b49410370451054e727fa5:1249617227,114a1aa4deb494105193121469c0c2f2:870335146,f83a96a4eeb49410932d2c6657727c65:491053065,f4c7151c8df054100c2aebd15d6654ac:111770984,38779dd8acf05410576f7bfb89b8a6aa:491053065,eda611d88ff0541047f3a8884ea54f21:870335146,3c16559866f0541056dcce1dcb05ea3c:1249617227,26513eca1e5050d0415c9bc71b4404e1:2094325188,e58d6529c65090d0b2ca4606a3939dd9:322047363,8e1dade5285090d0c819c2f74b2c9661:-1450230462,32bc74a5dc9c50d0b98696c7eb8511c7:1072459009,697c30a5b49c50d002368acea44c7d5f:-699818816,9bd7705452905c909e09c6e82613a16e:1822870655,8e9678d02a905c9042945ec227948a2b:-699818816,a375f09063905c90586f4fd1a0489151:1072459009,3d04781086905c902a7b661b6cb80d0b:455831387,0c737cdcb4505c90eb951b98207832c5:-1896109222,21d2b0dc80505c90b2438f1402f23f44:46917465,24a2bc9ce1505c9090023fb76d542143:95948883,44923c9cb0505c9016ce7ad138668783:46917465,e712349c08505c908beb1d2193b5fa38:55335969</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-12 14:30:00</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>61b7f8eecdd04c64949e84fb4e240cc9</sys_id>
+        <sys_metadata>2712349cdb505c90ba15a35305961936</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Log</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_2712349cdb505c90ba15a35305961936</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_2712349cdb505c90ba15a35305961936">9cca52e41bb49410a89720a8ec4bcba5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-12 14:30:00</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
