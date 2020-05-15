@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from display_value="Run Server Side Script">7f403e8a1b5050d0a89720a8ec4bcbdb</copied_from>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Verify that the users A1 and A2 und silos have been set up properly</notes>
+        <order>24</order>
+        <snapshot/>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-23 13:12:34</sys_created_on>
+        <sys_id>b3d210e61b9490d0a89720a8ec4bcbe5</sys_id>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_b3d210e61b9490d0a89720a8ec4bcbe5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-15 12:51:58</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - Incident - Cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=b3d210e61b9490d0a89720a8ec4bcbe5"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>b3d210e61b9490d0a89720a8ec4bcbe5</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-23 13:12:34</sys_created_on>
+        <sys_id>33d210e61b9490d0a89720a8ec4bcbe6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-23 13:25:42</sys_updated_on>
+        <value>(function(outputs, steps, stepResult, assertEqual) {&#13;
+&#13;
+function GetGroupsFromUser(strUserSysId)&#13;
+{&#13;
+	strUserSysId = ''+strUserSysId;&#13;
+	var aGroups = [];&#13;
+	var grUser = new GlideRecord('sys_user');&#13;
+	if (grUser.get(strUserSysId) == null)&#13;
+	{&#13;
+		return aGroups;&#13;
+	}&#13;
+	var grUserGroups = new GlideRecord('sys_user_grmember');&#13;
+	grUserGroups.addQuery('user','=',strUserSysId);&#13;
+	grUserGroups.query();&#13;
+	while(grUserGroups.next())&#13;
+	{&#13;
+		aGroups.push(grUserGroups.getValue('group'));&#13;
+	}&#13;
+	return aGroups;&#13;
+}&#13;
+	&#13;
+	&#13;
+/*&#13;
+function RenderValue(vValue, nLevel)&#13;
+{&#13;
+	nLevel = parseInt(nLevel);&#13;
+	var strLevel = '___';&#13;
+	strLevel = strLevel.repeat(nLevel);&#13;
+	&#13;
+	var bIsObject = vValue instanceof Object;&#13;
+	var strTypeOf = typeof vValue;&#13;
+&#13;
+	if (vValue === undefined)&#13;
+	{&#13;
+		return 'undefined';&#13;
+	}&#13;
+	if (vValue === null)&#13;
+	{&#13;
+		return 'null';&#13;
+	}&#13;
+&#13;
+	var strOutput = '';&#13;
+	&#13;
+	if (Array.isArray(vValue))&#13;
+	{&#13;
+		if (vValue.length == 0)&#13;
+		{&#13;
+			strOutput += strLevel+'[]';&#13;
+		}&#13;
+		else&#13;
+		{&#13;
+			vValue.forEach( function(vElement,nKey)&#13;
+			{&#13;
+				strOutput += '\n'+strLevel+'['+nKey+']: '+RenderValue(vElement,nLevel+1);&#13;
+			});&#13;
+		}&#13;
+	}&#13;
+	else if (bIsObject || (strTypeOf == 'object'))&#13;
+	{&#13;
+		if (vValue.getValue == undefined)&#13;
+		{&#13;
+			Object.keys(vValue).forEach( function(strKey)&#13;
+			{&#13;
+				strOutput += '\n'+strLevel+'["'+strKey+'"]: '+RenderValue(''+vValue[strKey],nLevel+1);&#13;
+			});&#13;
+		}&#13;
+		else&#13;
+		{&#13;
+			Object.keys(vValue).forEach( function(strKey)&#13;
+			{&#13;
+				strOutput += '\n'+strLevel+'["'+strKey+'"]: '+RenderValue(vValue.getValue(strKey),nLevel+1);&#13;
+			});&#13;
+		}&#13;
+	}&#13;
+	else&#13;
+	{&#13;
+		strOutput += ''+vValue;&#13;
+	}&#13;
+	return strOutput;&#13;
+}&#13;
+*/&#13;
+	/*&#13;
+	function RenderValue(vValue)&#13;
+	{&#13;
+		return ''+vValue;&#13;
+	}&#13;
+	*/&#13;
+	&#13;
+	/*&#13;
+	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	var Debug = x_snc_devtools.Debug;&#13;
+	Debug('Verify the creation of users during the InitializeRecords test');&#13;
+	&#13;
+	stepUserA1 = steps('abd210e61b9490d0a89720a8ec4bcbb6');&#13;
+	//Debug(RenderValue(stepUserA1));&#13;
+	stepUserA2 = steps('ebd210e61b9490d0a89720a8ec4bcbd4');&#13;
+	//Debug(RenderValue(stepUserA2));&#13;
+	&#13;
+	var strUserA1 = stepUserA1.user.toString();&#13;
+	var strUserA2 = stepUserA2.user.toString();&#13;
+&#13;
+	&#13;
+	Debug('User A1: '+strUserA1);&#13;
+	Debug('User A2: '+strUserA2);&#13;
+	&#13;
+	//var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;&#13;
+	&#13;
+	var aUserA1Groups = GetGroupsFromUser(strUserA1);&#13;
+	var aUserA2Groups = GetGroupsFromUser(strUserA2);&#13;
+&#13;
+	Debug('Groups A1: '+RenderValue(aUserA1Groups));&#13;
+	Debug('Groups A2: '+RenderValue(aUserA2Groups));&#13;
+	&#13;
+	if (aUserA1Groups.length == 0)&#13;
+	{&#13;
+		Debug('Error: A1 has no groups!');&#13;
+		return false;&#13;
+	}&#13;
+	if (aUserA2Groups.length == 0)&#13;
+	{&#13;
+		Debug('Error: A2 has no groups!');&#13;
+&#13;
+		return false;&#13;
+	}&#13;
+	&#13;
+	var aUserA1Silos = GetSilosFromUser(strUserA1);&#13;
+	var aUserA2Silos = GetSilosFromUser(strUserA2);&#13;
+&#13;
+	Debug('Silos A1: '+RenderValue(aUserA1Silos));&#13;
+	Debug('Silos A2: '+RenderValue(aUserA2Silos));&#13;
+	&#13;
+	if (aUserA1Silos.length == 0)&#13;
+	{&#13;
+		Debug('Error: User A1 has no silos!');&#13;
+		return false;&#13;
+	}&#13;
+	if (aUserA2Silos.length == 0)&#13;
+	{&#13;
+		Debug('Error: User A2 has no silos!');&#13;
+		return false;&#13;
+	}&#13;
+	*/&#13;
+	&#13;
+	return true;&#13;
+&#13;
+	&#13;
+	&#13;
+})(outputs, steps, stepResult, assertEqual);&#13;
+// uncomment the next line to execute this script as a jasmine test&#13;
+//jasmine.getEnv().execute();&#13;
+</value>
+        <variable display_value="">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>b3d210e61b9490d0a89720a8ec4bcbe5</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-23 13:12:34</sys_created_on>
+        <sys_id>7fd210e61b9490d0a89720a8ec4bcbe5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-23 13:12:34</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
+        <instance_name>empswildgrube1</instance_name>
+        <name>sys_atf_step_b3d210e61b9490d0a89720a8ec4bcbe5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from display_value="Run Server Side Script">7f403e8a1b5050d0a89720a8ec4bcbdb</copied_from><description>Run Server Side Validation Script</description><display_name>Run Server Side Script</display_name><inputs/><mugshots_cache_json/><notes>Verify that the users A1 and A2 und silos have been set up properly</notes><order>24</order><snapshot/><step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-23 13:12:34</sys_created_on><sys_id>b3d210e61b9490d0a89720a8ec4bcbe5</sys_id><sys_mod_count>34</sys_mod_count><sys_name>Run Server Side Script</sys_name><sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_atf_step_b3d210e61b9490d0a89720a8ec4bcbe5</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-05-15 12:51:58</sys_updated_on><table/><test display_value="DataSilos - Incident - Cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=b3d210e61b9490d0a89720a8ec4bcbe5"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>b3d210e61b9490d0a89720a8ec4bcbe5</document_key><order>200</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-23 13:12:34</sys_created_on><sys_id>33d210e61b9490d0a89720a8ec4bcbe6</sys_id><sys_mod_count>2</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-04-23 13:25:42</sys_updated_on><value>(function(outputs, steps, stepResult, assertEqual) {&#13;
+&#13;
+function GetGroupsFromUser(strUserSysId)&#13;
+{&#13;
+	strUserSysId = ''+strUserSysId;&#13;
+	var aGroups = [];&#13;
+	var grUser = new GlideRecord('sys_user');&#13;
+	if (grUser.get(strUserSysId) == null)&#13;
+	{&#13;
+		return aGroups;&#13;
+	}&#13;
+	var grUserGroups = new GlideRecord('sys_user_grmember');&#13;
+	grUserGroups.addQuery('user','=',strUserSysId);&#13;
+	grUserGroups.query();&#13;
+	while(grUserGroups.next())&#13;
+	{&#13;
+		aGroups.push(grUserGroups.getValue('group'));&#13;
+	}&#13;
+	return aGroups;&#13;
+}&#13;
+	&#13;
+	&#13;
+/*&#13;
+function RenderValue(vValue, nLevel)&#13;
+{&#13;
+	nLevel = parseInt(nLevel);&#13;
+	var strLevel = '___';&#13;
+	strLevel = strLevel.repeat(nLevel);&#13;
+	&#13;
+	var bIsObject = vValue instanceof Object;&#13;
+	var strTypeOf = typeof vValue;&#13;
+&#13;
+	if (vValue === undefined)&#13;
+	{&#13;
+		return 'undefined';&#13;
+	}&#13;
+	if (vValue === null)&#13;
+	{&#13;
+		return 'null';&#13;
+	}&#13;
+&#13;
+	var strOutput = '';&#13;
+	&#13;
+	if (Array.isArray(vValue))&#13;
+	{&#13;
+		if (vValue.length == 0)&#13;
+		{&#13;
+			strOutput += strLevel+'[]';&#13;
+		}&#13;
+		else&#13;
+		{&#13;
+			vValue.forEach( function(vElement,nKey)&#13;
+			{&#13;
+				strOutput += '\n'+strLevel+'['+nKey+']: '+RenderValue(vElement,nLevel+1);&#13;
+			});&#13;
+		}&#13;
+	}&#13;
+	else if (bIsObject || (strTypeOf == 'object'))&#13;
+	{&#13;
+		if (vValue.getValue == undefined)&#13;
+		{&#13;
+			Object.keys(vValue).forEach( function(strKey)&#13;
+			{&#13;
+				strOutput += '\n'+strLevel+'["'+strKey+'"]: '+RenderValue(''+vValue[strKey],nLevel+1);&#13;
+			});&#13;
+		}&#13;
+		else&#13;
+		{&#13;
+			Object.keys(vValue).forEach( function(strKey)&#13;
+			{&#13;
+				strOutput += '\n'+strLevel+'["'+strKey+'"]: '+RenderValue(vValue.getValue(strKey),nLevel+1);&#13;
+			});&#13;
+		}&#13;
+	}&#13;
+	else&#13;
+	{&#13;
+		strOutput += ''+vValue;&#13;
+	}&#13;
+	return strOutput;&#13;
+}&#13;
+*/&#13;
+	/*&#13;
+	function RenderValue(vValue)&#13;
+	{&#13;
+		return ''+vValue;&#13;
+	}&#13;
+	*/&#13;
+	&#13;
+	/*&#13;
+	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	var Debug = x_snc_devtools.Debug;&#13;
+	Debug('Verify the creation of users during the InitializeRecords test');&#13;
+	&#13;
+	stepUserA1 = steps('abd210e61b9490d0a89720a8ec4bcbb6');&#13;
+	//Debug(RenderValue(stepUserA1));&#13;
+	stepUserA2 = steps('ebd210e61b9490d0a89720a8ec4bcbd4');&#13;
+	//Debug(RenderValue(stepUserA2));&#13;
+	&#13;
+	var strUserA1 = stepUserA1.user.toString();&#13;
+	var strUserA2 = stepUserA2.user.toString();&#13;
+&#13;
+	&#13;
+	Debug('User A1: '+strUserA1);&#13;
+	Debug('User A2: '+strUserA2);&#13;
+	&#13;
+	//var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;&#13;
+	&#13;
+	var aUserA1Groups = GetGroupsFromUser(strUserA1);&#13;
+	var aUserA2Groups = GetGroupsFromUser(strUserA2);&#13;
+&#13;
+	Debug('Groups A1: '+RenderValue(aUserA1Groups));&#13;
+	Debug('Groups A2: '+RenderValue(aUserA2Groups));&#13;
+	&#13;
+	if (aUserA1Groups.length == 0)&#13;
+	{&#13;
+		Debug('Error: A1 has no groups!');&#13;
+		return false;&#13;
+	}&#13;
+	if (aUserA2Groups.length == 0)&#13;
+	{&#13;
+		Debug('Error: A2 has no groups!');&#13;
+&#13;
+		return false;&#13;
+	}&#13;
+	&#13;
+	var aUserA1Silos = GetSilosFromUser(strUserA1);&#13;
+	var aUserA2Silos = GetSilosFromUser(strUserA2);&#13;
+&#13;
+	Debug('Silos A1: '+RenderValue(aUserA1Silos));&#13;
+	Debug('Silos A2: '+RenderValue(aUserA2Silos));&#13;
+	&#13;
+	if (aUserA1Silos.length == 0)&#13;
+	{&#13;
+		Debug('Error: User A1 has no silos!');&#13;
+		return false;&#13;
+	}&#13;
+	if (aUserA2Silos.length == 0)&#13;
+	{&#13;
+		Debug('Error: User A2 has no silos!');&#13;
+		return false;&#13;
+	}&#13;
+	*/&#13;
+	&#13;
+	return true;&#13;
+&#13;
+	&#13;
+	&#13;
+})(outputs, steps, stepResult, assertEqual);&#13;
+// uncomment the next line to execute this script as a jasmine test&#13;
+//jasmine.getEnv().execute();&#13;
+</value><variable display_value="">989d9e235324220002c6435723dc3484</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>b3d210e61b9490d0a89720a8ec4bcbe5</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-04-23 13:12:34</sys_created_on><sys_id>7fd210e61b9490d0a89720a8ec4bcbe5</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-04-23 13:12:34</sys_updated_on><value>3.1</value><variable display_value="">42f2564b73031300440211d8faf6a777</variable></sys_variable_value></record_update>]]></payload>
+        <payload_hash>2082083488</payload_hash>
+        <record_name>Run Server Side Script</record_name>
+        <reverted_from/>
+        <source>627c4948db2c1410ba15a35305961906</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-15 12:51:58</sys_created_on>
+        <sys_id>6821a16d1b7c5810a89720a8ec4bcb9f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>172186430450000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-15 12:51:58</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>a021a16d577c5810b6f3b793ed02859f</update_guid>
+        <update_guid_history>a021a16d577c5810b6f3b793ed02859f:2082083488,df11616df67c5810149890e8c14bf643:1377475711,6411ad2d327c5810f7e99f89601d7078:672867934,921a5cae409490d085cc9bfc6f6f34fd:-218262661,54d918ae319490d0330bd011c06f23f9:-248076388,dd09986e2e9490d0c36365c90808b0f1:-277890115,77b8946e9f9490d0a4932fbd5f8dc10c:-307703842,2247dceaf79490d0dfe5635a398967fc:-337517569,69d618ea949490d046a781ec9b23c04e:-367331296,18e554aa5e9490d0ec1dc122fdd1655b:-397145023,e8b514aaad9490d0c0a65e435df13ede:-1240689620,e165dc6a779490d050c292826f042756:1305007565,8835d86ad39490d089d8fc5b3cf77c03:1475770787,9cd4146af29490d024a083e045f9e7df:-273499324,7c24182a6d9490d010e73c751c3c9be5:-2022769435,81f3542a739490d06f9fb731711cd501:522927750,eb939ce68f9490d084a1bb76e8156b89:-1226342361,37d210e6ce9490d0932c3bf90af8cbeb:1520327718,f7d210e6d79490d0b928552e8a15d9e7:-1259435280</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-15 12:55:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>692aa881b33c4f60a9c1ebad8786bca4</sys_id>
+        <sys_metadata>b3d210e61b9490d0a89720a8ec4bcbe5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_b3d210e61b9490d0a89720a8ec4bcbe5</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_b3d210e61b9490d0a89720a8ec4bcbe5">6821a16d1b7c5810a89720a8ec4bcb9f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-15 12:55:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">d23334dcdb505c90ba15a3530596197f</copied_from>
+        <copied_from display_value="">d23334dcdb505c90ba15a3530596197f</copied_from>
         <description>Insert a record into 'x_snc_datasilos_datasilos' with the following values:
 Name = _ATF_DATASILOS_A
 Confirm the record was successfully inserted</description>

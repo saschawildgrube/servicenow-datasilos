@@ -3,27 +3,27 @@
         <active>true</active>
         <copied_from/>
         <description>Insert a record into 'x_snc_datasilos_datasilos' with the following values:
-Name = _ATF_DATASILOS_B
+Name = _ATF_DATASILOS_BETA
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Create silo B</notes>
-        <order>12</order>
+        <notes>Create silo BETA</notes>
+        <order>13</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:21:03</sys_created_on>
         <sys_id>0da4906a1b9490d0a89720a8ec4bcb08</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_0da4906a1b9490d0a89720a8ec4bcb08</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:21:03</sys_updated_on>
+        <sys_updated_on>2020-05-15 14:04:11</sys_updated_on>
         <table>x_snc_datasilos_datasilos</table>
         <test display_value="DataSilos - Incident - Cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>
@@ -80,10 +80,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:21:05</sys_created_on>
         <sys_id>e0d4546a1b9490d0a89720a8ec4bcb4f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:21:05</sys_updated_on>
-        <value>name=_ATF_DATASILOS_B^EQ</value>
+        <sys_updated_on>2020-05-15 14:04:11</sys_updated_on>
+        <value>name=_ATF_DATASILOS_BETA^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
 </record_update>

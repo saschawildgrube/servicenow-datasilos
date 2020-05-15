@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Create a User">2f12349cdb505c90ba15a3530596191e</copied_from>
+        <copied_from display_value="">2f12349cdb505c90ba15a3530596191e</copied_from>
         <description>Create user '_ATF_DATASILOS A2'
 With roles: itil</description>
         <display_name>Create a User</display_name>

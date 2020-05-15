@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
+    <sys_atf_test action="DELETE">
+        <active>true</active>
+        <copied_from display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</copied_from>
+        <description/>
+        <enable_parameterized_testing>false</enable_parameterized_testing>
+        <name>DataSilos - Incident copy</name>
+        <parameters/>
+        <remember/>
+        <sys_class_name>sys_atf_test</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-15 14:24:47</sys_created_on>
+        <sys_id>086671a11bfc5810a89720a8ec4bcbea</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - Incident copy</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_test_086671a11bfc5810a89720a8ec4bcbea</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-15 14:24:47</sys_updated_on>
+    </sys_atf_test>
+    <sys_variable_value action="DELETE" query="document_key=086671a11bfc5810a89720a8ec4bcbea"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>8bbd52e6db1a8cd02f68c59705961990</instance_id>
+        <instance_name>empswildgrube1</instance_name>
+        <name>sys_atf_test_086671a11bfc5810a89720a8ec4bcbea</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test"><sys_atf_test action="INSERT_OR_UPDATE"><active>true</active><copied_from display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</copied_from><description/><enable_parameterized_testing>false</enable_parameterized_testing><name>DataSilos - Incident copy</name><parameters/><remember/><sys_class_name>sys_atf_test</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-05-15 14:24:47</sys_created_on><sys_id>086671a11bfc5810a89720a8ec4bcbea</sys_id><sys_mod_count>0</sys_mod_count><sys_name>DataSilos - Incident copy</sys_name><sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_atf_test_086671a11bfc5810a89720a8ec4bcbea</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-05-15 14:24:47</sys_updated_on></sys_atf_test><sys_variable_value action="delete_multiple" query="document_key=086671a11bfc5810a89720a8ec4bcbea"/></record_update>]]></payload>
+        <payload_hash>-271444701</payload_hash>
+        <record_name>DataSilos - Incident copy</record_name>
+        <reverted_from/>
+        <source>627c4948db2c1410ba15a35305961906</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-15 14:24:47</sys_created_on>
+        <sys_id>486671a11bfc5810a89720a8ec4bcbed</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17218b9280e0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-15 14:24:47</sys_updated_on>
+        <type>Test</type>
+        <update_guid>806671a1d3fc58106bd8a6788f60e4ed</update_guid>
+        <update_guid_history>806671a1d3fc58106bd8a6788f60e4ed:-271444701</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-15 14:48:38</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_test">sys_atf_test</sys_db_object>
+        <sys_id>3337d68f6a234589bbd737cd9e23ca11</sys_id>
+        <sys_metadata>086671a11bfc5810a89720a8ec4bcbea</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - Incident copy</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_test_086671a11bfc5810a89720a8ec4bcbea</sys_update_name>
+        <sys_update_version display_value="sys_atf_test_086671a11bfc5810a89720a8ec4bcbea">486671a11bfc5810a89720a8ec4bcbed</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-15 14:48:38</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

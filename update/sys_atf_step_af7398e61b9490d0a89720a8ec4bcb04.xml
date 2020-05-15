@@ -3,7 +3,7 @@
         <active>true</active>
         <copied_from/>
         <description>Insert a record into 'sys_user_group' with the following values:
-Name = _ATF_DATASILOS_B_FULFILLERS_1
+Name = _ATF_DATASILOS_BETA_FULFILLER_1
 Confirm the record was successfully inserted
 
 Warning: Using a system table may cause unexpected behavior for other tests running in parallel&#13;
@@ -11,22 +11,22 @@ See the documentation for Test Design Considerations</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Create group B FULFILLERS 1</notes>
-        <order>5</order>
+        <notes>Create group BETA_FULFILLER_1</notes>
+        <order>6</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:15:49</sys_created_on>
         <sys_id>af7398e61b9490d0a89720a8ec4bcb04</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_af7398e61b9490d0a89720a8ec4bcb04</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:16:29</sys_updated_on>
+        <sys_updated_on>2020-05-15 13:59:50</sys_updated_on>
         <table>sys_user_group</table>
         <test display_value="DataSilos - Incident - Cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>
@@ -70,10 +70,10 @@ See the documentation for Test Design Considerations</warning_message>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:15:52</sys_created_on>
         <sys_id>84a3dce61b9490d0a89720a8ec4bcb27</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-23 13:15:52</sys_updated_on>
-        <value>name=_ATF_DATASILOS_B_FULFILLERS_1^EQ</value>
+        <sys_updated_on>2020-05-15 13:59:50</sys_updated_on>
+        <value>name=_ATF_DATASILOS_BETA_FULFILLER_1^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">

@@ -2,27 +2,27 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Impersonate the user: {{Step 11: Create a User.User}}</description>
+        <description>Impersonate the user: {{invalid step_id=2f12349cdb505c90ba15a3530596191e.}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Impersonate user ALPHA_FULFILLER</notes>
-        <order>24</order>
+        <order>14</order>
         <snapshot/>
         <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-12 14:37:51</sys_created_on>
         <sys_id>4b8c52681bb49410a89720a8ec4bcb1f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>45</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_4b8c52681bb49410a89720a8ec4bcb1f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-12 14:37:51</sys_updated_on>
+        <sys_updated_on>2020-05-15 14:40:36</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>

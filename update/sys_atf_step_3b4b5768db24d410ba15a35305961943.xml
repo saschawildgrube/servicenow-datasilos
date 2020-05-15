@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Log">e7d210e61b9490d0a89720a8ec4bcbb2</copied_from>
+        <copied_from display_value="">e7d210e61b9490d0a89720a8ec4bcbb2</copied_from>
         <description>Log: Create users</description>
         <display_name>Log</display_name>
         <inputs/>
