@@ -9,6 +9,8 @@
         <name>RecordAddWhiteListQuery</name>
         <script><![CDATA[function RecordAddWhiteListQuery(record)
 {
+	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
+
 	/*
 	if (gs.getSession().isInteractive() == false)
 	{
@@ -21,11 +23,11 @@
 		return true;
 	}
 
-	var aUserGroups = gs.getUser().getMyGroups();
+	var aUserGroups = GetGroupsFromUser(gs.getUser().getID());
 
 	if (aUserGroups.length > 0)
 	{
-		var query = current.addQuery('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[0]);
+		var query = record.addQuery('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[0]);
 		for (var nIndex = 1; nIndex < aUserGroups.length; nIndex++)
 		{
 			query.addOrCondition('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[nIndex]);
@@ -35,9 +37,9 @@
 	{
 		// If a user does not have any groups (and is not an admin) they should not see anything
 
-		// current.setAbortAction(true); <- this can't be done due to cross scope restrictions
+		// record.setAbortAction(true); <- this can't be done due to cross scope restrictions
 		// but we can set up a condition that will definitely fail
-		var query = current.addQuery('sys_id','=','');
+		var query = record.addQuery('sys_id','=','');
 	}
 	return true;
 }]]></script>
@@ -45,13 +47,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>RecordAddWhiteListQuery</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-04 09:21:54</sys_updated_on>
+        <sys_updated_on>2020-05-27 13:07:23</sys_updated_on>
     </sys_script_include>
 </record_update>

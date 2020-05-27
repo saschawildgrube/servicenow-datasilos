@@ -2,27 +2,27 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Impersonate the user: {{Step 1: Create a User.User}}</description>
+        <description>Impersonate the user: {{Step 2: Record Query.First record}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Impersonate user NORMAL</notes>
-        <order>3</order>
+        <order>4</order>
         <snapshot/>
         <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 13:17:34</sys_created_on>
         <sys_id>049d15fa1b901010a89720a8ec4bcb56</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_049d15fa1b901010a89720a8ec4bcb56</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 13:17:49</sys_updated_on>
+        <sys_updated_on>2020-05-27 13:18:19</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Management">cec9ddb61b901010a89720a8ec4bcba4</test>
         <timeout/>
@@ -50,10 +50,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 13:17:35</sys_created_on>
         <sys_id>8b9d95fa1b901010a89720a8ec4bcb27</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 13:17:35</sys_updated_on>
+        <sys_updated_on>2020-05-27 13:18:19</sys_updated_on>
         <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
-        <value>{{step['cf1dd9ba1b901010a89720a8ec4bcbf0'].user}}</value>
+        <value>{{step['78e95f15db099010ba15a35305961978'].first_record}}</value>
     </sys_element_mapping>
 </record_update>
