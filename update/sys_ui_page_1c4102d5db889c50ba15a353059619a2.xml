@@ -17,7 +17,7 @@
 	<h2>Use DataSilos if</h2>
 	<ul>
 		<li>Domain Separation is too strict</li>
-		<li>Domain Separation is already implemented for a different purpose and further more detailed visibilty rules must be enforced WITHIN a domain</li> 
+		<li>Domain Separation is already implemented for a different purpose and more detailed visibilty rules must be enforced WITHIN a domain</li> 
 		<li>There is a certain level of collaboration taking place between organizational units</li>
 		<li>Visibility of individual records can be defined by a user's assignment to groups</li>
 	</ul>
@@ -38,7 +38,7 @@
 	<h2>How DataSilos controls record visibility</h2>
 	<p>Users are members of groups. Groups can be associated to data silos by a silo manager. Each association between a group and a data silo has a type. Whether an individual user can see a record of a supported process depends on the type of their group's association with a silo.</p>
 	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group and they see all records that have been created by a member of the same group.</p>
-	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been created by users in all groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that has originates from the same silo.</p>
+	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been created by users in all groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo.</p>
 	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have been created by users in all groups that are associated to the same silo. They see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and conducted in their silos.</p>
 
 	<h2>System Requirements</h2>
@@ -187,13 +187,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-29 13:00:56</sys_updated_on>
+        <sys_updated_on>2020-06-04 16:50:28</sys_updated_on>
     </sys_ui_page>
 </record_update>
