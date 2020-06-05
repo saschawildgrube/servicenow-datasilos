@@ -3,28 +3,28 @@
         <active>true</active>
         <copied_from/>
         <description>Update a record in 'incident_task' with the following values:
-Assignment group = {{Step 5: Record Insert.Record}}
+Assignment group = {{Step 4: Record Insert.Record}}
 Confirm the record was successfully updated</description>
         <display_name>Record Update</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Task AB1 is assigned to group C</notes>
-        <order>17</order>
+        <order>14</order>
         <snapshot/>
         <step_config display_value="Record Update">17a72288df60220062fe6c7a4df26397</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 16:00:28</sys_created_on>
         <sys_id>b4496f65dbc41090ba15a3530596192d</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_b4496f65dbc41090ba15a3530596192d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-29 08:21:42</sys_updated_on>
+        <sys_updated_on>2020-06-05 16:11:52</sys_updated_on>
         <table>incident_task</table>
         <test display_value="DataSilos - Incident Task">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>

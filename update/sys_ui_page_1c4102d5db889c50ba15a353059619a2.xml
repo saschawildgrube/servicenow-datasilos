@@ -38,8 +38,8 @@
 	<h2>How DataSilos controls record visibility</h2>
 	<p>Users are members of groups. Groups can be associated to data silos by a silo manager. Each association between a group and a data silo has a type. Whether an individual user can see a record of a supported process depends on the type of their group's association with a silo.</p>
 	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group and they see all records that have been created by a member of the same group.</p>
-	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been created by users in all groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo.</p>
-	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have been created by users in all groups that are associated to the same silo. They see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and conducted in their silos.</p>
+	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been created by users in all groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo. However fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
+	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have been created by users in all groups that are associated to the same silo. They see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
 
 	<h2>System Requirements</h2>
 	<ul>
@@ -54,10 +54,17 @@
 		<li>How will external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
 	</ol>
 	
+	<h2>Roles</h2>
+	<p>DataSilos supports the following roles:</p>
+	<ul>
+		<li><b>x_snc_datasilos.admin:</b>&#160;A user that has access to all DataSilo administration and configuration modules. Includes the&#160;<b>x_snc_datasilos.manager</b>&#160;role.</li>
+		<li><b>x_snc_datasilos.manager:</b>&#160;A user that can configure data silos and assign groups to data silos.</li>
+	</ul>
+	
 	<h2>Installation guide</h2>
 	<ol>
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
-		<li>Assign the x_snc_datasilos.datasilos_manager role to users.</li>
+		<li>Assign the x_snc_datasilos.manager role to users.</li>
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups.</li>
 		<li>Prepare support for incidents:</li>
 		<ol>
@@ -187,13 +194,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>55</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-04 16:50:28</sys_updated_on>
+        <sys_updated_on>2020-06-05 14:41:10</sys_updated_on>
     </sys_ui_page>
 </record_update>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
     <sys_user_role_contains action="INSERT_OR_UPDATE">
-        <contains display_value="x_snc_datasilos.datasilos_manager" name="x_snc_datasilos.datasilos_manager">23df0da71b48d490a89720a8ec4bcb72</contains>
-        <role display_value="x_snc_datasilos.datasilos_admin" name="x_snc_datasilos.datasilos_admin">505c7b2fdbb78450ba15a3530596195b</role>
+        <contains display_value="x_snc_datasilos.manager" name="x_snc_datasilos.manager">23df0da71b48d490a89720a8ec4bcb72</contains>
+        <role display_value="x_snc_datasilos.admin" name="x_snc_datasilos.admin">505c7b2fdbb78450ba15a3530596195b</role>
         <sys_class_name>sys_user_role_contains</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 10:00:29</sys_created_on>

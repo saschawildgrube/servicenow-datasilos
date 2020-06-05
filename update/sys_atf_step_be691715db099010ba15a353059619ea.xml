@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-27 13:15:43</sys_created_on>
         <sys_id>be691715db099010ba15a353059619ea</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_be691715db099010ba15a353059619ea</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-27 13:16:23</sys_updated_on>
+        <sys_updated_on>2020-06-05 17:06:18</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Management">cec9ddb61b901010a89720a8ec4bcba4</test>
         <timeout/>
@@ -36,13 +36,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-27 13:15:44</sys_created_on>
         <sys_id>21a9db15db099010ba15a3530596191b</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-27 13:16:23</sys_updated_on>
+        <sys_updated_on>2020-06-05 17:06:18</sys_updated_on>
         <value>var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
 &#13;
 testdata.CreateUser('NORMAL',[]);&#13;
-testdata.CreateUser('MANAGER',['x_snc_datasilos.datasilos_manager']);</value>
+testdata.CreateUser('MANAGER',['x_snc_datasilos.manager']);</value>
         <variable display_value="">989d9e235324220002c6435723dc3484</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">2b35d46a1b9490d0a89720a8ec4bcbfd</copied_from>
+        <copied_from display_value="">2b35d46a1b9490d0a89720a8ec4bcbfd</copied_from>
         <description>Insert a record into 'x_snc_datasilos_m2m_groups_datasilos' with the following values:
 Data Silo = {{Step 12: Record Insert.Record}}
 and Group = {{Step 6: Record Insert.Record}}

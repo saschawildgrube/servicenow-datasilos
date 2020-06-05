@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">24f958ae1b9490d0a89720a8ec4bcba4</copied_from>
+        <copied_from display_value="">24f958ae1b9490d0a89720a8ec4bcba4</copied_from>
         <description>Insert a record into 'sys_user_grmember' with the following values:
 Group = {{Step 7: Record Insert.Record}}
 and User = {{Step 25: Create a User.User}}

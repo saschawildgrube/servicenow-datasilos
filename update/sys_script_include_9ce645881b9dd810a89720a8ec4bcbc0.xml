@@ -7,33 +7,48 @@
         <client_callable>false</client_callable>
         <description/>
         <name>Maintenance</name>
-        <script><![CDATA[function Maintenance()
+        <script><![CDATA[function Maintenance(grFilter)
 {
 	var Debug = x_snc_devtools.Debug;
 	var Log = x_snc_devtools.Log;
 	
+	// if grFilter is a GlideRecord then use it as the basis for subsequent requests to identify records to be changed
+	// if not process ALL records in all supported tables
+	// This is to provide testability
+	// For Debugging, use Debug()
+	// Please output errors using Log()
+	
+	
 	Debug('DataSilos: Maintenance: PART 1: Records with empty whitelist');
+	// Seek all records in all supported tables (or within the provided filter in grFilter) which have an empty whitelist and initialize these records
+	
 	
 	Debug('DataSilos: Maintenance: PART 2: Records with assignment group that is not whitelisted already');
+	// Seek all records in all supported tables (or within the provided filter in grFilter) which are assigned to a group which is NOT yet whitelisted and add these groups to the whitelist
 	
+		
 	Debug('DataSilos: Maintenance: PART 3: Whitelist groups that have been added to a silo AFTER record creation');
-
+	// Seek all records in all supported tables (or within the provided filter in grFilter) which are missing a supervisor or fulfiller group that has been added to a relevant silo. 
 	
-	//in case of an error:
+	// Have fun!
+	
+	//in case of an error use Log()
 	Log('DataSilos: Maintenance: Nothing is implemented yet.');
+	
+	return 0; // return the number of records that have been updated
 
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Maintenance</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-04 15:46:15</sys_updated_on>
+        <sys_updated_on>2020-06-05 10:14:57</sys_updated_on>
     </sys_script_include>
 </record_update>
