@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">89382725dbc41090ba15a353059619fc</copied_from>
+        <copied_from display_value="">89382725dbc41090ba15a353059619fc</copied_from>
         <description>Insert a record into 'sys_user_group' with the following values:
 Name = _ATF_DATASILOS_C
 Confirm the record was successfully inserted
