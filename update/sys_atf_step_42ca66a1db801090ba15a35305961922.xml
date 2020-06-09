@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Update">9b4a395ddb489c50ba15a35305961951</copied_from>
+        <copied_from display_value="">9b4a395ddb489c50ba15a35305961951</copied_from>
         <description>Update a record in 'incident' with the following values:
 Assignment group = {{Step 8: Record Query.First record}}
 Confirm the record was successfully updated</description>
