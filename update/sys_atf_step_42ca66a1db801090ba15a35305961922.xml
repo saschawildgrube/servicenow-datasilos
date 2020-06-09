@@ -9,7 +9,7 @@ Confirm the record was successfully updated</description>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Assign incident AB to group BETA</notes>
+        <notes>Assign incident TEST to group BETA</notes>
         <order>12</order>
         <snapshot/>
         <step_config display_value="Record Update">17a72288df60220062fe6c7a4df26397</step_config>
@@ -17,14 +17,14 @@ Confirm the record was successfully updated</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 11:26:39</sys_created_on>
         <sys_id>42ca66a1db801090ba15a35305961922</sys_id>
-        <sys_mod_count>94</sys_mod_count>
+        <sys_mod_count>95</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_42ca66a1db801090ba15a35305961922</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:38:35</sys_updated_on>
+        <sys_updated_on>2020-06-09 10:21:28</sys_updated_on>
         <table>incident</table>
         <test display_value="DataSilos - Incident Task">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>
