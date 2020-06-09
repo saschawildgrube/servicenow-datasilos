@@ -2,27 +2,27 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from display_value="Impersonate">b7d210e61b9490d0a89720a8ec4bcbf0</copied_from>
-        <description>Impersonate the user: {{Step 17: Create a User.User}}</description>
+        <description>Impersonate the user: {{Step 5: Record Query.First record}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Impersonate user A_FULFILLER</notes>
-        <order>29</order>
+        <notes>Impersonate user ALPHA_FULFILLER</notes>
+        <order>11</order>
         <snapshot/>
         <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 15:35:33</sys_created_on>
         <sys_id>083dfdfa1b141010a89720a8ec4bcbb3</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>105</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_083dfdfa1b141010a89720a8ec4bcbb3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-29 10:43:36</sys_updated_on>
+        <sys_updated_on>2020-06-08 18:05:02</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Incident Task - Cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout/>
@@ -50,10 +50,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 15:35:33</sys_created_on>
         <sys_id>c03dfdfa1b141010a89720a8ec4bcbb5</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-24 15:35:33</sys_updated_on>
+        <sys_updated_on>2020-06-08 17:53:37</sys_updated_on>
         <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
-        <value>{{step['972dbdfa1b141010a89720a8ec4bcbe3'].user}}</value>
+        <value>{{step['c32cc6d1db9d1c10ba15a35305961970'].first_record}}</value>
     </sys_element_mapping>
 </record_update>

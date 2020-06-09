@@ -4,28 +4,28 @@
         <copied_from/>
         <description>Insert a record into 'incident_task' with the following values:
 Short description = TEST_TASK_2
-and Incident = {{Step 30: Record Insert.Record}}
+and Incident = {{Step 12: Record Insert.Record}}
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Create incident task TEST_TASK_2</notes>
-        <order>33</order>
+        <order>15</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-29 10:16:35</sys_created_on>
         <sys_id>e804a618db609410ba15a3530596195e</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>112</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_e804a618db609410ba15a3530596195e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-29 10:43:36</sys_updated_on>
+        <sys_updated_on>2020-06-08 18:05:03</sys_updated_on>
         <table>incident_task</table>
         <test display_value="DataSilos - Incident Task - Cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout/>
