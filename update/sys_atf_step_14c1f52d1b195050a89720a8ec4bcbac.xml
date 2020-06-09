@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Record Insert">e804a618db609410ba15a3530596195e</copied_from>
+        <description>Insert a record into 'change_task' with the following values:
+Short description = TEST_TASK_2
+and Opened by = {{Step 5: Record Query.First record}}
+and Change request = {{Step 12: Record Insert.Record}}
+Confirm the record was successfully inserted</description>
+        <display_name>Record Insert</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Create task TEST_TASK_2</notes>
+        <order>15</order>
+        <snapshot/>
+        <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 10:35:58</sys_created_on>
+        <sys_id>14c1f52d1b195050a89720a8ec4bcbac</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Record Insert</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_14c1f52d1b195050a89720a8ec4bcbac</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 11:09:08</sys_updated_on>
+        <table>change_task</table>
+        <test display_value="DataSilos - Change Task - Cross-silo">efb17de91b195050a89720a8ec4bcbd7</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=14c1f52d1b195050a89720a8ec4bcbac"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>14c1f52d1b195050a89720a8ec4bcbac</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 10:35:58</sys_created_on>
+        <sys_id>1cc1f52d1b195050a89720a8ec4bcbad</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 10:39:45</sys_updated_on>
+        <value>change_task</value>
+        <variable display_value="">90144b535320220002c6435723dc3488</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>14c1f52d1b195050a89720a8ec4bcbac</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 10:35:58</sys_created_on>
+        <sys_id>58c1f52d1b195050a89720a8ec4bcbad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 10:35:58</sys_updated_on>
+        <value>1</value>
+        <variable display_value="">e6e3c7535320220002c6435723dc3496</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>14c1f52d1b195050a89720a8ec4bcbac</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 10:35:58</sys_created_on>
+        <sys_id>94c1f52d1b195050a89720a8ec4bcbad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 10:35:58</sys_updated_on>
+        <value>record_successfully_inserted</value>
+        <variable display_value="">9024a37f671003007ba405225685efe5</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>14c1f52d1b195050a89720a8ec4bcbac</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 10:35:58</sys_created_on>
+        <sys_id>dcc1f52d1b195050a89720a8ec4bcbad</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 11:09:08</sys_updated_on>
+        <value>short_description=TEST_TASK_2^opened_by={{step['33b1f52d1b195050a89720a8ec4bcb35'].first_record}}^change_request={{step['80c1f52d1b195050a89720a8ec4bcb7f'].record_id}}^EQ</value>
+        <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=14c1f52d1b195050a89720a8ec4bcbac"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>14c1f52d1b195050a89720a8ec4bcbac</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 10:35:58</sys_created_on>
+        <sys_id>d0c1f52d1b195050a89720a8ec4bcbae</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 11:09:08</sys_updated_on>
+        <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
+        <value>short_description=TEST_TASK_2^opened_by={{step['33b1f52d1b195050a89720a8ec4bcb35'].first_record}}^change_request={{step['80c1f52d1b195050a89720a8ec4bcb7f'].record_id}}^EQ</value>
+    </sys_element_mapping>
+</record_update>
