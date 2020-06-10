@@ -10,7 +10,7 @@
         <license_model>none</license_model>
         <logo/>
         <menu display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</menu>
-        <name>DataSilos</name>
+        <name>DataSilos WORK IN PROGRESS</name>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
         <runtime_access_tracking>permissive</runtime_access_tracking>
@@ -25,14 +25,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:13:32</sys_created_on>
         <sys_id>dafbffebdbb78450ba15a353059619eb</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-04-30 10:58:09</sys_updated_on>
+        <sys_updated_on>2020-06-09 11:17:05</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>0.0.2</version>
+        <version>0.0.3</version>
     </sys_app>
 </record_update>

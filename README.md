@@ -28,3 +28,4 @@ If you find yourself unable to import your repository due to the presence of fil
    Currently listed dependencies:
    * Change Request
    * Incident
+   * System Import Sets
