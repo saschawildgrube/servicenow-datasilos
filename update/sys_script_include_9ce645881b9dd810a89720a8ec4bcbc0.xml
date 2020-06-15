@@ -27,7 +27,7 @@
 	// Seek all records in all supported tables (or within the provided filter in grFilter) which are assigned to a group which is NOT yet whitelisted and add these groups to the whitelist
 	
 		
-	Debug('DataSilos: Maintenance: PART 3: Whitelist groups that have been added to a silo AFTER supported record creation');
+	Debug('DataSilos: Maintenance: PART 3: Whitelist groups that have been added to a silo AFTER the supported record has been created or changed');
 	// Seek all records in all supported tables (or within the provided filter in grFilter) which are missing a supervisor or fulfiller group that has been added to a relevant silo. 
 	
 	// Have fun!
@@ -42,13 +42,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Maintenance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-10 08:35:10</sys_updated_on>
+        <sys_updated_on>2020-06-10 09:12:57</sys_updated_on>
     </sys_script_include>
 </record_update>
