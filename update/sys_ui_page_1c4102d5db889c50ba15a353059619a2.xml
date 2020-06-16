@@ -162,9 +162,9 @@ Query: true
 	
 	<h2>FAQ</h2>
 	<h3>What happens if a user is not associated to any group?</h3>
-	<p>The user will not see any records unless the user has the admin role.</p>
+	<p>The user will only see records that they created (opened_by) or which have been created on their behalf (caller_id). Those users will not see any other records unless that user has the admin role.</p>
 	<h3>What happens if a record is not associated to any group?</h3>
-	<p>No user - except admins - will see this record.</p>
+	<p>Only users who created that record or have the admin role will see this record.</p>
 	<h3>How does it work?</h3>
 	<p>DataSilos adds a new field to all relevant tables that contains a whitelist of groups. A user that is at least member of one of these whitelisted groups may see the record. Business rules in the global scope will alter the query and act on inserts and updates to control visibility and extend the whitelist where appropriate.</p>
 	
@@ -209,13 +209,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_mod_count>64</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-15 16:54:07</sys_updated_on>
+        <sys_updated_on>2020-06-16 08:46:20</sys_updated_on>
     </sys_ui_page>
 </record_update>
