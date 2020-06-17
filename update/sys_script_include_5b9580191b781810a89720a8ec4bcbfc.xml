@@ -15,7 +15,7 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 		var Log = x_snc_devtools.Log;
 		var RenderValue = x_snc_devtools.RenderValue;
 		var strPrefix = this.GetPrefix();
-		Log('DataSilos: CreateTestSilo: '+strName+' '
+		Log('DataSilos: CreateSilo: '+strName+' '
 			+RenderValue(aMemberGroupNames)+' '
 			+RenderValue(aFulfillerGroupNames)+' '
 			+RenderValue(aSupervisorGroupNames));	
@@ -43,7 +43,7 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 		var strDataSiloSysId = grDataSilo.insert();
 		if (strDataSiloSysId == null)
 		{
-			Log('DataSilos: CreateTestSilo: Create Silo "'+strName+'" failed!');
+			Log('DataSilos: CreateSilo: Create Silo "'+strName+'" failed!');
 		}
 		else
 		{
@@ -63,7 +63,7 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 					}
 					else
 					{
-						Log('DataSilos: CreateTestSilo: Member group "'+strGroupName+'" not found!');
+						Log('DataSilos: CreateSilo: Member group "'+strGroupName+'" not found!');
 					}
 				}
 			});			
@@ -81,7 +81,7 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 					}
 					else
 					{
-						Log('DataSilos: CreateTestSilo: Fulfiller group "'+strGroupName+'" not found!');
+						Log('DataSilos: CreateSilo: Fulfiller group "'+strGroupName+'" not found!');
 					}
 				}
 
@@ -100,7 +100,7 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 					}
 					else
 					{
-						Log('DataSilos: CreateTestSilo: Supervisor group "'+strGroupName+'" not found!');
+						Log('DataSilos: CreateSilo: Supervisor group "'+strGroupName+'" not found!');
 					}
 				}
 			});
@@ -114,13 +114,13 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-14 11:34:11</sys_created_on>
         <sys_id>5b9580191b781810a89720a8ec4bcbfc</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>DataSilosTestDataAPI</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5b9580191b781810a89720a8ec4bcbfc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-16 12:31:36</sys_updated_on>
+        <sys_updated_on>2020-06-17 15:04:48</sys_updated_on>
     </sys_script_include>
 </record_update>
