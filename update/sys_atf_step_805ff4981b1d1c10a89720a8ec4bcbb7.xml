@@ -7,21 +7,21 @@
         <inputs/>
         <mugshots_cache_json/>
         <notes/>
-        <order>1</order>
+        <order>2</order>
         <snapshot/>
         <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>805ff4981b1d1c10a89720a8ec4bcbb7</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_805ff4981b1d1c10a89720a8ec4bcbb7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-10 08:42:49</sys_updated_on>
+        <sys_updated_on>2020-06-18 10:31:55</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Maintenance">780fb0981b1d1c10a89720a8ec4bcb47</test>
         <timeout/>
@@ -36,9 +36,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>5fef7c981b1d1c10a89720a8ec4bcbd7</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-10 08:42:49</sys_updated_on>
+        <sys_updated_on>2020-06-18 10:31:55</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -71,14 +71,26 @@ The function is supposed to be called every minute and shall cover all potential
 	&#13;
 	// Test case "Maintenance: PART 1: Records with empty whitelist"&#13;
 	testdata.CreateUser('CALLER1');&#13;
-	testdata.CreateIncident('TEST1','CALLER1','');&#13;
+	testdata.CreateUser('ALBERT');&#13;
+	var strGroupAlphaSysId = testdata.CreateGroup('ALPHA',['ALBERT']);&#13;
+	var strIncidentSysId = testdata.CreateIncident('TEST1','CALLER1','');&#13;
+	&#13;
+	// Prepare a record with an empty whitelist&#13;
+	var grIncident1 = new GlideRecord('incident');&#13;
+	if (grIncident1.get(strIncidentSysId))&#13;
+	{&#13;
+		grIncident1.assignment_group = strGroupAlphaSysId;&#13;
+		grIncident1.x_snc_datasilos_group_whitelist = '';&#13;
+		grIncident1.update();&#13;
+	}&#13;
+	&#13;
 	var grPart1Incidents = new GlideRecord('incident');&#13;
 	grPart1Incidents.addQuery('short_description','startswith',testdata.GetPrefix());&#13;
-	TestCase_Maintenance(grPart1Incidents,0);&#13;
+	TestCase_Maintenance(grPart1Incidents,1);&#13;
 	&#13;
 	// TODO: Add code to check if the records have been modified in an expected way! This CAN be done using scripts. But it could also be done using RecordQuery test steps.&#13;
 &#13;
-	&#13;
+/*	&#13;
 	// Test case "Maintenance: PART 2: Records with assignment group that is not whitelisted already"&#13;
 	testdata.CreateUser('CALLER2');&#13;
 	testdata.CreateIncident('TEST2','CALLER2','');&#13;
@@ -93,7 +105,7 @@ The function is supposed to be called every minute and shall cover all potential
 	var grPart3Incidents = new GlideRecord('incident');&#13;
 	grPart1Incidents.addQuery('short_description','startswith',testdata.GetPrefix());&#13;
 	TestCase_Maintenance(grPart3Incidents,0);&#13;
-&#13;
+*/&#13;
 	&#13;
 	&#13;
 		&#13;

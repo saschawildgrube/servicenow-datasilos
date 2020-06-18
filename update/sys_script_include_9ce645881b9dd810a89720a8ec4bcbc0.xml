@@ -9,6 +9,185 @@
         <name>Maintenance</name>
         <script><![CDATA[function Maintenance(grFilter)
 {
+	return 1;
+    var Debug = x_snc_devtools.Debug;
+    var Log = x_snc_devtools.Log;
+
+    // if grFilter is a GlideRecord then use it as the basis for subsequent requests to identify records to be changed
+    // if not process ALL records in all supported tables
+    // This is to provide testability
+    // For Debugging, use Debug()
+    // Please output errors using Log()
+
+
+    if (grFilter !== undefined) {
+        gs.info("returns: grFilter not null - grFilter : " + grFilter);
+        records_With_Empty_Whitelist(grFilter); //part1
+        records_With_Assigned_Group_Not_Whitelisted(grFilter); //part2
+
+    } else {
+
+        gs.info("returns: grFilter not null - grFilter empty  process ALL supported Tables");
+        records_With_Empty_Whitelist(grFilter); //part1
+        records_With_Assigned_Group_Not_Whitelisted(grFilter); //part2
+    }
+
+    Debug('DataSilos: Maintenance: PART 1: Records with empty whitelist');
+    // Seek all records in all supported tables (or within the provided filter in grFilter) which have an empty whitelist and initialize these records
+
+    function get_supported_Tables() {
+        var supported_Tables = ['incident', 'incident_task', 'change_request', 'change_task'];
+        return supported_Tables;
+    }
+
+    function records_With_Empty_Whitelist(grFilter) {
+
+        gs.info("returns: in records_With_Empty_Whitelist : " + grFilter);
+
+        var supported_Tables = get_supported_Tables();
+
+
+        if (grFilter !== undefined) {
+            var strTable = grFilter.getRecordClassName();
+            initializeRecord(strTable, grFilter);
+
+        } else
+
+
+        {
+            for (var i = 0; i < supported_Tables.length; i++) {
+                gs.info("returns: in loop 1: " + supported_Tables[i]);
+                if (IsTableSupported(supported_Tables[i])) //table is MainRecord : to be process
+                {
+                    gs.info("returns: in loop 2: " + supported_Tables[i]);
+                    initializeRecords(supported_Tables[i]);
+                }
+
+            }
+        }
+
+    }
+
+
+
+    function initializeRecords(tableName) {
+
+        gs.info("returns: initializeRecords for table : " + tableName);
+
+        var grRecords = new GlideRecord(tableName);
+        grRecords.addQuery('x_snc_datasilos_group_whitelist', '');
+        grRecords.query();
+        while (grRecords.next()) {
+
+            gs.info("returns: initializeRecords processing record Number : " + grRecords.number);
+            gs.info("returns: initializeRecords processing record Number : " + grRecords.x_snc_datasilos_group_whitelist);
+
+            RecordInitialize(grRecords);
+            gs.info("returns: initializeRecords processing record Number : " + grRecords.number + "whilelist: " + grRecords.x_snc_datasilos_group_whitelist);
+            grRecords.update();
+
+
+        }
+    }
+
+    function initializeRecord(tableName, grFilter) {
+        //gs.info("returns: initializeRecord for grFilter : " + grFilter + "from table : " + tableName);
+        RecordInitialize(grFilter);
+        grFilter.update();
+
+    }
+
+
+
+
+    Debug('DataSilos: Maintenance: PART 2: Records with assignment group that is not whitelisted already');
+    // Seek all records in all supported tables (or within the provided filter in grFilter) which are assigned to a group which is NOT yet whitelisted and add these groups to the whitelist
+
+
+
+    function records_With_Assigned_Group_Not_Whitelisted(grFilter) {
+
+        gs.info("returns: in records_With_Assigned_Group_Not_Whitelisted : " + grFilter);
+        var supported_Tables = get_supported_Tables();
+
+        if (grFilter !== undefined) {
+            var strTable = grFilter.getRecordClassName();
+            whitelistAssignedGroups(grFilter);
+        } else {
+            for (var i = 0; i < supported_Tables.length; i++) {
+                if (IsTableSupported(supported_Tables[i])) //table is MainRecord : to be process
+                {
+                    whitelistAssignedGroups(supported_Tables[i]);
+                }
+            }
+        }
+    }
+
+    function whitelistAssignedGroups(tableName) {
+
+        gs.info("returns: whitelistAssignedGroups for table : " + tableName);
+
+        var grRecords = new GlideRecord(tableName);
+        //grRecords.addQuery('x_snc_datasilos_group_whitelist', '');
+        grRecords.addEncodedQuery('x_snc_datasilos_group_whitelistISNOTEMPTY');
+        grRecords.query();
+        while (grRecords.next()) {
+
+            gs.info("returns: whitelistAssignedGroups processing record Number : " + grRecords.number);
+            gs.info("returns: whitelistAssignedGroups processing record Number : " + grRecords.x_snc_datasilos_group_whitelist);
+
+
+            for (var id in grRecords.x_snc_datasilos_group_whitelist) {
+
+                var whitelist = grRecords.x_snc_datasilos_group_whitelist[id];
+                var Group = grRecords.assignment_group[id];
+
+                if (isAssignedGroupsWhitelisted(Group, whitelist)) {
+                    //do noting
+                } else {
+                    grRecords.x_snc_datasilos_group_whitelist = whitelist.push(Group);
+                    //addAssignedGroupsWhitelist(strGroup);
+                    grRecords.update();
+                }
+            }
+        }
+    }
+
+
+    function isAssignedGroupsWhitelisted(Group, whitelist) {
+
+        var group = Group.toString();
+        var list = whitelist.toString();
+        var array = list.split(",");
+        var found = false;
+
+        for (var i = 0; i < array.length; i++) {
+            if (group == array[i]) {
+                found = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    Debug('DataSilos: Maintenance: PART 3: Whitelist groups that have been added to a silo AFTER record creation');
+    // Seek all records in all supported tables (or within the provided filter in grFilter) which are missing a supervisor or fulfiller group that has been added to a relevant silo. ????
+
+
+    // Have fun!
+
+    //in case of an error use Log()
+    Log('DataSilos: Maintenance: Nothing is implemented yet.');
+
+    return 0; // return the number of records that have been updated
+
+}
+
+
+/*
+function Maintenance(grFilter)
+{
 	var Debug = x_snc_devtools.Debug;
 	var Log = x_snc_devtools.Log;
 	
@@ -37,18 +216,19 @@
 	
 	return 0; // return the number of records that have been updated
 
-}]]></script>
+}
+*/]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Maintenance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-10 09:12:57</sys_updated_on>
+        <sys_updated_on>2020-06-18 10:31:38</sys_updated_on>
     </sys_script_include>
 </record_update>

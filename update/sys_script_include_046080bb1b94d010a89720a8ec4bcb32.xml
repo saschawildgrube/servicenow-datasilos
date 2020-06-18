@@ -18,11 +18,6 @@
 	}
 	*/
 
-	if (gs.hasRole('admin') == true)
-	{
-		return true;
-	}
-
 	var strUserSysId = gs.getUser().getID();
 	
 	var aUserGroups = GetGroupsFromUser(strUserSysId);
@@ -47,13 +42,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>RecordAddWhiteListQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-16 08:43:45</sys_updated_on>
+        <sys_updated_on>2020-06-18 10:33:53</sys_updated_on>
     </sys_script_include>
 </record_update>
