@@ -61,6 +61,8 @@
 	<ul>
 		<li><b>x_snc_datasilos.admin:</b>&#160;A user that has access to all DataSilo administration and configuration modules. Includes the&#160;<b>x_snc_datasilos.manager</b>&#160;role.</li>
 		<li><b>x_snc_datasilos.manager:</b>&#160;A user that can configure data silos and assign groups to data silos.</li>
+		<li><b>x_snc_datasilos.sentinel:</b>&#160;A user that is NOT impacted by any filtering by DataSilos. This is suitable for users that should have global access (e.g. for reporting) or technical users (for integrations).</li>
+		<li><b>x_snc_datasilos.ghost:</b>&#160;A user that can create and modify records without impacting the white list.</li>
 	</ul>
 	
 	<h2>Installation guide</h2>
@@ -211,13 +213,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>66</sys_mod_count>
+        <sys_mod_count>67</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-17 12:04:29</sys_updated_on>
+        <sys_updated_on>2020-06-18 19:20:51</sys_updated_on>
     </sys_ui_page>
 </record_update>

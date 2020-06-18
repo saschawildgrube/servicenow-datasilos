@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
     <sys_embedded_help_role action="INSERT_OR_UPDATE">
         <order>1000</order>
-        <role display_value="x_snc_datasilos.testdata_creator" name="x_snc_datasilos.testdata_creator">eb44c8e01be99010a89720a8ec4bcb14</role>
+        <role display_value="x_snc_datasilos.ghost" name="x_snc_datasilos.ghost">eb44c8e01be99010a89720a8ec4bcb14</role>
         <sys_class_name>sys_embedded_help_role</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-18 10:21:33</sys_created_on>
