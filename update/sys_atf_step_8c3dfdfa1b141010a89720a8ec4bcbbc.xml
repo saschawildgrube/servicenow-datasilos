@@ -6,29 +6,30 @@
 Short description = _ATF_DATASILOS_TEST
 and Caller = {{Step 3: Record Query.First record}}
 and Opened by = {{Step 5: Record Query.First record}}
+and Assignment group = {{Step 10: Record Query.First record}}
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>User ALPHA_FULFILLER creates incident TEST</notes>
-        <order>12</order>
+        <order>13</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 15:35:33</sys_created_on>
         <sys_id>8c3dfdfa1b141010a89720a8ec4bcbbc</sys_id>
-        <sys_mod_count>107</sys_mod_count>
+        <sys_mod_count>111</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_8c3dfdfa1b141010a89720a8ec4bcbbc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 18:05:02</sys_updated_on>
+        <sys_updated_on>2020-06-22 16:44:20</sys_updated_on>
         <table>incident</table>
-        <test display_value="DataSilos - Incident Task - Cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
+        <test display_value="DataSilos - Incident_task - Cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
@@ -55,10 +56,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 15:35:33</sys_created_on>
         <sys_id>403dfdfa1b141010a89720a8ec4bcbbf</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 17:54:18</sys_updated_on>
-        <value>short_description=_ATF_DATASILOS_TEST^caller_id={{step['d87b4291db9d1c10ba15a3530596192d'].first_record}}^opened_by={{step['c32cc6d1db9d1c10ba15a35305961970'].first_record}}^EQ</value>
+        <sys_updated_on>2020-06-22 16:44:20</sys_updated_on>
+        <value>short_description=_ATF_DATASILOS_TEST^caller_id={{step['d87b4291db9d1c10ba15a3530596192d'].first_record}}^opened_by={{step['c32cc6d1db9d1c10ba15a35305961970'].first_record}}^assignment_group={{step['7262cef11b6d1410a89720a8ec4bcb39'].first_record}}^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -108,10 +109,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-24 15:35:33</sys_created_on>
         <sys_id>443dfdfa1b141010a89720a8ec4bcbbf</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 17:54:18</sys_updated_on>
+        <sys_updated_on>2020-06-22 16:44:20</sys_updated_on>
         <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
-        <value>short_description=_ATF_DATASILOS_TEST^caller_id={{step['d87b4291db9d1c10ba15a3530596192d'].first_record}}^opened_by={{step['c32cc6d1db9d1c10ba15a35305961970'].first_record}}^EQ</value>
+        <value>short_description=_ATF_DATASILOS_TEST^caller_id={{step['d87b4291db9d1c10ba15a3530596192d'].first_record}}^opened_by={{step['c32cc6d1db9d1c10ba15a35305961970'].first_record}}^assignment_group={{step['7262cef11b6d1410a89720a8ec4bcb39'].first_record}}^EQ</value>
     </sys_element_mapping>
 </record_update>

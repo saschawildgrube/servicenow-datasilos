@@ -3,28 +3,28 @@
         <active>true</active>
         <copied_from display_value="Record Update">943dfdfa1b141010a89720a8ec4bcbe4</copied_from>
         <description>Update a record in 'change_task' with the following values:
-Assignment group = {{Step 10: Record Query.First record}}
+Assignment group = {{Step 11: Record Query.First record}}
 Confirm the record was successfully updated</description>
         <display_name>Record Update</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Assign task TEST_TASK_1 to group BETA_FULFILLER_1</notes>
-        <order>22</order>
+        <order>23</order>
         <snapshot/>
         <step_config display_value="Record Update">17a72288df60220062fe6c7a4df26397</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-09 10:36:00</sys_created_on>
         <sys_id>e0c1392d1b195050a89720a8ec4bcb22</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_e0c1392d1b195050a89720a8ec4bcb22</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:41:42</sys_updated_on>
+        <sys_updated_on>2020-06-22 16:46:22</sys_updated_on>
         <table>change_task</table>
         <test display_value="DataSilos - change_task - cross-silo">efb17de91b195050a89720a8ec4bcbd7</test>
         <timeout/>
