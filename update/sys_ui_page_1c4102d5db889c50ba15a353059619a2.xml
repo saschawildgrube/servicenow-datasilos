@@ -37,9 +37,9 @@
 	
 	<h2>How DataSilos controls record visibility</h2>
 	<p>Users are members of groups. Groups can be associated to data silos by a silo manager. Each association between a group and a data silo has a type. Whether an individual user can see a record of a supported process depends on the type of their group's association with a silo.</p>
-	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group and they see all records that have been created by a member of the same group.</p>
-	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been created by users in all groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo. However fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
-	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have been created by users in all groups that are associated to the same silo. They see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
+	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group.</p>
+	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been initialily assigned groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo. However fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
+	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and/or that is conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
 
 	<h2>System Requirements</h2>
 	<ul>
@@ -67,6 +67,8 @@
 	
 	<h2>Installation guide</h2>
 	<ol>
+		<li>Install the DevTools application. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">repository</a>&#160;and then import the application from source control.</li>
+		
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
 		<li>Assign the x_snc_datasilos.manager role to users.</li>
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups.</li>
@@ -213,13 +215,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>67</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-18 19:20:51</sys_updated_on>
+        <sys_updated_on>2020-06-22 10:10:59</sys_updated_on>
     </sys_ui_page>
 </record_update>

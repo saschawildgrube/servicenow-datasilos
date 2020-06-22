@@ -8,21 +8,21 @@
         <inputs/>
         <mugshots_cache_json/>
         <notes>Impersonate user ALPHA_SUPERVISOR</notes>
-        <order>12</order>
+        <order>13</order>
         <snapshot/>
         <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-11 15:01:39</sys_created_on>
         <sys_id>5f585d1c1bf05410a89720a8ec4bcbe8</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>74</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_5f585d1c1bf05410a89720a8ec4bcbe8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-05-15 14:41:49</sys_updated_on>
+        <sys_updated_on>2020-06-22 09:18:02</sys_updated_on>
         <table/>
         <test display_value="DataSilos - incident">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>
