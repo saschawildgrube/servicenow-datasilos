@@ -70,8 +70,10 @@
 		<li>Install the DevTools application. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">repository</a>&#160;and then import the application from source control.</li>
 		
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
-		<li>Assign the x_snc_datasilos.manager role to users.</li>
+		<li>Assign the x_snc_datasilos.manager role to users who are tasked to configure the silos.</li>
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups.</li>
+		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
+		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create global reports and hence must access all data where applicable.</li>
 		<li>Prepare support for incidents:</li>
 		<ol>
 			<li>Switch to the GLOBAL scope.</li>
@@ -215,13 +217,13 @@ DataSilos - Incident Task - Cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>68</sys_mod_count>
+        <sys_mod_count>69</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-22 10:10:59</sys_updated_on>
+        <sys_updated_on>2020-06-23 06:53:15</sys_updated_on>
     </sys_ui_page>
 </record_update>
