@@ -26,7 +26,7 @@ Confirm the record was successfully updated</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-22 16:43:34</sys_updated_on>
         <table>incident_task</table>
-        <test display_value="DataSilos - Incident_task - Cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
+        <test display_value="DataSilos - incident_task - Cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
