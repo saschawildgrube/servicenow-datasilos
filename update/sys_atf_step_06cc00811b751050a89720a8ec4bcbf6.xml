@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Run Server Side Script">9f354a981b115c10a89720a8ec4bcbfc</copied_from>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Create test data</notes>
+        <order>2</order>
+        <snapshot/>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:29:15</sys_created_on>
+        <sys_id>06cc00811b751050a89720a8ec4bcbf6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_06cc00811b751050a89720a8ec4bcbf6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:29:15</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - problem - cross-silo">f9cc00811b751050a89720a8ec4bcba2</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=06cc00811b751050a89720a8ec4bcbf6"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>06cc00811b751050a89720a8ec4bcbf6</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:29:15</sys_created_on>
+        <sys_id>82cc00811b751050a89720a8ec4bcbf7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:29:15</sys_updated_on>
+        <value>var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
+&#13;
+testdata.CreateUser('CALLER',[]);&#13;
+testdata.CreateUser('ALPHA_MEMBER',['itil']);&#13;
+testdata.CreateUser('ALPHA_FULFILLER',['itil']);&#13;
+testdata.CreateUser('ALPHA_SUPERVISOR',['itil']);&#13;
+testdata.CreateGroup('ALPHA_MEMBER',['ALPHA_MEMBER']);&#13;
+testdata.CreateGroup('ALPHA_FULFILLER',['ALPHA_FULFILLER']);&#13;
+testdata.CreateGroup('ALPHA_SUPERVISOR',['ALPHA_SUPERVISOR']);&#13;
+testdata.CreateSilo('ALPHA',['ALPHA_MEMBER'],['ALPHA_FULFILLER'],['ALPHA_SUPERVISOR']);&#13;
+testdata.CreateUser('BETA_MEMBER',['itil']);&#13;
+testdata.CreateUser('BETA_FULFILLER_1',['itil']);&#13;
+testdata.CreateUser('BETA_FULFILLER_2',['itil']);&#13;
+testdata.CreateUser('BETA_SUPERVISOR',['itil']);&#13;
+testdata.CreateGroup('BETA_MEMBER',['BETA_MEMBER']);&#13;
+testdata.CreateGroup('BETA_FULFILLER_1',['BETA_FULFILLER_1']);&#13;
+testdata.CreateGroup('BETA_FULFILLER_2',['BETA_FULFILLER_2']);&#13;
+testdata.CreateGroup('BETA_SUPERVISOR',['BETA_SUPERVISOR']);&#13;
+testdata.CreateSilo('BETA',['BETA_MEMBER'],['BETA_FULFILLER_1','BETA_FULFILLER_2'],['BETA_SUPERVISOR']);</value>
+        <variable display_value="">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>06cc00811b751050a89720a8ec4bcbf6</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:29:15</sys_created_on>
+        <sys_id>cecc00811b751050a89720a8ec4bcbf6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:29:15</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+</record_update>

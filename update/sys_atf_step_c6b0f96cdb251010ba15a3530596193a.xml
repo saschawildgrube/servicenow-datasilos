@@ -91,6 +91,18 @@ Confirm the record was successfully inserted</description>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=c6b0f96cdb251010ba15a3530596193a"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>enforce_security</field>
+        <id>c6b0f96cdb251010ba15a3530596193a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:42:44</sys_created_on>
+        <sys_id>afdf40851b751050a89720a8ec4bcb81</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:42:44</sys_updated_on>
+        <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
         <id>c6b0f96cdb251010ba15a3530596193a</id>
         <sys_created_by>admin</sys_created_by>

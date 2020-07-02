@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>805ff4981b1d1c10a89720a8ec4bcbb7</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>28</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_805ff4981b1d1c10a89720a8ec4bcbb7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-23 10:58:42</sys_updated_on>
+        <sys_updated_on>2020-07-02 11:20:46</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Maintenance">780fb0981b1d1c10a89720a8ec4bcb47</test>
         <timeout/>
@@ -36,9 +36,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>5fef7c981b1d1c10a89720a8ec4bcbd7</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-23 10:58:42</sys_updated_on>
+        <sys_updated_on>2020-07-02 11:20:46</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -51,11 +51,17 @@ function Log(strText)&#13;
 &#13;
 	var bResult = true;&#13;
 	&#13;
-	function TestCase_Maintenance(vInputRecord, vExpected)&#13;
+	function TestCase_Maintenance(vInputFilter, vExpected)&#13;
 	{&#13;
 		Log('TestCase_Maintenance');&#13;
+		var strFilterClassName = '';&#13;
+		if (vInputFilter != undefined)&#13;
+		{&#13;
+			strFilterClassName = vInputFilter.getRecordClassName();&#13;
+		}&#13;
+		Log('Class name: '+strFilterClassName);&#13;
 		Log('Expected: '+RenderValue(vExpected));&#13;
-		var vResult = Maintenance(vInputRecord);&#13;
+		var vResult = Maintenance(vInputFilter);&#13;
 		Log('Result  : '+RenderValue(vResult));&#13;
 		if (vResult != vExpected)&#13;
 		{&#13;
@@ -71,11 +77,12 @@ The function is supposed to be called every minute and shall cover all potential
 */	&#13;
 &#13;
 	// Prepare test data&#13;
-	testdata.CreateUser('CALLER1');&#13;
+	testdata.CreateUser('CALLER');&#13;
 	testdata.CreateUser('ALBERT');&#13;
 	var strGroupAlphaSysId = testdata.CreateGroup('ALPHA',['ALBERT']);&#13;
-	var strIncidentSysId = testdata.CreateIncident('TEST_1','CALLER_1','');&#13;
-	var strChangeRequestSysId = testdata.CreateChangeRequest('TEST_1','CALLER_1','');&#13;
+	var strIncidentSysId = testdata.CreateIncident('TEST_1','CALLER','');&#13;
+	var strChangeRequestSysId = testdata.CreateChangeRequest('TEST_1','CALLER','');&#13;
+	var strProblemSysId = testdata.CreateProblem('TEST_1','CALLER','');&#13;
 &#13;
 	&#13;
 	var grIncidentFilter = new GlideRecord('incident');&#13;
@@ -84,6 +91,9 @@ The function is supposed to be called every minute and shall cover all potential
 	var grChangeRequestFilter = new GlideRecord('change_request');&#13;
 	grChangeRequestFilter.addQuery('short_description','STARTSWITH',testdata.GetPrefix());&#13;
 &#13;
+	var grProblemFilter = new GlideRecord('problem');&#13;
+	grProblemFilter.addQuery('short_description','STARTSWITH',testdata.GetPrefix());&#13;
+	&#13;
 	&#13;
 	// Prepare an incident with an empty whitelist&#13;
 	var grIncident1 = new GlideRecord('incident');&#13;
@@ -116,6 +126,18 @@ The function is supposed to be called every minute and shall cover all potential
 		&#13;
 	TestCase_Maintenance(grChangeRequestFilter,1);&#13;
 &#13;
+	&#13;
+	// Prepare a problem with an empty whitelist&#13;
+	var grProblem1 = new GlideRecord('problem');&#13;
+	if (grProblem1.get(strProblemSysId))&#13;
+	{&#13;
+		grProblem1.assignment_group = strGroupAlphaSysId;&#13;
+		grProblem1.x_snc_datasilos_group_whitelist = '';&#13;
+		grProblem1.update();&#13;
+	}&#13;
+		&#13;
+	TestCase_Maintenance(grProblemFilter,1);&#13;
+	&#13;
 &#13;
 	// TODO: Add a scenario to cover a group that is added to a silo AFTER the record has been initialized&#13;
 		&#13;
