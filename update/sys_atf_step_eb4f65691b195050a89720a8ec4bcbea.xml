@@ -89,6 +89,18 @@ With a failure timeout of 5 Seconds</description>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=eb4f65691b195050a89720a8ec4bcbea"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>enforce_security</field>
+        <id>eb4f65691b195050a89720a8ec4bcbea</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 11:50:37</sys_created_on>
+        <sys_id>fd6f9c491bb51050a89720a8ec4bcb01</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 11:50:37</sys_updated_on>
+        <table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
         <id>eb4f65691b195050a89720a8ec4bcbea</id>
         <sys_created_by>admin</sys_created_by>

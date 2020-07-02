@@ -176,6 +176,57 @@ Query: true
 answer = x_snc_datasilos.ExecuteACL(current);				
 			</pre>
 		</ol>
+		<li>Prepare support for problems:</li>
+		<ol>
+			<li>Switch to the GLOBAL scope.</li>
+			<li>Add a new business rule for the 'problem' table.</li>
+			<li>Configure the business rule as follows:</li>
+			<pre>
+Name: DataSilos - problem
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteBusinessRule(current, previous);
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+			<li>Verify you are still in GLOBAL scope</li>
+			<li>Elevate roles to security_admin</li>
+			<li>Add or modify the ACL 'problem.*' for operation 'read'</li>
+			<li>Activate 'Advanced' and add the following script:</li>
+			<pre>
+answer = x_snc_datasilos.ExecuteACL(current);				
+			</pre>		
+			<li>Verify you are still in GLOBAL scope</li>
+			<li>Add a new business rule for the 'problem_task' table.</li>
+			<li>Configure the business rule as follows:</li>
+			<pre>
+Name: DataSilos - problem_task
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteBusinessRule(current, previous);
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+			<li>Verify you are still in GLOBAL scope</li>
+			<li>Elevate roles to security_admin</li>
+			<li>Add or modify the ACL 'problem_task.*' for operation 'read'</li>
+			<li>Activate 'Advanced' and add the following script:</li>
+			<pre>
+answer = x_snc_datasilos.ExecuteACL(current);				
+			</pre>
+		</ol>
 
 		<li>Go to the "Options" module and activate the DataSilos application in general.</li>
 		<li>Activate the "Maintenance" scheduled script</li>
@@ -243,13 +294,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>83</sys_mod_count>
+        <sys_mod_count>84</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-02 11:38:05</sys_updated_on>
+        <sys_updated_on>2020-07-02 12:07:55</sys_updated_on>
     </sys_ui_page>
 </record_update>
