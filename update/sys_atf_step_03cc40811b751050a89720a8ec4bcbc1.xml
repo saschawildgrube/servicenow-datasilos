@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Impersonate">986324e61bd490d0a89720a8ec4bcb27</copied_from>
+        <description>Impersonate the user: {{Step 8: Record Query.First record}}</description>
+        <display_name>Impersonate</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Impersonate user BETA_FULFILLER_1</notes>
+        <order>22</order>
+        <snapshot/>
+        <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:29:19</sys_created_on>
+        <sys_id>03cc40811b751050a89720a8ec4bcbc1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Impersonate</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_03cc40811b751050a89720a8ec4bcbc1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:29:19</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - problem - cross-silo">f9cc00811b751050a89720a8ec4bcba2</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=03cc40811b751050a89720a8ec4bcbc1"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>03cc40811b751050a89720a8ec4bcbc1</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:29:19</sys_created_on>
+        <sys_id>83cc40811b751050a89720a8ec4bcbc2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:29:19</sys_updated_on>
+        <value/>
+        <variable display_value="">586e2c4253e0220002c6435723dc3415</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=03cc40811b751050a89720a8ec4bcbc1"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>user</field>
+        <id>03cc40811b751050a89720a8ec4bcbc1</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:29:19</sys_created_on>
+        <sys_id>87cc40811b751050a89720a8ec4bcbc2</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:29:19</sys_updated_on>
+        <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
+        <value>{{step['d6cc40811b751050a89720a8ec4bcb10'].first_record}}</value>
+    </sys_element_mapping>
+</record_update>

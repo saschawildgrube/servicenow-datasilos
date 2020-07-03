@@ -10,14 +10,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 14:20:11</sys_created_on>
         <sys_id>4b9ed96bdb155450ba15a353059619c6</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>global</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_restricted_caller_access_4b9ed96bdb155450ba15a353059619c6</sys_update_name>
-        <sys_updated_by>beth.anglin</sys_updated_by>
-        <sys_updated_on>2020-06-15 15:22:13</sys_updated_on>
+        <sys_updated_by>_ATF_DATASILOS_OPENER</sys_updated_by>
+        <sys_updated_on>2020-07-03 19:33:41</sys_updated_on>
         <target>72baa4e7db515450ba15a353059619a4</target>
         <target_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</target_scope>
         <target_table>sys_script_include</target_table>

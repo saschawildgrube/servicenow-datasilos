@@ -3,30 +3,30 @@
         <active>true</active>
         <copied_from display_value="Record Query">268de968db251010ba15a35305961987</copied_from>
         <description>Validate there is at least one record in 'change_request' matching query:
-Sys ID = {{Step 8: Record Insert.Record}}
+Sys ID = {{Step 9: Record Insert.Record}}
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>SENTINEL checks for record TEST</notes>
-        <order>11</order>
+        <order>14</order>
         <snapshot/>
         <step_config display_value="Record Query">0270b8005f30220012b44adb7f46666a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-18 18:13:15</sys_created_on>
         <sys_id>deb0f96cdb251010ba15a35305961977</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_deb0f96cdb251010ba15a35305961977</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-18 18:19:30</sys_updated_on>
+        <sys_updated_on>2020-07-03 20:31:51</sys_updated_on>
         <table>change_request</table>
-        <test display_value="DataSilos - change_request- opener and sentinel">75b0756cdb251010ba15a35305961947</test>
+        <test display_value="DataSilos - change_request - opener, requester and sentinel">75b0756cdb251010ba15a35305961947</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>
@@ -88,6 +88,18 @@ With a failure timeout of 5 Seconds</description>
         <variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=deb0f96cdb251010ba15a35305961977"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>enforce_security</field>
+        <id>deb0f96cdb251010ba15a35305961977</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-02 10:42:45</sys_created_on>
+        <sys_id>7bdf40851b751050a89720a8ec4bcbab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 10:42:45</sys_updated_on>
+        <table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table>
+        <value/>
+    </sys_element_mapping>
     <sys_element_mapping action="INSERT_OR_UPDATE">
         <field>field_values</field>
         <id>deb0f96cdb251010ba15a35305961977</id>
