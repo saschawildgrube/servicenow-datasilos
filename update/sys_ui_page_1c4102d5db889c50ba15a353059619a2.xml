@@ -44,7 +44,7 @@
 	<h2>System Requirements</h2>
 	<ul>
 		<li>Madrid or later</li>
-		<li>DevTools</li>
+		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.1.0 or later</a></li>
 	</ul>
 	
 	<h2>Requirement analysis</h2>
@@ -280,10 +280,12 @@ DataSilos - incident_task - cross-silo
 		<li>Update THIS documentation</li>
 	</ol>
 	<h2>Release Notes</h2>
-	<h3>1.1.0 - TODO</h3>
+	<h3>1.1.0 - 2020-07-03</h3>
 	<ol>
 		<li>Added support for problem and problem_task tables.</li>
+		<li>Users that are referenced in a change_request in the requested_by field can see that change request.</li>
 		<li>Updated documentation: What happens if a user does not have any roles?</li>
+		<li>ACLs for incident.*, incident_task.*, change_request.* and change_task.* were erroneously included in the scoped app. This has been fixed.</li>
 	</ol>
 	<h3>1.0.0 - 2020-06-23</h3>
 	<p>First baselined version</p>
@@ -295,13 +297,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>87</sys_mod_count>
+        <sys_mod_count>92</sys_mod_count>
         <sys_name>Start</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-02 14:48:59</sys_updated_on>
+        <sys_updated_on>2020-07-03 21:21:32</sys_updated_on>
     </sys_ui_page>
 </record_update>
