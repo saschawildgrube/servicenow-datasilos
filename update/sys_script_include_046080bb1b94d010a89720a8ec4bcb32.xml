@@ -2,72 +2,47 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.RecordAddWhiteListQuery</api_name>
+        <api_name>x_snc_datasilos.PrepareQuery</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
-        <name>RecordAddWhiteListQuery</name>
-        <script><![CDATA[function RecordAddWhiteListQuery(record)
+        <name>PrepareQuery</name>
+        <script><![CDATA[function PrepareQuery(record)
 {
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 
-	/*
-	if (gs.getSession().isInteractive() == false)
-	{
-		return;
-	}
-	*/
-
 	var strUserSysId = gs.getUser().getID();
+	var strRecordClassName = record.getRecordClassName();
 
-// The "creator group" issue is resolved by ALWAYS considering the opened_by and caller_id 
-	var aUserGroups = GetGroupsFromUser(strUserSysId);
-
-	// If a user does not have any groups (and is not an admin) they can only see records that they created
 	var query = record.addQuery('opened_by','=',strUserSysId);
-	if (record.getRecordClassName() == 'incident')
+	if (strRecordClassName == 'incident')
 	{
 		query.addOrCondition('caller_id','=',strUserSysId);
 	}
+	if (strRecordClassName == 'change_request')
+	{
+		query.addOrCondition('requested_by','=',strUserSysId);
+	}
+	
+	var aUserGroups = GetGroupsFromUser(strUserSysId);
 	for (var nIndex = 0; nIndex < aUserGroups.length; nIndex++)
 	{
 		query.addOrCondition('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[nIndex]);
 	}
 	
-/*	
-	var aUserGroups = GetGroupsFromUser(strUserSysId);
-
-	if (aUserGroups.length > 0)
-	{
-		var query = record.addQuery('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[0]);
-		for (var nIndex = 1; nIndex < aUserGroups.length; nIndex++)
-		{
-			query.addOrCondition('x_snc_datasilos_group_whitelist','CONTAINS',aUserGroups[nIndex]);
-		}
-	}
-	else
-	{
-		// If a user does not have any groups (and is not an admin) they can only see records that they created
-		var query = record.addQuery('opened_by','=',strUserSysId);
-		if (record.getRecordClassName() == 'incident')
-		{
-			query.addOrCondition('caller_id','=',strUserSysId);
-		}
-	}
-	*/
 	return true;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>10</sys_mod_count>
-        <sys_name>RecordAddWhiteListQuery</sys_name>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>PrepareQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-22 09:20:56</sys_updated_on>
+        <sys_updated_on>2020-07-03 20:17:05</sys_updated_on>
     </sys_script_include>
 </record_update>

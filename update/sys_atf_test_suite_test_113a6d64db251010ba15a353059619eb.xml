@@ -14,7 +14,7 @@
         <sys_update_name>sys_atf_test_suite_test_113a6d64db251010ba15a353059619eb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-18 17:45:55</sys_updated_on>
-        <test display_value="DataSilos - incident - caller, opener and sentinel">cf3a6d64db251010ba15a353059619f1</test>
+        <test display_value="DataSilos - incident - opener, caller and sentinel">cf3a6d64db251010ba15a353059619f1</test>
         <test_suite display_value="DataSilos">23e924dddb809c50ba15a353059619ae</test_suite>
     </sys_atf_test_suite_test>
 </record_update>

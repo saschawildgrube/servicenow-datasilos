@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
     <sys_atf_test action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="DataSilos - change_request - opener and sentinel">75b0756cdb251010ba15a35305961947</copied_from>
+        <copied_from display_value="DataSilos - change_request - opener, requester and sentinel">75b0756cdb251010ba15a35305961947</copied_from>
         <description/>
         <enable_parameterized_testing>false</enable_parameterized_testing>
         <name>DataSilos - problem - opener and sentinel</name>
