@@ -70,6 +70,7 @@
 		<li>Install the DevTools application. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">repository</a>&#160;and then import the application from source control.</li>
 		
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
+		<li>Go to "Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.). If you see some, they must be deleted. A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li> 
 		<li>Assign the x_snc_datasilos.manager role to users who are tasked to configure the silos.</li>
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
@@ -269,10 +270,11 @@ Requires role: x_snc_datasilos.manager
 		<li>Add corresponding business rules for all affected tables</li>
 		<li>Add or modify corresponding ACLs for all affected tables</li>
 		<li>Switch back to DataSilos scope</li>
+		<li>Update ATF test "DataSilos - Installation" to check for business rules related to the new tables</li>
 		<li>Create ATF tests. The following tests can be used as templates:</li>
 			<pre>
 DataSilos - incident
-DataSilos - incident - caller, opener and sentinel
+DataSilos - incident - opener, caller and sentinel
 DataSilos - incident - cross-silo
 DataSilos - incident_task
 DataSilos - incident_task - cross-silo
@@ -280,6 +282,12 @@ DataSilos - incident_task - cross-silo
 		<li>Update THIS documentation</li>
 	</ol>
 	<h2>Release Notes</h2>
+	<h3>1.2.0 - TODO</h3>
+	<ol>
+		<li>Extended "DataSilos - Installation" test to check if all business rules have been set up correctly.</li>
+		<li>Updated developer guide to update the "DataSilos - Installation" test.</li>
+		<li>Updated installation guide on how to deal with erroneously created ACLs in the application scope.</li>
+	</ol>
 	<h3>1.1.0 - 2020-07-03</h3>
 	<ol>
 		<li>Added support for problem and problem_task tables.</li>
@@ -297,13 +305,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>92</sys_mod_count>
+        <sys_mod_count>95</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-03 21:21:32</sys_updated_on>
+        <sys_updated_on>2020-07-03 23:59:40</sys_updated_on>
     </sys_ui_page>
 </record_update>
