@@ -12,8 +12,8 @@
         <map_page/>
         <mobile_title>incident</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
-        <name>problem_task</name>
-        <order>10021</order>
+        <name>sc_request</name>
+        <order>10050</order>
         <override_menu_roles>false</override_menu_roles>
         <query>sysparm_view_forced=true</query>
         <report/>
@@ -24,17 +24,17 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ba4c75a11bb99050a89720a8ec4bcb53</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>problem_task</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>sc_request</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_ba4c75a11bb99050a89720a8ec4bcb53</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 07:53:54</sys_updated_on>
+        <sys_updated_on>2020-07-04 17:32:46</sys_updated_on>
         <timeline_page/>
-        <title>problem_task</title>
+        <title>sc_request</title>
         <uncancelable>false</uncancelable>
         <view_name>DataSilos</view_name>
         <window_name/>

@@ -28,6 +28,7 @@ If you find yourself unable to import your repository due to the presence of fil
    Currently listed dependencies:
    * Change Request
    * Problem Tasks
+   * Service Catalog Platform
    * Incident
    * Problem Management
    * System Import Sets

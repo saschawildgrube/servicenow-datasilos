@@ -12,6 +12,7 @@ and Advanced = true
 and Script contains x_snc_datasilos.ExecuteBusinessRule(current, previous);
 and When = before
 and Application = Global
+and Table = incident
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
@@ -24,14 +25,14 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-03 23:48:03</sys_created_on>
         <sys_id>2d1d88a91bf19050a89720a8ec4bcb5f</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_2d1d88a91bf19050a89720a8ec4bcb5f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 00:07:59</sys_updated_on>
+        <sys_updated_on>2020-07-04 17:52:42</sys_updated_on>
         <table>sys_script</table>
         <test display_value="DataSilos - Installation">37c8042e1b5490d0a89720a8ec4bcb36</test>
         <timeout>1970-01-01 00:00:05</timeout>
@@ -88,10 +89,10 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-03 23:48:03</sys_created_on>
         <sys_id>c13d88a91bf19050a89720a8ec4bcb6d</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 00:07:59</sys_updated_on>
-        <value>name=DataSilos - incident^active=true^action_insert=true^action_update=true^action_query=true^advanced=true^scriptLIKEx_snc_datasilos.ExecuteBusinessRule(current, previous);^when=before^sys_scope=global^EQ</value>
+        <sys_updated_on>2020-07-04 17:52:42</sys_updated_on>
+        <value>name=DataSilos - incident^active=true^action_insert=true^action_update=true^action_query=true^advanced=true^scriptLIKEx_snc_datasilos.ExecuteBusinessRule(current, previous);^when=before^sys_scope=global^collection=incident^EQ</value>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
 </record_update>

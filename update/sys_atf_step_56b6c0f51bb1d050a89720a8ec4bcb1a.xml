@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Record Insert">c6b0f96cdb251010ba15a3530596193a</copied_from>
+        <description>Insert a record into 'sc_request' with the following values:
+Short description = _ATF_DATASILOS_TEST
+and Assignment group = {{Step 7: Record Query.First record}}
+and Opened by = {{Step 3: Record Query.First record}}
+and Requested for = {{Step 4: Record Query.First record}}
+Confirm the record was successfully inserted</description>
+        <display_name>Record Insert</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>OPENER creates record TEST</notes>
+        <order>9</order>
+        <snapshot/>
+        <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-04 17:58:13</sys_created_on>
+        <sys_id>56b6c0f51bb1d050a89720a8ec4bcb1a</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Record Insert</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_56b6c0f51bb1d050a89720a8ec4bcb1a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-04 17:59:21</sys_updated_on>
+        <table>sc_request</table>
+        <test display_value="DataSilos - sc_request - opener, requester and sentinel">b1b6ccb51bb1d050a89720a8ec4bcb55</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=56b6c0f51bb1d050a89720a8ec4bcb1a"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>56b6c0f51bb1d050a89720a8ec4bcb1a</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-04 17:58:13</sys_created_on>
+        <sys_id>16b6c0f51bb1d050a89720a8ec4bcb1d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-04 17:59:21</sys_updated_on>
+        <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['8eb6c0f51bb1d050a89720a8ec4bcb0b'].first_record}}^opened_by={{step['82b680f51bb1d050a89720a8ec4bcbfa'].first_record}}^requested_for={{step['4ab680f51bb1d050a89720a8ec4bcbfe'].first_record}}^EQ</value>
+        <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>56b6c0f51bb1d050a89720a8ec4bcb1a</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-04 17:58:13</sys_created_on>
+        <sys_id>52b6c0f51bb1d050a89720a8ec4bcb1d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-04 17:59:21</sys_updated_on>
+        <value>sc_request</value>
+        <variable display_value="">90144b535320220002c6435723dc3488</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>56b6c0f51bb1d050a89720a8ec4bcb1a</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-04 17:58:13</sys_created_on>
+        <sys_id>9eb6c0f51bb1d050a89720a8ec4bcb1c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-04 17:58:13</sys_updated_on>
+        <value>1</value>
+        <variable display_value="">e6e3c7535320220002c6435723dc3496</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>56b6c0f51bb1d050a89720a8ec4bcb1a</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-04 17:58:13</sys_created_on>
+        <sys_id>dab6c0f51bb1d050a89720a8ec4bcb1c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-04 17:58:13</sys_updated_on>
+        <value>record_successfully_inserted</value>
+        <variable display_value="">9024a37f671003007ba405225685efe5</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=56b6c0f51bb1d050a89720a8ec4bcb1a"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>56b6c0f51bb1d050a89720a8ec4bcb1a</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-04 17:58:13</sys_created_on>
+        <sys_id>9ab6c0f51bb1d050a89720a8ec4bcb1d</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-04 17:59:21</sys_updated_on>
+        <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
+        <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['8eb6c0f51bb1d050a89720a8ec4bcb0b'].first_record}}^opened_by={{step['82b680f51bb1d050a89720a8ec4bcbfa'].first_record}}^requested_for={{step['4ab680f51bb1d050a89720a8ec4bcbfe'].first_record}}^EQ</value>
+    </sys_element_mapping>
+</record_update>
