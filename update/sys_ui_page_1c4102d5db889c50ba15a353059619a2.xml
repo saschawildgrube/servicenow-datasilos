@@ -65,173 +65,77 @@
 		<li><b>x_snc_datasilos.ghost:</b>&#160;A user that can create and modify records without impacting the white list.</li>
 	</ul>
 	
-	<h2>Installation guide</h2>
+	<h2>Implementation guide</h2>
+	<h3>Analysis</h3>
+	The following aspects and topics should be considered when implementing the DataSilos application:
 	<ol>
+		<li>Who should have which role?</li>
+		<li>Are there any before/query business rules that serve comparable purposes? Should they be replaced?</li>
+		<li>Are there any customized ACLs in place?</li>
+		<li>Are there any records in supported tables that do not have an assignment groups - and hence may be invisible to most users?</li>
+		<li>Which integrations exist and how will (or should) they be impactedß</li>
+		<li>Is Performance Analytics being used? What impact on reporting is expected?</li>
+		<li>What reports are maintained and run and by whom?</li>
+		<li>Does the existing group structure support the later silo configuration? Are groups missing? Are there duplicated?</li>
+		<li>Which users are assigned to multiple groups and will that result in expected and intended bahaviour?</li>
+		<li>Should data silo configuration be automated - maybe as part of existing processes that integration organizational data into the platform?</li>
+	</ol>
+	<h3>Installation</h3>
+	<ol>
+		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-datasilos" target="_blank">repository</a>&#160;and then import the application from source control.</li>
 		<li>Install the DevTools application. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">repository</a>&#160;and then import the application from source control.</li>
-		
-		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already.</li>
-		<li>Go to "Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.). If you see some, they must be deleted. A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li> 
+		<li>Go to "Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.). If you see some, they must be deleted. A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
+		<li>Elevate roles to security_admin</li>
+		<li>Switch to global scope</li>
+		<li>For each of the following tables peform the steps listed below:</li>
+		<pre>
+incident
+incident_task
+change_request
+change_task
+problem
+problem_task
+		</pre>
+		<ol>
+			<li>Switch to the GLOBAL scope.</li>
+			<li>Add a new business rule for the table.</li>
+			<li>Configure the business rule as follows (replace "table_name" by the corresponding table listed above):</li>
+			<pre>
+Name: "DataSilos - table_name"
+When: before
+Insert: true
+Update: true
+Query: true
+			</pre>
+			<li>Add the following script:</li>
+			<pre>
+(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteBusinessRule(current, previous);
+})(current, previous);
+			</pre>
+			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
+			<li>Make sure that exactly ONE ACL exists for table_name.* for the READ operation. You may have to create one, change an existing ACL or consolidate multiple ACLs into one</li> 
+			<li>Activate 'Advanced' (if not active already) and add the following script:</li>
+			<pre>
+answer = x_snc_datasilos.ExecuteACL(current);				
+			</pre>
+			Note that you may have to combine the script logic with already existing scripts.
+		</ol>
+		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
+	</ol>
+	<h3>Configuration</h3>
+	<ol>
 		<li>Assign the x_snc_datasilos.manager role to users who are tasked to configure the silos.</li>
-		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups.</li>
+		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups. This can also be done automatically or via data import.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
-		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create global reports and hence must access all data where applicable.</li>
-		<li>Prepare support for incidents:</li>
-		<ol>
-			<li>Switch to the GLOBAL scope.</li>
-			<li>Add a new business rule for the 'incident' table.</li>
-			<li>Configure the business rule as follows:</li>
-			<pre>
-Name: DataSilos - incident
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Elevate roles to security_admin</li>
-			<li>Add or modify the ACL(s) 'incident.*' for operation 'read'</li>
-			<li>Activate 'Advanced' and add the following script:</li>
-			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
-			</pre>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Add a new business rule for the 'incident_task' table.</li>
-			<li>Configure the business rule as follows:</li>
-			<pre>
-Name: DataSilos - incident_task
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Elevate roles to security_admin</li>
-			<li>Add or modify the ACL(s) 'incident_task.*' for operation 'read'</li>
-			<li>Activate 'Advanced' and add the following script:</li>
-			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
-			</pre>
-		</ol>
-		<li>Prepare support for change requests:</li>
-		<ol>
-			<li>Switch to the GLOBAL scope.</li>
-			<li>Add a new business rule for the 'change_request' table.</li>
-			<li>Configure the business rule as follows:</li>
-			<pre>
-Name: DataSilos - change_request
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Elevate roles to security_admin</li>
-			<li>Add or modify the ACL(s) 'change_request.*' for operation 'read'</li>
-			<li>Activate 'Advanced' and add the following script:</li>
-			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
-			</pre>		
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Add a new business rule for the 'change_task' table.</li>
-			<li>Configure the business rule as follows:</li>
-			<pre>
-Name: DataSilos - change_task
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Elevate roles to security_admin</li>
-			<li>Add or modify the ACL(s) 'change_task.*' for operation 'read'</li>
-			<li>Activate 'Advanced' and add the following script:</li>
-			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
-			</pre>
-		</ol>
-		<li>Prepare support for problems:</li>
-		<ol>
-			<li>Switch to the GLOBAL scope.</li>
-			<li>Add a new business rule for the 'problem' table.</li>
-			<li>Configure the business rule as follows:</li>
-			<pre>
-Name: DataSilos - problem
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Elevate roles to security_admin</li>
-			<li>Add or modify the ACL(s) 'problem.*' for operation 'read'</li>
-			<li>Activate 'Advanced' and add the following script:</li>
-			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
-			</pre>		
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Add a new business rule for the 'problem_task' table.</li>
-			<li>Configure the business rule as follows:</li>
-			<pre>
-Name: DataSilos - problem_task
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in GLOBAL scope</li>
-			<li>Elevate roles to security_admin</li>
-			<li>Add or modify the ACL(s) 'problem_task.*' for operation 'read'</li>
-			<li>Activate 'Advanced' and add the following script:</li>
-			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
-			</pre>
-		</ol>
-
-		<li>Go to the "Options" module and activate the DataSilos application in general.</li>
-		<li>Activate the "Maintenance" scheduled script</li>
+		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
+	</ol>
+	<h3>Activation</h3>
+	<ol>
+		<li>Go to the "Options" module and activate the DataSilos application.</li>
+		<li>Deactivate any existing conflicting business rules that may have been identified earlier.</li>
 		<li>Go to "Test Suite" and execute all tests.</li>
+		<li>Activate the "Maintenance" scheduled script</li>
 	</ol>
 	
 	<h2>FAQ</h2>
@@ -247,14 +151,14 @@ answer = x_snc_datasilos.ExecuteACL(current);
 	<ol>
 		<li>Identify the affected tables</li>
 		<li>Add the whitelist field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-			<pre>
+<pre>
 Type: List
 Column label: DataSilos Group Whitelist
 Column name: x_snc_datasilos_group_whitelist
 Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true
 Reference: Group
 Reference cascade rule: None (not "--None--"!)
-			</pre>
+</pre>
 		<li>Elevate role to security_admin</li>
 		<li>Add create, write, read and delete Access Controls to the table DataSilos whitelist columns for all affected tables:</li>
 <pre>
@@ -284,6 +188,10 @@ DataSilos - incident_task - cross-silo
 		<li>Update THIS documentation</li>
 	</ol>
 	<h2>Release Notes</h2>
+	<h3>1.2.0 - 2020-07-05</h3>
+	<ol>
+		<li>Restructured the installation guide. It is now an implementation guide covering analysis, installation, configuration and the verification phase.</li>
+	</ol>
 	<h3>1.1.2 - 2020-07-04</h3>
 	<ol>
 		<li>Added modules to show all supported tables with the fields relevant for visibility - a useful treat for data silo managers.</li>
@@ -311,13 +219,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>102</sys_mod_count>
+        <sys_mod_count>110</sys_mod_count>
         <sys_name>Start</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 09:51:38</sys_updated_on>
+        <sys_updated_on>2020-07-04 17:15:16</sys_updated_on>
     </sys_ui_page>
 </record_update>
