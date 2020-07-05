@@ -16,14 +16,15 @@
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;
 	
-	if (record == undefined)
+	// Use IsValidRecord!
+	if (record == undefined || record == null)
 	{
-		gs.info('DataSilos: RecordUpdate: record is undefined');
+		Debug('DataSilos: RecordUpdate: record is undefined or null');
 		return false;
 	}
 	
 	var strClassName = record.getRecordClassName(); 
-	Debug('DataSilos: RecordUpdate: '+strClassName+': '+RenderValue(record));
+	Debug('DataSilos: RecordUpdate: '+strClassName+': '+record.sys_id/*+RenderValue(record)*/);
 	
 	if (IsClassNameSupported(strClassName))
 	{
@@ -92,19 +93,26 @@
 		return true;
 	}
 	
+	if (strClassName == 'sysapproval_approver')
+	{
+		return OnApproval(record);	
+	}
+	
+	Debug('DataSilos: RecordUpdate: Unsupported class name: '+strClassName+'');
+
 	return false;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:00:48</sys_created_on>
         <sys_id>bb00dce21b9490d0a89720a8ec4bcbad</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>33</sys_mod_count>
         <sys_name>RecordUpdate</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_bb00dce21b9490d0a89720a8ec4bcbad</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-23 08:51:46</sys_updated_on>
+        <sys_updated_on>2020-07-05 13:20:13</sys_updated_on>
     </sys_script_include>
 </record_update>

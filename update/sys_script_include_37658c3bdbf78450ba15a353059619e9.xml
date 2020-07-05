@@ -14,7 +14,8 @@
 	
 	function Log(strText)
 	{
-		gs.info('DataSilos: ExecuteBusinessRule: '+strClassName+': '+strOperation+': '+gs.getUserName()+': '+strText);
+		var Debug = x_snc_devtools.Debug;
+		Debug('DataSilos: ExecuteBusinessRule: '+strClassName+': '+strOperation+': '+gs.getUserName()+': '+strText);
 	}
 	
 	function IsActive(strClassName)
@@ -23,6 +24,8 @@
 		if (bActive == false)
 			return false;
 		if (IsClassNameSupported(strClassName))
+			return true;
+		if (strClassName == 'sysapproval_approver')
 			return true;
 		return false;
 	}
@@ -56,12 +59,12 @@
 	{
 		if (gs.hasRole('admin') == true)
 		{
-			Log('User has the admin role. Filters are not applied.');
+			//Log('User has the admin role. Filters are not applied.');
 			return;
 		}		
 		if (IsUserSentinel() == true)
 		{
-			Log('User has the sentinel role. Filters are not applied.');
+			//Log('User has the sentinel role. Filters are not applied.');
 			return;
 		}			
 		
@@ -95,13 +98,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>90</sys_mod_count>
+        <sys_mod_count>93</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-03 19:32:34</sys_updated_on>
+        <sys_updated_on>2020-07-05 13:10:08</sys_updated_on>
     </sys_script_include>
 </record_update>
