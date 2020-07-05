@@ -6,7 +6,7 @@
 Name = change_task.*
 and Active = true
 and Advanced = true
-and Script contains answer = x_snc_datasilos.ExecuteACL(current);
+and Script contains x_snc_datasilos.ExecuteACL(current)
 and Operation = read
 and Application = Global
 With a failure timeout of 5 Seconds</description>
@@ -21,14 +21,14 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-04 00:04:02</sys_created_on>
         <sys_id>0fd09cad1bf19050a89720a8ec4bcb89</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_0fd09cad1bf19050a89720a8ec4bcb89</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 20:03:56</sys_updated_on>
+        <sys_updated_on>2020-07-05 11:42:52</sys_updated_on>
         <table>sys_security_acl</table>
         <test display_value="DataSilos - Installation">37c8042e1b5490d0a89720a8ec4bcb36</test>
         <timeout>1970-01-01 00:00:05</timeout>
@@ -71,10 +71,10 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-04 00:04:02</sys_created_on>
         <sys_id>87d09cad1bf19050a89720a8ec4bcb8b</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 00:10:30</sys_updated_on>
-        <value>name=change_task.*^active=true^advanced=true^scriptLIKEanswer = x_snc_datasilos.ExecuteACL(current);^operation=read^sys_scope=global^EQ</value>
+        <sys_updated_on>2020-07-05 11:42:52</sys_updated_on>
+        <value>name=change_task.*^active=true^advanced=true^scriptLIKEx_snc_datasilos.ExecuteACL(current)^operation=read^sys_scope=global^EQ</value>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">

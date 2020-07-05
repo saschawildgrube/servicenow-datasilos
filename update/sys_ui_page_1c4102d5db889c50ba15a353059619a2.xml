@@ -118,7 +118,7 @@ Query: true
 			<li>Ideally only ONE ACL exists for table_name.* for the READ operation. You may have to create one, change an existing ACL or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
 			<li>Activate 'Advanced' (if not active already) and add the following script:</li>
 			<pre>
-answer = x_snc_datasilos.ExecuteACL(current);				
+x_snc_datasilos.ExecuteACL(current)				
 			</pre>
 			Note that you may have to combine the script logic with already existing scripts.
 		</ol>
@@ -173,7 +173,8 @@ Requires role: x_snc_datasilos.manager
 		<li>Extend the GetParentRecord script include to support the identification of parent records of related records (e.g. to get the incident from an incident task)</li>
 		<li>Extend the GetRelatedRecords script include to support the identification of related records of a main record (e.g. to get the incident_tasks from an incident)</li>
 		<li>Extend the filter condition in the "ACLs" module to cover the new tables</li>
-		<li>Update ATF test "DataSilos - Installation" to check for business rules and ACLs related to the new tables</li>
+		<li>Update ATF test "DataSilos - Installation" to check for business rules related to the new tables</li>
+		<li>Update ATF test "DataSilos - Installation" to check for ACLs related to the new tables</li>
 		<li>Switch to global scope</li>
 		<li>Add corresponding business rules for all affected tables</li>
 		<li>Add or modify corresponding ACLs for all affected tables</li>
@@ -221,13 +222,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>115</sys_mod_count>
+        <sys_mod_count>116</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-04 20:13:59</sys_updated_on>
+        <sys_updated_on>2020-07-05 11:47:40</sys_updated_on>
     </sys_ui_page>
 </record_update>
