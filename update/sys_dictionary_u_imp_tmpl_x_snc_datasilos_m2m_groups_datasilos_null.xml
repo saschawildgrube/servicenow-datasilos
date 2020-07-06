@@ -48,15 +48,15 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-09 12:56:50</sys_created_on>
-        <sys_id>27f15e2d1b995050a89720a8ec4bcbe7</sys_id>
+        <sys_id>7789891edb319450ba15a35305961952</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>u_imp_tmpl_x_snc_datasilos_m2m_groups_datasilos</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_dictionary_u_imp_tmpl_x_snc_datasilos_m2m_groups_datasilos_null</sys_update_name>
+        <sys_update_name>sys_dictionary_u_imp_tmpl_x_snc_datasilos_m2m_groups_datasilos_NULL</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 12:56:50</sys_updated_on>
+        <sys_updated_on>2020-07-06 12:07:17</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

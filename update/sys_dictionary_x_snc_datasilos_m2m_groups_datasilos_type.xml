@@ -53,7 +53,7 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-20 12:36:36</sys_created_on>
-        <sys_id>c414b551db1d1c10ba15a35305961953</sys_id>
+        <sys_id>da1a6416db7d5450ba15a353059619a8</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Type</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -61,7 +61,7 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_dictionary_x_snc_datasilos_m2m_groups_datasilos_type</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:07:39</sys_updated_on>
+        <sys_updated_on>2020-07-06 12:07:19</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>
