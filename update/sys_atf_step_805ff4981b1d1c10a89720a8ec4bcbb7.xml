@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>805ff4981b1d1c10a89720a8ec4bcbb7</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_805ff4981b1d1c10a89720a8ec4bcbb7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-03 23:11:32</sys_updated_on>
+        <sys_updated_on>2020-07-06 10:11:12</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Maintenance">780fb0981b1d1c10a89720a8ec4bcb47</test>
         <timeout/>
@@ -36,9 +36,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>5fef7c981b1d1c10a89720a8ec4bcbd7</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-02 11:20:46</sys_updated_on>
+        <sys_updated_on>2020-07-06 10:11:12</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -81,8 +81,8 @@ The function is supposed to be called every minute and shall cover all potential
 	testdata.CreateUser('ALBERT');&#13;
 	var strGroupAlphaSysId = testdata.CreateGroup('ALPHA',['ALBERT']);&#13;
 	var strIncidentSysId = testdata.CreateIncident('TEST_1','CALLER','');&#13;
-	var strChangeRequestSysId = testdata.CreateChangeRequest('TEST_1','CALLER','');&#13;
-	var strProblemSysId = testdata.CreateProblem('TEST_1','CALLER','');&#13;
+	var strChangeRequestSysId = testdata.CreateChangeRequest('TEST_1','','');&#13;
+	var strProblemSysId = testdata.CreateProblem('TEST_1','','');&#13;
 &#13;
 	&#13;
 	var grIncidentFilter = new GlideRecord('incident');&#13;

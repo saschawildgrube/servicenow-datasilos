@@ -13,24 +13,49 @@
 	var Log = x_snc_devtools.Log;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;
 
 	Log('DataSilos: RecordInitialize: START');
 	
+	// Use IsValidRecord!
 	if (record == undefined || record == null)
 	{
-		Log('DataSilos: RecordInitialize: record is undefined or null');
+		Debug('DataSilos: RecordInitialize: record is undefined or null');
 		return false;
 	}
 	var strClassName = record.getRecordClassName(); 
 	
 	
-	if (IsClassNameMain(strClassName))
+	
+	if (IsClassNameSupported(strClassName))
 	{
-		Debug('DataSilos: RecordInitialize: IsTableMainRecord('+strClassName+'): true');
+		Debug('DataSilos: RecordInitialize: IsClassNameSupported('+strClassName+'): true');
 
+		if (IsClassNameRelated(strClassName))
+		{
+			// Inherit groups from the parent record
+			grParent = GetParentRecord(record);
+			if (grParent != false)
+			{
+				Debug('DataSilos: RecordInitialize: parent record identified.');
+				var strWhiteListGroupSysIds = GetStringValue(grParent.getValue('x_snc_datasilos_group_whitelist'));
+				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
+				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
+				{
+					RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
+				});
+			}
+			else
+			{
+				Debug('DataSilos: RecordInitialize: no parent record identified.');
+			}
+		}
+		
+		
+		// Add the assignment_group and the associated fulfillers and supervisors
 		var strAssignmentGroupSysId = GetStringValue(record.getValue('assignment_group'));
 		if (IsValidSysId(strAssignmentGroupSysId))
 		{
@@ -38,7 +63,7 @@
 
 			// Now add all fulfiller and supervisor groups of all silos of the assignment group
 			var aUserSilos = GetSilosFromGroup(strAssignmentGroupSysId);
-			Debug('DataSilos: RecordInitialize: GetSilosFromUser: '+RenderValue(aUserSilos));
+			Debug('DataSilos: RecordInitialize: GetSilosFromGroup: '+RenderValue(aUserSilos));
 
 			var aGroupsToAdd = [];
 			if (aUserSilos.length > 0)
@@ -66,82 +91,53 @@
 				RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
 			}
 		}
-	
 		
 		
-		
-	
-// The solution to the "creator group" issue is NOT to use the creator user's groups to populate the white list...
-/* 		
-		
-		// Identify the user who created the record
-		var strOpenedByUserSysId = record.getValue('opened_by');
-		var grUser = new GlideRecord('sys_user');
-		if (grUser.get(strOpenedByUserSysId) == null)
+		// Apply white listed groups to parent record
+		if (IsClassNameRelated(strClassName))
 		{
-			Debug('DataSilos: RecordInitialize: opened_by user NOT found');
-		}
-		else
-		{
-			Debug('DataSilos: RecordInitialize: opened_by user found: '+strOpenedByUserSysId+' ');
-		
-		
-			// Add the user's groups
-			var aUserGroups = GetGroupsFromUser(strOpenedByUserSysId); 
-			for (var nIndexGroup = 0; nIndexGroup < aUserGroups.length; nIndexGroup++)
+			grParent = GetParentRecord(record);
+			if (grParent != false)
 			{
-				RecordAddGroupToWhiteList(record,aUserGroups[nIndexGroup]);
-			}
-
-
-			// Now add all fulfiller and supervisor groups of all silos of the user
-			var aUserSilos = GetSilosFromUser(strOpenedByUserSysId);
-			Debug('DataSilos: RecordInitialize: GetSilosFromUser: '+RenderValue(aUserSilos));
-
-			var aGroupsToAdd = [];
-			if (aUserSilos.length > 0)
-			{
-				var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
-				var queryType = grSilosToGroups.addQuery('type','=','supervisor');
-				queryType.addOrCondition('type','=','fulfiller');
-				var queryGroups = grSilosToGroups.addQuery('datasilo','=',aUserSilos[0]);
-				for (var nIndexSilo = 1; nIndexSilo < aUserSilos.length; nIndexSilo++) 
+				Debug('DataSilos: RecordInitialize: parent record identified: '+GetStringValue(parent.number));
+				
+				var nGroupsAdded = 0;
+				var aWhiteListGroups = GetArrayValue(record.getValue('x_snc_datasilos_group_whitelist'));
+				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
 				{
-					queryGroups.addOrCondition('datasilo','=',aUserSilos[nIndexSilo]);
-				}
-				grSilosToGroups.query();
-				while (grSilosToGroups.next())
+					Debug('DataSilos: RecordInitialize: applying a white listed group to the parent record: '+strWhiteListGroupSysId);
+
+					if (RecordAddGroupToWhiteList(grParent,strWhiteListGroupSysId))
+					{
+						nGroupsAdded++;
+					}
+				});
+				if (nGroupsAdded > 0)
 				{
-					aGroupsToAdd.push(grSilosToGroups.getValue('group'));
+					Debug('DataSilos: RecordInitialize: parent record updated');
+					grParent.update();
 				}
 			}
-			Debug('DataSilos: RecordInitialize: aGroupsToAdd: '+RenderValue(aGroupsToAdd));
-
-			// Apply the silo's groups to the record's white list
-			for (var nIndexGroup = 0; nIndexGroup < aGroupsToAdd.length; nIndexGroup++)
-			{
-				RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
-			}
 		}
-*/
 		
-//		RecordUpdate(record);
-		/*
+		
+		
+		return true;
+	}
+
+	/*
+	if (IsClassNameRelated(strClassName))
+	{
+		Debug('DataSilos: RecordInitialize: IsClassNameRelated('+strClassName+'): true');
+		
 		// Add the current assignment group
 		var strAssignmentGroup = GetStringValue(record.getValue('assignment_group'));
 		if (strAssignmentGroup != '')
 		{
 			RecordAddGroupToWhiteList(record,strAssignmentGroup);
-		}
-		*/
+		}	
 		
-	
-		return true;
-	}
-	
-	if (IsClassNameRelated(strClassName))
-	{
-		Debug('DataSilos: RecordInitialize: IsClassNameRelated('+strClassName+'): true');
+		// Inherit groups from the parent record
 		grParent = GetParentRecord(record);
 		if (grParent != false)
 		{
@@ -159,19 +155,29 @@
 		}
 		return true;
 	}
+	*/
+	
+	if (strClassName == 'sysapproval_approver')
+	{
+		Debug('DataSilos: RecordInitialize: class name is '+strClassName+'');
+		return OnApproval(record);	
+	}
+	
+	Debug('DataSilos: RecordInitialize: Unsupported class name: '+strClassName+'');
+	
 	return false;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>66</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-23 15:30:50</sys_updated_on>
+        <sys_updated_on>2020-07-06 09:53:40</sys_updated_on>
     </sys_script_include>
 </record_update>

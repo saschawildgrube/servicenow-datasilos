@@ -53,7 +53,7 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 09:07:24</sys_created_on>
-        <sys_id>7f04b551db1d1c10ba15a35305961922</sys_id>
+        <sys_id>c61a6416db7d5450ba15a35305961967</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>DataSilos Group Whitelist</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -61,7 +61,7 @@
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_dictionary_incident_task_x_snc_datasilos_group_whitelist</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:07:38</sys_updated_on>
+        <sys_updated_on>2020-07-06 09:49:49</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

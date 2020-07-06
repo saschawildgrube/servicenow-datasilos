@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-06 09:41:34</sys_created_on>
+        <sys_id>6238685edb3d5450ba15a35305961905</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sc_request.x_snc_datasilos_group_whitelist.snc_internal</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_security_acl display_value="sc_request.x_snc_datasilos_group_whitelist">cb8084311bb1d050a89720a8ec4bcbb5</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_6238685edb3d5450ba15a35305961905</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-06 09:41:34</sys_updated_on>
+        <sys_user_role display_value="snc_internal" name="snc_internal">7fcaa702933002009c8579b4f47ffbde</sys_user_role>
+        <transaction_id>7f37ec5adb3d5450ba15a3530596195f</transaction_id>
+    </sys_security_acl_role>
+</record_update>
