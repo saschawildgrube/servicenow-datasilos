@@ -13,6 +13,7 @@
 	var Log = x_snc_devtools.Log;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;
@@ -33,28 +34,17 @@
 	{
 		Debug('DataSilos: RecordInitialize: IsClassNameSupported('+strClassName+'): true');
 
-		if (IsClassNameRelated(strClassName))
-		{
-			// Inherit groups from the parent record
-			grParent = GetParentRecord(record);
-			if (grParent != false)
-			{
-				Debug('DataSilos: RecordInitialize: parent record identified.');
-				var strWhiteListGroupSysIds = GetStringValue(grParent.getValue('x_snc_datasilos_group_whitelist'));
-				var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
-				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
-				{
-					RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
-				});
-			}
-			else
-			{
-				Debug('DataSilos: RecordInitialize: no parent record identified.');
-			}
-		}
+		// Add groups from parent
+		RecordAddGroupsToWhiteListFromParentRecord(record);
+		
+		// Add white listed groups from related records
+		// IN THEORY THIS IS IMPOSSIBLE. THE RECORD IS JUST BEING CREATED. WHY SHOULD THERE BE RELATED RECORDS THAT ALREADY KNOW ABOUT THIS
+		// NEW RECORD? HOWEVER IN WORKFLOWS THIS _MIGHT_ BE POSSIBLE...
+		RecordAddGroupsToWhiteListFromRelatedRecords(record);
 		
 		
-		// Add the assignment_group and the associated fulfillers and supervisors
+				
+		// Add the current assignment_group and the associated fulfillers and supervisors
 		var strAssignmentGroupSysId = GetStringValue(record.getValue('assignment_group'));
 		if (IsValidSysId(strAssignmentGroupSysId))
 		{
@@ -90,67 +80,21 @@
 				RecordAddGroupToWhiteList(record,aGroupsToAdd[nIndexGroup]);
 			}
 		}
+
 		
-		
+				
 		// Apply white listed groups to parent record
-		if (IsClassNameRelated(strClassName))
-		{
-			grParent = GetParentRecord(record);
-			if (grParent != false)
-			{
-				var nGroupsAdded = 0;
-				var aWhiteListGroups = GetArrayValue(record.getValue('x_snc_datasilos_group_whitelist'));
-				aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
-				{
-					if (RecordAddGroupToWhiteList(grParent,strWhiteListGroupSysId))
-					{
-						nGroupsAdded++;
-					}
-				});
-				if (nGroupsAdded > 0)
-				{
-					grParent.update();
-				}
-			}
-		}
+		UpdateWhiteListOfParentRecord(record); 
 		
-		
+		// Apply white listed groups to related records
+		// IN THEORY THIS IS IMPOSSIBLE. THE RECORD IS JUST BEING CREATED. WHY SHOULD THERE BE RELATED RECORDS THAT ALREADY KNOW ABOUT THIS
+		// NEW RECORD? HOWEVER IN WORKFLOWS THIS _MIGHT_ BE POSSIBLE...		
+		UpdateWhiteListOfRelatedRecords(record); 
+
 		
 		return true;
 	}
 
-	/*
-	if (IsClassNameRelated(strClassName))
-	{
-		Debug('DataSilos: RecordInitialize: IsClassNameRelated('+strClassName+'): true');
-		
-		// Add the current assignment group
-		var strAssignmentGroup = GetStringValue(record.getValue('assignment_group'));
-		if (strAssignmentGroup != '')
-		{
-			RecordAddGroupToWhiteList(record,strAssignmentGroup);
-		}	
-		
-		// Inherit groups from the parent record
-		grParent = GetParentRecord(record);
-		if (grParent != false)
-		{
-			Debug('DataSilos: RecordInitialize: parent record identified.');
-			var strWhiteListGroupSysIds = GetStringValue(grParent.getValue('x_snc_datasilos_group_whitelist'));
-			var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
-			aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
-			{
-				RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
-			});
-		}
-		else
-		{
-			Debug('DataSilos: RecordInitialize: no parent record identified.');
-		}
-		return true;
-	}
-	*/
-	
 	if (strClassName == 'sysapproval_approver')
 	{
 		Debug('DataSilos: RecordInitialize: class name is '+strClassName+'');
@@ -165,13 +109,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>80</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-05 19:31:43</sys_updated_on>
+        <sys_updated_on>2020-07-06 12:53:16</sys_updated_on>
     </sys_script_include>
 </record_update>

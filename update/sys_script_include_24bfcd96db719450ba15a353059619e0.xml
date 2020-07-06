@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordAddGroupsToWhiteListFromParentRecord</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>RecordAddGroupsToWhiteListFromParentRecord</name>
+        <script><![CDATA[function RecordAddGroupsToWhiteListFromParentRecord(record)
+{
+	var Debug = x_snc_devtools.Debug;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+
+	var strClassName = record.getRecordClassName();
+	if (IsClassNameRelated(strClassName))
+	{
+		grParent = GetParentRecord(record);
+		if (grParent != false)
+		{
+			Debug('DataSilos: RecordAddGroupsToWhiteListFromParentRecord: parent record identified.');
+
+			var strWhiteListGroupSysIds = GetStringValue(grParent.getValue('x_snc_datasilos_group_whitelist'));
+			var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
+			aWhiteListGroups.forEach( function(strWhiteListGroupSysId)
+			{
+				RecordAddGroupToWhiteList(record,strWhiteListGroupSysId);
+			});
+		}
+		else
+		{
+			Debug('DataSilos: RecordAddGroupsToWhiteListFromParentRecord: no parent record identified.');
+		}
+	}
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-06 12:34:32</sys_created_on>
+        <sys_id>24bfcd96db719450ba15a353059619e0</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>RecordAddGroupsToWhiteListFromParentRecord</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_24bfcd96db719450ba15a353059619e0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-06 12:58:30</sys_updated_on>
+    </sys_script_include>
+</record_update>
