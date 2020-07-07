@@ -17,7 +17,7 @@
 	var IsValidSysId = x_snc_devtools.IsValidSysId;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	
-	if (IsValidRecord(record))
+	if (IsValidRecord(record) == false)
 	{
 		Debug('DataSilos: RecordUpdate: record is undefined or null');
 		return false;
@@ -88,13 +88,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:00:48</sys_created_on>
         <sys_id>bb00dce21b9490d0a89720a8ec4bcbad</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>RecordUpdate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_bb00dce21b9490d0a89720a8ec4bcbad</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-06 13:53:18</sys_updated_on>
+        <sys_updated_on>2020-07-07 12:05:05</sys_updated_on>
     </sys_script_include>
 </record_update>
