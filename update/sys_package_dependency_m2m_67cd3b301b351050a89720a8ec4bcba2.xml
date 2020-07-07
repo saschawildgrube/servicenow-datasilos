@@ -6,7 +6,7 @@
         <sys_created_on>2020-07-02 09:23:49</sys_created_on>
         <sys_id>67cd3b301b351050a89720a8ec4bcba2</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-07-02 09:23:49</sys_updated_on>
     </sys_package_dependency_m2m>

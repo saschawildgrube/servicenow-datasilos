@@ -13,9 +13,9 @@
 	var Debug = x_snc_devtools.Debug;
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	
-	// Use IsValidRecord!
-	if (record == undefined)
+	if (IsValidRecord(record))
 	{
 		Debug('OnApproval: Record parameter is undefined');
 		return false;
@@ -105,13 +105,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-05 12:38:49</sys_created_on>
         <sys_id>788184421b711450a89720a8ec4bcb74</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>OnApproval</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_788184421b711450a89720a8ec4bcb74</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-05 13:56:29</sys_updated_on>
+        <sys_updated_on>2020-07-06 13:52:03</sys_updated_on>
     </sys_script_include>
 </record_update>
