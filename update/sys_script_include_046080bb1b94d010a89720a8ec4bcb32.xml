@@ -31,6 +31,10 @@
 	if (strRecordClassName == 'sc_request')
 	{
 		query.addOrCondition('requested_for','=',strUserSysId);
+	}
+	if (strRecordClassName == 'sc_req_item')
+	{
+		query.addOrCondition('request.requested_for','=',strUserSysId);
 	}	
 	var aUserGroups = GetGroupsFromUser(strUserSysId);
 	for (var nIndex = 0; nIndex < aUserGroups.length; nIndex++)
@@ -44,13 +48,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>PrepareQuery</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-05 18:05:15</sys_updated_on>
+        <sys_updated_on>2020-07-08 09:05:26</sys_updated_on>
     </sys_script_include>
 </record_update>
