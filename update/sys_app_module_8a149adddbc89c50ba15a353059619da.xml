@@ -19,14 +19,14 @@
         <override_menu_roles>false</override_menu_roles>
         <query>sysparm_view_forced=true</query>
         <report/>
-        <roles>x_snc_datasilos.datasilos_admin</roles>
+        <roles>x_snc_datasilos.admin</roles>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 15:10:03</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>8a149adddbc89c50ba15a353059619da</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Business Rules</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -34,7 +34,7 @@
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_8a149adddbc89c50ba15a353059619da</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:55:37</sys_updated_on>
+        <sys_updated_on>2020-07-08 14:22:42</sys_updated_on>
         <timeline_page/>
         <title>Business Rules</title>
         <uncancelable>false</uncancelable>

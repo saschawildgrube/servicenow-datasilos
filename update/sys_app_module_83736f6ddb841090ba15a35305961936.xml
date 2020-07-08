@@ -20,14 +20,14 @@
         <override_menu_roles>false</override_menu_roles>
         <query>sysparm_view_forced=true</query>
         <report/>
-        <roles>x_snc_datasilos.datasilos_admin</roles>
+        <roles>x_snc_datasilos.admin</roles>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 15:35:05</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>83736f6ddb841090ba15a35305961936</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Logs</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -35,7 +35,7 @@
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_83736f6ddb841090ba15a35305961936</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:55:56</sys_updated_on>
+        <sys_updated_on>2020-07-08 14:26:41</sys_updated_on>
         <timeline_page/>
         <title>Logs</title>
         <uncancelable>false</uncancelable>
