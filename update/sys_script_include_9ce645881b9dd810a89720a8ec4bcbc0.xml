@@ -21,7 +21,8 @@
 	}
 
 	Log('START');
-	var nChanges = 0;
+	var nTotalChanges = 0;
+	var nTotalRows = 0;
 	var aGlideRecordFilters = [];
 	
 	if (grFilter !== undefined)
@@ -34,24 +35,28 @@
 	}
 	else
 	{
-		var aMainClassNames = GetAllSupportedMainClassNames();
-		for (var nIndex = 0; nIndex < aMainClassNames.length; nIndex++)
+		var aClassNames = GetAllSupportedClassNames();
+		Debug(RenderValue(aClassNames));
+		for (var nIndex = 0; nIndex < aClassNames.length; nIndex++)
 		{
-			var grToAdd = new GlideRecord(aMainClassNames[nIndex]);
+			var grToAdd = new GlideRecord(aClassNames[nIndex]);
 			aGlideRecordFilters.push(grToAdd);
 		}
 	}
 
+	var aResults = [];
+	
 	for (var nIndex = 0; nIndex < aGlideRecordFilters.length; nIndex++)
 	{
+		var result = {};
 		var grCurrent = aGlideRecordFilters[nIndex];
 		var strCurrentClassName = grCurrent.getRecordClassName();
-		Debug('Working on '+grCurrent.getRecordClassName());
+		//Debug('Working on '+grCurrent.getRecordClassName());
 		
-		Debug('Query: '+grCurrent.getEncodedQuery());
+		//Debug('Query: '+grCurrent.getEncodedQuery());
 		
 		grCurrent.query();
-		Debug('Records found: '+grCurrent.getRowCount());
+		//Debug('Records found: '+grCurrent.getRowCount());
 		
 		var nCurrentChanges = 0;
 		
@@ -67,27 +72,37 @@
 				nCurrentChanges++;
 			}
 		}
-		Log('Made '+GetStringValue(nCurrentChanges)+ ' changes to '+strCurrentClassName);
-		nChanges += nCurrentChanges;
+		result.rows = grCurrent.getRowCount();
+		nTotalRows += result.rows;
+		result.changes = nCurrentChanges;
+		nTotalChanges += nCurrentChanges;
+		result.classname = strCurrentClassName;
+		aResults.push(result);
 	}
 
-	Log('END: Total changes: '+nChanges);
-
+	var strLog = 'END\n';
+	for (var nIndex = 0; nIndex < aResults.length; nIndex++)
+	{
+		result = aResults[nIndex];
+		strLog += 'Changed '+result.changes+' out of '+result.rows+' records in '+result.classname+'\n';
+	}
+	strLog += 'Changes '+nTotalChanges+' in '+nTotalRows+' records in total.';
+	Log(strLog);
 	
-    return nChanges;
+    return nTotalChanges;
 
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>Maintenance</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-05 17:46:04</sys_updated_on>
+        <sys_updated_on>2020-07-10 15:10:28</sys_updated_on>
     </sys_script_include>
 </record_update>
