@@ -84,6 +84,8 @@
 	<ol>
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-datasilos" target="_blank">repository</a>&#160;and then import the application from source control.</li>
 		<li>Install the DevTools application. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">repository</a>&#160;and then import the application from source control.</li>
+		<li>Check the DevTools version. If a different (more recent) version of DevTools was imported from source control you might consider creating a branch based on the corresponding version tag and switch to that branch.</li>
+		<li>Follow the installation instruction contained in DevTools/Start.</li>
 		<li>Go to "Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.). If you see some, they must be deleted. A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Elevate roles to security_admin</li>
 		<li>Switch to global scope</li>
@@ -248,13 +250,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>128</sys_mod_count>
+        <sys_mod_count>129</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-14 12:27:11</sys_updated_on>
+        <sys_updated_on>2020-07-14 15:23:40</sys_updated_on>
     </sys_ui_page>
 </record_update>
