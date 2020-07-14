@@ -205,6 +205,7 @@ DataSilos - incident_task - cross-silo
 		<li>Improved logging in the Maintenance script: Only the start and the end of the execution (with a consolidated summary) is logged.</li> 
 		<li>Extended the developer guide with more details.</li>
 		<li>Added the "Rollback" section to the implementation guide.</li>
+		<li>Added a navigation module to show all silo to group associations.</li>
 	</ol>
 	<h3>1.2.1 - 2020-07-08</h3>
 	<ol>
@@ -247,13 +248,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>127</sys_mod_count>
+        <sys_mod_count>128</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-11 11:04:28</sys_updated_on>
+        <sys_updated_on>2020-07-14 12:27:11</sys_updated_on>
     </sys_ui_page>
 </record_update>
