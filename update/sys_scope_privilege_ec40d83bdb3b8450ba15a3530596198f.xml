@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
     <sys_scope_privilege action="INSERT_OR_UPDATE">
         <operation>execute</operation>
-        <source_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</source_scope>
+        <source_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</source_scope>
         <status>allowed</status>
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -9,9 +9,9 @@
         <sys_id>ec40d83bdb3b8450ba15a3530596198f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Glide API: user roles and groups</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_scope_privilege_ec40d83bdb3b8450ba15a3530596198f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-02 13:42:09</sys_updated_on>
