@@ -11,16 +11,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-06 15:54:11</sys_created_on>
         <sys_id>c7949581db805c50ba15a353059619da</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>x_snc_datasilos.active</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_c7949581db805c50ba15a353059619da</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-14 16:01:59</sys_updated_on>
+        <sys_updated_on>2020-07-15 13:35:15</sys_updated_on>
         <type>boolean</type>
-        <value/>
+        <value>true</value>
         <write_roles>x_snc_datasilos.datasilos_admin</write_roles>
     </sys_properties>
     <sys_translated_text action="delete_multiple" query="documentkey=c7949581db805c50ba15a353059619da"/>
