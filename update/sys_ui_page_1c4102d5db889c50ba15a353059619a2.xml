@@ -140,6 +140,7 @@ x_snc_datasilos.ExecuteACL(current)
 	<h3>Activation</h3>
 	<ol>
 		<li>Go to the "Options" module and activate the DataSilos application.</li>
+		<li>Configure additional fields for tables that should be used to populate the whitelist.</li>
 		<li>Deactivate any existing conflicting business rules that may have been identified earlier.</li>
 		<li>Go to "Test Suite" and execute all tests.</li>
 		<li>Activate the "Maintenance" scheduled script</li>
@@ -186,8 +187,10 @@ Requires role: x_snc_datasilos.manager
 		<li>Extend the GetAllSupportedRelatedClassNames script include to support the tables of related records (e.g. tasks).</li>
 		<li>Extend the GetParentRecord script include to support the identification of parent records of related records (e.g. to get the incident from an incident task)</li>
 		<li>Extend the GetRelatedRecords script include to support the identification of related records of a main record (e.g. to get the incident_tasks from an incident)</li>
+		<li>Extend the GetClassNameWhitelistTriggerFields script include to identify defaults for the new supported tables.</li>
 		<li>Extend the PrepareQuery, RecordInitialize and RecordUpdate scripts to consider specific requirements for the new tables. Keep in mind that any table that is NOT based on the task table may not have the assignment_group field and hence might require a completely different way to populate the whitelist.</li>
 		<li>Extend the filter condition in the "ACLs" module to cover the new tables</li>
+		<li>Add the configuration option to set the whitelist_trigger_field property for the new tables.</li>
 		<li>Update ATF test "DataSilos - Installation" to check for business rules related to the new tables</li>
 		<li>Update ATF test "DataSilos - Installation" to check for ACLs related to the new tables</li>
 		<li>Switch to global scope</li>
@@ -207,6 +210,8 @@ DataSilos - incident_task - cross-silo
 	<h2>Release Notes</h2>
 	<h3>1.3.0 - TODO</h3>
 	<ol>
+		<li>Introduced the configurable whitelist_trigger_field option. By setting the table specific option (e.g. x_snc_datasilos.incident.whitelist_trigger_field) the fields that should be used to populate the whitelist can be explicitly configured. For each table based on the task table this is the assignment_group field. However any other field that contains a reference to a group can be used. Dot-walking is NOT yet supported, though.</li> 
+		<li>Introduced the maintenance.log_frequency option to control how often the maintenance script should log the current progress.</li>
 		<li>Deactivated the Log module for the time being.</li>
 	</ol>
 	<h3>1.2.2 - 2020-07-15</h3>
@@ -258,13 +263,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>139</sys_mod_count>
+        <sys_mod_count>141</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-15 12:32:40</sys_updated_on>
+        <sys_updated_on>2020-07-16 15:11:43</sys_updated_on>
     </sys_ui_page>
 </record_update>
