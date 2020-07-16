@@ -3,7 +3,6 @@
         <active>true</active>
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
-        <content_page/>
         <device_type/>
         <filter table="sys_script">nameSTARTSWITHDataSilos^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="STARTSWITH" or="false" value="DataSilos"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
@@ -30,9 +29,9 @@
         <sys_mod_count>9</sys_mod_count>
         <sys_name>Business Rules</sys_name>
         <sys_overrides/>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_8a149adddbc89c50ba15a353059619da</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-07-08 14:22:42</sys_updated_on>

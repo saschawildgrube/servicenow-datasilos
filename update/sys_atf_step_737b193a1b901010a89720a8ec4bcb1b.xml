@@ -18,15 +18,16 @@ Confirm the record was successfully inserted</description>
         <sys_id>737b193a1b901010a89720a8ec4bcb1b</sys_id>
         <sys_mod_count>26</sys_mod_count>
         <sys_name>Record Insert</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_737b193a1b901010a89720a8ec4bcb1b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-05-27 13:18:02</sys_updated_on>
         <table>x_snc_datasilos_datasilos</table>
         <test display_value="DataSilos - Management">cec9ddb61b901010a89720a8ec4bcba4</test>
         <timeout/>
+        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=737b193a1b901010a89720a8ec4bcb1b"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
