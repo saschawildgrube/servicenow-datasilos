@@ -3,6 +3,7 @@
         <active>true</active>
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
+        <content_page/>
         <device_type/>
         <filter table="sysauto_script">name=DataSilos - Maintenance^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="=" or="false" value="DataSilos - Maintenance"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>

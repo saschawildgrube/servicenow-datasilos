@@ -27,7 +27,6 @@ With a failure timeout of 5 Seconds</description>
         <table>sys_user</table>
         <test display_value="DataSilos - incident_task - cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout>1970-01-01 00:00:05</timeout>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=c32cc6d1db9d1c10ba15a35305961970"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

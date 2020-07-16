@@ -3,6 +3,7 @@
         <active>false</active>
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
+        <content_page/>
         <device_type/>
         <filter table="syslog_app_scope">sys_created_onONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()^sys_scope=dafbffebdbb78450ba15a353059619eb^EQ<item endquery="false" field="sys_created_on" goto="false" newquery="false" operator="ON" or="false" value="Today@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()"/>
             <item display_table="sys_scope" display_value="DataSilos WORK IN PROGRESS" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="dafbffebdbb78450ba15a353059619eb"/>

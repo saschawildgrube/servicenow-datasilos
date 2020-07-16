@@ -25,7 +25,6 @@
         <table/>
         <test display_value="DataSilos - change_request - opener, requester and sentinel">75b0756cdb251010ba15a35305961947</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=35b0b96cdb251010ba15a353059619f2"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

@@ -30,7 +30,6 @@ Confirm the record was successfully inserted</description>
         <table>change_task</table>
         <test display_value="DataSilos - change_task - cross-silo">efb17de91b195050a89720a8ec4bcbd7</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=8cc1f52d1b195050a89720a8ec4bcb95"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

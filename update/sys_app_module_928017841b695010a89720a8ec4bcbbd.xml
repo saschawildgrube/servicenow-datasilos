@@ -3,6 +3,7 @@
         <active>true</active>
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
+        <content_page/>
         <device_type/>
         <filter table="sys_security_acl">name=incident.*^operation=read^NQname=incident_task.*^operation=read^NQname=change_request.*^operation=read^NQname=change_task.*^operation=read^NQname=problem.*^operation=read^NQname=problem_task.*^operation=read^NQname=sc_request.*^operation=read^NQname=sc_req_item.*^operation=read^NQname=sc_task.*^operation=read^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="=" or="false" value="incident.*"/>
             <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>

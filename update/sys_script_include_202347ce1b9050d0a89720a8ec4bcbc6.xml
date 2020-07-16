@@ -3,7 +3,6 @@
         <access>package_private</access>
         <active>true</active>
         <api_name>x_snc_datasilos.GetSilosFromUser</api_name>
-        <caller_access/>
         <client_callable>false</client_callable>
         <description>Returns all silos that the user belongs to. </description>
         <name>GetSilosFromUser</name>

@@ -28,7 +28,6 @@ Confirm the record was successfully updated</description>
         <table>change_task</table>
         <test display_value="DataSilos - change_task">324fe1691b195050a89720a8ec4bcbcb</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=2b4f65691b195050a89720a8ec4bcbb6"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

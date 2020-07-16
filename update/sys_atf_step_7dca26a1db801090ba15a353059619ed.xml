@@ -30,7 +30,6 @@ Confirm the record was successfully inserted</description>
         <table>incident</table>
         <test display_value="DataSilos - incident_task">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=7dca26a1db801090ba15a353059619ed"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

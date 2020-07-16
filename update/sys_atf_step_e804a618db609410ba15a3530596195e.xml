@@ -29,7 +29,6 @@ Confirm the record was successfully inserted</description>
         <table>incident_task</table>
         <test display_value="DataSilos - incident_task - cross-silo">262df9fa1b141010a89720a8ec4bcbe3</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=e804a618db609410ba15a3530596195e"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

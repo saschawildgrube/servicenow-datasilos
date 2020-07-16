@@ -26,7 +26,6 @@
         <table/>
         <test display_value="DataSilos - sc_request - opener, requester and sentinel">b1b6ccb51bb1d050a89720a8ec4bcb55</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=32b6c0f51bb1d050a89720a8ec4bcb8e"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

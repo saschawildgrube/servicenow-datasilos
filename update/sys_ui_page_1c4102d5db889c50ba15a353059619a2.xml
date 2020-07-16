@@ -10,7 +10,7 @@
 <div style="
 	padding-left: 20px;
 	">
-	<h1>DataSilos</h1> 
+	<h1>DataSilos</h1>     
 	<p>Welcome to DataSilos.<!-- - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.--></p>
 	<p>The DataSilos application helps to separate data between different organisational units - so called&#160;<b>data silos</b>.</p>
 	<p>In contrast to domain separation DataSilos allows the exchange of data (in form of individual records) between data silos and makes them visible to users on a need-to-know basis.</p>
@@ -263,13 +263,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>141</sys_mod_count>
+        <sys_mod_count>142</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-16 15:11:43</sys_updated_on>
+        <sys_updated_on>2020-07-16 16:43:06</sys_updated_on>
     </sys_ui_page>
 </record_update>

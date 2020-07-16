@@ -25,7 +25,6 @@
         <table/>
         <test display_value="DataSilos - problem_task">f86f1c091bb51050a89720a8ec4bcb61</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=7c6f5c491bb51050a89720a8ec4bcb2d"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

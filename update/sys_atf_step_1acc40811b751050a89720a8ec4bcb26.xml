@@ -26,7 +26,6 @@
         <table/>
         <test display_value="DataSilos - problem - cross-silo">f9cc00811b751050a89720a8ec4bcba2</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=1acc40811b751050a89720a8ec4bcb26"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

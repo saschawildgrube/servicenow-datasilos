@@ -3,7 +3,6 @@
         <access>package_private</access>
         <active>true</active>
         <api_name>x_snc_datasilos.CreateTestData</api_name>
-        <caller_access/>
         <client_callable>false</client_callable>
         <description/>
         <name>CreateTestData</name>
@@ -11,7 +10,7 @@
 {
 	
 	
-	var testdata = new DataSilosTestDataAPI('_TEST_DATASILOS_');
+	var testdata = new DataSilosTestDataAPI('_TEST_DATASILOS_'); //
 	
 	//testdata.SetPrefix('_TEST_DATASILOS_');
 	
@@ -65,13 +64,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>70</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-02 08:21:45</sys_updated_on>
+        <sys_updated_on>2020-07-16 16:43:24</sys_updated_on>
     </sys_script_include>
 </record_update>

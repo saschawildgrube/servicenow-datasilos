@@ -26,7 +26,6 @@
         <table/>
         <test display_value="DataSilos - Management">cec9ddb61b901010a89720a8ec4bcba4</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=ebcc55ba1b901010a89720a8ec4bcb4c"/>
     <sys_variable_value action="INSERT_OR_UPDATE">

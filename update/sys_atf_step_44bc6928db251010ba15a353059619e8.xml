@@ -26,7 +26,6 @@
         <table/>
         <test display_value="DataSilos - incident - opener, caller and sentinel">cf3a6d64db251010ba15a353059619f1</test>
         <timeout/>
-        <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=44bc6928db251010ba15a353059619e8"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
