@@ -208,9 +208,13 @@ DataSilos - incident_task - cross-silo
 		<li>Update THIS documentation</li>
 	</ol>
 	<h2>Release Notes</h2>
+	<h3>1.3.1 - 2020-TODO</h3>
+	<ol>
+		<li></li>
+	</ol>
 	<h3>1.3.0 - 2020-07-16</h3>
 	<ol>
-		<li>Introduced the configurable whitelist_trigger_field option. By setting the table specific option (e.g. x_snc_datasilos.incident.whitelist_trigger_field) the fields that should be used to populate the whitelist can be explicitly configured. For each table based on the task table this is the assignment_group field. However any other field that contains a reference to a group can be used. Dot-walking is NOT yet supported, though.</li> 
+		<li>Introduced the configurable whitelist_trigger_field option. By setting the table specific option (e.g. x_snc_datasilos.incident.whitelist_trigger_field) the fields that should be used to populate the whitelist can be explicitly configured. If the option is empty the default for each table based on the task table is the assignment_group field. However any other field that contains a reference to a group can be used. Dot-walking is NOT yet supported, though.</li> 
 		<li>Introduced the maintenance.log_frequency option to control how often the maintenance script should log the current progress.</li>
 		<li>Deactivated the Log module for the time being.</li>
 	</ol>
@@ -263,13 +267,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>143</sys_mod_count>
+        <sys_mod_count>144</sys_mod_count>
         <sys_name>Start</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-16 17:13:00</sys_updated_on>
+        <sys_updated_on>2020-07-16 19:34:06</sys_updated_on>
     </sys_ui_page>
 </record_update>

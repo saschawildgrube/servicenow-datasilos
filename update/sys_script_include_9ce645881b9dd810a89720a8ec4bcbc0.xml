@@ -82,7 +82,7 @@
 			{
 				if (nCurrentRow % nLogFrequency == 0)
 				{
-					var strLog = 'Processing row '+nCurrentRow+' of '+nCurrentRows+' in '+strCurrentClassName+' and made made '+nCurrentChanges+' changes so far.';
+					var strLog = 'Processing row '+nCurrentRow+' of '+nCurrentRows+' in '+strCurrentClassName+' and made '+nCurrentChanges+' changes so far.';
 					Log(strLog);
 				}
 			}
@@ -112,13 +112,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>Maintenance</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-16 15:03:07</sys_updated_on>
+        <sys_updated_on>2020-07-16 19:34:52</sys_updated_on>
     </sys_script_include>
 </record_update>
