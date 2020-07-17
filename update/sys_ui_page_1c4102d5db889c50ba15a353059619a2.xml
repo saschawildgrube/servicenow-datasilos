@@ -129,6 +129,7 @@ x_snc_datasilos.ExecuteACL(current)
 			Note that you may have to combine the script logic with already existing scripts.
 		</ol>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
+		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests.</li>
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -136,11 +137,12 @@ x_snc_datasilos.ExecuteACL(current)
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups. This can also be done automatically or via data import.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
+		<li>Configure additional fields for tables that should be used to populate the whitelist.</li>
+		<li>Define the frequency in which the "Maintenance" scheduled script should run. Experience shows that the script can process approx. 1000 records per minute - so plan your roll-out procedure accordingly.</li>
 	</ol>
 	<h3>Activation</h3>
 	<ol>
 		<li>Go to the "Options" module and activate the DataSilos application.</li>
-		<li>Configure additional fields for tables that should be used to populate the whitelist.</li>
 		<li>Deactivate any existing conflicting business rules that may have been identified earlier.</li>
 		<li>Go to "Test Suite" and execute all tests.</li>
 		<li>Activate the "Maintenance" scheduled script</li>
@@ -267,13 +269,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>144</sys_mod_count>
+        <sys_mod_count>145</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-16 19:34:06</sys_updated_on>
+        <sys_updated_on>2020-07-17 09:41:34</sys_updated_on>
     </sys_ui_page>
 </record_update>
