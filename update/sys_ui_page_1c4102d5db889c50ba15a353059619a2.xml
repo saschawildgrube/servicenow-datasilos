@@ -138,14 +138,14 @@ x_snc_datasilos.ExecuteACL(current)
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
 		<li>Configure additional fields for tables that should be used to populate the whitelist.</li>
-		<li>Define the frequency in which the "Maintenance" scheduled script should run. Experience shows that the script can process approx. 1000 records per minute - so plan your roll-out procedure accordingly.</li>
+		<li>Go to "Scheduled Jobs" and define the frequency in which the "Maintenance" scheduled script should run. Experience shows that the script can process approx. 1000 records per minute - so plan your roll-out procedure accordingly.</li>
 	</ol>
 	<h3>Activation</h3>
 	<ol>
 		<li>Go to the "Options" module and activate the DataSilos application.</li>
 		<li>Deactivate any existing conflicting business rules that may have been identified earlier.</li>
 		<li>Go to "Test Suite" and execute all tests.</li>
-		<li>Activate the "Maintenance" scheduled script</li>
+		<li>Go to "Scheduled Jobs" and activate the "Maintenance" scheduled script</li>
 	</ol>
 	<h3>Rollback</h3>
 	<p>In case anything goes terribly wrong after activation, follow these steps:</p>
@@ -212,7 +212,9 @@ DataSilos - incident_task - cross-silo
 	<h2>Release Notes</h2>
 	<h3>1.3.1 - 2020-TODO</h3>
 	<ol>
-		<li></li>
+		<li>Reactivated the "Log" module.</li>
+		<li>The module "Maintenance" has been replaced by the "Scheduled Jobs" module and shows all scheduled script executions where the name contains "DataSilos".</li>
+		<li>A bug in the Madrid release caused issues in some navigation modules preventing pre-defined filters to work properly. This has been fixed.</li>
 	</ol>
 	<h3>1.3.0 - 2020-07-16</h3>
 	<ol>
@@ -269,13 +271,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>145</sys_mod_count>
+        <sys_mod_count>146</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-17 09:41:34</sys_updated_on>
+        <sys_updated_on>2020-07-22 13:28:13</sys_updated_on>
     </sys_ui_page>
 </record_update>
