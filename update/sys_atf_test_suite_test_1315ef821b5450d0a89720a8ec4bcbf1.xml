@@ -14,7 +14,7 @@
         <sys_update_name>sys_atf_test_suite_test_1315ef821b5450d0a89720a8ec4bcbf1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-04-23 12:31:53</sys_updated_on>
-        <test display_value="DataSilos - RecordAddGroupToWhiteList">d225ef821b5450d0a89720a8ec4bcbfa</test>
+        <test display_value="DataSilos - RecordAddGroupToWhitelist">d225ef821b5450d0a89720a8ec4bcbfa</test>
         <test_suite display_value="DataSilos">23e924dddb809c50ba15a353059619ae</test_suite>
     </sys_atf_test_suite_test>
 </record_update>

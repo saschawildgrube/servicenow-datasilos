@@ -2,41 +2,49 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.GetSilosFromGroup</api_name>
+        <api_name>x_snc_datasilos.GetSilosFromGroupByTypes</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Returns all silos that contain a given group.</description>
-        <name>GetSilosFromGroup</name>
-        <script><![CDATA[function GetSilosFromGroup(strGroupSysId)
+        <name>GetSilosFromGroupByTypes</name>
+        <script><![CDATA[function GetSilosFromGroupByTypes(strGroupSysId,aTypes)
 {
-	return GetSilosFromGroupByTypes(strGroupSysId,[]);
-	/*
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	aTypes = GetArrayValue(aTypes); 
 
 	strGroupSysId = GetStringValue(strGroupSysId);
 	var aSilos = [];
 
 	var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
 	var query = grSilosToGroups.addQuery('group','=',strGroupSysId);
+	
+	if (aTypes.length > 0)
+	{
+		var queryTypes = grSilosToGroups.addQuery('type','=',aTypes[0]);
+		for (var nTypeIndex = 1; nTypeIndex < aTypes.length; nTypeIndex++)
+		{
+			query.addOrCondition('type','=',aTypes[nTypeIndex]);
+		}
+	}
 	grSilosToGroups.query();
 	while (grSilosToGroups.next())
 	{
 		aSilos.push(grSilosToGroups.getValue('datasilo'));
 	}
 	return aSilos;
-	*/
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-04-23 15:13:32</sys_created_on>
-        <sys_id>781c2cee1bd490d0a89720a8ec4bcbd7</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_name>GetSilosFromGroup</sys_name>
+        <sys_created_on>2020-07-30 16:25:56</sys_created_on>
+        <sys_id>77eaa982db929450ba15a353059619c1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>GetSilosFromGroupByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_script_include_781c2cee1bd490d0a89720a8ec4bcbd7</sys_update_name>
+        <sys_update_name>sys_script_include_77eaa982db929450ba15a353059619c1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 16:28:30</sys_updated_on>
+        <sys_updated_on>2020-07-30 16:27:49</sys_updated_on>
     </sys_script_include>
 </record_update>

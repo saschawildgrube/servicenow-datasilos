@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordAddSiloToSupervisorSiloWhitelist</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>RecordAddSiloToSupervisorSiloWhitelist</name>
+        <script><![CDATA[function RecordAddSiloToSupervisorSiloWhitelist(record, strNewSiloSysId)
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;
+
+	strNewSiloSysId = GetStringValue(strNewSiloSysId);
+	if (IsValidSysId(strNewSiloSysId))
+	{
+		var strSiloSysIds = GetStringValue(record.getValue('x_snc_datasilos_supervisor_silo_whitelist'));
+		if (strSiloSysIds == '')
+		{
+			record.x_snc_datasilos_supervisor_silo_whitelist = strNewSiloSysId;
+			return true;
+		}
+		else
+		{
+			if (strSiloSysIds.includes(strNewSiloSysId) == false)
+			{
+				record.x_snc_datasilos_supervisor_silo_whitelist = strSiloSysIds + ',' + strNewSiloSysId; 
+				return true;
+			}
+		}
+	}
+	return false;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-30 16:41:12</sys_created_on>
+        <sys_id>a76ee1c6db929450ba15a353059619ea</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>RecordAddSiloToSupervisorSiloWhitelist</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_a76ee1c6db929450ba15a353059619ea</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-30 16:43:23</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -2,12 +2,12 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.GetSilosFromUserByType</api_name>
+        <api_name>x_snc_datasilos.GetSilosFromUserByTypes</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Returns all silos that the user belongs to, filtered by the type of the group in the silo.</description>
-        <name>GetSilosFromUserByType</name>
-        <script><![CDATA[function GetSilosFromUserByType(strUserSysId, aTypes)
+        <name>GetSilosFromUserByTypes</name>
+        <script><![CDATA[function GetSilosFromUserByTypes(strUserSysId, aTypes)
 {
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var RenderValue = x_snc_devtools.RenderValue;
@@ -18,7 +18,7 @@
 	aTypes = GetArrayValue(aTypes);
 	
 	var aUserGroups = GetGroupsFromUser(strUserSysId);
-	Debug('DataSilos: GetSilosFromUserByType: GetGroupsFromUser: '+RenderValue(aUserGroups));
+	Debug('DataSilos: GetSilosFromUserByTypes: GetGroupsFromUser: '+RenderValue(aUserGroups));
 
 	var aUserSilos = [];
 
@@ -47,12 +47,12 @@
 			aUserSilos.push(grSilosToGroups.getValue('datasilo'));
 		}
 	}
-	Debug('DataSilos: GetSilosFromUserByType: aUserSilos: '+RenderValue(aUserSilos));
+	Debug('DataSilos: GetSilosFromUserByTypes: aUserSilos: '+RenderValue(aUserSilos));
 	
 	// Remove duplicates
 	aUserSilos = ArrayUnique(aUserSilos);
 	
-	Debug('DataSilos: GetSilosFromUserByType: aUserSilos: '+RenderValue(aUserSilos));
+	Debug('DataSilos: GetSilosFromUserByTypes: aUserSilos: '+RenderValue(aUserSilos));
 	
 	return aUserSilos;
 }]]></script>
@@ -60,13 +60,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-30 14:38:36</sys_created_on>
         <sys_id>af529502db529450ba15a35305961922</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>GetSilosFromUserByType</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GetSilosFromUserByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_af529502db529450ba15a35305961922</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 14:43:49</sys_updated_on>
+        <sys_updated_on>2020-07-30 16:19:17</sys_updated_on>
     </sys_script_include>
 </record_update>
