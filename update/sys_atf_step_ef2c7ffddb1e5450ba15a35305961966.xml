@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from display_value="Run Server Side Script">2d3ba1e4db251010ba15a353059619a6</copied_from>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Create test data</notes>
+        <order>2</order>
+        <snapshot/>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-30 08:22:02</sys_created_on>
+        <sys_id>ef2c7ffddb1e5450ba15a35305961966</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_ef2c7ffddb1e5450ba15a35305961966</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-30 10:13:56</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - incident - global">722cf7fddb1e5450ba15a353059619eb</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=ef2c7ffddb1e5450ba15a35305961966"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>ef2c7ffddb1e5450ba15a35305961966</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-30 08:22:02</sys_created_on>
+        <sys_id>6f2c7ffddb1e5450ba15a35305961967</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-30 10:13:56</sys_updated_on>
+        <value>var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
+&#13;
+testdata.CreateUser('CALLER',[]);&#13;
+testdata.CreateUser('OPENER',[]);&#13;
+testdata.CreateUser('MANAGER',['itil','x_snc_datasilos.manager','x_snc_datasilos.sentinel']);&#13;
+testdata.CreateUser('ALPHA_MEMBER',['itil']);&#13;
+testdata.CreateUser('ALPHA_FULFILLER',['itil']);&#13;
+testdata.CreateUser('ALPHA_SUPERVISOR',['itil']);&#13;
+testdata.CreateGroup('ALPHA_MEMBERS',['ALPHA_MEMBER']);&#13;
+testdata.CreateGroup('ALPHA_FULFILLERS',['ALPHA_FULFILLER']);&#13;
+testdata.CreateGroup('ALPHA_SUPERVISORS',['ALPHA_SUPERVISOR']);&#13;
+testdata.CreateSilo('ALPHA',['ALPHA_MEMBERS'],['ALPHA_FULFILLERS'],['ALPHA_SUPERVISORS']);</value>
+        <variable display_value="">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>ef2c7ffddb1e5450ba15a35305961966</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-07-30 08:22:02</sys_created_on>
+        <sys_id>ab2c7ffddb1e5450ba15a35305961967</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-30 08:22:02</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+</record_update>
