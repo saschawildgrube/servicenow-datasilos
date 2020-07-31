@@ -47,7 +47,7 @@
 		var aUserSupervisorSilos = GetSilosFromUserByTypes(strUserSysId,['supervisor']);
 		for (var nIndex = 0; nIndex < aUserSupervisorSilos.length; nIndex++)
 		{
-			query.addOrCondition('x_snc_datasilos_supervisor_silo_whitelist','CONTAINS',aUserSupervisorSilos[nIndex]);
+			query.addOrCondition('x_snc_datasilos_supervisor_whitelist','CONTAINS',aUserSupervisorSilos[nIndex]);
 		}
 	}
 		
@@ -63,13 +63,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>PrepareQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 16:19:30</sys_updated_on>
+        <sys_updated_on>2020-07-31 09:58:37</sys_updated_on>
     </sys_script_include>
 </record_update>
