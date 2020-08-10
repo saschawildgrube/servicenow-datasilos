@@ -9,8 +9,6 @@
         <name>RecordInitialize</name>
         <script><![CDATA[function RecordInitialize(record)
 {
-	var Debug = x_snc_devtools.Debug;
-	var Log = x_snc_devtools.Log;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
 	var GetStringValue = x_snc_devtools.GetStringValue;
@@ -22,7 +20,7 @@
 	
 	if (IsValidRecord(record) == false)
 	{
-		Debug('DataSilos: RecordInitialize: record is undefined or null');
+		Debug('RecordInitialize: record is undefined or null');
 		return false;
 	}
 	var strClassName = record.getRecordClassName(); 
@@ -31,7 +29,7 @@
 	
 	if (IsClassNameSupported(strClassName))
 	{
-		Debug('DataSilos: RecordInitialize: IsClassNameSupported('+strClassName+'): true');
+		Debug('RecordInitialize: IsClassNameSupported('+strClassName+'): true');
 
 		// Add groups from parent
 		RecordAddGroupsToWhitelistFromParentRecord(record);
@@ -62,11 +60,11 @@
 
 	if (strClassName == 'sysapproval_approver')
 	{
-		Debug('DataSilos: RecordInitialize: class name is '+strClassName+'');
+		Debug('RecordInitialize: class name is '+strClassName+'');
 		return OnApproval(record);	
 	}
 	
-	Debug('DataSilos: RecordInitialize: Unsupported class name: '+strClassName+'');
+	Debug('RecordInitialize: Unsupported class name: '+strClassName+'');
 	
 	return false;
 }]]></script>
@@ -74,13 +72,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>94</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 17:16:59</sys_updated_on>
+        <sys_updated_on>2020-08-10 10:30:26</sys_updated_on>
     </sys_script_include>
 </record_update>

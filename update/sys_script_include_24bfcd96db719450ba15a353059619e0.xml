@@ -9,7 +9,6 @@
         <name>RecordAddGroupsToWhitelistFromParentRecord</name>
         <script><![CDATA[function RecordAddGroupsToWhitelistFromParentRecord(record)
 {
-	var Debug = x_snc_devtools.Debug;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 
 	var strClassName = record.getRecordClassName();
@@ -18,7 +17,7 @@
 		grParent = GetParentRecord(record);
 		if (grParent != false)
 		{
-			Debug('DataSilos: RecordAddGroupsToWhitelistFromParentRecord: parent record identified.');
+			Debug('RecordAddGroupsToWhitelistFromParentRecord: parent record identified.');
 
 			var strWhiteListGroupSysIds = GetStringValue(grParent.getValue('x_snc_datasilos_group_whitelist'));
 			var aWhiteListGroups = strWhiteListGroupSysIds.split(',');
@@ -29,7 +28,7 @@
 		}
 		else
 		{
-			Debug('DataSilos: RecordAddGroupsToWhitelistFromParentRecord: no parent record identified.');
+			Debug('RecordAddGroupsToWhitelistFromParentRecord: no parent record identified.');
 		}
 	}
 }]]></script>
@@ -37,13 +36,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-06 12:34:32</sys_created_on>
         <sys_id>24bfcd96db719450ba15a353059619e0</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>RecordAddGroupsToWhitelistFromParentRecord</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_24bfcd96db719450ba15a353059619e0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 16:54:34</sys_updated_on>
+        <sys_updated_on>2020-08-10 10:29:44</sys_updated_on>
     </sys_script_include>
 </record_update>

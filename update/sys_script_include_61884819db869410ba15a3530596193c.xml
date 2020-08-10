@@ -10,22 +10,20 @@
         <script><![CDATA[function RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes(record,aTypes)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
-	var Debug = x_snc_devtools.Debug;
 	var RenderValue = x_snc_devtools.RenderValue;
 	
 	var strClassName = record.getRecordClassName();
 	var aFields = GetClassNameWhitelistTriggerFields(strClassName);
-	Debug(RenderValue(aFields));
+	Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+RenderValue(aFields));
 		
 	for (var nIndexField = 0; nIndexField < aFields.length; nIndexField++)
 	{
 		var strField = aFields[nIndexField];
-		Debug('Field: '+strField);
+		Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+'Field: '+strField);
 		var ge = record.getElement(strField);
-		//Debug(RenderValue(ge));
 
 		var strGroupSysId = ge.toString();
-		Debug('Group read from '+strField+': '+strGroupSysId);
+		Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+'Group read from '+strField+': '+strGroupSysId);
 		RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes);
 	}
 
@@ -34,13 +32,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 15:08:03</sys_created_on>
         <sys_id>61884819db869410ba15a3530596193c</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_61884819db869410ba15a3530596193c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 16:33:24</sys_updated_on>
+        <sys_updated_on>2020-08-10 10:32:36</sys_updated_on>
     </sys_script_include>
 </record_update>
