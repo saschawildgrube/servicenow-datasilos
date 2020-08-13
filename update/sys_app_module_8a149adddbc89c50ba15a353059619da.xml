@@ -4,7 +4,18 @@
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
         <device_type/>
-        <filter table="sys_script">nameLIKEDataSilos^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="LIKE" or="false" value="DataSilos"/>
+        <filter table="sys_script">nameLIKEDataSilos^NQwhen=before^action_query=true^collection=incident^ORcollection=incident_task^ORcollection=problem^ORcollection=problem_task^ORcollection=change_request^ORcollection=change_task^ORcollection=sc_request^ORcollection=sc_req_item^ORcollection=sc_req_task^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="LIKE" or="false" value="DataSilos"/>
+            <item display_value="before" endquery="false" field="when" goto="false" newquery="true" operator="=" or="false" value="before"/>
+            <item endquery="false" field="action_query" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="false" value="incident"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="incident_task"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="problem"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="problem_task"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="change_request"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="change_task"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="sc_request"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="sc_req_item"/>
+            <item endquery="false" field="collection" goto="false" newquery="false" operator="=" or="true" value="sc_req_task"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <hint/>
@@ -26,7 +37,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>8a149adddbc89c50ba15a353059619da</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Business Rules</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -34,7 +45,7 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_8a149adddbc89c50ba15a353059619da</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-23 11:11:05</sys_updated_on>
+        <sys_updated_on>2020-08-13 14:49:36</sys_updated_on>
         <timeline_page/>
         <title>Business Rules</title>
         <uncancelable>false</uncancelable>

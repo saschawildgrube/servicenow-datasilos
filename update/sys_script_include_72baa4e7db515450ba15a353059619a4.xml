@@ -60,10 +60,10 @@
 	PrepareQuery(grRecord);
 	
 	var strEncodedQuery = grRecord.getEncodedQuery();
-	Debug('ExecuteACL: '+record.short_description+' strEncodedQuery: '+RenderValue(strEncodedQuery));
+	Debug(record.number+' strEncodedQuery: '+RenderValue(strEncodedQuery));
 	
 	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
-	Debug('ExecuteACL: '+record.short_description+' GlideFilter.checkRecord: '+RenderValue(bMatch));
+	Debug(record.number+' GlideFilter.checkRecord: '+RenderValue(bMatch));
 	
 	return bMatch;
 
@@ -72,13 +72,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-10 10:24:28</sys_updated_on>
+        <sys_updated_on>2020-08-10 10:53:13</sys_updated_on>
     </sys_script_include>
 </record_update>
