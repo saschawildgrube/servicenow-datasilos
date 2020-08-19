@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetConfigBaseline</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GetConfigBaseline</name>
+        <script><![CDATA[function GetConfigBaseline()
+{
+	var config = {};
+	
+	config['active'] = true;
+	
+	var RenderValue = x_snc_devtools.RenderValue;
+	Debug('GetConfigBaseline: '+RenderValue(config));
+	
+	return config;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-19 11:36:47</sys_created_on>
+        <sys_id>c258a390db76d890ba15a353059619ce</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GetConfigBaseline</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_c258a390db76d890ba15a353059619ce</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-19 11:42:00</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -7,7 +7,113 @@
         <client_callable>false</client_callable>
         <description/>
         <name>RecordUpdateWhitelistsFromGroupByTypes</name>
-        <script><![CDATA[function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
+        <script><![CDATA[var g_oCacheRecordUpdateWhitelistsFromGroupByTypes = {};
+function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
+{
+	var RenderValue = x_snc_devtools.RenderValue;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;
+	var ArrayUnique = x_snc_devtools.ArrayUnique;
+	var GetValue = x_snc_devtools.GetValue;
+
+	
+	strGroupSysId = GetStringValue(strGroupSysId);
+	aTypes = GetArrayValue(aTypes);
+	var strClassName = GetStringValue(record.getRecordClassName());
+	
+	if (IsValidSysId(strGroupSysId))
+	{
+		RecordAddGroupToWhitelist(record,strGroupSysId);
+
+		// Now add all groups of all silos of the given group
+		var aUserSilos = GetSilosFromGroup(strGroupSysId);
+		Debug('RecordUpdateWhitelistsFromGroupByTypes: GetSilosFromGroup: '+RenderValue(aUserSilos));
+
+		var aSupervisorSilosToAdd = GetArrayValue(GetValue(g_oCacheRecordUpdateWhitelistsFromGroupByTypes,
+			'silos-'+
+			GetStringValue(aUserSilos)+'-'+
+			GetStringValue(aTypes)));
+
+		var aGroupsToAdd = GetArrayValue(GetValue(g_oCacheRecordUpdateWhitelistsFromGroupByTypes,
+			'groups-'+
+			GetStringValue(aUserSilos)+'-'+
+			GetStringValue(aTypes)));
+		
+		if ((aSupervisorSilosToAdd.length == 0) || (aGroupsToAdd.length == 0))
+		{
+		
+			if ((aUserSilos.length > 0) && (aTypes.length > 0))
+			{
+				var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
+				var queryType = grSilosToGroups.addQuery('type','=',GetStringValue(aTypes[0]));
+				for (var nIndexType = 1; nIndexType < aTypes.length; nIndexType++) 
+				{
+					queryType.addOrCondition('type','=',GetStringValue(aTypes[nIndexType]));
+				}										 
+				var queryGroups = grSilosToGroups.addQuery('datasilo','=',aUserSilos[0]);
+				for (var nIndexSilo = 1; nIndexSilo < aUserSilos.length; nIndexSilo++) 
+				{
+					queryGroups.addOrCondition('datasilo','=',aUserSilos[nIndexSilo]);
+				}
+				Debug('DataSilos: RecordUpdateWhitelistsFromGroupByTypes: grSilosToGroups.getEncodedQuery: '+grSilosToGroups.getEncodedQuery());
+				grSilosToGroups.query();
+				Debug('DataSilos: RecordUpdateWhitelistsFromGroupByTypes: AFTER grSilosToGroups.query()');
+
+				var strLastSilo = '';
+
+				while (grSilosToGroups.next())
+				{
+					if ((grSilosToGroups.getValue('type') == 'supervisor') && (strClassName == 'incident'))
+					{
+						var strNextSilo = grSilosToGroups.getValue('datasilo');
+						if (strNextSilo != strLastSilo)
+						{
+							strLastSilo = strNextSilo;
+							aSupervisorSilosToAdd.push(strNextSilo);
+						}
+					}
+					else
+					{
+						aGroupsToAdd.push(grSilosToGroups.getValue('group'));
+					}
+				}
+				Debug('RecordUpdateWhitelistsFromGroupByTypes: AFTER filling the array');
+			}
+			aSupervisorSilosToAdd = ArrayUnique(aSupervisorSilosToAdd);
+			Debug('RecordUpdateWhitelistsFromGroupByTypes: AFTER  ArrayUnique(aSupervisorSilosToAdd)');
+
+				g_oCacheRecordUpdateWhitelistsFromGroupByTypes[
+					'silos-'+
+					GetStringValue(aUserSilos)+'-'+
+					GetStringValue(aTypes)] = aSupervisorSilosToAdd;
+				g_oCacheRecordUpdateWhitelistsFromGroupByTypes[
+					'groups-'+
+					GetStringValue(aUserSilos)+'-'+
+					GetStringValue(aTypes)] = aGroupsToAdd;
+		
+		}
+		
+		Debug('RecordUpdateWhitelistsFromGroupByTypes: aGroupsToAdd: '+RenderValue(aGroupsToAdd));
+
+		// Apply the silo's groups to the record's group whitelist
+		for (var nIndexGroup = 0; nIndexGroup < aGroupsToAdd.length; nIndexGroup++)
+		{
+			RecordAddGroupToWhitelist(record,aGroupsToAdd[nIndexGroup]);
+		}
+	
+		// Apply the supervisor silo to the record's supervisor silo whitelist
+		for (var nIndexSupervisorSilo = 0; nIndexSupervisorSilo < aSupervisorSilosToAdd.length; nIndexSupervisorSilo++)
+		{
+			RecordAddSiloToSupervisorWhitelist(record,aSupervisorSilosToAdd[nIndexSupervisorSilo]);
+		}
+	}	
+	return true;
+
+}
+
+/*
+function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 {
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
@@ -74,18 +180,19 @@
 	}	
 	return true;
 
-}]]></script>
+}
+*/]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 13:24:03</sys_created_on>
         <sys_id>5921f789db069410ba15a35305961976</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5921f789db069410ba15a35305961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-10 10:31:50</sys_updated_on>
+        <sys_updated_on>2020-08-13 15:06:08</sys_updated_on>
     </sys_script_include>
 </record_update>
