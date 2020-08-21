@@ -3,137 +3,152 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>number</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>35f96292dbde9450ba15a3530596197f</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>34249d491b76d890a89720a8ec4bcba2</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>sys_created_on</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>b9f96292dbde9450ba15a3530596197f</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>f8249d491b76d890a89720a8ec4bcba2</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>short_description</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>3df96292dbde9450ba15a3530596197f</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>7c249d491b76d890a89720a8ec4bcba2</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>x_snc_datasilos_global</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>bdf96292dbde9450ba15a3530596197f</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>fc249d491b76d890a89720a8ec4bcba2</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>x_snc_datasilos_supervisor_whitelist</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <element>x_snc_datasilos_ghost</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>31f96292dbde9450ba15a35305961980</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>70249d491b76d890a89720a8ec4bcba3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>x_snc_datasilos_group_whitelist</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <element>x_snc_datasilos_supervisor_whitelist</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>b1f96292dbde9450ba15a35305961980</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>f0249d491b76d890a89720a8ec4bcba3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>opened_by</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <element>x_snc_datasilos_group_whitelist</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>35f96292dbde9450ba15a35305961980</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>74249d491b76d890a89720a8ec4bcba3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>caller_id</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <element>opened_by</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>7</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>b5f96292dbde9450ba15a35305961980</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>f4249d491b76d890a89720a8ec4bcba3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>assignment_group</element>
-            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">39f96292dbde9450ba15a3530596197d</list_id>
+            <element>caller_id</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>8</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
-            <sys_id>39f96292dbde9450ba15a35305961980</sys_id>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>78249d491b76d890a89720a8ec4bcba3</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assignment_group</element>
+            <list_id display_value="incident" element="NULL" name="incident" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">3c249d491b76d890a89720a8ec4bcba0</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
+            <sys_id>f8249d491b76d890a89720a8ec4bcba3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -147,10 +162,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-31 15:39:47</sys_created_on>
+            <sys_created_on>2020-08-21 08:43:49</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>39f96292dbde9450ba15a3530596197d</sys_id>
+            <sys_id>3c249d491b76d890a89720a8ec4bcba0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>incident</sys_name>
             <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -158,7 +173,7 @@
             <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
             <sys_update_name>sys_ui_list_incident_datasilos</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-31 15:39:47</sys_updated_on>
+            <sys_updated_on>2020-08-21 08:43:49</sys_updated_on>
             <sys_user/>
             <view display_value="DataSilos" name="datasilos">268b1d0adb849090ba15a35305961902</view>
             <view_name/>

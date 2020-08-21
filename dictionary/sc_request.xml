@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="hasWorkflow=true" audit="true" create_roles="catalog_admin" extends="task" label="Request" max_length="40" name="sc_request" read_roles="catalog,itil" sizeclass="7" text_index="true" type="collection">
+        <element label="DataSilos Global Visibility" max_length="40" name="x_snc_datasilos_global" type="boolean"/>
         <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" label="DataSilos Group Whitelist" max_length="4000" name="x_snc_datasilos_group_whitelist" reference="sys_user_group" reference_cascade_rule="none" type="glide_list"/>
     </element>
 </database>

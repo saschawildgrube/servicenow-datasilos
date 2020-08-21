@@ -9,26 +9,163 @@
         <name>GetConfigBaseline</name>
         <script><![CDATA[function GetConfigBaseline()
 {
-	var config = {};
+	var config =
+	{
+		'active': true,
+		'tables':
+		{
+			'incident':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by,caller_id'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'incident_task':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'problem':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'problem_task':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'change_request':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by,requested_by'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'change_task':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'sc_request':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by,requested_for'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'sc_req_item':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by,request.requested_for'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			},
+			'sc_task':
+			{
+				'active': true,
+				'columns':
+				{
+					'instant_access':
+					{
+						'sys_user': 'opened_by'
+					},
+					'whitelist_trigger':
+					{
+						'sys_user_group': 'assignment_group'
+					}
+				}
+			}	
+		}
+	};
 	
-	config['active'] = true;
-	
-	var RenderValue = x_snc_devtools.RenderValue;
-	Debug('GetConfigBaseline: '+RenderValue(config));
-	
+
 	return config;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-19 11:36:47</sys_created_on>
         <sys_id>c258a390db76d890ba15a353059619ce</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>GetConfigBaseline</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_c258a390db76d890ba15a353059619ce</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-19 11:42:00</sys_updated_on>
+        <sys_updated_on>2020-08-21 12:14:34</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
     <sys_properties action="INSERT_OR_UPDATE">
         <choices/>
-        <description>Controls if the DataSilos application is active or not on a global scale. No restrictions will apply unless the option is set to yes.</description>
+        <description>Controls if the filtering provided by the DataSilos application is active or not on a global scale. No restrictions will apply unless the option is set to yes. Whitelists however are still populated.</description>
         <ignore_cache>false</ignore_cache>
         <is_private>true</is_private>
         <name>x_snc_datasilos.active</name>
@@ -11,14 +11,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-06 15:54:11</sys_created_on>
         <sys_id>c7949581db805c50ba15a353059619da</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>x_snc_datasilos.active</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_c7949581db805c50ba15a353059619da</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-16 14:58:20</sys_updated_on>
+        <sys_updated_on>2020-08-21 08:13:35</sys_updated_on>
         <type>boolean</type>
         <value>true</value>
         <write_roles>x_snc_datasilos.datasilos_admin</write_roles>
