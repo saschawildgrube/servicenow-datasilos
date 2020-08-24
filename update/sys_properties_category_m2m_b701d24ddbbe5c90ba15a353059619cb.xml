@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
     <sys_properties_category_m2m action="INSERT_OR_UPDATE">
         <category display_value="DataSilos">baf491c1db805c50ba15a3530596194e</category>
-        <order>201</order>
+        <order>200</order>
         <property display_value="x_snc_datasilos.tables.incident.columns.instant_access.sys_user" name="x_snc_datasilos.tables.incident.columns.instant_access.sys_user">6a6096c9dbbe5c90ba15a353059619f4</property>
         <sys_class_name>sys_properties_category_m2m</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 13:09:58</sys_created_on>
         <sys_id>b701d24ddbbe5c90ba15a353059619cb</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>x_snc_datasilos.tables.incident.columns.instant_access.sys_user.DataSilos</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_category_m2m_b701d24ddbbe5c90ba15a353059619cb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-21 13:24:02</sys_updated_on>
+        <sys_updated_on>2020-08-24 11:54:57</sys_updated_on>
     </sys_properties_category_m2m>
 </record_update>

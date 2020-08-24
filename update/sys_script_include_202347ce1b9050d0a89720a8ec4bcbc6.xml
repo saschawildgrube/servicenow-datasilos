@@ -12,7 +12,6 @@
 	return GetSilosFromUserByType(strUserSysId,[]);
 	
 	/*
-	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
 
@@ -50,13 +49,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-22 12:46:27</sys_created_on>
         <sys_id>202347ce1b9050d0a89720a8ec4bcbc6</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>GetSilosFromUser</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_202347ce1b9050d0a89720a8ec4bcbc6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-10 10:26:43</sys_updated_on>
+        <sys_updated_on>2020-08-24 12:08:18</sys_updated_on>
     </sys_script_include>
 </record_update>
