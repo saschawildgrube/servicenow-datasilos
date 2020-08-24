@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="m2m Data Silos to Groups " max_length="40" name="x_snc_datasilos_m2m_groups_datasilos" type="collection">
         <element attributes="encode_utf8=false" label="Data Silo" max_length="32" name="datasilo" reference="x_snc_datasilos_datasilos" type="reference"/>
-        <element attributes="encode_utf8=false" label="Group" max_length="32" name="group" reference="sys_user_group" type="reference"/>
+        <element attributes="encode_utf8=false" label="Group" max_length="32" name="group" reference="sys_user_group" reference_qual="javascript:x_snc_datasilos.GetGroupFilter()" type="reference" use_reference_qualifier="advanced"/>
         <element choice="3" default="fulfiller" label="Type" max_length="40" name="type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Member" sequence="1" value="member"/>
