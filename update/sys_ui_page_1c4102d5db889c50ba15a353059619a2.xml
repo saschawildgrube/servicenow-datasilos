@@ -72,7 +72,7 @@
 	
 	<h2>Implementation guide</h2>
 	<h3>Analysis</h3>
-	The following aspects and topics should be considered when implementing the DataSilos application:
+	<p>The following aspects and topics should be considered when implementing the DataSilos application:</p>
 	<ol>
 		<li>Who should have which role?</li>
 		<li>Who should be responsible to maintain the silo configuration? Which processes might be affected? What happens if new groups are being created today?</li>
@@ -87,6 +87,15 @@
 		<li>Which users are assigned to multiple groups and will that result in expected and intended bahaviour?</li>
 		<li>Should data silo configuration be automated - maybe as part of existing processes that integration organizational data into the platform?</li>
 		<li>How should external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
+	</ol>
+	<h3>Preparing Validation</h3>
+	<p>The following spects should be considered for testing and validation:</p>
+	<ol>
+		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on hw many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behaviour in an production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
+		<li>It is recommended to identify pages and views that are most frequently used by users - both for automated and manual user acceptance testing.</li> 
+		<li>Functional test cases should proof that specific records are visible to specific user groups AND that other records are explicitly NOT visible to other user groups.</li>
+		<li>Functional test cases should cover scenarios in which records are passed from one silo to another.</li>
+		<li>Any existing test cases (that relate to the supported tables) should be executed as part of the QA. Behaviour that was expected in the past may no longer be working with active filtering. In some cases the silo configuration might have to be reviewed, in other cases, the test cases might have to be updated.</li> 
 	</ol>
 	<h3>Installation</h3>
 	<ol>
@@ -296,13 +305,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>173</sys_mod_count>
+        <sys_mod_count>174</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-26 09:57:32</sys_updated_on>
+        <sys_updated_on>2020-09-02 14:55:09</sys_updated_on>
     </sys_ui_page>
 </record_update>
