@@ -138,12 +138,14 @@ Query: true
 			</pre>
 			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
 			<li>Verify you are still in the GLOBAL scope.</li>
-			<li>Ideally only ONE ACL exists for table_name.* (Note it is "table_name DOT asterix") for the READ operation. You may have to create one, change an existing ACL or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
-			<li>Activate 'Advanced' (if not active already) and add the following script:</li>
+			<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
+			<li>Activate 'Advanced' (if not active already) and add the following script or combine it with already existing scripts:
 			<pre>
 answer = x_snc_datasilos.ExecuteACL(current);	
 			</pre>
-			Note that you may have to combine the script logic with already existing scripts.
+			</li>
+			<li>
+			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues it is recommended to set the "answer" value only once at the end of the script.</li>
 		</ol>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
 		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests.</li>
@@ -211,15 +213,14 @@ Requires role: x_snc_datasilos.manager
 		<li>Extend the filter condition in the "ACLs" module to cover the new tables.</li>
 		<li>Extend the filter condition in the "Business Rules" module to cover the new tables.</li>
 		<li>Add the configuration option to set the whitelist_trigger_field property for the new tables.</li>
-		<li>Update ATF test "DataSilos - Installation" to check for business rules related to the new tables</li>
-		<li>Update ATF test "DataSilos - Installation" to check for ACLs related to the new tables</li>
 		<li>Switch to global scope</li>
 		<li>Add corresponding business rules for all affected tables</li>
 		<li>Add or modify corresponding ACLs for all affected tables</li>
 		<li>Switch back to DataSilos scope</li>
 		<li>Create ATF tests. The following tests can be used as templates:</li>
 			<pre>
-DataSilos - incident
+DataSilos - incident - installation
+DataSilos - incident - basic
 DataSilos - incident - opener, caller and sentinel
 DataSilos - incident - cross-silo
 DataSilos - incident_task
@@ -232,6 +233,7 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>WARNING: The property x_snc_datasilos.incident.whitelist_trigger_fields has essentially be renamed to x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group! Make sure to redo the configuration during upgrade!</li>
 		<li>WARNING: The property x_snc_datasilos.active now controls the filter ONLY. It will no longer surpress the population of the whitelists. As a result it can now be more effectively used as an ON/OFF switch while preparing a go-live or during trouble shooting - without any negative impact on the whitelists of records that are changed in the meantime.</li>
+		<li>WARNING: It is now required to configure ACLs not only for&#160;<b>table_name.*</b>,&#160;but also for&#160;<b>table_name</b>,&#160;. Updated the "ACLs" module and tests accordingly.</li>
 		<li>DevTools version must be 1.2.3.</li>
 		<li>Introduced the supervisor datasilo whitelist field for the incident table.</li>
 		<li>Introduced configurable group filter. An encoded query can now be configured to control which groups should be considered for whitelist population.</li>
@@ -305,13 +307,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>174</sys_mod_count>
+        <sys_mod_count>181</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-02 14:55:09</sys_updated_on>
+        <sys_updated_on>2020-09-04 10:05:09</sys_updated_on>
     </sys_ui_page>
 </record_update>
