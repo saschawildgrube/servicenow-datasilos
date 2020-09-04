@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
     <sys_atf_test action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="DataSilos - incident">1b12785cdb505c90ba15a35305961965</copied_from>
+        <copied_from display_value="DataSilos - incident - basic">1b12785cdb505c90ba15a35305961965</copied_from>
         <description/>
         <enable_parameterized_testing>false</enable_parameterized_testing>
         <name>DataSilos - incident - cross-silo</name>

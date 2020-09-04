@@ -26,7 +26,7 @@ With a failure timeout of 5 Seconds</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-09 10:32:11</sys_updated_on>
         <table>change_task</table>
-        <test display_value="DataSilos - change_task">324fe1691b195050a89720a8ec4bcbcb</test>
+        <test display_value="DataSilos - change_task - basic">324fe1691b195050a89720a8ec4bcbcb</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>

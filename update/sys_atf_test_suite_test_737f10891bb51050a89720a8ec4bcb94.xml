@@ -14,7 +14,7 @@
         <sys_update_name>sys_atf_test_suite_test_737f10891bb51050a89720a8ec4bcb94</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-07-02 11:51:17</sys_updated_on>
-        <test display_value="DataSilos - problem_task">f86f1c091bb51050a89720a8ec4bcb61</test>
+        <test display_value="DataSilos - problem_task - basic">f86f1c091bb51050a89720a8ec4bcb61</test>
         <test_suite display_value="DataSilos">23e924dddb809c50ba15a353059619ae</test_suite>
     </sys_atf_test_suite_test>
 </record_update>

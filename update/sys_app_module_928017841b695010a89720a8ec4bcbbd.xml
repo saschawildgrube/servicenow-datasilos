@@ -4,24 +4,25 @@
         <application display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</application>
         <assessment/>
         <device_type/>
-        <filter table="sys_security_acl">name=incident.*^operation=read^NQname=incident_task.*^operation=read^NQname=change_request.*^operation=read^NQname=change_task.*^operation=read^NQname=problem.*^operation=read^NQname=problem_task.*^operation=read^NQname=sc_request.*^operation=read^NQname=sc_req_item.*^operation=read^NQname=sc_task.*^operation=read^EQ<item endquery="false" field="name" goto="false" newquery="false" operator="=" or="false" value="incident.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="incident_task.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="change_request.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="change_task.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="problem.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="problem_task.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="sc_request.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="sc_req_item.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
-            <item endquery="false" field="name" goto="false" newquery="true" operator="=" or="false" value="sc_task.*"/>
-            <item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
+        <filter table="sys_security_acl">operation=read^name=incident.*^ORname=incident^ORname=incident_task.*^ORname=incident_task^ORname=change_request.*^ORname=change_request^ORname=change_task.*^ORname=change_task^ORname=problem.*^ORname=problem^ORname=problem_task.*^ORname=problem_task^ORname=sc_request.*^ORname=sc_request^ORname=sc_req_item.*^ORname=sc_req_item^ORname=sc_task.*^ORname=sc_task^EQ<item display_table="sys_security_operation" display_value="read" endquery="false" field="operation" goto="false" newquery="false" operator="=" or="false" value="read"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="false" value="incident.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="incident"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="incident_task.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="incident_task"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="change_request.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="change_request"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="change_task.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="change_task"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="problem.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="problem"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="problem_task.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="problem_task"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="sc_request.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="sc_request"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="sc_req_item.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="sc_req_item"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="sc_task.*"/>
+            <item endquery="false" field="name" goto="false" newquery="false" operator="=" or="true" value="sc_task"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <hint/>
@@ -43,7 +44,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>928017841b695010a89720a8ec4bcbbd</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>ACLs</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -51,7 +52,7 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_928017841b695010a89720a8ec4bcbbd</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-22 13:18:35</sys_updated_on>
+        <sys_updated_on>2020-09-04 09:37:33</sys_updated_on>
         <timeline_page/>
         <title>ACLs</title>
         <uncancelable>false</uncancelable>

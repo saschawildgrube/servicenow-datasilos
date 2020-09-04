@@ -24,7 +24,7 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-08 16:38:34</sys_updated_on>
         <table/>
-        <test display_value="DataSilos - incident_task">0dcaae61db801090ba15a353059619fb</test>
+        <test display_value="DataSilos - incident_task - basic">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>

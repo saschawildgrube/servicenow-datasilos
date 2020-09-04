@@ -26,7 +26,7 @@ Confirm the record was successfully updated</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-07-02 11:54:55</sys_updated_on>
         <table>problem_task</table>
-        <test display_value="DataSilos - problem_task">f86f1c091bb51050a89720a8ec4bcb61</test>
+        <test display_value="DataSilos - problem_task - basic">f86f1c091bb51050a89720a8ec4bcb61</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>

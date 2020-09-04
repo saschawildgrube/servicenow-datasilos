@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
     <sys_atf_test action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="DataSilos - incident_task">0dcaae61db801090ba15a353059619fb</copied_from>
+        <copied_from display_value="DataSilos - incident_task - basic">0dcaae61db801090ba15a353059619fb</copied_from>
         <description/>
         <enable_parameterized_testing>false</enable_parameterized_testing>
-        <name>DataSilos - incident</name>
+        <name>DataSilos - incident - basic</name>
         <parameters/>
         <remember/>
         <sys_class_name>sys_atf_test</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 15:42:44</sys_created_on>
         <sys_id>1b12785cdb505c90ba15a35305961965</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_name>DataSilos - incident</sys_name>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>DataSilos - incident - basic</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_test_1b12785cdb505c90ba15a35305961965</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-18 17:43:16</sys_updated_on>
+        <sys_updated_on>2020-09-03 12:50:03</sys_updated_on>
     </sys_atf_test>
     <sys_variable_value action="delete_multiple" query="document_key=1b12785cdb505c90ba15a35305961965"/>
 </record_update>

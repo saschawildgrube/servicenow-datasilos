@@ -1,88 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from/>
-        <description>Validate there is at least one record in 'sys_user_group' matching query:
-Name = _ATF_DATASILOS_BETA
+        <copied_from display_value="Record Query">2d1d88a91bf19050a89720a8ec4bcb5f</copied_from>
+        <description>Validate there is at least one record in 'sys_script' matching query:
+Name = DataSilos - incident
+and Active = true
+and Insert = true
+and Update = true
+and Query = true
+and Advanced = true
+and Script contains x_snc_datasilos.ExecuteBusinessRule(current, previous);
+and When = before
+and Application = Global
+and Table = incident
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Get group BETA</notes>
-        <order>8</order>
+        <notes/>
+        <order>1</order>
         <snapshot/>
         <step_config display_value="Record Query">0270b8005f30220012b44adb7f46666a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-08 16:34:21</sys_created_on>
-        <sys_id>821af999db1d1c10ba15a3530596193a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_created_on>2020-09-03 12:52:02</sys_created_on>
+        <sys_id>77990991db075410ba15a3530596193b</sys_id>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_821af999db1d1c10ba15a3530596193a</sys_update_name>
+        <sys_update_name>sys_atf_step_77990991db075410ba15a3530596193b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:34:21</sys_updated_on>
-        <table>sys_user_group</table>
-        <test display_value="DataSilos - incident_task - basic">0dcaae61db801090ba15a353059619fb</test>
+        <sys_updated_on>2020-09-03 12:54:07</sys_updated_on>
+        <table>sys_script</table>
+        <test display_value="DataSilos - incident - installation">eb99c591db075410ba15a353059619ab</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=821af999db1d1c10ba15a3530596193a"/>
+    <sys_variable_value action="delete_multiple" query="document_key=77990991db075410ba15a3530596193b"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>821af999db1d1c10ba15a3530596193a</document_key>
+        <document_key>77990991db075410ba15a3530596193b</document_key>
         <order>400</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-08 16:34:24</sys_created_on>
-        <sys_id>383a71d9db1d1c10ba15a35305961998</sys_id>
+        <sys_created_on>2020-09-03 12:52:02</sys_created_on>
+        <sys_id>3f990991db075410ba15a3530596193c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:34:24</sys_updated_on>
-        <value>name=_ATF_DATASILOS_BETA^EQ</value>
+        <sys_updated_on>2020-09-03 12:52:02</sys_updated_on>
+        <value>name=DataSilos - incident^active=true^action_insert=true^action_update=true^action_query=true^advanced=true^scriptLIKEx_snc_datasilos.ExecuteBusinessRule(current, previous);^when=before^sys_scope=global^collection=incident^EQ</value>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>821af999db1d1c10ba15a3530596193a</document_key>
+        <document_key>77990991db075410ba15a3530596193b</document_key>
         <order>300</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-08 16:34:24</sys_created_on>
-        <sys_id>743a71d9db1d1c10ba15a35305961998</sys_id>
+        <sys_created_on>2020-09-03 12:52:02</sys_created_on>
+        <sys_id>7b990991db075410ba15a3530596193c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:34:24</sys_updated_on>
-        <value>sys_user_group</value>
+        <sys_updated_on>2020-09-03 12:52:02</sys_updated_on>
+        <value>sys_script</value>
         <variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>821af999db1d1c10ba15a3530596193a</document_key>
+        <document_key>77990991db075410ba15a3530596193b</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-08 16:34:24</sys_created_on>
-        <sys_id>b03a71d9db1d1c10ba15a35305961998</sys_id>
+        <sys_created_on>2020-09-03 12:52:02</sys_created_on>
+        <sys_id>b7990991db075410ba15a3530596193c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:34:24</sys_updated_on>
+        <sys_updated_on>2020-09-03 12:52:02</sys_updated_on>
         <value>1</value>
         <variable display_value="">9459c28673103300f660eeadfff6a7dd</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>821af999db1d1c10ba15a3530596193a</document_key>
+        <document_key>77990991db075410ba15a3530596193b</document_key>
         <order>200</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-08 16:34:24</sys_created_on>
-        <sys_id>fc3a71d9db1d1c10ba15a35305961997</sys_id>
+        <sys_created_on>2020-09-03 12:52:02</sys_created_on>
+        <sys_id>f3990991db075410ba15a3530596193c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 16:34:24</sys_updated_on>
+        <sys_updated_on>2020-09-03 12:52:02</sys_updated_on>
         <value>records_match_query</value>
         <variable display_value="">dd091e22675003007ba405225685ef69</variable>
     </sys_variable_value>

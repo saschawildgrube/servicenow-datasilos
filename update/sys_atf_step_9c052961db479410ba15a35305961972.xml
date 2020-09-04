@@ -1,88 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Query">f3a97599db1d1c10ba15a3530596194b</copied_from>
-        <description>Validate there is at least one record in 'sys_user_group' matching query:
-Name = _ATF_DATASILOS_ALPHA
+        <copied_from/>
+        <description>Validate there are not any records in 'sys_security_acl' matching query:
+Name = incident
+and Operation = read
+and Active = true
+and Advanced = false
+  or Script does not contain x_snc_datasilos.ExecuteACL(current)
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Get group ALPHA</notes>
-        <order>7</order>
+        <notes/>
+        <order>5</order>
         <snapshot/>
         <step_config display_value="Record Query">0270b8005f30220012b44adb7f46666a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 10:25:14</sys_created_on>
-        <sys_id>074f65691b195050a89720a8ec4bcb39</sys_id>
+        <sys_created_on>2020-09-04 09:31:07</sys_created_on>
+        <sys_id>9c052961db479410ba15a35305961972</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_074f65691b195050a89720a8ec4bcb39</sys_update_name>
+        <sys_update_name>sys_atf_step_9c052961db479410ba15a35305961972</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:25:14</sys_updated_on>
-        <table>sys_user_group</table>
-        <test display_value="DataSilos - change_task - basic">324fe1691b195050a89720a8ec4bcbcb</test>
+        <sys_updated_on>2020-09-04 09:31:07</sys_updated_on>
+        <table>sys_security_acl</table>
+        <test display_value="DataSilos - incident - installation">eb99c591db075410ba15a353059619ab</test>
         <timeout>1970-01-01 00:00:05</timeout>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=074f65691b195050a89720a8ec4bcb39"/>
+    <sys_variable_value action="delete_multiple" query="document_key=9c052961db479410ba15a35305961972"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>074f65691b195050a89720a8ec4bcb39</document_key>
-        <order>200</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 10:25:14</sys_created_on>
-        <sys_id>034f65691b195050a89720a8ec4bcb3a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:25:14</sys_updated_on>
-        <value>records_match_query</value>
-        <variable display_value="">dd091e22675003007ba405225685ef69</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_atf_step</document>
-        <document_key>074f65691b195050a89720a8ec4bcb39</document_key>
+        <document_key>9c052961db479410ba15a35305961972</document_key>
         <order>400</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 10:25:14</sys_created_on>
-        <sys_id>4b4f65691b195050a89720a8ec4bcb3a</sys_id>
+        <sys_created_on>2020-09-04 09:31:07</sys_created_on>
+        <sys_id>52352961db479410ba15a353059619d9</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:25:14</sys_updated_on>
-        <value>name=_ATF_DATASILOS_ALPHA^EQ</value>
+        <sys_updated_on>2020-09-04 09:31:07</sys_updated_on>
+        <value>name=incident^operation=read^active=true^advanced=false^ORscriptNOT LIKEx_snc_datasilos.ExecuteACL(current)^EQ</value>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>074f65691b195050a89720a8ec4bcb39</document_key>
+        <document_key>9c052961db479410ba15a35305961972</document_key>
         <order>300</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 10:25:14</sys_created_on>
-        <sys_id>874f65691b195050a89720a8ec4bcb3a</sys_id>
+        <sys_created_on>2020-09-04 09:31:07</sys_created_on>
+        <sys_id>9e352961db479410ba15a353059619d8</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:25:14</sys_updated_on>
-        <value>sys_user_group</value>
+        <sys_updated_on>2020-09-04 09:31:07</sys_updated_on>
+        <value>sys_security_acl</value>
         <variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>074f65691b195050a89720a8ec4bcb39</document_key>
+        <document_key>9c052961db479410ba15a35305961972</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-04 09:31:07</sys_created_on>
+        <sys_id>d6352961db479410ba15a353059619d8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-04 09:31:07</sys_updated_on>
+        <value>no_records_match_query</value>
+        <variable display_value="">dd091e22675003007ba405225685ef69</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>9c052961db479410ba15a35305961972</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 10:25:14</sys_created_on>
-        <sys_id>c34f65691b195050a89720a8ec4bcb3a</sys_id>
+        <sys_created_on>2020-09-04 09:31:07</sys_created_on>
+        <sys_id>da352961db479410ba15a353059619d8</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:25:14</sys_updated_on>
+        <sys_updated_on>2020-09-04 09:31:07</sys_updated_on>
         <value>1</value>
         <variable display_value="">9459c28673103300f660eeadfff6a7dd</variable>
     </sys_variable_value>
