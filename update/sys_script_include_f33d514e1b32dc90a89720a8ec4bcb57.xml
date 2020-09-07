@@ -9,8 +9,14 @@
         <name>GetGroupsFromUser</name>
         <script><![CDATA[function GetGroupsFromUser(strUserSysId)
 {
+	function Debug(strText)
+	{
+		x_snc_datasilos.Debug('GetGroupsFromUser: '+strUserSysId+': '+strText);
+	}
+	
 	var GetStringValue = x_snc_devtools.GetStringValue;
-
+	var RenderValue = x_snc_devtools.RenderValue;	
+	
 	strUserSysId = GetStringValue(strUserSysId);
 	var aGroups = [];
 	var grUser = new GlideRecord('sys_user');
@@ -22,8 +28,7 @@
 	
 	grUserGroups.addQuery('user','=',strUserSysId);
 	
-	var RenderValue = x_snc_devtools.RenderValue;	
-	//Debug('GetGroupsFromUser: query: '+RenderValue(grUserGroups.getEncodedQuery()));
+
 	
 	grUserGroups.query();
 	while(grUserGroups.next())
@@ -37,14 +42,15 @@
 	
 	if (aGroups.length == 0)
 	{
+		Debug('aGroups is empty');
 		return aGroups;
 	}
 	
 	var strQuery = GetGroupFilter();
-	Debug('GetGroupsFromUser: strQuery: '+RenderValue(strQuery));
+	Debug('GetGroupFilter(): '+RenderValue(strQuery));
 	if (strQuery == '')
 	{
-		Debug('GetGroupsFromUser: aGroups: '+RenderValue(aGroups));
+		Debug('aGroups: '+RenderValue(aGroups));
 		return aGroups;
 	}
 
@@ -74,20 +80,20 @@
 		}
 	}
 
-	Debug('GetGroupsFromUser: aGroupsFiltered: '+RenderValue(aGroupsFiltered));
+	Debug('aGroupsFiltered: '+RenderValue(aGroupsFiltered));
 	return aGroupsFiltered;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-24 11:58:10</sys_created_on>
         <sys_id>f33d514e1b32dc90a89720a8ec4bcb57</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>GetGroupsFromUser</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_f33d514e1b32dc90a89720a8ec4bcb57</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-24 18:29:28</sys_updated_on>
+        <sys_updated_on>2020-09-07 13:17:28</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -30,6 +30,7 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 		var aUserSilos = GetSilosFromGroup(strGroupSysId);
 		Debug('RecordUpdateWhitelistsFromGroupByTypes: GetSilosFromGroup: '+RenderValue(aUserSilos));
 
+		/*
 		var aSupervisorSilosToAdd = GetArrayValue(GetValue(g_oCacheRecordUpdateWhitelistsFromGroupByTypes,
 			'silos-'+
 			GetStringValue(aUserSilos)+'-'+
@@ -39,6 +40,11 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 			'groups-'+
 			GetStringValue(aUserSilos)+'-'+
 			GetStringValue(aTypes)));
+		*/
+
+		var aSupervisorSilosToAdd = [];
+		var aGroupsToAdd = [];
+
 		
 		if ((aSupervisorSilosToAdd.length == 0) || (aGroupsToAdd.length == 0))
 		{
@@ -186,13 +192,13 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 13:24:03</sys_created_on>
         <sys_id>5921f789db069410ba15a35305961976</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5921f789db069410ba15a35305961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-13 15:06:08</sys_updated_on>
+        <sys_updated_on>2020-09-07 13:11:07</sys_updated_on>
     </sys_script_include>
 </record_update>
