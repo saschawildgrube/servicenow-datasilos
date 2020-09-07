@@ -18,6 +18,7 @@
 			'incident':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -33,6 +34,7 @@
 			'incident_task':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -48,6 +50,7 @@
 			'problem':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -63,6 +66,7 @@
 			'problem_task':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -78,6 +82,7 @@
 			'change_request':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -93,6 +98,7 @@
 			'change_task':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -108,6 +114,7 @@
 			'sc_request':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -123,6 +130,7 @@
 			'sc_req_item':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -138,6 +146,7 @@
 			'sc_task':
 			{
 				'active': true,
+				'avoid_expensive_queries': false,
 				'columns':
 				{
 					'instant_access':
@@ -160,13 +169,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-19 11:36:47</sys_created_on>
         <sys_id>c258a390db76d890ba15a353059619ce</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>GetConfigBaseline</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_c258a390db76d890ba15a353059619ce</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-24 12:00:31</sys_updated_on>
+        <sys_updated_on>2020-09-07 10:59:42</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -101,7 +101,7 @@
 	<ol>
 		<li>Install the DataSilos application. If you see this installation guide within the ServiceNow instance, you did this already. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-datasilos" target="_blank">repository</a>&#160;and then import the application from source control.</li>
 		<li>Install the DevTools application. You can fork this&#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">repository</a>&#160;and then import the application from source control.</li>
-		<li>Check the DevTools version. If a different (more recent) version of DevTools was imported from source control you might consider creating a branch based on the corresponding version tag and switch to that branch.</li>
+		<li>Check the DevTools version. If a different (more recent) version of DevTools was imported from source control you must create a branch based on the corresponding version tag and switch to that branch.</li>
 		<li>Follow the installation instruction contained in DevTools/Start.</li>
 		<li>Elevate roles to security_admin</li>
 		<li>Go to "Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incient.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
@@ -184,6 +184,14 @@ answer = x_snc_datasilos.ExecuteACL(current);
 	<p>DataSilos adds a new field to all relevant tables that contains a whitelist of groups. A user that is at least member of one of these whitelisted groups may see the record. Business rules in the global scope will alter the query and act on inserts and updates to control visibility and extend the whitelist where appropriate.</p>
 	
 	<h2>Developer guide</h2>
+	<h3>Entry points</h3>
+	<p>The DataSilos application is implemented in a number of script includes. Most of which contain a single function. The following script includes (i.e. functions) serve as entry points to the application. All other functions are then called from these entry points:</p>
+	<ol>
+		<li>ExecuteBusinessRule</li>
+		<li>ExecuteACL</li>
+		<li>Maintenance</li>
+	</ol>
+	<h3>Extension of scope</h3> 
 	<p>When extending the scope of the DataSilos application the following steps should be considered:</p>
 	<ol>
 		<li>Identify the affected tables</li>
@@ -237,7 +245,8 @@ DataSilos - incident_task - cross-silo
 		<li>DevTools version must be 1.2.3.</li>
 		<li>Introduced the supervisor datasilo whitelist field for the incident table.</li>
 		<li>Introduced configurable group filter. An encoded query can now be configured to control which groups should be considered for whitelist population.</li>
-		<li>The test incident - cross-silo now impersonates a user of the current assignment group before re-assigning the incident. This change was made to consider strict customer-specific customizations.</li>
+		<li>Introduced the option to avoid expensive queries. When the system property x_snc_datasilos.tables.<b>table_name</b>.avoid_expensive_queries is set to true, queries that do not contain a filter for active records are not altered. This results in users seeing a message that some records have been filtered from the result set and eventually empty result pages.</li>
+		<li>The test "DataSilos - incident - cross-silo" now impersonates a user of the current assignment group before re-assigning the incident. This change was made to consider strict customer-specific customizations.</li>
 		<li>A number of script includes have been opened up for use from different scopes to enable implementation of customer specific Maintenance() functions and business rules.</li>
 		<li>Extended the "Business Rules" module to show all before query business rules for the supported tables. Also extended the developer guide accordingly.</li> 
 		<li>Moved all contents from the "Requirement Analysis" chapter into the "Implementation Guide", added process relevant considerations.</li>
@@ -307,13 +316,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>181</sys_mod_count>
+        <sys_mod_count>184</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-04 10:05:09</sys_updated_on>
+        <sys_updated_on>2020-09-07 12:17:04</sys_updated_on>
     </sys_ui_page>
 </record_update>
