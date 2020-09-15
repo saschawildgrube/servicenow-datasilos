@@ -7,15 +7,15 @@
         <client_callable>false</client_callable>
         <description/>
         <name>ExecuteACL</name>
-        <script><![CDATA[function ExecuteACL(record)
+        <script><![CDATA[/*function ExecuteACL(record)
 {
 	function Log(strText)
 	{
-		x_snc_datasilos.Log('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+strText);
+		x_snc_datasilos.Log('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+record.number+': '+strText);
 	}
 	function Debug(strText)
 	{
-		x_snc_datasilos.Debug('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+strText);
+		x_snc_datasilos.Debug('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+record.number+': '+strText);
 	}
 		
 	var RenderValue = x_snc_devtools.RenderValue;	
@@ -62,25 +62,139 @@
 	PrepareQuery(grRecord);
 	
 	var strEncodedQuery = grRecord.getEncodedQuery();
-	Debug(record.number+' strEncodedQuery: '+RenderValue(strEncodedQuery));
+	//Debug(record.number+' strEncodedQuery: '+RenderValue(strEncodedQuery));
 	
 	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
-	Debug(record.number+' GlideFilter.checkRecord: '+RenderValue(bMatch));
+	//Debug(record.number+' GlideFilter.checkRecord: '+RenderValue(bMatch));
 	
 	return bMatch;
 
-}]]></script>
+}
+
+*/
+
+
+
+var g_cacheExecuteACL = {};
+function ExecuteACL(record)
+{
+	//return true;
+	
+	var RenderValue = x_snc_devtools.RenderValue;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+
+	
+	function Log(strText)
+	{
+		x_snc_datasilos.Log('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+record.number+': '+strText);
+	}
+	function Debug(strText)
+	{
+		x_snc_datasilos.Debug('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+record.number+': '+strText);
+	}
+	
+	
+
+	var GetValue = x_snc_devtools.GetValue;
+	
+	var strValueNoFilter = GetStringValue(GetValue(g_cacheExecuteACL,'nofilter'));
+	if (strValueNoFilter == '1')
+	{
+		Debug('Cached value for noFilter is '+strValueNoFilter);
+		return true;
+	}
+	
+	var strValue = GetStringValue(GetValue(g_cacheExecuteACL,''+record.number));
+	if (strValue != '')
+	{
+		//Debug('Cached value for '+record.number+' is '+strValue);
+		if (strValue == '1')
+		{
+			return true;
+		}
+		if (strValue == '0')
+		{
+			return false;
+		}
+	}
+	
+	
+	var strClassName = record.getRecordClassName(); 
+	var strOperation = '';
+
+	function IsActive(strClassName)
+	{
+		var bActive = gs.getProperty('x_snc_datasilos.active');
+		if (bActive == false)
+			return false;
+		if (IsClassNameSupported(strClassName))
+			return true;
+		if (strClassName == 'sysapproval_approver')
+			return true;
+		return false;
+	}
+	
+	if (IsActive(strClassName) == false)
+	{
+		return true;
+	}
+	
+	if (record.isNewRecord() == true)
+	{
+		Debug('This is a new record. No filters apply.');
+		return true;
+	}
+	if (strValueNoFilter == '')
+	{
+		if (gs.hasRole('admin') == true)
+		{
+			Debug('User has the admin role. Filters are not applied.');
+			g_cacheExecuteACL['nofilter'] = '1';
+			return true;
+		}
+		else
+		{
+			if (IsUserSentinel() == true)
+			{
+				Debug('User has the sentinel role. Filters are not applied.');
+				g_cacheExecuteACL['nofilter'] = '1';	
+				return true;
+			}		
+			else
+			{
+				Debug('User is neither admin nor sentinel: nofilter cache value is set to 0.');
+				g_cacheExecuteACL['nofilter'] = '0';
+			}
+		}
+	}
+	
+
+
+	var grRecord = new GlideRecord(strClassName);
+	PrepareQuery(grRecord);
+	
+	var strEncodedQuery = grRecord.getEncodedQuery();
+	//Debug('strEncodedQuery: '+RenderValue(strEncodedQuery));
+	
+	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
+	//Debug('GlideFilter.checkRecord: '+RenderValue(bMatch));
+
+	g_cacheExecuteACL[''+record.number] = (bMatch)?('1'):('0');
+	
+	return bMatch;
+}
+]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-19 13:10:37</sys_updated_on>
+        <sys_updated_on>2020-09-15 13:58:33</sys_updated_on>
     </sys_script_include>
 </record_update>
