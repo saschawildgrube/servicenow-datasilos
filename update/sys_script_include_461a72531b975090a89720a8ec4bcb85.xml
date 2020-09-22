@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordDistributeVisibilityToRelatedRecords</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>RecordDistributeVisibilityToRelatedRecords</name>
+        <script><![CDATA[function RecordDistributeVisibilityToRelatedRecords(record)
+{
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+
+	var aGroupWhitelist = GetArrayValue(record.getValue('x_snc_datasilos_group_whitelist'));
+	var aSupervisorSiloWhitelist = GetArrayValue(record.getValue('x_snc_datasilos_supervisor_whitelist'));
+	
+	var aRelatedRecords = GetRelatedRecords(record);
+	
+	for (var nIndex = 0; nIndex < aRelatedRecords.length; nIndex++)
+	{
+		var nChanges = 0;
+
+		// Global visibility
+		if (GetBoolValue(record.getValue('x_snc_datasilos_global')) == true)
+		{
+			aRelatedRecords[nIndex].x_snc_datasilos_global = true;
+			nChanges++;
+		}
+		
+		
+		// Group Whitelist
+		aGroupWhitelist.forEach( function(strGroupSysId)
+		{
+			if (RecordAddGroupToWhitelist(aRelatedRecords[nIndex],strGroupSysId))
+			{
+				nChanges++;
+			}
+		});
+
+		
+		// Supervisor Silo Whitelist
+		aSupervisorSiloWhitelist.forEach( function(strSiloSysId)
+		{
+			if (RecordAddSiloToSupervisorWhitelist(aRelatedRecords[nIndex],strSiloSysId))
+			{
+				nChanges++;
+			}
+		});
+
+		if (nChanges > 0)
+		{
+			aRelatedRecords[nIndex].update();
+		}		
+		
+	}	
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-22 12:27:33</sys_created_on>
+        <sys_id>461a72531b975090a89720a8ec4bcb85</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>RecordDistributeVisibilityToRelatedRecords</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_461a72531b975090a89720a8ec4bcb85</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-22 14:53:14</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -20,11 +20,9 @@
 		x_snc_datasilos.Debug('RecordInitialize: '+RenderValue(record.number)+': '+strText);
 	}
 	
-	//Log('DataSilos: RecordInitialize: START');
-	
 	if (IsValidRecord(record) == false)
 	{
-		Debug('RecordInitialize: record is undefined or null');
+		//Debug('record is undefined or null');
 		return false;
 	}
 	var strClassName = record.getRecordClassName(); 
@@ -33,44 +31,34 @@
 	
 	if (IsClassNameSupported(strClassName))
 	{
-		Debug('RecordInitialize: IsClassNameSupported('+strClassName+'): true');
+		//Debug('IsClassNameSupported('+strClassName+'): true');
 
-		// Add groups from parent
-		RecordAddGroupsToWhitelistFromParentRecord(record);
-		
-		// Add white listed groups from related records
-		// IN THEORY THIS IS IMPOSSIBLE. THE RECORD IS JUST BEING CREATED. WHY SHOULD THERE BE RELATED RECORDS THAT ALREADY KNOW ABOUT THIS
-		// NEW RECORD? HOWEVER IN WORKFLOWS THIS _MIGHT_ BE POSSIBLE...
-		RecordAddGroupsToWhitelistFromRelatedRecords(record);
-		
-		
+		// Inherit the record's visibility rules from all related records
+		// IN THEORY THERE SHOULD BE NO RELATED RECORDS OTHER THAN THE PARENT.
+		// THE RECORD IS JUST BEING CREATED.
+		// WHY SHOULD THERE BE OTHER RELATED RECORDS THAT ALREADY KNOW ABOUT THIS NEW RECORD?
+		// HOWEVER IN WORKFLOWS THIS _MIGHT_ BE POSSIBLE...		
+		RecordInheritVisibilityFromRelatedRecords(record);
 				
 		// Add the current group from the records trigger fields (e.g. assignment_group) and the associated fulfillers and supervisors
 		RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes(record,['fulfiller','supervisor']);		
 
 
-		
-		// Apply white listed groups to parent record
-		UpdateWhitelistOfParentRecord(record); 
-		
-		// Apply white listed groups to related records
-		// IN THEORY THIS IS IMPOSSIBLE. THE RECORD IS JUST BEING CREATED. WHY SHOULD THERE BE RELATED RECORDS THAT ALREADY KNOW ABOUT THIS
-		// NEW RECORD? HOWEVER IN WORKFLOWS THIS _MIGHT_ BE POSSIBLE...		
-		UpdateWhitelistOfRelatedRecords(record);  
+		// Distribute the record's visibility to all related records
+		RecordDistributeVisibilityToRelatedRecords(record);
 
-		
-		Debug(RenderValue(record));
+		//Debug(RenderValue(record));
 		
 		return true;
 	}
 
 	if (strClassName == 'sysapproval_approver')
 	{
-		Debug('RecordInitialize: class name is '+strClassName+'');
+		//Debug('Class name is '+strClassName+'');
 		return OnApproval(record);	
 	}
 	
-	Debug('RecordInitialize: Unsupported class name: '+strClassName+'');
+	//Debug('Unsupported class name: '+strClassName+'');
 	
 	return false;
 }]]></script>
@@ -78,13 +66,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-16 13:23:17</sys_created_on>
         <sys_id>116f4c58dbdc1c90ba15a353059619d5</sys_id>
-        <sys_mod_count>96</sys_mod_count>
+        <sys_mod_count>101</sys_mod_count>
         <sys_name>RecordInitialize</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_116f4c58dbdc1c90ba15a353059619d5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-07 13:06:14</sys_updated_on>
+        <sys_updated_on>2020-09-22 15:07:41</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -2,12 +2,12 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.UpdateWhitelistOfParentRecord</api_name>
+        <api_name>x_snc_datasilos.UpdateWhitelistOfParentRecord_DEPRECATED</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description/>
-        <name>UpdateWhitelistOfParentRecord</name>
-        <script><![CDATA[function UpdateWhitelistOfParentRecord(record)
+        <name>UpdateWhitelistOfParentRecord_DEPRECATED</name>
+        <script><![CDATA[function UpdateWhitelistOfParentRecord_DEPRECATED(record)
 {
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
 
@@ -37,13 +37,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-06 12:50:18</sys_created_on>
         <sys_id>0c13d99adb719450ba15a35305961961</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>UpdateWhitelistOfParentRecord</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>UpdateWhitelistOfParentRecord_DEPRECATED</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_0c13d99adb719450ba15a35305961961</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 17:22:35</sys_updated_on>
+        <sys_updated_on>2020-09-22 12:51:22</sys_updated_on>
     </sys_script_include>
 </record_update>
