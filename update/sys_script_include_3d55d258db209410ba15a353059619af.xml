@@ -18,9 +18,9 @@
 		return aRelatedRecords;
 	}
 	
-	var strClassName = record.getRecordClassName(); 
+	var strTable = record.getRecordClassName(); 
 	
-	if (strClassName == 'incident')
+	if (strTable == 'incident')
 	{
 		var grRelatedRecords = new GlideRecord('incident_task');
 		grRelatedRecords.addQuery('incident',record.getValue('sys_id'));
@@ -35,7 +35,7 @@
 			}
 		}
 	}
-	else if (strClassName == 'incident_task')
+	else if (strTable == 'incident_task')
 	{
 		var strParentSysId = record.getValue('incident');
 		var grParent = new GlideRecord('incident');
@@ -44,7 +44,7 @@
 			aRelatedRecords.push(grParent);
 		}
 	}
-	else if (strClassName == 'change_request')
+	else if (strTable == 'change_request')
 	{
 		var grRelatedRecords = new GlideRecord('change_task');
 		grRelatedRecords.addQuery('change_request',record.getValue('sys_id'));
@@ -59,7 +59,7 @@
 			}
 		}
 	}
-	else if (strClassName == 'change_task')
+	else if (strTable == 'change_task')
 	{
 		var strParentSysId = record.getValue('change_request');
 		var grParent = new GlideRecord('change_request');
@@ -68,7 +68,7 @@
 			aRelatedRecords.push(grParent);
 		}
 	}
-	else if (strClassName == 'problem')
+	else if (strTable == 'problem')
 	{
 		var grRelatedRecords = new GlideRecord('problem_task');
 		grRelatedRecords.addQuery('problem',record.getValue('sys_id'));
@@ -83,7 +83,7 @@
 			}
 		}
 	}	
-	else if (strClassName == 'problem_task')
+	else if (strTable == 'problem_task')
 	{
 		var strParentSysId = record.getValue('problem');
 		var grParent = new GlideRecord('problem');
@@ -92,7 +92,7 @@
 			aRelatedRecords.push(grParent);
 		}
 	}	
-	else if (strClassName == 'sc_request')
+	else if (strTable == 'sc_request')
 	{
 		var grRelatedRecords = new GlideRecord('sc_req_item');
 		grRelatedRecords.addQuery('request',record.getValue('sys_id'));
@@ -107,7 +107,7 @@
 			}
 		}
 	}		
-	else if (strClassName == 'sc_req_item')
+	else if (strTable == 'sc_req_item')
 	{
 		var strParentSysId = record.getValue('request');
 		var grParent = new GlideRecord('sc_request');
@@ -129,7 +129,7 @@
 			}
 		}
 	}	
-	else if (strClassName == 'sc_task')
+	else if (strTable == 'sc_task')
 	{
 		var strParentSysId = record.getValue('request_item');
 		var grParent = new GlideRecord('sc_req_item');
@@ -145,13 +145,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-29 09:13:13</sys_created_on>
         <sys_id>3d55d258db209410ba15a353059619af</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>GetRelatedRecords</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_3d55d258db209410ba15a353059619af</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-22 15:10:13</sys_updated_on>
+        <sys_updated_on>2020-09-23 11:28:48</sys_updated_on>
     </sys_script_include>
 </record_update>

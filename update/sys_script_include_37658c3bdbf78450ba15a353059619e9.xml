@@ -15,17 +15,17 @@
 	
 	function Log(strText)
 	{
-		x_snc_datasilos.Log('ExecuteBusinessRule: '+strClassName+': '+strOperation+': '+strText);
+		x_snc_datasilos.Log('ExecuteBusinessRule: '+strTable+': '+strOperation+': '+strText);
 	}
 	function Debug(strText)
 	{
-		x_snc_datasilos.Debug('ExecuteBusinessRule: '+strClassName+': '+strOperation+': '+strText);
+		x_snc_datasilos.Debug('ExecuteBusinessRule: '+strTable+': '+strOperation+': '+strText);
 	}
-	function IsSupported(strClassName)
+	function IsActiveTable(strTable)
 	{
-		if (IsClassNameSupported(strClassName))
+		if (IsTableSupported(strTable))
 			return true;
-		if (strClassName == 'sysapproval_approver')
+		if (strTable == 'sysapproval_approver')
 			return true;
 		return false;
 	}
@@ -47,9 +47,9 @@
 		return strOperation;
 	}
 
-	var strClassName = current.getRecordClassName(); 
+	var strTable = current.getRecordClassName(); 
 	
-	if (IsSupported(strClassName) == false)
+	if (IsActiveTable(strTable) == false)
 	{
 		return;
 	}
@@ -74,13 +74,13 @@
 			return;
 		}
 		
-		if (strClassName == 'sysapproval_approver')
+		if (strTable == 'sysapproval_approver')
 		{
 			return;
 		}
 		
 		
-		var bAvoidExpensiveQueries = GetBoolValue(GetConfigValue('tables',strClassName,'avoid_expensive_queries'));
+		var bAvoidExpensiveQueries = GetBoolValue(GetConfigValue('tables',strTable,'avoid_expensive_queries'));
 		if (bAvoidExpensiveQueries == true)
 		{
 			var strEncodedQuery = GetStringValue(current.getEncodedQuery());
@@ -133,13 +133,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>107</sys_mod_count>
+        <sys_mod_count>110</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-22 15:21:37</sys_updated_on>
+        <sys_updated_on>2020-09-23 11:37:28</sys_updated_on>
     </sys_script_include>
 </record_update>

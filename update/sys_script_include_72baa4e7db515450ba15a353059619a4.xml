@@ -7,93 +7,23 @@
         <client_callable>false</client_callable>
         <description/>
         <name>ExecuteACL</name>
-        <script><![CDATA[/*function ExecuteACL(record)
-{
-	function Log(strText)
-	{
-		x_snc_datasilos.Log('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+record.number+': '+strText);
-	}
-	function Debug(strText)
-	{
-		x_snc_datasilos.Debug('ExecuteACL: '+strClassName+': '+gs.getUserName()+': '+record.number+': '+strText);
-	}
-		
-	var RenderValue = x_snc_devtools.RenderValue;	
-	
-	var strClassName = record.getRecordClassName(); 
-	
-	function IsSupported(strClassName)
-	{
-		if (IsClassNameSupported(strClassName))
-			return true;
-		if (strClassName == 'sysapproval_approver')
-			return true;
-		return false;
-	}
-	
-	if (IsSupported(strClassName) == false)
-	{
-		return true;
-	}
-	
-	if (IsActive() == false)
-	{
-		return true;
-	}	
-	
-	if (record.isNewRecord() == true)
-	{
-		Debug('This is a new record. No filters apply.');
-		return true;
-	}
-	if (gs.hasRole('admin') == true)
-	{
-		Debug('User has the admin role. Filters are not applied.');
-		return true;
-	}	
-	if (IsUserSentinel() == true)
-	{
-		Debug('User has the sentinel role. Filters are not applied.');
-		return true;
-	}		
-
-
-	var grRecord = new GlideRecord(strClassName);
-	PrepareQuery(grRecord);
-	
-	var strEncodedQuery = grRecord.getEncodedQuery();
-	//Debug(record.number+' strEncodedQuery: '+RenderValue(strEncodedQuery));
-	
-	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
-	//Debug(record.number+' GlideFilter.checkRecord: '+RenderValue(bMatch));
-	
-	return bMatch;
-
-}
-
-*/
-
-
-
-var g_cacheExecuteACL = {};
+        <script><![CDATA[var g_cacheExecuteACL = {};
 function ExecuteACL(record)
 {
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
-
+	var GetValue = x_snc_devtools.GetValue;
+	
 	
 	function Log(strText)
 	{
-		x_snc_datasilos.Log('ExecuteACL: '+strClassName+': '+record.number+': '+strText);
+		x_snc_datasilos.Log('ExecuteACL: '+strTable+': '+record.number+': '+strText);
 	}
 	function Debug(strText)
 	{
-		x_snc_datasilos.Debug('ExecuteACL: '+strClassName+': '+record.number+': '+strText);
+		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.number+': '+strText);
 	}
 	
-	
-
-	var GetValue = x_snc_devtools.GetValue;
 	
 	var strValueNoFilter = GetStringValue(GetValue(g_cacheExecuteACL,'nofilter'));
 	if (strValueNoFilter == '1')
@@ -117,22 +47,21 @@ function ExecuteACL(record)
 	}
 	
 	
-	var strClassName = record.getRecordClassName(); 
+	var strTable = record.getRecordClassName(); 
 	var strOperation = '';
 
-	function IsActive(strClassName)
+	function IsActiveTable(strTable)
 	{
-		var bActive = gs.getProperty('x_snc_datasilos.active');
-		if (bActive == false)
+		if (IsActive() == false)
 			return false;
-		if (IsClassNameSupported(strClassName))
+		if (IsTableSupported(strTable))
 			return true;
-		if (strClassName == 'sysapproval_approver')
+		if (strTable == 'sysapproval_approver')
 			return true;
 		return false;
 	}
 	
-	if (IsActive(strClassName) == false)
+	if (IsActiveTable(strTable) == false)
 	{
 		return true;
 	}
@@ -168,7 +97,7 @@ function ExecuteACL(record)
 	
 
 
-	var grRecord = new GlideRecord(strClassName);
+	var grRecord = new GlideRecord(strTable);
 	PrepareQuery(grRecord);
 	
 	var strEncodedQuery = grRecord.getEncodedQuery();
@@ -186,13 +115,13 @@ function ExecuteACL(record)
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-22 15:23:37</sys_updated_on>
+        <sys_updated_on>2020-09-23 11:27:27</sys_updated_on>
     </sys_script_include>
 </record_update>

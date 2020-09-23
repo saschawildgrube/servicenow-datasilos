@@ -13,16 +13,16 @@
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
 
 	var strUserSysId = gs.getUser().getID();
-	var strRecordClassName = record.getRecordClassName();
+	var strTable = record.getRecordClassName();
 	
-	if (IsClassNameSupported(strRecordClassName) == false)
+	if (IsTableSupported(strTable) == false)
 	{
 		return false;
 	}
 
 	var query = record.addQuery('x_snc_datasilos_global','=','true');
 
-	var strUserColumns = GetValue(GetConfig(),'tables',strRecordClassName,'columns','instant_access','sys_user');
+	var strUserColumns = GetValue(GetConfig(),'tables',strTable,'columns','instant_access','sys_user');
 	var aFields = GetArrayValue(strUserColumns);
 	for (var nIndex = 0;nIndex < aFields.length; nIndex++)
 	{
@@ -48,13 +48,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>PrepareQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-22 15:04:10</sys_updated_on>
+        <sys_updated_on>2020-09-23 11:38:31</sys_updated_on>
     </sys_script_include>
 </record_update>
