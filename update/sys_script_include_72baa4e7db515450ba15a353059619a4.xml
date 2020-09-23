@@ -7,14 +7,13 @@
         <client_callable>false</client_callable>
         <description/>
         <name>ExecuteACL</name>
-        <script><![CDATA[var g_cacheExecuteACL = {};
-function ExecuteACL(record)
+        <script><![CDATA[function ExecuteACL(record)
 {
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetValue = x_snc_devtools.GetValue;
-	
-	
+	var transactionCache = new x_snc_devtools.TransactionCacheAPI('DATASILOS');
+
 	function Log(strText)
 	{
 		x_snc_datasilos.Log('ExecuteACL: '+strTable+': '+record.number+': '+strText);
@@ -24,15 +23,19 @@ function ExecuteACL(record)
 		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.number+': '+strText);
 	}
 	
+		transactionCache.SetItem('key','value');
+var strValue = transactionCache.GetItem('key');
+
+	var strUserSysId = gs.getUserID();
 	
-	var strValueNoFilter = GetStringValue(GetValue(g_cacheExecuteACL,'nofilter'));
+	var strValueNoFilter = GetStringValue(transactionCache.GetItem(strUserSysId+'_nofilter'));
 	if (strValueNoFilter == '1')
 	{
 		Debug('Cached value for noFilter is '+strValueNoFilter);
 		return true;
 	}
 	
-	var strValue = GetStringValue(GetValue(g_cacheExecuteACL,''+record.number));
+	var strValue = GetStringValue(transactionCache.GetItem(strUserSysId+'_'+record.number));
 	if (strValue != '')
 	{
 		//Debug('Cached value for '+record.number+' is '+strValue);
@@ -76,7 +79,7 @@ function ExecuteACL(record)
 		if (gs.hasRole('admin') == true)
 		{
 			Debug('User has the admin role. Filters are not applied.');
-			g_cacheExecuteACL['nofilter'] = '1';
+			transactionCache.SetItem(strUserSysId+'_nofilter','1');
 			return true;
 		}
 		else
@@ -84,13 +87,13 @@ function ExecuteACL(record)
 			if (IsUserSentinel() == true)
 			{
 				Debug('User has the sentinel role. Filters are not applied.');
-				g_cacheExecuteACL['nofilter'] = '1';	
+				transactionCache.SetItem(strUserSysId+'_nofilter','1');
 				return true;
 			}		
 			else
 			{
 				Debug('User is neither admin nor sentinel: nofilter cache value is set to 0.');
-				g_cacheExecuteACL['nofilter'] = '0';
+				transactionCache.SetItem(strUserSysId+'_nofilter','0');
 			}
 		}
 	}
@@ -106,7 +109,8 @@ function ExecuteACL(record)
 	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
 	//Debug('GlideFilter.checkRecord: '+RenderValue(bMatch));
 
-	g_cacheExecuteACL[''+record.number] = (bMatch)?('1'):('0');
+	
+	transactionCache.SetItem(strUserSysId+'_'+record.number, (bMatch)?('1'):('0') );
 	
 	return bMatch;
 }
@@ -115,13 +119,13 @@ function ExecuteACL(record)
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>36</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 11:27:27</sys_updated_on>
+        <sys_updated_on>2020-09-23 13:02:38</sys_updated_on>
     </sys_script_include>
 </record_update>
