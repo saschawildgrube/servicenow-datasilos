@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_snc_datasilos_supervisor_whitelist" label="DataSilos Supervisor Whitelist" language="en" table="sc_req_item">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_snc_datasilos_supervisor_whitelist</element>
+            <help/>
+            <hint/>
+            <label>DataSilos Supervisor Whitelist</label>
+            <language>en</language>
+            <name>sc_req_item</name>
+            <plural>DataSilos Supervisor Whitelists</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-09-23 09:54:27</sys_created_on>
+            <sys_id>adc0e7a31b1b9090a89720a8ec4bcbc0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>DataSilos Supervisor Whitelist</sys_name>
+            <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+            <sys_update_name>sys_documentation_sc_req_item_x_snc_datasilos_supervisor_whitelist_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-09-23 09:54:27</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
