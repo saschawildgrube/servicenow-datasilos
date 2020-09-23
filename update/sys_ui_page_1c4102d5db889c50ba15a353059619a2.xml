@@ -241,6 +241,7 @@ Requires role: x_snc_datasilos.manager
 DataSilos - incident - installation
 DataSilos - incident - basic
 DataSilos - incident - opener, caller and sentinel
+DataSilos - incident - global
 DataSilos - incident - cross-silo
 DataSilos - incident_task
 DataSilos - incident_task - cross-silo
@@ -253,7 +254,7 @@ DataSilos - incident_task - cross-silo
 		<li>WARNING: The property x_snc_datasilos.incident.whitelist_trigger_fields has essentially be renamed to x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group! Make sure to redo the configuration during upgrade!</li>
 		<li>WARNING: The property x_snc_datasilos.active now controls the filter ONLY. It will no longer halt the population of the whitelists. As a result it can now be more effectively used as an ON/OFF switch while preparing a go-live or during trouble shooting - without any negative impact on the whitelists of records that are changed in the meantime.</li>
 		<li>WARNING: It is now required to configure ACLs not only for&#160;<b>table_name.*</b>,&#160;but also for&#160;<b>table_name</b>,&#160;. Updated the "ACLs" module and tests accordingly.</li>
-		<li>DevTools version must be 1.2.3.</li>
+		<li>DevTools version 1.3.0 or higher is required.</li>
 		<li>Introduced the supervisor datasilo whitelist field to enable silo based whitelists for supervisors.</li>
 		<li>Introduced configurable group filter. An encoded query can now be configured to control which groups should be considered for whitelist population.</li>
 		<li>Introduced the option to avoid expensive queries. When the system property x_snc_datasilos.tables.<b>table_name</b>.avoid_expensive_queries is set to true, queries that do not contain a filter for active records are not altered. This results in users seeing a message that some records have been filtered from the result set and eventually empty result pages.</li>
@@ -329,13 +330,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>190</sys_mod_count>
+        <sys_mod_count>192</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 13:10:42</sys_updated_on>
+        <sys_updated_on>2020-09-23 13:19:31</sys_updated_on>
     </sys_ui_page>
 </record_update>
