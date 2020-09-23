@@ -7,7 +7,7 @@
         <client_callable>false</client_callable>
         <description/>
         <name>RecordUpdateWhitelistsFromGroupByTypes</name>
-        <script><![CDATA[var g_oCacheRecordUpdateWhitelistsFromGroupByTypes = {};
+        <script><![CDATA[//var g_oCacheRecordUpdateWhitelistsFromGroupByTypes = {};
 function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 {
 	var RenderValue = x_snc_devtools.RenderValue;
@@ -88,6 +88,7 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 			aSupervisorSilosToAdd = ArrayUnique(aSupervisorSilosToAdd);
 			//Debug('RecordUpdateWhitelistsFromGroupByTypes: AFTER  ArrayUnique(aSupervisorSilosToAdd)');
 
+			/*
 				g_oCacheRecordUpdateWhitelistsFromGroupByTypes[
 					'silos-'+
 					GetStringValue(aUserSilos)+'-'+
@@ -96,6 +97,7 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 					'groups-'+
 					GetStringValue(aUserSilos)+'-'+
 					GetStringValue(aTypes)] = aGroupsToAdd;
+			*/
 		
 		}
 		
@@ -119,13 +121,13 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 13:24:03</sys_created_on>
         <sys_id>5921f789db069410ba15a35305961976</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5921f789db069410ba15a35305961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 11:35:33</sys_updated_on>
+        <sys_updated_on>2020-09-23 13:11:58</sys_updated_on>
     </sys_script_include>
 </record_update>
