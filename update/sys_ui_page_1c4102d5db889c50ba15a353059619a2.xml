@@ -193,6 +193,29 @@ answer = x_snc_datasilos.ExecuteACL(current);
 		<li>ExecuteACL</li>
 		<li>Maintenance</li>
 	</ol>
+	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
+	
+	<h3>DataSilos API Reference</h3>
+	<p>
+	<g2:evaluate var="jvar_strScriptIncludes" jelly="true">
+		var HtmlEncode = x_snc_devtools.HtmlEncode;
+		var grSSI = new GlideRecord('sys_script_include');
+		grSSI.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
+		grSSI.addQuery('access','=','public');
+		grSSI.orderBy('name');
+		grSSI.query();
+
+		var strScriptIncludes = '';
+		while (grSSI.next())
+		{
+			var strDescription = HtmlEncode(grSSI.getValue('description'));
+			strScriptIncludes = strScriptIncludes + '<p><b>'+grSSI.getValue('name')+'</b>&#160;'+strDescription+'</p>';
+		}
+		strScriptIncludes;	
+	</g2:evaluate>
+	<g2:no_escape>$[jvar_strScriptIncludes]</g2:no_escape>
+	</p>
+	
 	<h3>Extension of scope</h3> 
 	<p>When extending the scope of the DataSilos application the following steps should be considered:</p>
 	<ol>
@@ -230,7 +253,6 @@ Requires role: x_snc_datasilos.manager
 Type: True/False
 Column label: DataSilos Global Visibility
 Column name: x_snc_datasilos_global
-Attributes: edge_encryption_enabled=true,no_sort=true
 </pre>
 		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
 <pre>
@@ -242,7 +264,6 @@ Requires role: x_snc_datasilos.manager
 Type: True/False
 Column label: DataSilos Ghost
 Column name: x_snc_datasilos_ghost
-Attributes: edge_encryption_enabled=true,no_sort=true
 </pre>
 		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
 <pre>
@@ -354,13 +375,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>198</sys_mod_count>
+        <sys_mod_count>203</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 11:55:30</sys_updated_on>
+        <sys_updated_on>2020-10-02 12:17:27</sys_updated_on>
     </sys_ui_page>
 </record_update>
