@@ -217,7 +217,15 @@ answer = x_snc_datasilos.ExecuteACL(current);
 	</p>
 	
 	<h3>Extension of scope</h3> 
-	<p>When extending the scope of the DataSilos application the following steps should be considered:</p>
+	<p>Extending the scope of the DataSilos application essentially means to add the filtering logic to more tables. This may have impact on the applications, views, reports and other components that make use of these tables. So before actually extending the scope of DataSilos consider the following steps:</p>
+	<ol>
+		<li>Verify if there is a more recent version of DataSilos is available that may already cover the new requirements.</li>
+		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Maybe development work can be synchronized or knowledge can be shared. It is also possible that some of the analysis work has already been done.</li>
+		<li>Identify the specific data that requires protection.</li>
+		<li>Map out where the data is coming from: manual input from unsers, integrations?</li>
+		<li>Identify the rules to be used to control access.</li>
+	</ol>
+	<p>After a decision has been made to extend scope of the DataSilos application perform the following steps:</p>
 	<ol>
 		<li>Identify the affected tables</li>
 		<li>Add the group whitelist field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
@@ -292,6 +300,7 @@ DataSilos - incident_task
 DataSilos - incident_task - cross-silo
 			</pre>
 		<li>Update THIS documentation</li>
+		<li>Test the new feature against all known existing use cases related to the added tables.</li> 
 	</ol>
 	<h2>Release Notes</h2>
 	<h3>2.0.0 - WORK IN PROGRESS</h3>
@@ -301,20 +310,22 @@ DataSilos - incident_task - cross-silo
 		<li>WARNING: It is now required to configure ACLs not only for&#160;<b>table_name.*</b>,&#160;but also for&#160;<b>table_name</b>,&#160;. Updated the "ACLs" module and tests accordingly.</li>
 		<li>DevTools version 1.3.0 or higher is required.</li>
 		<li>Introduced the supervisor datasilo whitelist field to enable silo based whitelists for supervisors.</li>
+		<li>Introduced the global visibility flag for all tables.</li>
+		<li>Introduced the ghost flag for all tables. If set to true whitelists are not updated when a record is changed.</li>
 		<li>Introduced configurable group filter. An encoded query can now be configured to control which groups should be considered for whitelist population.</li>
 		<li>Introduced the option to avoid expensive queries. When the system property x_snc_datasilos.tables.<b>table_name</b>.avoid_expensive_queries is set to true, queries that do not contain a filter for active records are not altered. This results in users seeing a message that some records have been filtered from the result set and eventually empty result pages.</li>
 		<li>The test "DataSilos - incident - cross-silo" now impersonates a user of the current assignment group before re-assigning the incident. This change was made to consider strict customer-specific customizations.</li>
 		<li>A number of script includes have been opened up for use from different scopes to enable implementation of customer specific Maintenance() functions and business rules.</li>
 		<li>Extended the "Business Rules" module to show all before query business rules for the supported tables.</li> 
 		<li>Optimized ExecuteACL() so that it does not evaluate the access restrictions for a single record multiple times.</li>
+		<li>Extended the Developer Guide: The DataSilos API Reference has been added and Scope Extention chapter has been refined.</li> 
 		<li>Moved all contents from the "Requirement Analysis" chapter into the "Implementation Guide", added process relevant considerations.</li>
-		<li>Updated the developer guide accordingly.</li>
 	</ol>
 	<h3>1.4.0 - 2020-07-30</h3>
 	<ol>
 		<li>DevTools version must be 1.2.1.</li>
 		<li>Existence and version of DevTools is now checked in ATF "DataSilos - installation".</li>
-		<li>Introduced the Global Visibility flag for the incident table. If set to true, everyone can see this particular record.</li>
+		<li>Introduced the global visibility flag for the incident table. If set to true, everyone can see this particular record.</li>
 		<li>Reactivated the "Log" module.</li>
 		<li>The module "Maintenance" has been replaced by the "Scheduled Jobs" module and shows all scheduled script executions where the name contains "DataSilos".</li>
 		<li>The module "Business rules" now shows all business rules that contain "DataSilos" in their name - this is to consider customer's naming conventions with prefixes.</li>
@@ -375,13 +386,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>203</sys_mod_count>
+        <sys_mod_count>205</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 12:17:27</sys_updated_on>
+        <sys_updated_on>2020-10-02 12:36:03</sys_updated_on>
     </sys_ui_page>
 </record_update>
