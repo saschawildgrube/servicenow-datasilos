@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description/>
+        <display_name>DataSilos Check ACLs</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>2</order>
+        <snapshot/>
+        <step_config display_value="DataSilos Check ACLs">5f42f662db23d810ba15a353059619cd</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-02 14:18:49</sys_created_on>
+        <sys_id>66837ea2db23d810ba15a3530596196d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos Check ACLs</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_66837ea2db23d810ba15a3530596196d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-02 14:18:49</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - incident - installation">eb99c591db075410ba15a353059619ab</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=66837ea2db23d810ba15a3530596196d"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>66837ea2db23d810ba15a3530596196d</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-02 14:18:50</sys_created_on>
+        <sys_id>4a93bea2db23d810ba15a3530596199a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-02 14:18:50</sys_updated_on>
+        <value>incident</value>
+        <variable display_value="">36b2fe62db23d810ba15a3530596192f</variable>
+    </sys_variable_value>
+</record_update>

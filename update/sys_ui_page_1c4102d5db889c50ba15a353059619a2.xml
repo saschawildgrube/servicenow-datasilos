@@ -56,12 +56,25 @@
 		<li><b>x_snc_datasilos.ghost</b>&#160;A user that can create and modify records without impacting the whitelist.</li>
 	</ul>
 	
-	<h2>Configuration</h2>
+	<h2>Configuration Options</h2>
 	<ul>
-		<li><b>x_snc_datasilos.active</b>&#160;Controls if the filtering provided by the DataSilos application is active or not on a global scale. No restrictions will apply unless the option is set to yes. Whitelists however are still populated.</li>
-		<li><b>x_snc_datasilos.group_filter</b>&#160;Encoded query to be applied on the sys_user_group table when determining the groups of a user and when selecting groups for a silo.</li>
+	<g2:evaluate var="jvar_strProperties" jelly="true">
+		var HtmlEncode = x_snc_devtools.HtmlEncode;
+		var grSP = new GlideRecord('sys_properties');
+		grSP.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
+		grSP.orderBy('name');
+		grSP.query();
+
+		var strProperties = '';
+		while (grSP.next())
+		{
+			var strDescription = HtmlEncode(grSP.getValue('description'));
+		strProperties = strProperties + '<li><b>'+grSP.getValue('name')+'</b>&#160;'+strDescription+'</li>';
+		}
+		strProperties;	
+	</g2:evaluate>
+	<g2:no_escape>$[jvar_strProperties]</g2:no_escape>
 	</ul>
-	
 	
 	<h2>Column Fields</h2>
 	<p>Each supported table is equipped with a number of new column fields:</p>
@@ -386,13 +399,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>205</sys_mod_count>
+        <sys_mod_count>209</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 12:36:03</sys_updated_on>
+        <sys_updated_on>2020-10-02 13:16:53</sys_updated_on>
     </sys_ui_page>
 </record_update>

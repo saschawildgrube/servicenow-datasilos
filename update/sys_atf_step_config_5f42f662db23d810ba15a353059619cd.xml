@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step_config">
+    <sys_atf_step_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <batch_order_constraint/>
+        <can_mutate_page>false</can_mutate_page>
+        <category display_value="Server">317c4dc20b202200a8d7a12cf6673aa8</category>
+        <class_name/>
+        <class_type>script</class_type>
+        <description_generator><![CDATA[function generateDescription()
+{
+	//var strTable = step.inputs.u_table;
+    //var strDescription = 'DataSilos Check ACLs for table: ['+strTable+']\n';
+    var strDescription = 'DataSilos Check ACLs';
+
+	return strDescription;
+}
+generateDescription();
+]]></description_generator>
+        <html_description><![CDATA[<p>Checks all ACLs of a given table for compliance with DataSilos requirements.</p>]]></html_description>
+        <icon>icon-article-document</icon>
+        <inputs/>
+        <name>DataSilos Check ACLs</name>
+        <order>1</order>
+        <outputs/>
+        <step_env display_value="Server - Independent">6c2bcea1870312009dccc9ded0e3ecca</step_env>
+        <step_execution_generator><![CDATA[(function executeStep(inputs, outputs, stepResult, timeout)
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	
+	stepResult.setSuccess();
+
+	var strTable = inputs.u_table;
+	var strMessage = 'DataSilos Check ACLs for table: ['+strTable+']\n';
+
+   function StringRemoveCharacters(strInput,strBlacklist)     
+   {
+	   strInput = GetStringValue(strInput);
+	   strBlacklist = GetStringValue(strBlacklist);
+      var strOutput = "";
+      for (var nIndex = 0; nIndex < strInput.length; nIndex++)
+      {
+         if (strBlacklist.indexOf(strInput[nIndex]) == -1)
+         {
+            strOutput += strInput[nIndex];
+         }
+      }
+      return strOutput;
+   }
+	
+	function CheckACLsByName(strName)
+	{
+		var grACL = new GlideRecord('sys_security_acl');
+
+		grACL.addQuery('active','=','true');
+		grACL.addQuery('name','=',strName);
+		grACL.addQuery('operation','=','read');
+		grACL.query();
+
+		if (grACL.getRowCount() == 0)
+		{
+			strMessage += 'No active ACLs have been found with name "'+strName+'"!\n';
+			stepResult.setFailed();
+		}
+		while (grACL.next())
+		{
+			var strDescription = GetStringValue(grACL.description);
+			strMessage += 'Checking ACL '+grACL.sys_id+' / "'+strName+'" / "'+strDescription+'"\n';
+
+			var bAdvanced = GetBoolValue(grACL.advanced);
+			if (bAdvanced != true)
+			{
+				strMessage += 'Failed: ACL is not set to advanced!\n';
+				stepResult.setFailed();
+			}
+			var strScript = GetStringValue(grACL.script);
+			strScript = StringRemoveCharacters(strScript,' \n\r\t');
+			if (strScript == '')
+			{
+				strMessage += 'Failed: Script is empty!\n';
+				stepResult.setFailed();
+			}
+			
+			var bScriptOK = false;
+			if (strScript == 'answer=x_snc_datasilos.ExecuteACL(current);')
+			{
+				bScriptOK = true;
+			}
+			if (strScript == 'x_snc_datasilos.ExecuteACL(current);')
+			{
+				bScriptOK = true;
+			}
+			var strScriptBegin = 'var bAnswer = false';
+			strScriptBegin = StringRemoveCharacters(strScriptBegin,' \n\r\t');
+
+			var strScriptEnd = 'if (bAnswer == true) { bAnswer = x_snc_datasilos.ExecuteACL(current); } answer = bAnswer;';
+			strScriptEnd = StringRemoveCharacters(strScriptEnd,' \n\r\t');
+			if (strScript.indexOf(strScriptBegin) == 0)
+			{
+				strMessage += 'Found pattern: "'+strScriptBegin+'"\n';
+				var strSubstr = strScript.substr(-strScriptEnd.length);
+				strMessage += 'Substr: "'+strSubstr+'"\n';
+
+				if (strSubstr == strScriptEnd)
+				{
+					bScriptOK = true;
+				}
+				
+			}
+			if (bScriptOK == false)
+			{
+				strMessage += 'Failed: Script does not contain a valid implementation with "x_snc_datasilos.ExecuteACL(current)"!\n';
+				stepResult.setFailed();
+			}
+		}
+		
+	}
+
+	CheckACLsByName(strTable);
+	CheckACLsByName(strTable+'.*');
+	
+	stepResult.setOutputMessage(strMessage);
+	
+	
+	
+}(inputs, outputs, stepResult, timeout));
+]]></step_execution_generator>
+        <sys_class_name>sys_atf_step_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-10-02 14:14:51</sys_created_on>
+        <sys_id>5f42f662db23d810ba15a353059619cd</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>DataSilos Check ACLs</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_config_5f42f662db23d810ba15a353059619cd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-10-02 15:51:30</sys_updated_on>
+        <template_reminder>What is a template reminder?</template_reminder>
+        <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
+        <wizard_redirect/>
+    </sys_atf_step_config>
+    <sys_translated_text action="delete_multiple" query="documentkey=5f42f662db23d810ba15a353059619cd"/>
+    <sys_variable_value action="delete_multiple" query="document_key=5f42f662db23d810ba15a353059619cd"/>
+</record_update>
