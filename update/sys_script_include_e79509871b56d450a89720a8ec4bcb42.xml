@@ -5,7 +5,7 @@
         <api_name>x_snc_datasilos.GetSiloByName</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>The function returns the sys_id of a silo based on a given silo name. It returns false if no silo can be found.</description>
         <name>GetSiloByName</name>
         <script><![CDATA[function GetSiloByName(strDataSiloName)
 {
@@ -29,13 +29,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-02 16:17:43</sys_created_on>
         <sys_id>e79509871b56d450a89720a8ec4bcb42</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>GetSiloByName</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_e79509871b56d450a89720a8ec4bcb42</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-02 16:28:57</sys_updated_on>
+        <sys_updated_on>2020-10-02 12:44:58</sys_updated_on>
     </sys_script_include>
 </record_update>
