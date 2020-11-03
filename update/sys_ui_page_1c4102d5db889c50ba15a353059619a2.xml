@@ -155,9 +155,20 @@ Query: true
 			<li>Verify you are still in the GLOBAL scope.</li>
 			<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
 			<li>Activate 'Advanced' (if not active already) and add the following script or combine it with already existing scripts:
-			<pre>
+<pre>
 answer = x_snc_datasilos.ExecuteACL(current);	
-			</pre>
+</pre>
+<pre>
+var bAnswer = false;
+
+// Your (existing) script here
+
+if (bAnswer == true)
+{
+	bAnswer = x_snc_datasilos.ExecuteACL(current);
+}
+answer = bAnswer;
+</pre>
 			</li>
 			<li>
 			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues it is recommended to set the "answer" value only once at the end of the script.</li>
@@ -440,13 +451,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>223</sys_mod_count>
+        <sys_mod_count>226</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-03 08:30:17</sys_updated_on>
+        <sys_updated_on>2020-11-03 08:44:57</sys_updated_on>
     </sys_ui_page>
 </record_update>
