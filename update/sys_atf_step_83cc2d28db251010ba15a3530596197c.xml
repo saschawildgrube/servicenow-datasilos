@@ -4,7 +4,7 @@
         <copied_from/>
         <description>Insert a record into 'incident' with the following values:
 Short description = _ATF_DATASILOS_TEST
-and Assignment group = {{Step 7: Record Query.First record}}
+and Assignment group = {{Step 8: Record Query.First record}}
 and Caller = {{Step 3: Record Query.First record}}
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
@@ -12,21 +12,21 @@ Confirm the record was successfully inserted</description>
         <inputs/>
         <mugshots_cache_json/>
         <notes>OPENER creates record TEST</notes>
-        <order>9</order>
+        <order>10</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-18 17:56:51</sys_created_on>
         <sys_id>83cc2d28db251010ba15a3530596197c</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_83cc2d28db251010ba15a3530596197c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 15:43:45</sys_updated_on>
+        <sys_updated_on>2020-11-03 16:40:36</sys_updated_on>
         <table>incident</table>
         <test display_value="DataSilos - incident - opener, caller and sentinel">cf3a6d64db251010ba15a353059619f1</test>
         <timeout/>
@@ -83,10 +83,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-18 17:56:51</sys_created_on>
         <sys_id>d6fcad28db251010ba15a35305961924</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-18 18:12:08</sys_updated_on>
-        <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['1dfde1a8db251010ba15a353059619e1'].first_record}}^caller_id={{step['09bba5e4db251010ba15a3530596199f'].first_record}}^EQ</value>
+        <sys_updated_on>2020-11-03 16:40:36</sys_updated_on>
+        <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['cfa640451b186810a89720a8ec4bcb21'].first_record}}^caller_id={{step['09bba5e4db251010ba15a3530596199f'].first_record}}^EQ</value>
         <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=83cc2d28db251010ba15a3530596197c"/>
@@ -108,10 +108,10 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-18 17:56:51</sys_created_on>
         <sys_id>dafcad28db251010ba15a35305961923</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-18 18:12:08</sys_updated_on>
+        <sys_updated_on>2020-11-03 16:40:36</sys_updated_on>
         <table>var__m_atf_input_variable_14872288df60220062fe6c7a4df26319</table>
-        <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['1dfde1a8db251010ba15a353059619e1'].first_record}}^caller_id={{step['09bba5e4db251010ba15a3530596199f'].first_record}}^EQ</value>
+        <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['cfa640451b186810a89720a8ec4bcb21'].first_record}}^caller_id={{step['09bba5e4db251010ba15a3530596199f'].first_record}}^EQ</value>
     </sys_element_mapping>
 </record_update>
