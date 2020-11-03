@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>incident_task: Defines if the incident_task table should be filtered by DataSilos.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_snc_datasilos.tables.incident_task.active</name>
+        <read_roles/>
+        <suffix>tables.incident_task.active</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 11:28:30</sys_created_on>
+        <sys_id>cde5b52cdbd02810ba15a353059619e7</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_snc_datasilos.tables.incident_task.active</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_properties_cde5b52cdbd02810ba15a353059619e7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 15:41:38</sys_updated_on>
+        <type>boolean</type>
+        <value>true</value>
+        <write_roles>x_snc_datasilos.admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=cde5b52cdbd02810ba15a353059619e7"/>
+</record_update>

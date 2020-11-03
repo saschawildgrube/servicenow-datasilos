@@ -209,6 +209,7 @@ answer = x_snc_datasilos.ExecuteACL(current);
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
 	<h3>DataSilos API Reference</h3>
+	<p>The following functions can be used to extend and modify out of the box behaviour DataSilos behaviour without making any changes to the core implementation. This allows for extentions which are compatible to future versions.</p> 
 	<p>
 	<g2:evaluate var="jvar_strScriptIncludes" jelly="true">
 		var HtmlEncode = x_snc_devtools.HtmlEncode;
@@ -297,7 +298,12 @@ Requires role: x_snc_datasilos.manager
 		<li>Extend the GetRelatedRecords script include to support the identification of related records of a record (e.g. to get the incident_tasks from an incident)</li>
 		<li>Extend the filter condition in the "ACLs" module to cover the new tables.</li>
 		<li>Extend the filter condition in the "Business Rules" module to cover the new tables.</li>
-		<li>Add the configuration option to set the whitelist_trigger_field property for the new tables.</li>
+		<li>Add the properties for each table and add the properties to the DataSilos system property category. You can use the following properties as a template:</li>
+<pre>
+x_snc_datasilos.tables.incident.active
+x_snc_datasilos.tables.incident.columns.instant_access.sys_user
+x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group 
+</pre>
 		<li>Switch to global scope</li>
 		<li>Add corresponding business rules for all affected tables</li>
 		<li>Add or modify corresponding ACLs for all affected tables</li>
@@ -315,6 +321,40 @@ DataSilos - incident_task - cross-silo
 		<li>Update THIS documentation</li>
 		<li>Test the new feature against all known existing use cases related to the added tables.</li> 
 	</ol>
+	
+	<h3>Test Steps</h3>
+	<p>DataSilos uses the following customized Test Step Configurations:</p>
+	
+	<ul>
+	<g2:evaluate var="jvar_strHTML" jelly="true">
+		var HtmlEncode = x_snc_devtools.HtmlEncode;
+		var grSC = new GlideRecord('sys_atf_step_config');
+		grSC.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
+		grSC.orderBy('name');
+		grSC.query();
+
+		var strHTML = '';
+		while (grSC.next())
+		{
+			strHTML += '<li>';
+			strHTML += '<a href="/sys_atf_step_config.do?sys_id=' ;
+			strHTML += grSC.sys_id;
+			strHTML += '">';
+			strHTML += grSC.getValue('name');
+			strHTML += '</a>&#160;';
+			strHTML += grSC.getValue('html_description');
+			strHTML += '</li>';
+		}
+		strHTML;	
+	</g2:evaluate>
+	<g2:no_escape>$[jvar_strHTML]</g2:no_escape>
+	</ul>	
+	
+	
+	
+	
+	
+	
 	<h2>Release Notes</h2>
 	<h3>2.0.0 - WORK IN PROGRESS</h3>
 	<ol>
@@ -331,6 +371,7 @@ DataSilos - incident_task - cross-silo
 		<li>A number of script includes have been opened up for use from different scopes to enable implementation of customer specific Maintenance() functions and business rules.</li>
 		<li>Extended the "Business Rules" module to show all before query business rules for the supported tables.</li> 
 		<li>Optimized ExecuteACL() so that it does not evaluate the access restrictions for a single record multiple times.</li>
+		<li>Introduced the use of customized test step configurations.</li>
 		<li>Extended the Developer Guide: The DataSilos API Reference has been added and Scope Extention chapter has been refined.</li> 
 		<li>Moved all contents from the "Requirement Analysis" chapter into the "Implementation Guide", added process relevant considerations.</li>
 	</ol>
@@ -399,13 +440,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>209</sys_mod_count>
+        <sys_mod_count>223</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 13:16:53</sys_updated_on>
+        <sys_updated_on>2020-11-03 08:30:17</sys_updated_on>
     </sys_ui_page>
 </record_update>

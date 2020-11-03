@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>sc_req_item: Defines the columns of the sc_req_item table that are references to user records of users who should have instant access to a record. The default is opened_by and request.requested_for.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_snc_datasilos.tables.sc_req_item.columns.instant_access.sys_user</name>
+        <read_roles/>
+        <suffix>tables.sc_req_item.columns.instant_access.sys_user</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 12:02:40</sys_created_on>
+        <sys_id>a1bdbd68db142810ba15a3530596198e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_snc_datasilos.tables.sc_req_item.columns.instant_access.sys_user</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_properties_a1bdbd68db142810ba15a3530596198e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 12:03:34</sys_updated_on>
+        <type>string</type>
+        <value/>
+        <write_roles>x_snc_datasilos.admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=a1bdbd68db142810ba15a3530596198e"/>
+</record_update>

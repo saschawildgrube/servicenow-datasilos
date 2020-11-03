@@ -38,7 +38,7 @@
         <label>Table</label>
         <mandatory>false</mandatory>
         <max_length>80</max_length>
-        <model display_value="DataSilos Check ACLs">5f42f662db23d810ba15a353059619cd</model>
+        <model display_value="DataSilos - Check ACLs">5f42f662db23d810ba15a353059619cd</model>
         <model_id>5f42f662db23d810ba15a353059619cd</model_id>
         <model_table/>
         <name>var__m_atf_input_variable_5f42f662db23d810ba15a353059619cd</name>

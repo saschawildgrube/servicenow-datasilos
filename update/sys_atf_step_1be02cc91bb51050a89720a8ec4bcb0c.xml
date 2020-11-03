@@ -4,29 +4,29 @@
         <copied_from display_value="Record Insert">8cc1f52d1b195050a89720a8ec4bcb95</copied_from>
         <description>Insert a record into 'problem_task' with the following values:
 Short description = TEST_TASK_1
-and Opened by = {{Step 5: Record Query.First record}}
-and Problem = {{Step 13: Record Insert.Record}}
+and Opened by = {{Step 6: Record Query.First record}}
+and Problem = {{Step 14: Record Insert.Record}}
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Create task TEST_TASK_1</notes>
-        <order>15</order>
+        <order>16</order>
         <snapshot/>
         <step_config display_value="Record Insert">14872288df60220062fe6c7a4df26319</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 11:57:16</sys_created_on>
         <sys_id>1be02cc91bb51050a89720a8ec4bcb0c</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_1be02cc91bb51050a89720a8ec4bcb0c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-02 11:59:44</sys_updated_on>
+        <sys_updated_on>2020-11-02 16:20:10</sys_updated_on>
         <table>problem_task</table>
         <test display_value="DataSilos - problem_task - cross-silo">7ee0e8c91bb51050a89720a8ec4bcb46</test>
         <timeout/>

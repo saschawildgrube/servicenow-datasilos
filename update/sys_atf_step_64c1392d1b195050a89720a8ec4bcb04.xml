@@ -3,28 +3,28 @@
         <active>true</active>
         <copied_from display_value="Record Query">943dfdfa1b141010a89720a8ec4bcbda</copied_from>
         <description>Validate there is at least one record in 'change_request' matching query:
-Sys ID = {{Step 13: Record Insert.Record}}
+Sys ID = {{Step 14: Record Insert.Record}}
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>User ALPHA_SUPERVISOR checks for change request TEST</notes>
-        <order>20</order>
+        <order>21</order>
         <snapshot/>
         <step_config display_value="Record Query">0270b8005f30220012b44adb7f46666a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-09 10:35:59</sys_created_on>
         <sys_id>64c1392d1b195050a89720a8ec4bcb04</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_64c1392d1b195050a89720a8ec4bcb04</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-22 16:46:22</sys_updated_on>
+        <sys_updated_on>2020-11-02 16:14:18</sys_updated_on>
         <table>change_request</table>
         <test display_value="DataSilos - change_task - cross-silo">efb17de91b195050a89720a8ec4bcbd7</test>
         <timeout>1970-01-01 00:00:05</timeout>

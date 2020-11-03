@@ -3,28 +3,28 @@
         <active>true</active>
         <copied_from/>
         <description>Update a record in 'incident_task' with the following values:
-Assignment group = {{Step 9: Record Query.First record}}
+Assignment group = {{Step 10: Record Query.First record}}
 Confirm the record was successfully updated</description>
         <display_name>Record Update</display_name>
         <inputs/>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Task TEST_1 is assigned to group GAMMA</notes>
-        <order>17</order>
+        <order>18</order>
         <snapshot/>
         <step_config display_value="Record Update">17a72288df60220062fe6c7a4df26397</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 16:00:28</sys_created_on>
         <sys_id>b4496f65dbc41090ba15a3530596192d</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>58</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_b4496f65dbc41090ba15a3530596192d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 10:23:03</sys_updated_on>
+        <sys_updated_on>2020-11-02 15:49:45</sys_updated_on>
         <table>incident_task</table>
         <test display_value="DataSilos - incident_task - basic">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>

@@ -23,9 +23,6 @@
 		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.number+': '+strText);
 	}
 	
-		transactionCache.SetItem('key','value');
-var strValue = transactionCache.GetItem('key');
-
 	var strUserSysId = gs.getUserID();
 	
 	var strValueNoFilter = GetStringValue(transactionCache.GetItem(strUserSysId+'_nofilter'));
@@ -53,18 +50,20 @@ var strValue = transactionCache.GetItem('key');
 	var strTable = record.getRecordClassName(); 
 	var strOperation = '';
 
+	/*
 	function IsActiveTable(strTable)
 	{
 		if (IsActive() == false)
 			return false;
-		if (IsTableSupported(strTable))
+		if (IsTableActive(strTable))
 			return true;
 		if (strTable == 'sysapproval_approver')
 			return true;
 		return false;
 	}
+	*/
 	
-	if (IsActiveTable(strTable) == false)
+	if (IsTableActive(strTable) == false)
 	{
 		return true;
 	}
@@ -119,13 +118,13 @@ var strValue = transactionCache.GetItem('key');
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 12:39:35</sys_updated_on>
+        <sys_updated_on>2020-11-02 12:12:16</sys_updated_on>
     </sys_script_include>
 </record_update>

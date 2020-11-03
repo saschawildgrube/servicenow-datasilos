@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step_config">
+    <sys_atf_step_config action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <batch_order_constraint/>
+        <can_mutate_page>false</can_mutate_page>
+        <category display_value="Server">317c4dc20b202200a8d7a12cf6673aa8</category>
+        <class_name/>
+        <class_type>script</class_type>
+        <description_generator><![CDATA[function generateDescription()
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var strTable = GetStringValue(step.inputs.u_table);
+    var strDescription = 'Checks if DataSilos is globally active and if the table ['+strTable+'] is active.\n';
+	return strDescription;
+}
+generateDescription();]]></description_generator>
+        <html_description><![CDATA[<p>Checks if the given table is set active in the DataSilos configuration and if DataSilos is globally active. This test step should be used before any actual test steps are performed to verify that the test does not fail because of the configuration settings.</p>]]></html_description>
+        <icon>icon-article-document</icon>
+        <inputs/>
+        <name>DataSilos - IsTableActive</name>
+        <order>10000</order>
+        <outputs/>
+        <step_env display_value="Server - Independent">6c2bcea1870312009dccc9ded0e3ecca</step_env>
+        <step_execution_generator><![CDATA[(function executeStep(inputs, outputs, stepResult, timeout)
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	
+	stepResult.setSuccess();
+
+	var strTable = GetStringValue(inputs.u_table);
+	var strMessage = 'DataSilos: Is this table (and DataSilos) active?: ['+strTable+']\n';
+
+	if (x_snc_datasilos.IsActive() == false)
+	{
+		strMessage += 'Failed: DataSilos is not active.\n';
+		stepResult.setFailed();
+	}
+	if (x_snc_datasilos.IsTableActive(strTable) == false)
+	{
+		strMessage += 'Failed: The table  ['+strTable+'] is inactive.\n';
+		stepResult.setFailed();
+	}
+	
+	stepResult.setOutputMessage(strMessage);
+	
+}(inputs, outputs, stepResult, timeout));
+]]></step_execution_generator>
+        <sys_class_name>sys_atf_step_config</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 15:16:28</sys_created_on>
+        <sys_id>d41a2e6cdbd42810ba15a35305961970</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>DataSilos - IsTableActive</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_config_d41a2e6cdbd42810ba15a35305961970</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-03 08:18:07</sys_updated_on>
+        <template_reminder>TBD</template_reminder>
+        <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
+        <wizard_redirect/>
+    </sys_atf_step_config>
+    <sys_translated_text action="delete_multiple" query="documentkey=d41a2e6cdbd42810ba15a35305961970"/>
+    <sys_variable_value action="delete_multiple" query="document_key=d41a2e6cdbd42810ba15a35305961970"/>
+</record_update>

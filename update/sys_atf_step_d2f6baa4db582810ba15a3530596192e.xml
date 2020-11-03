@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if DataSilos is globally active and if the table [change_task] is active.
+</description>
+        <display_name>DataSilos - IsTableActive</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>2</order>
+        <snapshot/>
+        <step_config display_value="DataSilos - IsTableActive">d41a2e6cdbd42810ba15a35305961970</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 16:12:58</sys_created_on>
+        <sys_id>d2f6baa4db582810ba15a3530596192e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - IsTableActive</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_d2f6baa4db582810ba15a3530596192e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 16:12:58</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - change_task - basic">324fe1691b195050a89720a8ec4bcbcb</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=d2f6baa4db582810ba15a3530596192e"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>d2f6baa4db582810ba15a3530596192e</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 16:13:03</sys_created_on>
+        <sys_id>1907bea4db582810ba15a35305961946</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 16:13:03</sys_updated_on>
+        <value>change_task</value>
+        <variable display_value="">23cd2a68db182810ba15a35305961936</variable>
+    </sys_variable_value>
+</record_update>
