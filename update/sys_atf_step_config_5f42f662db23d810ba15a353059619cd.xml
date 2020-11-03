@@ -43,13 +43,13 @@ generateDescription();]]></description_generator>
 
 		if (grACL.getRowCount() == 0)
 		{
-			strMessage += 'No active ACLs have been found with name "'+strName+'"!\n';
+			strMessage += '\nFailed: No active ACLs have been found with name "'+strName+'"!\n\n';
 			stepResult.setFailed();
 		}
 		while (grACL.next())
 		{
 			var strDescription = GetStringValue(grACL.description);
-			strMessage += 'Checking ACL '+grACL.sys_id+' / "'+strName+'" / "'+strDescription+'"\n';
+			strMessage += '\nChecking ACL '+grACL.sys_id+' / "'+strName+'" / "'+strDescription+'"\n';
 
 			var bAdvanced = GetBoolValue(grACL.advanced);
 			if (bAdvanced != true)
@@ -84,7 +84,6 @@ generateDescription();]]></description_generator>
 				strMessage += 'Found pattern: "'+strScriptBegin+'"\n';
 				var strSubstr = strScript.substr(-strScriptEnd.length);
 				strMessage += 'Substr: "'+strSubstr+'"\n';
-
 				if (strSubstr == strScriptEnd)
 				{
 					bScriptOK = true;
@@ -93,8 +92,12 @@ generateDescription();]]></description_generator>
 			}
 			if (bScriptOK == false)
 			{
-				strMessage += 'Failed: Script does not contain a valid implementation with "x_snc_datasilos.ExecuteACL(current)"!\n';
+				strMessage += 'Failed: Script does not contain a valid implementation with "x_snc_datasilos.ExecuteACL(current);"!\n';
 				stepResult.setFailed();
+			}
+			else
+			{
+				strMessage += 'Passed\n';
 			}
 		}
 		
@@ -113,14 +116,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-10-02 14:14:51</sys_created_on>
         <sys_id>5f42f662db23d810ba15a353059619cd</sys_id>
-        <sys_mod_count>33</sys_mod_count>
+        <sys_mod_count>38</sys_mod_count>
         <sys_name>DataSilos - Check ACLs</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_5f42f662db23d810ba15a353059619cd</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:02:01</sys_updated_on>
+        <sys_updated_on>2020-11-03 12:02:45</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
