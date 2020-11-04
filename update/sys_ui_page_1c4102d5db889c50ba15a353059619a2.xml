@@ -47,44 +47,6 @@
 		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.3.0</a></li>
 	</ul>
 	
-	<h2>Roles</h2>
-	<p>DataSilos supports the following roles:</p>
-	<ul>
-		<li><b>x_snc_datasilos.admin</b>&#160;A user that has access to all DataSilo administration and configuration modules. Includes the&#160;<b>x_snc_datasilos.manager</b>&#160;role.</li>
-		<li><b>x_snc_datasilos.manager</b>&#160;A user that can configure data silos and assign groups to data silos.</li>
-		<li><b>x_snc_datasilos.sentinel</b>&#160;A user that is NOT impacted by any filtering by DataSilos. This is suitable for users that should have global access (e.g. for reporting) or technical users (for integrations).</li>
-		<li><b>x_snc_datasilos.ghost</b>&#160;A user that can create and modify records without impacting the whitelist.</li>
-	</ul>
-	
-	<h2>Configuration Options</h2>
-	<ul>
-	<g2:evaluate var="jvar_strProperties" jelly="true">
-		var HtmlEncode = x_snc_devtools.HtmlEncode;
-		var grSP = new GlideRecord('sys_properties');
-		grSP.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
-		grSP.orderBy('name');
-		grSP.query();
-
-		var strProperties = '';
-		while (grSP.next())
-		{
-			var strDescription = HtmlEncode(grSP.getValue('description'));
-		strProperties = strProperties + '<li><b>'+grSP.getValue('name')+'</b>&#160;'+strDescription+'</li>';
-		}
-		strProperties;	
-	</g2:evaluate>
-	<g2:no_escape>$[jvar_strProperties]</g2:no_escape>
-	</ul>
-	
-	<h2>Column Fields</h2>
-	<p>Each supported table is equipped with a number of new column fields:</p>
-	<ul>
-		<li><b>x_snc_datasilos_group_whitelist</b>&#160;The group whitelist field stores a list of groups which should have access to the record.</li>
-		<li><b>x_snc_datasilos_supervisor_whitelist</b>&#160;The supervisor whitelist field stores a list of data silos. The users in the supervisor groups within the data silos will be able to access the record.</li>
-		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
-		<li><b>x_snc_datasilos_ghost</b>&#160;The ghost flag controls if the record's whitelists should be updated. If set to false, whitelists are populated. If the ghost flag is true, whitelists remain unchanged. This allows custom implementations to control the whitelist population. If this flag is set to true, the record behaves in the same way as if it was changed by a user with the x_snc_datasilos.ghost role.</li>
-	</ul>
-	
 	<h2>Implementation guide</h2>
 	<h3>Analysis</h3>
 	<p>The following aspects and topics should be considered when implementing the DataSilos application:</p>
@@ -132,32 +94,14 @@ problem_task
 sc_request
 sc_req_item
 sc_task
-sysapproval_approver (ONLY add the business rule, NOT the ACL in this case)
 		</pre>
 		<ol>
-			<li>Switch to the GLOBAL scope.</li>
-			<li>Add a new business rule for the table.</li>
-			<li>Configure the business rule as follows (replace "table_name" by the corresponding table listed above):</li>
-			<pre>
-Name: "DataSilos - table_name"
-When: before
-Insert: true
-Update: true
-Query: true
-			</pre>
-			<li>Add the following script:</li>
-			<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-			</pre>
-			<li>Go to the "Business Rules" module and verify the new business rule is active and in the global scope.</li>
-			<li>Verify you are still in the GLOBAL scope.</li>
 			<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
-			<li>Activate 'Advanced' (if not active already) and add the following script or combine it with already existing scripts:
+			<li>Activate 'Advanced' (if not active already) and add the following script:
 <pre>
 answer = x_snc_datasilos.ExecuteACL(current);	
 </pre>
+			<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
 <pre>
 var bAnswer = false;
 
@@ -201,6 +145,44 @@ answer = bAnswer;
 		<li>If this does not resolve the issue, deactivate all "DataSilos" business rules and UNDO all changes done to ACLs.</li>
 		<li>If this still does not resolve issues - the root cause is probably somewhere else. However, at this point one could remove the DataSilos application as a whole – BUT KEEP IN MIND THAT THIS WILL IRREVOCABLY DELETE ALL WHITELIST INFORMATION!</li>
 	</ol>
+
+<h2>Roles</h2>
+	<p>DataSilos supports the following roles:</p>
+	<ul>
+		<li><b>x_snc_datasilos.admin</b>&#160;A user that has access to all DataSilo administration and configuration modules. Includes the&#160;<b>x_snc_datasilos.manager</b>&#160;role.</li>
+		<li><b>x_snc_datasilos.manager</b>&#160;A user that can configure data silos and assign groups to data silos.</li>
+		<li><b>x_snc_datasilos.sentinel</b>&#160;A user that is NOT impacted by any filtering by DataSilos. This is suitable for users that should have global access (e.g. for reporting) or technical users (for integrations).</li>
+		<li><b>x_snc_datasilos.ghost</b>&#160;A user that can create and modify records without impacting the whitelist.</li>
+	</ul>
+
+		<h2>Configuration Options</h2>
+	<ul>
+	<g2:evaluate var="jvar_strProperties" jelly="true">
+		var HtmlEncode = x_snc_devtools.HtmlEncode;
+		var grSP = new GlideRecord('sys_properties');
+		grSP.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
+		grSP.orderBy('name');
+		grSP.query();
+
+		var strProperties = '';
+		while (grSP.next())
+		{
+			var strDescription = HtmlEncode(grSP.getValue('description'));
+		strProperties = strProperties + '<li><b>'+grSP.getValue('name')+'</b>&#160;'+strDescription+'</li>';
+		}
+		strProperties;	
+	</g2:evaluate>
+	<g2:no_escape>$[jvar_strProperties]</g2:no_escape>
+	</ul>
+	
+	<h2>Column Fields</h2>
+	<p>Each supported table is equipped with a number of new column fields:</p>
+	<ul>
+		<li><b>x_snc_datasilos_group_whitelist</b>&#160;The group whitelist field stores a list of groups which should have access to the record.</li>
+		<li><b>x_snc_datasilos_supervisor_whitelist</b>&#160;The supervisor whitelist field stores a list of data silos. The users in the supervisor groups within the data silos will be able to access the record.</li>
+		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
+		<li><b>x_snc_datasilos_ghost</b>&#160;The ghost flag controls if the record's whitelists should be updated. If set to false, whitelists are populated. If the ghost flag is true, whitelists remain unchanged. This allows custom implementations to control the whitelist population. If this flag is set to true, the record behaves in the same way as if it was changed by a user with the x_snc_datasilos.ghost role.</li>
+	</ul>
 	
 	<h2>FAQ</h2>
 	<h3>What happens if a user is not associated to any group?</h3>
@@ -316,18 +298,44 @@ x_snc_datasilos.tables.incident.active
 x_snc_datasilos.tables.incident.columns.instant_access.sys_user
 x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group 
 </pre>
+
+		
+		<li>New business rules need to be added for each table. These business rules are "before query" business rules that will affect out-of-scope tables. In order to make that change, the following client scripts and the following business rule must be deactivated:
+			<ol>
+				<li><a href="/nav_to.do?uri=sys_script_client.do?sys_id=3c5ffd7ac3302200f7d1ca3adfba8f22" target="_blank">Client Script: "No query for out-of-scope tables" (onChange)</a></li>
+				<li><a href="/nav_to.do?uri=sys_script_client.do?sys_id=5d19f53ac3302200f7d1ca3adfba8f36" target="_blank">Client Script: "No query for out-of-scope tables" (onLoad)</a></li>
+				<li><a href="/nav_to.do?uri=sys_script.do?sys_id=ccaf8afec3302200f7d1ca3adfba8f14" target="_blank">Business Rule: "Reject before-Q for out-of-scope tables"</a></li>
+			</ol>
+		</li>
+		<li>Add a new business rule for each of the new supported tables.in the DataSilos application scope!</li>
+		<li>Configure the business rule as follows (replace "table_name" by the corresponding table name):</li>
+<pre>
+Name: "DataSilos - table_name"
+When: before
+Insert: true
+Update: true
+Query: true
+</pre>
+		<li>Add the following script:</li>
+<pre>
+(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteBusinessRule(current, previous);
+})(current, previous);
+</pre>
+		<li>Go to the "Business Rules" module and verify the new business rule is active and in the DataSilos application scope.</li>
 		<li>Switch to global scope</li>
-		<li>Add corresponding business rules for all affected tables</li>
-		<li>Add or modify corresponding ACLs for all affected tables</li>
+		<li>Elevate access to "security_admin".</li>
+		<li>Add or modify corresponding ACLs for all affected tables. Refer to the implementation guide.</li>
 		<li>Switch back to DataSilos scope</li>
-		<li>Create ATF tests. The following tests can be used as templates:</li>
+		<li>Create ATF tests. The following tests can (and should) be used as templates:</li>
 			<pre>
 DataSilos - incident - installation
 DataSilos - incident - basic
 DataSilos - incident - opener, caller and sentinel
 DataSilos - incident - global
 DataSilos - incident - cross-silo
-DataSilos - incident_task
+DataSilos - incident_task - installation
+DataSilos - incident_task - basic
 DataSilos - incident_task - cross-silo
 			</pre>
 		<li>Update THIS documentation</li>
@@ -373,6 +381,7 @@ DataSilos - incident_task - cross-silo
 		<li>WARNING: The property x_snc_datasilos.incident.whitelist_trigger_fields has essentially be renamed to x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group! Make sure to redo the configuration during upgrade!</li>
 		<li>WARNING: The property x_snc_datasilos.active now controls the filter ONLY. It will no longer halt the population of the whitelists. As a result it can now be more effectively used as an ON/OFF switch while preparing a go-live or during trouble shooting - without any negative impact on the whitelists of records that are changed in the meantime.</li>
 		<li>WARNING: It is now required to configure ACLs not only for&#160;<b>table_name.*</b>,&#160;but also for&#160;<b>table_name</b>,&#160;. Updated the "ACLs" module and tests accordingly.</li>
+		<li>WARNING: The business rules are now part of the scoped application. Any existing "DataSilos" business rules in the global scope shoould be removed!</li>
 		<li>DevTools version 1.3.0 or higher is required.</li>
 		<li>Introduced the supervisor datasilo whitelist field to enable silo based whitelists for supervisors.</li>
 		<li>Introduced the global visibility flag for all tables.</li>
@@ -452,13 +461,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>227</sys_mod_count>
+        <sys_mod_count>235</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-03 10:26:38</sys_updated_on>
+        <sys_updated_on>2020-11-04 12:24:13</sys_updated_on>
     </sys_ui_page>
 </record_update>
