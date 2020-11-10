@@ -127,7 +127,7 @@ answer = bAnswer;
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups. This can also be done automatically or via data import.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
-		<li>Configure additional fields for tables that should be used to populate the whitelist.</li>
+		<li>Go to "Options" and configure the tables. Which tables should be affected by filtering? Which fields should be considered for instant access and whitelisting?</li>
 		<li>Go to "Scheduled Jobs" and define the frequency in which the "Maintenance" scheduled script should run. Experience shows that the script can process approx. 1000 records per minute - so plan your roll-out procedure accordingly.</li>
 	</ol>
 	<h3>Activation</h3>
@@ -461,13 +461,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>236</sys_mod_count>
+        <sys_mod_count>238</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-05 12:16:44</sys_updated_on>
+        <sys_updated_on>2020-11-10 12:20:20</sys_updated_on>
     </sys_ui_page>
 </record_update>
