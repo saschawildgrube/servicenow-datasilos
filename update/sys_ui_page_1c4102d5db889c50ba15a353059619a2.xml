@@ -58,7 +58,7 @@
 	<h2>System Requirements</h2>
 	<ul>
 		<li>Madrid, New York, Orlando or Paris</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.3.0</a></li>
+		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.4.0</a></li>
 	</ul>
 	
 	<h2>Implementation guide</h2>
@@ -480,13 +480,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>248</sys_mod_count>
+        <sys_mod_count>249</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-16 15:10:13</sys_updated_on>
+        <sys_updated_on>2020-11-16 15:26:14</sys_updated_on>
     </sys_ui_page>
 </record_update>
