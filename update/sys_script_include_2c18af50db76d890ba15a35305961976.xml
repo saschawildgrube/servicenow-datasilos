@@ -21,12 +21,23 @@
 	// The global ON/OFF switch
 	config['active'] = GetBoolValue(gs.getProperty('x_snc_datasilos.active'));
 	
+	// Group filter
 	strValue = GetStringValue(gs.getProperty('x_snc_datasilos.group_filter'));
 	if (strValue != '')
 	{
 		config['group_filter'] = strValue; 
 	}
-
+	
+	// ACL warning ON/OFF switch
+	config['acl_warning']['active'] = GetBoolValue(gs.getProperty('x_snc_datasilos.acl_warning.active'));
+	
+	// ACL warning text
+	strValue = GetStringValue(gs.getProperty('x_snc_datasilos.acl_warning.text'));
+	if (strValue != '')
+	{
+		config['acl_warning']['text'] = strValue; 
+	}	
+	
 	// Iterate over tables
 	Object.keys(config['tables']).forEach( function(strTable)
 	{
@@ -66,13 +77,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-19 11:35:36</sys_created_on>
         <sys_id>2c18af50db76d890ba15a35305961976</sys_id>
-        <sys_mod_count>18</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>GetConfigInstance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_2c18af50db76d890ba15a35305961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 15:38:14</sys_updated_on>
+        <sys_updated_on>2020-11-16 12:54:13</sys_updated_on>
     </sys_script_include>
 </record_update>

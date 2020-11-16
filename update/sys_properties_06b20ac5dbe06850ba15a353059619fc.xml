@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Controls if a warning message should be displayed when a user with elevated securty_admin role opens the form of an ACL that is relevant to the DataSilos filtering mechanism.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_snc_datasilos.acl_warning.active</name>
+        <read_roles/>
+        <suffix>acl_warning.active</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-16 11:58:31</sys_created_on>
+        <sys_id>06b20ac5dbe06850ba15a353059619fc</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>x_snc_datasilos.acl_warning.active</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_properties_06b20ac5dbe06850ba15a353059619fc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-16 12:50:07</sys_updated_on>
+        <type>boolean</type>
+        <value>true</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=06b20ac5dbe06850ba15a353059619fc"/>
+</record_update>
