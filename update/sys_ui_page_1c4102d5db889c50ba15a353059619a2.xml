@@ -133,7 +133,13 @@ answer = bAnswer;
 			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues it is recommended to set the "answer" value only once at the end of the script.</li>
 		</ol>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
-		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests.</li>
+		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
+		<ul>
+			<li>If tests fail directly on the first step it means that DataSilos (or the specific table) has not been configured to be active.</li>
+			<li>Test may fail because the scoped app "DevTools" has not been installed or not properly set up. Have all relevant tables been configured to allow cross-scope access from all scopes? Check out the DevTools installation guide for more details.</li>
+			<li>In rare occations the ATF engine fails to remove test data that has been created during a test. This may result in test data being left over in several tables. The test "Test data sanity" can help to find such records. These records must be deleted manually.</li>
+			<li>Tests may fail because test data records cannot be created. One reason are customized fields which are configured to be required when creating a records. To resolve this, you can create business rules that populate these fields when new records are created. You may want to check if the name or short description starts with "ATF_DATASILOS_" to determine records that are created during DataSilos specific tests.</li>
+		</ul>
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -393,6 +399,7 @@ DataSilos - incident_task - cross-silo
 	<h3>2.1.1 - WORK IN PROGRESS</h3>
 	<ol>
 		<li>Added the ATF test "Test data sanity" to check if there is test data left from earlier test runs.</li>
+		<li>Extended installation guide on how to troubleshoot failing tests.</li>
 		<li>All system properties have is_private set to false.</li>
 	</ol>
 	<h3>2.1.0 - 2020-11-16</h3>
@@ -485,13 +492,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>254</sys_mod_count>
+        <sys_mod_count>256</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-23 12:44:02</sys_updated_on>
+        <sys_updated_on>2020-11-23 12:58:32</sys_updated_on>
     </sys_ui_page>
 </record_update>
