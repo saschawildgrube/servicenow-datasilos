@@ -4,7 +4,7 @@
         <copied_from/>
         <description>Validate there is at least one record in 'sys_scope' matching query:
 Name starts with DevTools
-and Version = 1.4.0
+and Version = 1.5.0
 With a failure timeout of 5 Seconds</description>
         <display_name>Record Query</display_name>
         <inputs/>
@@ -17,14 +17,14 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-30 11:37:40</sys_created_on>
         <sys_id>e3a824c2dbde5450ba15a35305961920</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Record Query</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_e3a824c2dbde5450ba15a35305961920</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-16 15:25:23</sys_updated_on>
+        <sys_updated_on>2020-11-25 13:46:57</sys_updated_on>
         <table>sys_scope</table>
         <test display_value="DataSilos - Installation">37c8042e1b5490d0a89720a8ec4bcb36</test>
         <timeout>1970-01-01 00:00:05</timeout>
@@ -53,10 +53,10 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-30 11:37:43</sys_created_on>
         <sys_id>4af868c2dbde5450ba15a35305961958</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-16 15:25:23</sys_updated_on>
-        <value>nameSTARTSWITHDevTools^version=1.4.0^EQ</value>
+        <sys_updated_on>2020-11-25 13:46:58</sys_updated_on>
+        <value>nameSTARTSWITHDevTools^version=1.5.0^EQ</value>
         <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
