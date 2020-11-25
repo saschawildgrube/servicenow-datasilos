@@ -7,28 +7,34 @@
         <client_callable>false</client_callable>
         <description>The Maintenance funtion is used to update records in supported tables based on the current values in fields. Essentially the Maintenance function iterates over all records in the tables and simulates a change to each record. It is used to initialize records after inital installation or when specific silo configuration changes were made. It is recommended to trigger the Maintenance function on a regular basis. A GlideRecord object can be provided to choose a specific table and a predefined filter. If no GlideRecord object is provided the function will iterate over all tables and all records in one go.</description>
         <name>Maintenance</name>
-        <script><![CDATA[function Maintenance(grFilter)
+        <script><![CDATA[function Maintenance(grFilter,strTopic)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
-
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	
+	strTopic = GetStringValue(strTopic);
+	if (strTopic != '')
+	{
+		strTopic += ': ';
+	}
 	
 	function Log(strText)
 	{
-		x_snc_datasilos.Log('Maintenance: '+strText);
+		x_snc_datasilos.Log('Maintenance: '+strTopic+strText);
 	}
 	function Debug(strText)
 	{
-		x_snc_datasilos.Debug('Maintenance: '+strText);
+		x_snc_datasilos.Debug('Maintenance: '+strTopic+strText);
 	}
 
 	Log('START');
 	var nTotalChanges = 0;
 	var nTotalRows = 0;
 	var aGlideRecordFilters = [];
-	
-	if (grFilter !== undefined)
+
+	if (IsValidRecord(grFilter))
 	{
 		if (IsTableSupported(grFilter.getRecordClassName()) == false)
 		{
@@ -39,7 +45,7 @@
 	else
 	{
 		var aClassNames = GetAllSupportedTables();
-		Debug(RenderValue(aClassNames));
+		//Debug(RenderValue(aClassNames));
 		for (var nIndex = 0; nIndex < aClassNames.length; nIndex++)
 		{
 			var grToAdd = new GlideRecord(aClassNames[nIndex]);
@@ -48,7 +54,7 @@
 	}
 
 	
-	var nLogFrequency = GetIntegerValue(gs.getProperty('x_snc_datasilos.maintenance.log_frequency'));
+	var nLogFrequency = GetConfigValue('maintenance','log_frequency');
 	
 	var aResults = [];
 	
@@ -65,16 +71,24 @@
 		//Debug('Records found: '+grCurrent.getRowCount());
 
 		var nCurrentRows = grCurrent.getRowCount();
-		var nCurrentRow = 0;
+		
+		if (nLogFrequency > 0 && nCurrentRows >= nLogFrequency)
+		{
+			var strLog = 'Starting to process '+nCurrentRows+' record(s) in '+strCurrentClassName+'.';
+			Log(strLog);
+		}
+		
+		var nCurrentRow = 1;
 		var nCurrentChanges = 0;
 		
 		while (grCurrent.next())
 		{
-			var strWhiteListOld = grCurrent.getValue('x_snc_datasilos_group_whitelist');
-			//Debug('Before RecordUpdate: '+RenderValue(grCurrent));
+			var strWhitelistHashOld = RecordGetWhitelistHash(grCurrent);
+			//Debug('Before RecordUpdate: '+strWhitelistHashOld);
 			RecordUpdate(grCurrent);
-			//Debug('After RecordUpdate: '+RenderValue(grCurrent));
-			if (strWhiteListOld != grCurrent.getValue('x_snc_datasilos_group_whitelist'))
+			var strWhitelistHashNew = RecordGetWhitelistHash(grCurrent);
+			//Debug('After RecordUpdate: '+strWhitelistHashNew);
+			if (strWhitelistHashOld != strWhitelistHashNew)
 			{
 				grCurrent.update();
 				nCurrentChanges++;
@@ -84,7 +98,7 @@
 			{
 				if (nCurrentRow % nLogFrequency == 0)
 				{
-					var strLog = 'Processing row '+nCurrentRow+' of '+nCurrentRows+' in '+strCurrentClassName+' and made '+nCurrentChanges+' changes so far.';
+					var strLog = 'Processing record '+nCurrentRow+' of '+nCurrentRows+' in '+strCurrentClassName+' and made '+nCurrentChanges+' changes so far.';
 					Log(strLog);
 				}
 			}
@@ -96,6 +110,12 @@
 		nTotalChanges += nCurrentChanges;
 		result.classname = strCurrentClassName;
 		aResults.push(result);
+		
+		if (nLogFrequency > 0 && nCurrentRows >= nLogFrequency && aGlideRecordFilters.length > 1)
+		{
+			var strLog = 'Processed '+nCurrentRows+' record(s) in '+strCurrentClassName+' and made '+nCurrentChanges+' changes.';
+			Log(strLog);
+		}
 	}
 
 	var strLog = 'END\n';
@@ -114,13 +134,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>Maintenance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 12:53:31</sys_updated_on>
+        <sys_updated_on>2020-11-24 17:06:17</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -67,12 +67,12 @@
 				
 		if (gs.hasRole('admin') == true)
 		{
-			Debug('User has the admin role. Filters are not applied.');
+			//Debug('User has the admin role. Filters are not applied.');
 			return;
 		}		
 		if (IsUserSentinel() == true)
 		{
-			Debug('User has the sentinel role. Filters are not applied.');
+			//Debug('User has the sentinel role. Filters are not applied.');
 			return;
 		}
 	
@@ -83,39 +83,39 @@
 
 			if (IsExpensiveQuery(strTable,strEncodedQuery) == true)
 			{
-				Debug('The query has been identified as "expensive". No filtering takes place:\n'+current.getEncodedQuery());
+				//Debug('The query has been identified as "expensive". No filtering takes place:\n'+current.getEncodedQuery());
 				return;
 			}
 		}
 		
 		PrepareQuery(current);
-		Debug('Query updated: '+current.getEncodedQuery());
+		//Debug('Query updated: '+current.getEncodedQuery());
 		return;
 	}
 	
 	if (IsUserGhost() == true)
 	{
-		Debug('User has the x_snc_datasilos.ghost role. No changes are made during insert or update.');
+		//Debug('User has the x_snc_datasilos.ghost role. No changes are made during insert or update.');
 		return;
 	}
 	
 	if (current.x_snc_datasilos_ghost == true)
 	{
-		Debug('The record is flagged as a ghost. No changes are made during insert or update.');
+		//Debug('The record is flagged as a ghost. No changes are made during insert or update.');
 		return;
 	}
 		
 	if (strOperation == 'insert')
 	{
 		RecordInitialize(current);
-		Debug('Record initialized');
+		//Debug('Record initialized');
 		return;
 	}
 
 	if (strOperation == 'update')
 	{
 		RecordUpdate(current);
-		Debug('Record updated');
+		//Debug('Record updated');
 		return;
 	}
 	
@@ -124,13 +124,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>120</sys_mod_count>
+        <sys_mod_count>121</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-10 11:50:51</sys_updated_on>
+        <sys_updated_on>2020-11-24 17:03:13</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordGetWhitelistHash</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Generates a hexadecimal hash based on a record's whitelists </description>
+        <name>RecordGetWhitelistHash</name>
+        <script><![CDATA[function RecordGetWhitelistHash(record)
+{
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	
+	var strRaw = '';
+	
+	if (IsValidRecord(record))
+	{
+		strRaw += 'GLOBAL'+GetStringValue(record.getValue('x_snc_datasilos_global'));
+		var strGroupWhitelist = GetStringValue(record.getValue('x_snc_datasilos_group_whitelist'));
+		strRaw += 'GROUP'+strGroupWhitelist;
+		var strSupervisorWhitelist = GetStringValue(record.getValue('x_snc_datasilos_supervisor_whitelist'));
+		strRaw += 'SUPERVISOR'+strSupervisorWhitelist;
+	}
+	
+	var digest = new GlideDigest();
+	return digest.getSHA256Hex(strRaw);
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-24 16:50:41</sys_created_on>
+        <sys_id>4b61d4fb1be0a090a89720a8ec4bcb34</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>RecordGetWhitelistHash</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_4b61d4fb1be0a090a89720a8ec4bcb34</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-24 16:55:17</sys_updated_on>
+    </sys_script_include>
+</record_update>
