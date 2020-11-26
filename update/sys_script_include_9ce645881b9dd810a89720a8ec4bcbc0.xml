@@ -7,12 +7,14 @@
         <client_callable>false</client_callable>
         <description>The Maintenance funtion is used to update records in supported tables based on the current values in fields. Essentially the Maintenance function iterates over all records in the tables and simulates a change to each record. It is used to initialize records after inital installation or when specific silo configuration changes were made. It is recommended to trigger the Maintenance function on a regular basis. A GlideRecord object can be provided to choose a specific table and a predefined filter. If no GlideRecord object is provided the function will iterate over all tables and all records in one go.</description>
         <name>Maintenance</name>
-        <script><![CDATA[function Maintenance(grFilter,strTopic)
+        <script><![CDATA[function Maintenance(grFilter,strTopic,callbackRecordUpdate,nWindowSize,nWindowIndex,nWindowBorderSize)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetType = x_snc_devtools.GetType;
+
 	
 	strTopic = GetStringValue(strTopic);
 	if (strTopic != '')
@@ -20,6 +22,20 @@
 		strTopic += ': ';
 	}
 	
+	if (GetType(callbackRecordUpdate) != 'function')
+	{
+		callbackRecordUpdate = null;
+	}
+	
+	nWindowSize = GetIntegerValue(nWindowSize);
+	nWindowIndex = GetIntegerValue(nWindowIndex);
+	nWindowBorderSize = GetIntegerValue(nWindowBorderSize);
+	if (nWindowBorderSize == 0)
+	{
+		nWindowBorderSize = 1000;
+	}
+	
+
 	function Log(strText)
 	{
 		x_snc_datasilos.Log('Maintenance: '+strTopic+strText);
@@ -44,6 +60,8 @@
 	}
 	else
 	{
+		nWindowSize = 0;
+		nWindowIndex = 0;
 		var aClassNames = GetAllSupportedTables();
 		//Debug(RenderValue(aClassNames));
 		for (var nIndex = 0; nIndex < aClassNames.length; nIndex++)
@@ -67,14 +85,38 @@
 		
 		//Debug('Query: '+grCurrent.getEncodedQuery());
 		
+		var nFirstRecord = 0;
+		var nLastRecord = 0;
+		
+		if (nWindowSize > 0)
+		{
+			nFirstRecord = Math.max(0,(nWindowSize * nWindowIndex) - nWindowBorderSize);
+			nLastRecord = (nWindowSize * (nWindowIndex+1)) + nWindowBorderSize;
+			grCurrent.chooseWindow(
+				nFirstRecord,
+				nLastRecord);
+		}
+		
 		grCurrent.query();
 		//Debug('Records found: '+grCurrent.getRowCount());
 
 		var nCurrentRows = grCurrent.getRowCount();
+		nFirstRecord = Math.max(nFirstRecord,0);
+		nLastRecord = Math.min(nCurrentRows,nLastRecord);
 		
 		if (nLogFrequency > 0 && nCurrentRows >= nLogFrequency)
 		{
-			var strLog = 'Starting to process '+nCurrentRows+' record(s) in '+strCurrentClassName+'.';
+			var strLog = '';
+			if (nWindowSize == 0)
+			{
+				strLog = 'Starting to process '+nCurrentRows+' record(s) in '+strCurrentClassName+'.';
+			}
+			else
+			{
+				strLog = 'Starting to process '+(nLastRecord-nFirstRecord)+' of '+nCurrentRows+' record(s) in '+strCurrentClassName+'.';
+				strLog += '\n(Records '+nFirstRecord+' to '+nLastRecord+' / Window size = '+nWindowSize+' / Window index: '+nWindowIndex+' / Window border: '+nWindowBorderSize+')';
+
+			}
 			Log(strLog);
 		}
 		
@@ -84,8 +126,17 @@
 		while (grCurrent.next())
 		{
 			var strWhitelistHashOld = RecordGetWhitelistHash(grCurrent);
+			
 			//Debug('Before RecordUpdate: '+strWhitelistHashOld);
-			RecordUpdate(grCurrent);
+			if (callbackRecordUpdate != null)
+			{
+				callbackRecordUpdate(grCurrent,nCurrentRow);
+			}
+			else
+			{
+				RecordUpdate(grCurrent);
+			}
+			
 			var strWhitelistHashNew = RecordGetWhitelistHash(grCurrent);
 			//Debug('After RecordUpdate: '+strWhitelistHashNew);
 			if (strWhitelistHashOld != strWhitelistHashNew)
@@ -134,13 +185,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-04 15:41:42</sys_created_on>
         <sys_id>9ce645881b9dd810a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>Maintenance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_9ce645881b9dd810a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-24 17:06:17</sys_updated_on>
+        <sys_updated_on>2020-11-26 09:29:41</sys_updated_on>
     </sys_script_include>
 </record_update>

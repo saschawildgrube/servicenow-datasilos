@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>805ff4981b1d1c10a89720a8ec4bcbb7</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_805ff4981b1d1c10a89720a8ec4bcbb7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-05 15:22:32</sys_updated_on>
+        <sys_updated_on>2020-11-26 09:35:13</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Maintenance">780fb0981b1d1c10a89720a8ec4bcb47</test>
         <timeout/>
@@ -36,9 +36,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 09:45:52</sys_created_on>
         <sys_id>5fef7c981b1d1c10a89720a8ec4bcbd7</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>34</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-05 15:22:32</sys_updated_on>
+        <sys_updated_on>2020-11-26 09:35:13</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -47,11 +47,20 @@ function Log(strText)&#13;
 (function(outputs, steps, stepResult, assertEqual)&#13;
 {&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	var GetType = x_snc_devtools.GetType;&#13;
+	&#13;
 	var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
 &#13;
 	var bResult = true;&#13;
 	&#13;
-	function TestCase_Maintenance(vInputFilter, vExpected)&#13;
+	function TestCase_Maintenance(&#13;
+		vInputFilter,&#13;
+		strInputTopic,&#13;
+		callbackInputFunction,&#13;
+		nInputWindowSize,&#13;
+		nInputWindowIndex,&#13;
+		nInputWindowBorderSize,&#13;
+		vExpected)&#13;
 	{&#13;
 		Log('TestCase_Maintenance');&#13;
 		var strFilterClassName = '';&#13;
@@ -59,9 +68,21 @@ function Log(strText)&#13;
 		{&#13;
 			strFilterClassName = vInputFilter.getRecordClassName();&#13;
 		}&#13;
-		Log('Class name: '+strFilterClassName);&#13;
+		Log('Class name        : '+strFilterClassName);&#13;
+		Log('Topic             : '+RenderValue(strInputTopic));&#13;
+		Log('callback          : '+GetType(callbackInputFunction));&#13;
+		Log('Window size       : '+RenderValue(nInputWindowSize));&#13;
+		Log('Window index      : '+RenderValue(nInputWindowIndex));&#13;
+		Log('Window border size: '+RenderValue(nInputWindowBorderSize));&#13;
+		&#13;
 		Log('Expected: '+RenderValue(vExpected));&#13;
-		var vResult = Maintenance(vInputFilter);&#13;
+		var vResult = Maintenance(&#13;
+			vInputFilter,&#13;
+			strInputTopic,&#13;
+			callbackInputFunction,&#13;
+			nInputWindowSize,&#13;
+			nInputWindowIndex,&#13;
+			nInputWindowBorderSize);&#13;
 		Log('Result  : '+RenderValue(vResult));&#13;
 		if (vResult != vExpected)&#13;
 		{&#13;
@@ -71,15 +92,15 @@ function Log(strText)&#13;
 		Log('');&#13;
 	}&#13;
 	&#13;
-/*&#13;
-This code shall help to test the Maintenance() function.&#13;
-The function is supposed to be called every minute and shall cover all potentially affected records. So we're talking about huge amounts of records. So the function should work in smaller batches and stop if too much time went by. The next run will then pick up the work where it has been left by the previous one. The GlideRecord parameter can be used to narrow down the scope of records that should be processed. The only purpose of this is to be able to test specific scenarios. The three parts refelct the three requirements. Add and modify test data to simulate these cases. You can also add test steps to check specific values in the modified records.&#13;
-*/	&#13;
-&#13;
-	// Prepare test data&#13;
+	// Prepare general test data&#13;
 	testdata.CreateUser('CALLER');&#13;
 	testdata.CreateUser('ALBERT');&#13;
 	var strGroupAlphaSysId = testdata.CreateGroup('ALPHA',['ALBERT']);&#13;
+&#13;
+	&#13;
+	&#13;
+	// Test scenario 1&#13;
+&#13;
 	var strIncidentSysId = testdata.CreateIncident('TEST_1','','CALLER','');&#13;
 	var strChangeRequestSysId = testdata.CreateChangeRequest('TEST_1','','');&#13;
 	var strProblemSysId = testdata.CreateProblem('TEST_1','','');&#13;
@@ -103,16 +124,7 @@ The function is supposed to be called every minute and shall cover all potential
 		grIncident1.x_snc_datasilos_group_whitelist = '';&#13;
 		grIncident1.update();&#13;
 	}&#13;
-		&#13;
-	TestCase_Maintenance(grIncidentFilter,1);&#13;
-&#13;
-	/*&#13;
-	var grIncident1 = new GlideRecord('incident');&#13;
-	if (grIncident1.get(strIncidentSysId))&#13;
-	{&#13;
-		Log(RenderValue(grIncident1));&#13;
-	}&#13;
-	*/&#13;
+	TestCase_Maintenance(grIncidentFilter,'Test incident',null,0,0,0,1);&#13;
 &#13;
 	&#13;
 	// Prepare a change request with an empty whitelist&#13;
@@ -123,8 +135,7 @@ The function is supposed to be called every minute and shall cover all potential
 		grChangeRequest1.x_snc_datasilos_group_whitelist = '';&#13;
 		grChangeRequest1.update();&#13;
 	}&#13;
-		&#13;
-	TestCase_Maintenance(grChangeRequestFilter,1);&#13;
+	TestCase_Maintenance(grChangeRequestFilter,'Test change_request',null,0,0,0,1);&#13;
 &#13;
 	&#13;
 	// Prepare a problem with an empty whitelist&#13;
@@ -135,8 +146,71 @@ The function is supposed to be called every minute and shall cover all potential
 		grProblem1.x_snc_datasilos_group_whitelist = '';&#13;
 		grProblem1.update();&#13;
 	}&#13;
-		&#13;
-	TestCase_Maintenance(grProblemFilter,1);&#13;
+	TestCase_Maintenance(grProblemFilter,'Test problem',null,0,0,0,1);&#13;
+	&#13;
+	&#13;
+&#13;
+	&#13;
+	&#13;
+	// Test scenario 2 - using a callback function&#13;
+	&#13;
+	function RecordProcessorTest2(record,nRow)&#13;
+	{&#13;
+		Log('Using RecordProcessorTest2 for a record in table ['+record.getRecordClassName()+'] on row '+nRow);&#13;
+		RecordUpdate(record);&#13;
+	}&#13;
+&#13;
+	var strIncidentSysId = testdata.CreateIncident('TEST_2','','CALLER','');&#13;
+	var strChangeRequestSysId = testdata.CreateChangeRequest('TEST_2','','');&#13;
+	var strProblemSysId = testdata.CreateProblem('TEST_2','','');&#13;
+&#13;
+	&#13;
+	var grIncidentFilter = new GlideRecord('incident');&#13;
+	grIncidentFilter.addQuery('short_description','STARTSWITH',testdata.GetPrefix());&#13;
+&#13;
+	var grChangeRequestFilter = new GlideRecord('change_request');&#13;
+	grChangeRequestFilter.addQuery('short_description','STARTSWITH',testdata.GetPrefix());&#13;
+&#13;
+	var grProblemFilter = new GlideRecord('problem');&#13;
+	grProblemFilter.addQuery('short_description','STARTSWITH',testdata.GetPrefix());&#13;
+	&#13;
+	&#13;
+	// Prepare an incident with an empty whitelist&#13;
+	var grIncident1 = new GlideRecord('incident');&#13;
+	if (grIncident1.get(strIncidentSysId))&#13;
+	{&#13;
+		grIncident1.assignment_group = strGroupAlphaSysId;&#13;
+		grIncident1.x_snc_datasilos_group_whitelist = '';&#13;
+		grIncident1.update();&#13;
+	}&#13;
+	TestCase_Maintenance(grIncidentFilter,'Test incident',RecordProcessorTest2,0,0,0,1);&#13;
+&#13;
+	&#13;
+	// Prepare a change request with an empty whitelist&#13;
+	var grChangeRequest1 = new GlideRecord('change_request');&#13;
+	if (grChangeRequest1.get(strChangeRequestSysId))&#13;
+	{&#13;
+		grChangeRequest1.assignment_group = strGroupAlphaSysId;&#13;
+		grChangeRequest1.x_snc_datasilos_group_whitelist = '';&#13;
+		grChangeRequest1.update();&#13;
+	}&#13;
+	TestCase_Maintenance(grChangeRequestFilter,'Test change_request',RecordProcessorTest2,0,0,0,1);&#13;
+&#13;
+	&#13;
+	// Prepare a problem with an empty whitelist&#13;
+	var grProblem1 = new GlideRecord('problem');&#13;
+	if (grProblem1.get(strProblemSysId))&#13;
+	{&#13;
+		grProblem1.assignment_group = strGroupAlphaSysId;&#13;
+		grProblem1.x_snc_datasilos_group_whitelist = '';&#13;
+		grProblem1.update();&#13;
+	}&#13;
+	TestCase_Maintenance(grProblemFilter,'Test problem',RecordProcessorTest2,0,0,0,1);&#13;
+	&#13;
+	&#13;
+	&#13;
+	&#13;
+	&#13;
 	&#13;
 &#13;
 	// TODO: Add a scenario to cover a group that is added to a silo AFTER the record has been initialized&#13;
