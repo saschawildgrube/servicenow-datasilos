@@ -31,6 +31,17 @@
 		return true;
 	}
 	
+	// If the query filters for one of the user's groups explicitly, we also consider it expensive.
+	var aGroups = GetGroupsFromUser(gs.getUserID());
+	for (var nGroup = 0; nGroup < aGroups.length; nGroup++)
+	{
+		if (strEncodedQuery.includes('assignment_group='+aGroups[nGroup]) == true)
+		{
+			return true;
+		}
+	}	
+	
+	
 	// If only active records are to be retrieved, we don't consider it expensive
 	if (strEncodedQuery.includes('active=true') == true)
 	{
@@ -43,13 +54,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 11:21:31</sys_created_on>
         <sys_id>0f2431a8dbd02810ba15a353059619d6</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>IsExpensiveQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_0f2431a8dbd02810ba15a353059619d6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-25 14:20:34</sys_updated_on>
+        <sys_updated_on>2020-11-26 13:07:38</sys_updated_on>
     </sys_script_include>
 </record_update>
