@@ -58,7 +58,7 @@
 	<h2>System Requirements</h2>
 	<ul>
 		<li>Madrid, New York, Orlando or Paris</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.4.0</a></li>
+		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.5.0</a></li>
 	</ul>
 	
 	<h2>Implementation guide</h2>
@@ -394,11 +394,9 @@ DataSilos - incident_task - cross-silo
 	
 	
 	<h2>Release Notes</h2>
-	<h3>2.2.0 - WORK IN PROGRESS</h3>
+	<h3>2.2.0 - 2020-11-27</h3>
 	<ol>
-		<li>DevTools version TODO or higher is required.</li>
-		<li>Added the ATF test "App sanity" to check for common pitfalls in scoped applications.</li>
-		<li>Added the ATF test "Test data sanity" to check if there is test data left from earlier test runs.</li>
+		<li>DevTools version 1.5.0 or higher is required.</li>
 		<li>The Maintenance() function now supports a callback function to enable customized behavior when processing records.</li>
 		<li>The Maintenance() function now supports to select a "window" of records to be processed to support multiple instances of scheduled jobs to run in parallel.</li>
 		<li>The Maintenance() function no longer calls the RecordUpdate() function for records that have the ghost flag set to true. However if a callback function is provided, the function is always called. Which means the callback function is responsible to check the ghost flag if needed.</li>
@@ -406,6 +404,8 @@ DataSilos - incident_task - cross-silo
 		<li>Extended installation guide on how to troubleshoot failing tests.</li>
 		<li>App sanity: All system properties have is_private set to false.</li>
 		<li>App sanity: All ATF tests now have copied_from set to none.</li>
+		<li>Added the ATF test "App sanity" to check for common pitfalls in scoped applications (like two to above).</li>
+		<li>Added the ATF test "Test data sanity" to check if there is test data left from earlier test runs.</li>
 	</ol>
 	<h3>2.1.0 - 2020-11-16</h3>
 	<ol>
@@ -497,13 +497,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>266</sys_mod_count>
+        <sys_mod_count>269</sys_mod_count>
         <sys_name>Start</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-26 11:24:55</sys_updated_on>
+        <sys_updated_on>2020-11-27 11:12:05</sys_updated_on>
     </sys_ui_page>
 </record_update>

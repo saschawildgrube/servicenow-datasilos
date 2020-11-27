@@ -69,6 +69,22 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 
 				while (grSilosToGroups.next())
 				{
+					// Add all non-supervisor groups to the group whitelist
+					if (grSilosToGroups.getValue('type') != 'supervisor')
+					{
+						aGroupsToAdd.push(grSilosToGroups.getValue('group'));
+					}
+					
+					// Add the silo to the supervisor whitelist in all cases
+					var strNextSilo = grSilosToGroups.getValue('datasilo');
+					if (strNextSilo != strLastSilo)
+					{
+						strLastSilo = strNextSilo;
+						aSupervisorSilosToAdd.push(strNextSilo);
+					}
+
+					
+					/*
 					if (grSilosToGroups.getValue('type') == 'supervisor')
 					{
 						var strNextSilo = grSilosToGroups.getValue('datasilo');
@@ -82,6 +98,7 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
 					{
 						aGroupsToAdd.push(grSilosToGroups.getValue('group'));
 					}
+					*/
 				}
 				//Debug('RecordUpdateWhitelistsFromGroupByTypes: AFTER filling the array');
 			}
@@ -121,13 +138,13 @@ function RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes)
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 13:24:03</sys_created_on>
         <sys_id>5921f789db069410ba15a35305961976</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupByTypes</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5921f789db069410ba15a35305961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 13:11:58</sys_updated_on>
+        <sys_updated_on>2020-11-26 14:01:07</sys_updated_on>
     </sys_script_include>
 </record_update>
