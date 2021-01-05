@@ -396,6 +396,13 @@ DataSilos - incident_task - cross-silo
 	<g2:no_escape>$[jvar_strHTML]</g2:no_escape>
 	</ul>	
 	
+	<h2>License</h2>
+	<p>Copyright 2020-2021 by Sascha Wildgrube</p>
+	<p>Licensed under the Apache License, Version 2.0 (the "License")</p>
+	<p>You may not DevTools except in compliance with the License.</p>
+	<p>You may obtain a copy of the License at: <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+	<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>	
+	
 	<h2>Release Notes</h2>
 	<h3>2.2.1 - TODO</h3>
 	<ol>
@@ -506,13 +513,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>274</sys_mod_count>
+        <sys_mod_count>275</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-05 15:00:26</sys_updated_on>
+        <sys_updated_on>2021-01-05 15:05:17</sys_updated_on>
     </sys_ui_page>
 </record_update>
