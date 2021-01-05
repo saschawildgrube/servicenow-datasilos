@@ -28,6 +28,11 @@
 	<p>Welcome to DataSilos - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.</p>
 	<p>The DataSilos application helps to separate data between different organisational units - so called&#160;<b>data silos</b>.</p>
 	<p>In contrast to domain separation DataSilos allows the exchange of data (in form of individual records) between data silos and makes them visible to users on a need-to-know basis.</p>
+	
+	<h2>Disclaimer</h2>
+	<p>DataSilos is NOT an officially supported ServiceNow product.</p>
+	<p>DataSilos does NOT come with any kind of warranty. If you use it, you own it!</p>
+	
 	<h2>Use DataSilos if</h2>
 	<ul>
 		<li>Domain Separation is too strict</li>
@@ -501,13 +506,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>273</sys_mod_count>
+        <sys_mod_count>274</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-05 12:02:06</sys_updated_on>
+        <sys_updated_on>2021-01-05 15:00:26</sys_updated_on>
     </sys_ui_page>
 </record_update>
