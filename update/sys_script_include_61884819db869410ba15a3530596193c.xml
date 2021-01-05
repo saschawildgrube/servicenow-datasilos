@@ -14,16 +14,16 @@
 	
 	var strTable = record.getRecordClassName();
 	var aFields = GetTableWhitelistTriggerFields(strTable);
-	//Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+RenderValue(aFields));
+	Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+RenderValue(aFields));
 		
 	for (var nIndexField = 0; nIndexField < aFields.length; nIndexField++)
 	{
 		var strField = aFields[nIndexField];
-		//Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+'Field: '+strField);
+		Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+'Field: '+strField);
 		var ge = record.getElement(strField);
-
+		
 		var strGroupSysId = ge.toString();
-		//Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+'Group read from '+strField+': '+strGroupSysId);
+		Debug('RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes: '+'Group read from '+strField+': '+strGroupSysId);
 		RecordUpdateWhitelistsFromGroupByTypes(record,strGroupSysId,aTypes);
 	}
 
@@ -32,13 +32,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 15:08:03</sys_created_on>
         <sys_id>61884819db869410ba15a3530596193c</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupsInTriggerFieldsByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_61884819db869410ba15a3530596193c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 11:47:46</sys_updated_on>
+        <sys_updated_on>2020-12-08 15:52:17</sys_updated_on>
     </sys_script_include>
 </record_update>

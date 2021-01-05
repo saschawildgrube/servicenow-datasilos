@@ -42,15 +42,15 @@
 	
 	if (aGroups.length == 0)
 	{
-		Debug('aGroups is empty');
+		//Debug('aGroups is empty');
 		return aGroups;
 	}
 	
 	var strQuery = GetGroupFilter();
-	Debug('GetGroupFilter(): '+RenderValue(strQuery));
+	//Debug('GetGroupFilter(): '+RenderValue(strQuery));
 	if (strQuery == '')
 	{
-		Debug('aGroups: '+RenderValue(aGroups));
+		//Debug('aGroups: '+RenderValue(aGroups));
 		return aGroups;
 	}
 
@@ -80,20 +80,20 @@
 		}
 	}
 
-	Debug('aGroupsFiltered: '+RenderValue(aGroupsFiltered));
+	//Debug('aGroupsFiltered: '+RenderValue(aGroupsFiltered));
 	return aGroupsFiltered;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-24 11:58:10</sys_created_on>
         <sys_id>f33d514e1b32dc90a89720a8ec4bcb57</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>GetGroupsFromUser</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_f33d514e1b32dc90a89720a8ec4bcb57</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-07 13:17:28</sys_updated_on>
+        <sys_updated_on>2021-01-05 13:46:02</sys_updated_on>
     </sys_script_include>
 </record_update>
