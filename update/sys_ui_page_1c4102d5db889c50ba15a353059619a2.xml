@@ -60,7 +60,7 @@
 	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been initialily assigned groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo. However fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
 	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and/or that is conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
 
-	<h2>System Requirements</h2>
+	<h2>System requirements</h2>
 	<ul>
 		<li>Madrid, New York, Orlando or Paris</li>
 		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.5.0</a></li>
@@ -85,7 +85,7 @@
 		<li>Should data silo configuration be automated - maybe as part of existing processes that integration organizational data into the platform?</li>
 		<li>How should external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
 	</ol>
-	<h3>Preparing Validation</h3>
+	<h3>Preparing validation</h3>
 	<p>The following spects should be considered for testing and validation:</p>
 	<ol>
 		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on hw many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behaviour in an production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
@@ -181,7 +181,7 @@ answer = bAnswer;
 		<li><b>x_snc_datasilos.ghost</b>&#160;A user that can create and modify records without impacting the whitelist.</li>
 	</ul>
 
-		<h2>Configuration Options</h2>
+		<h2>Configuration options</h2>
 	<ul>
 	<g2:evaluate var="jvar_strProperties" jelly="true">
 		var HtmlEncode = x_snc_devtools.HtmlEncode;
@@ -201,7 +201,7 @@ answer = bAnswer;
 	<g2:no_escape>$[jvar_strProperties]</g2:no_escape>
 	</ul>
 	
-	<h2>Column Fields</h2>
+	<h2>Column fields</h2>
 	<p>Each supported table is equipped with a number of new column fields:</p>
 	<ul>
 		<li><b>x_snc_datasilos_group_whitelist</b>&#160;The group whitelist field stores a list of groups which should have access to the record.</li>
@@ -218,6 +218,12 @@ answer = bAnswer;
 	<h3>How does it work?</h3>
 	<p>DataSilos adds a new field to all relevant tables that contains a whitelist of groups. A user that is at least member of one of these whitelisted groups may see the record. Business rules in the global scope will alter the query and act on inserts and updates to control visibility and extend the whitelist where appropriate.</p>
 	
+	<h2>Runbook</h2>
+	<h3>Incident models</h3>
+	<h4>Technical integration does not longer work as expected</h4>
+	<p>Check if the technical user has the required access. Consider to apply the x_snc_datasilos.sentinel role.</p> 
+		
+	
 	<h2>Developer guide</h2>
 	<h3>Entry points</h3>
 	<p>The DataSilos application is implemented in a number of script includes. Most of which contain a single function. The following script includes (i.e. functions) serve as entry points to the application. All other functions are then called from these entry points:</p>
@@ -228,7 +234,7 @@ answer = bAnswer;
 	</ol>
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
-	<h3>DataSilos API Reference</h3>
+	<h3>DataSilos API reference</h3>
 	<p>The following functions can be used to extend and modify out of the box behaviour DataSilos behaviour without making any changes to the core implementation. This allows for extentions which are compatible to future versions.</p> 
 	<p>
 	<g2:evaluate var="jvar_strScriptIncludes" jelly="true">
@@ -403,10 +409,11 @@ DataSilos - incident_task - cross-silo
 	<p>You may obtain a copy of the License at: <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">http://www.apache.org/licenses/LICENSE-2.0</a></p>
 	<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>	
 	
-	<h2>Release Notes</h2>
+	<h2>Release notes</h2>
 	<h3>2.2.1 - TODO</h3>
 	<ol>
 		<li>ExecuteACL can now handle the case that an incomplete record is presented to the ACL (Refer to&#160;<a href="https://hi.service-now.com/kb_view.do?sysparm_article=KB0529493" target="_blank">KB0529493</a>).</li>
+		<li>Added the runbook section to the documentation with a first incident model on failing integrations.</li>
 	</ol>
 	
 	
@@ -513,13 +520,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>275</sys_mod_count>
+        <sys_mod_count>277</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-05 15:05:17</sys_updated_on>
+        <sys_updated_on>2021-01-06 15:12:04</sys_updated_on>
     </sys_ui_page>
 </record_update>
