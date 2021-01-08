@@ -92,27 +92,19 @@
 	// The following logic is required because under some circumstances, records are not provided to the ACL
 	// with all fields.
 	// Refer to https://hi.service-now.com/kb_view.do?sysparm_article=KB0529493
-
-	
 	if (IsRecordComplete(record) == false)
 	{
-		Debug('IsRecordComplete returned false.');
 		var strSysId = GetStringValue(record.sys_id);
-		Debug('record.sys_id: '+RenderValue(strSysId));
 		var grRecordComplete = new GlideRecord(strTable);
 		if (grRecordComplete.get('sys_id',strSysId))
 		{
-			Debug('The record has been retrieved from the database.');
 			record = grRecordComplete;
 		}
 		else
 		{
-			Debug('The record was NOT retrieved from the database. This indicates that the user does not have access to that record. Returning false.');
 			return false;
 		}
 	}	
-	
-	//Debug('Record: '+RenderValue(record));
 
 	var grRecord = new GlideRecord(strTable);
 	PrepareQuery(grRecord);
@@ -132,13 +124,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>61</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-05 14:18:36</sys_updated_on>
+        <sys_updated_on>2021-01-08 11:22:58</sys_updated_on>
     </sys_script_include>
 </record_update>
