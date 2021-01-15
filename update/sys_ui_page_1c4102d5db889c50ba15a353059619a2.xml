@@ -77,14 +77,39 @@
 		<li>Which users are assigned to multiple groups and will that result in expected and intended behaviour?</li>
 		<li>Are there users without any assignment group? Such users might loose access that they currently have.</li>
 		<li>Who is responsible to define the data silos and can provide a mapping to groups? In large organizations this might be a challenging task - especially if there are multiple systems of record from which organization data is retrieved and imported into the ServiceNow instance.</li>
+		<li>Does a process exist to manage groups? Consider the process implications once a group must also be assigned to a silo.</li> 
+		<li>Do naming conventions exist? How should group silos be named?</li>
 		<li>Are there any before/query business rules that serve comparable purposes? Should they be replaced?</li>
 		<li>Are there any customized ACLs in place?</li>
-		<li>Are there any records in supported tables that do not have an assignment groups - and hence may be invisible to most users?</li>
+		<li>Are there any records in supported tables that do not have an assignment group - and hence may be invisible to most users?</li>
+		<li>How should records be treated that become totally inaccessible to users? And what might be reasons for that?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
+		<li>What reports are maintained and run and by whom? Consider the impact of data segregation on reports!</li>
 		<li>Is Performance Analytics being used? What impact on reporting is expected?</li>
-		<li>What reports are maintained and run and by whom?</li>
 		<li>Should data silo configuration be automated - maybe as part of existing processes that integrate organizational data into the platform?</li>
 		<li>How should external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
+		<li>How many records exist in the affected tables? If its more than a million, expect a performance impact and validate carefully!</li>
+		<li>HR, information security or other special stakeholder groups might have additional requirements. Have these be considered?</li>
+		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. How exatcly will this initialization take place? What should be considered?</li>
+		<li>Which impact will DataSilos have on the onboarding of parts of the organization that do not yet use ServiceNow yet (or not yet actively)? Can plans and arrangements be made already for that future scenario?</li>
+		<li>DataSilos introduces new roles (admin, manager etc.). What implication does it have to your license and user access management processes?</li> 
+	</ol>
+	<h3>User stories</h3>
+	<p>The following list of user stories is a recommendation based on previous DataSilos implementations. It should be extended and modified based on the findings of the analysis.</p>
+	<ol>
+		<li>As the CISO I want to ensure that incidents/problems/changes/... are only visible to specific groups of users.</li>
+		<li>As the CISO I want to allow users who raised an incident/problem/change/... to access it.</li>
+		<li>As the platform owner I want to have a comprehensive documentation on DataSilos, its dependencies and customizations.</li>
+		<li>As the platform owner I want to ensure that future changes do not unintendedly break the data segregation logic (e.g. by adding additional ACLs that would allow to bypass the DataSilos filtering).</li>
+		<li>As the platform owner I want to ensure that those users who should have access do have access from day one. This requires to initialize all records before go-live.</li>
+		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone.</li>
+		<li>As an operations user I want to be informed and trained properly so that I can operate the solution going forward.</li>
+		<li>As an operations user I need documented incident models and operational procedures to deal with issues being raised during operations.</li>
+		<li>As an operations user I need a process in place to manage user accounts that considers the new roles and eventually the need for new group memberships.</li>
+		<li>As an operations user I need a process in place to manage groups and their association to silos on a day-to-day basis.</li>
+		<li>As a user I need access to records even if I havn't been part of any group in the past.</li>
+		<li>As a user I want to be informed about the introduction of data segregation and to know what that means to me and my work.</li>
+		<li>As the incident manager I want to make specific incidents (e.g. major incidents or incidents with the highest priority) visible to everyone in the organization.</li>
 	</ol>
 	<h3>Preparing validation</h3>
 	<p>The following spects should be considered for testing and validation:</p>
@@ -93,7 +118,10 @@
 		<li>It is recommended to identify pages and views that are most frequently used by users - both for automated and manual user acceptance testing.</li> 
 		<li>Functional test cases should proof that specific records are visible to specific user groups AND that other records are explicitly NOT visible to other user groups.</li>
 		<li>Functional test cases should cover scenarios in which records are passed from one silo to another.</li>
-		<li>Any existing test cases (that relate to the supported tables) should be executed as part of the QA. Behaviour that was expected in the past may no longer be working with active filtering. In some cases the silo configuration might have to be reviewed, in other cases, the test cases might have to be updated.</li> 
+		<li>Functional and performance tests for dashboards.</li>
+		<li>Functional tests on existing reports and Performance Analytics based dashboards.</li> 
+		<li>Any existing test cases (that relate to the supported tables) should be executed as part of the QA. Behaviour that was expected in the past may no longer be working with active filtering. In some cases the silo configuration might have to be reviewed, in other cases, the test cases might have to be updated.</li>
+		<li>It is strongly recommended to use specific test users and test groups for functional testing. Do not reuse users or groups from other tests!</li>
 	</ol>
 	<h3>Installation</h3>
 	<ol>
@@ -414,7 +442,9 @@ DataSilos - incident_task - cross-silo
 	<h3>2.2.1 - TODO</h3>
 	<ol>
 		<li>ExecuteACL can now handle the case that an incomplete record is presented to the ACL (Refer to&#160;<a href="https://hi.service-now.com/kb_view.do?sysparm_article=KB0529493" target="_blank">KB0529493</a>).</li>
+		<li>Added the user stories section to the documentation.</li>
 		<li>Added the runbook section to the documentation with a first incident model on failing integrations.</li>
+		<li>Extended the analysis section with insights from previous projects in the documentation.</li>
 	</ol>
 	
 	
@@ -521,13 +551,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>280</sys_mod_count>
+        <sys_mod_count>293</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-14 09:23:17</sys_updated_on>
+        <sys_updated_on>2021-01-15 14:16:01</sys_updated_on>
     </sys_ui_page>
 </record_update>
