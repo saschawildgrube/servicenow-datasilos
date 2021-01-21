@@ -61,29 +61,45 @@
 	<h3>Analysis</h3>
 	<p>The following aspects and topics should be considered when implementing the DataSilos application:</p>
 	<ol>
+		<!-- SCOPE -->
 		<li>What data (which specific tables) should be separated and what data should be shared across the organization?</li>
-		<li>Who should be responsible to maintain the silo configuration? Which processes might be affected? What must happens if new groups are being created in the future?</li>
+		
+		<!-- ACCESS RULES -->
+		<li>How should access be sliced and structured? What silos will exist?</li>
 		<li>Who should have which access within a silo?</li>
+		<li>HR, information security or other special stakeholder groups might have additional requirements. Have these be considered?</li>
+		<li>How should external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
+		
+		<!-- BASE DATA QUALITY -->
 		<li>Does the existing group structure support the later silo configuration? Are groups missing? Are there duplicates?</li>
-		<li>Which users are assigned to multiple groups and will that result in expected and intended behaviour?</li>
-		<li>Are there users without any assignment group? Such users might loose access that they currently have.</li>
+		<li>Are users are assigned to multiple groups? Will that result in expected and intended behaviour?</li>
+		<li>Are there users without any assignment groups? Such users might loose access that they currently have.</li>
+		
+		<!-- OPS -->
 		<li>Who is responsible to define the data silos and can provide a mapping to groups? In large organizations this might be a challenging task - especially if there are multiple systems of record from which organization data is retrieved and imported into the ServiceNow instance.</li>
+		<li>Who should be responsible to maintain the silo configuration? Which processes might be affected? What must happens if new groups are being created in the future?</li>
+		<li>Should data silo configuration be automated - maybe as part of existing processes that integrate organizational data into the platform?</li>
 		<li>Does a process exist to manage groups? Consider the process implications once a group must also be assigned to a silo.</li> 
 		<li>Do naming conventions exist? How should group silos be named?</li>
+		<li>What should happen with records in supported tables that do not have an assignment group - and hence may be invisible to most users?</li>
+		<li>Which impact will DataSilos have on the onboarding of parts of the organization that do not yet use ServiceNow yet (or not yet actively)? Can plans and arrangements be made already for that future scenario?</li>
+
+		<!-- TECHNICAL -->
 		<li>Are there any before/query business rules that serve comparable purposes? Should they be replaced?</li>
 		<li>Are there any customized ACLs in place?</li>
-		<li>Are there any records in supported tables that do not have an assignment group - and hence may be invisible to most users?</li>
-		<li>How should records be treated that become totally inaccessible to users? And what might be reasons for that?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
+		<li>How many records exist in the affected tables? If its more than a million, expect a performance impact and validate carefully!</li>
+		
+		<!-- REPORTING AND PA -->
 		<li>What reports are maintained and run and by whom? Consider the impact of data segregation on reports!</li>
 		<li>Is Performance Analytics being used? What impact on reporting is expected?</li>
-		<li>Should data silo configuration be automated - maybe as part of existing processes that integrate organizational data into the platform?</li>
-		<li>How should external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
-		<li>How many records exist in the affected tables? If its more than a million, expect a performance impact and validate carefully!</li>
-		<li>HR, information security or other special stakeholder groups might have additional requirements. Have these be considered?</li>
-		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. How exactly will this initialization take place? What should be considered?</li>
-		<li>Which impact will DataSilos have on the onboarding of parts of the organization that do not yet use ServiceNow yet (or not yet actively)? Can plans and arrangements be made already for that future scenario?</li>
+		
+		<!-- COMMERCIAL -->
 		<li>DataSilos introduces new roles (admin, manager etc.). What implication does it have to your license and user access management processes?</li> 
+		
+		<!-- GO LIVE -->
+		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. How exactly will this initialization take place? What should be considered?</li>
+	
 	</ol>
 	<h3>User stories</h3>
 	<p>The following list of user stories is a recommendation based on previous DataSilos implementations. It should be extended and modified based on the findings of the analysis.</p>
@@ -489,13 +505,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>306</sys_mod_count>
+        <sys_mod_count>307</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-21 10:09:45</sys_updated_on>
+        <sys_updated_on>2021-01-21 14:09:01</sys_updated_on>
     </sys_ui_page>
 </record_update>
