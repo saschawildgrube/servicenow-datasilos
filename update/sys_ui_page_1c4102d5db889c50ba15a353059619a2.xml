@@ -344,7 +344,7 @@ x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group
 				<li><a href="/nav_to.do?uri=sys_script.do?sys_id=ccaf8afec3302200f7d1ca3adfba8f14" target="_blank">Business Rule: "Reject before-Q for out-of-scope tables"</a></li>
 			</ol>
 		</li>
-		<li>Add a new business rule for each of the new supported tables.in the DataSilos application scope!</li>
+		<li>Add a new business rule for each of the new supported tables in the DataSilos application scope!</li>
 		<li>Configure the business rule as follows (replace "table_name" by the corresponding table name):</li>
 <pre>
 Name: "DataSilos - table_name"
@@ -511,13 +511,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>319</sys_mod_count>
+        <sys_mod_count>320</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-22 15:16:24</sys_updated_on>
+        <sys_updated_on>2021-01-25 09:30:34</sys_updated_on>
     </sys_ui_page>
 </record_update>
