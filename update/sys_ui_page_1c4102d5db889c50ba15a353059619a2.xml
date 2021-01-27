@@ -108,11 +108,13 @@
 		<li>As the CHRO I demand that only entitled users can access records that contain sensible HR-related data.</li>
 		<li>As the platform owner I want to have a comprehensive documentation on DataSilos, its dependencies and customizations.</li>
 		<li>As the platform owner I want ServiceNow developers from my organization to be trained to maintain and support the solution.</li>
-		<li>As the platform owner I want to ensure that future changes do not unintendedly break the data segregation logic (e.g. by adding additional ACLs that would allow to bypass the DataSilos filtering).</li>
-		<li>As the platform owner I want to ensure that those users who should have access do have access from day one. This requires to initialize all records before go-live.</li>
+		<li>As the platform owner I want to ensure that future changes do not break the data segregation logic (e.g. by adding additional ACLs that bypass filtering).</li>
+		<li>As the platform owner I want to reduce customizations. When upgrading to future releases we need checks if DataSilos can be replaced by OOTB features.</li>
+		<li>As the platform owner I want to ensure that users have access from day one. This requires to initialize all records before go-live.</li>
 		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone.</li>
 		<li>As the platform owner I want to ensure platform performance. One aspect is the consolidation of multiple ACLs into one.</li>
 		<li>As the platform owner I want to ensure stability by running all related ATFs as part of the development and deployment process.</li>
+		<li>As the platform owner I want to ensure that existing integrations continue to work as expected.</li>
 		<li>As an operations user I want to be informed and trained properly so that I can operate the solution going forward.</li>
 		<li>As an operations user I need documented incident models and operational procedures to deal with issues being raised during operations.</li>
 		<li>As an operations user I need a process in place to manage user accounts that considers the new roles and eventually the need for new group memberships.</li>
@@ -397,7 +399,8 @@ DataSilos - incident_task - cross-silo
 	
 	<h3>2.4.0 - TODO</h3>
 	<ol>
-		<li>TODO</li>
+		<li>Added more user stories to the documentation.</li>
+		<li>Improved installation guide.</li>
 	</ol>
 	
 	<h3>2.3.0 - 2021-01-22</h3>
@@ -516,13 +519,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>324</sys_mod_count>
+        <sys_mod_count>329</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-25 14:29:58</sys_updated_on>
+        <sys_updated_on>2021-01-27 12:40:58</sys_updated_on>
     </sys_ui_page>
 </record_update>
