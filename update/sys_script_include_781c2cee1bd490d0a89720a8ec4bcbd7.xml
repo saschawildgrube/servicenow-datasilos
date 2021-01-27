@@ -10,33 +10,18 @@
         <script><![CDATA[function GetSilosFromGroup(strGroupSysId)
 {
 	return GetSilosFromGroupByTypes(strGroupSysId,[]);
-	/*
-	var GetStringValue = x_snc_devtools.GetStringValue;
-
-	strGroupSysId = GetStringValue(strGroupSysId);
-	var aSilos = [];
-
-	var grSilosToGroups = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
-	var query = grSilosToGroups.addQuery('group','=',strGroupSysId);
-	grSilosToGroups.query();
-	while (grSilosToGroups.next())
-	{
-		aSilos.push(grSilosToGroups.getValue('datasilo'));
-	}
-	return aSilos;
-	*/
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 15:13:32</sys_created_on>
         <sys_id>781c2cee1bd490d0a89720a8ec4bcbd7</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>GetSilosFromGroup</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_781c2cee1bd490d0a89720a8ec4bcbd7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-30 16:28:30</sys_updated_on>
+        <sys_updated_on>2021-01-27 14:13:43</sys_updated_on>
     </sys_script_include>
 </record_update>
