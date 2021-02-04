@@ -87,6 +87,7 @@
 		<li>Are there any customized ACLs in place?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
 		<li>How many records exist in the affected tables? If its more than a million, expect a performance impact and validate carefully!</li>
+		<li>Which database views exist that contain tables which are in scope? Should data segregation be applied?</li>
 		
 		<!-- REPORTING AND PA -->
 		<li>What reports are maintained and run and by whom? Consider the impact of data segregation on reports!</li>
@@ -113,6 +114,7 @@
 		<li>As the platform owner I want to ensure that users have access from day one. This requires to initialize all records before go-live.</li>
 		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone.</li>
 		<li>As the platform owner I want to ensure platform performance. One aspect is the consolidation of multiple ACLs into one.</li>
+		<li>As the platform owner I want to ensure that existing and future database views do not bypass access restrictions.</li>
 		<li>As the platform owner I want to ensure stability by running all related ATF tests as part of the development and deployment process.</li>
 		<li>As the platform owner I want to ensure stability and consider running all related ATF tests to monitor production.</li>
 		<li>As the platform owner I want to ensure that existing integrations continue to work as expected.</li>
@@ -525,13 +527,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>340</sys_mod_count>
+        <sys_mod_count>341</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-04 12:10:39</sys_updated_on>
+        <sys_updated_on>2021-02-04 13:06:53</sys_updated_on>
     </sys_ui_page>
 </record_update>
