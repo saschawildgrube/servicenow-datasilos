@@ -2,45 +2,45 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Checks if the business rule is correctly configured for table: [incident_task]
+        <description>Checks if the business rule is correctly configured for table: [incident]
 </description>
         <display_name>DataSilos - Check Business Rule</display_name>
         <inputs/>
         <mugshots_cache_json/>
         <notes/>
-        <order>1</order>
+        <order>2</order>
         <snapshot/>
         <step_config display_value="DataSilos - Check Business Rule">88b932e8db582810ba15a35305961982</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-02 16:46:38</sys_created_on>
-        <sys_id>a2aeb620db982810ba15a3530596190b</sys_id>
+        <sys_created_on>2021-02-17 12:13:48</sys_created_on>
+        <sys_id>f4520583db122c14ba15a353059619af</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>DataSilos - Check Business Rule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_a2aeb620db982810ba15a3530596190b</sys_update_name>
+        <sys_update_name>sys_atf_step_f4520583db122c14ba15a353059619af</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:46:38</sys_updated_on>
+        <sys_updated_on>2021-02-17 12:13:48</sys_updated_on>
         <table/>
-        <test display_value="DataSilos - incident_task - installation">5aeaad801b846010a89720a8ec4bcba8</test>
+        <test display_value="DataSilos - Implementation">08421f231b20a090a89720a8ec4bcb36</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=a2aeb620db982810ba15a3530596190b"/>
+    <sys_variable_value action="delete_multiple" query="document_key=f4520583db122c14ba15a353059619af"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>a2aeb620db982810ba15a3530596190b</document_key>
+        <document_key>f4520583db122c14ba15a353059619af</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-11-02 16:46:38</sys_created_on>
-        <sys_id>15bef620db982810ba15a3530596198a</sys_id>
+        <sys_created_on>2021-02-17 12:13:49</sys_created_on>
+        <sys_id>cc620583db122c14ba15a353059619b8</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:46:38</sys_updated_on>
-        <value>incident_task</value>
+        <sys_updated_on>2021-02-17 12:13:49</sys_updated_on>
+        <value>incident</value>
         <variable display_value="">ae5bba2cdb582810ba15a3530596193b</variable>
     </sys_variable_value>
 </record_update>

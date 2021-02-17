@@ -12,6 +12,8 @@
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var ArrayUnique = x_snc_devtools.ArrayUnique;
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;
+	
 	aTypes = GetArrayValue(aTypes); 
 
 	strGroupSysId = GetStringValue(strGroupSysId);
@@ -31,7 +33,11 @@
 	grSilosToGroups.query();
 	while (grSilosToGroups.next())
 	{
-		aSilos.push(grSilosToGroups.getValue('datasilo'));
+		var strDataSilosSysId = GetStringValue(grSilosToGroups.getValue('datasilo'));
+		if (IsValidSysId(strDataSilosSysId))
+		{
+			aSilos.push(strDataSilosSysId);
+		}
 	}
 	aSilos = ArrayUnique(aSilos);
 	return aSilos;
@@ -40,13 +46,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-30 16:25:56</sys_created_on>
         <sys_id>77eaa982db929450ba15a353059619c1</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>GetSilosFromGroupByTypes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_77eaa982db929450ba15a353059619c1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-25 12:28:11</sys_updated_on>
+        <sys_updated_on>2021-02-17 17:19:41</sys_updated_on>
     </sys_script_include>
 </record_update>

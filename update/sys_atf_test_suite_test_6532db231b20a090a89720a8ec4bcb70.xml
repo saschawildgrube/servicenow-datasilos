@@ -14,7 +14,7 @@
         <sys_update_name>sys_atf_test_suite_test_6532db231b20a090a89720a8ec4bcb70</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-24 12:09:55</sys_updated_on>
-        <test display_value="DataSilos - App sanity">08421f231b20a090a89720a8ec4bcb36</test>
+        <test display_value="DataSilos - Implementation">08421f231b20a090a89720a8ec4bcb36</test>
         <test_suite display_value="DataSilos">23e924dddb809c50ba15a353059619ae</test_suite>
     </sys_atf_test_suite_test>
 </record_update>

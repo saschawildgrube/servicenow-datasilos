@@ -24,7 +24,7 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-02-17 09:33:09</sys_updated_on>
         <table/>
-        <test display_value="DataSilos - App sanity">08421f231b20a090a89720a8ec4bcb36</test>
+        <test display_value="DataSilos - Implementation">08421f231b20a090a89720a8ec4bcb36</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
