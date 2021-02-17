@@ -16,7 +16,7 @@
         <runtime_access_tracking>permissive</runtime_access_tracking>
         <scope>x_snc_datasilos</scope>
         <scoped_administration>false</scoped_administration>
-        <short_description/>
+        <short_description>A lightweight approach to data segregation</short_description>
         <source>x_snc_datasilos</source>
         <store_correlation_id/>
         <store_url/>
@@ -25,9 +25,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:13:32</sys_created_on>
         <sys_id>dafbffebdbb78450ba15a353059619eb</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>50</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-22 15:15:39</sys_updated_on>
+        <sys_updated_on>2021-02-17 09:34:02</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <user_role/>

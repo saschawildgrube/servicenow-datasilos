@@ -52,7 +52,7 @@
 	<h2>System requirements</h2>
 	<ul>
 		<li>Madrid, New York, Orlando or Paris</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.8.0</a></li>
+		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.10.0</a></li>
 	</ul>
 	
 	<h2>Implementation guide</h2>
@@ -402,6 +402,7 @@ DataSilos - incident_task - cross-silo
 	
 	<h3>2.4.0 - TODO</h3>
 	<ol>
+		<li>DevTools version 1.10.0 or higher is required.</li>
 		<li>The explicit check for Performance Analytics views has been replaced by a more generic check for queries starting with "sys_idIN". This will consider any query that comes with a defined list of records as not expensive.</li>
 		<li>In the data silos to group mapping table the data silo, group and type fields are now mandatory to prevent the entry of incomplete mapping records.</li>
 		<li>Renamed module "Import/Export" to "Groups to Silos". This is to clear the way for a potential upcoming feature to manage silo to silo relationships.</li>
@@ -409,6 +410,7 @@ DataSilos - incident_task - cross-silo
 		<li>Fixed function GetSilosFromUser().</li>
 		<li>Added more user stories to the documentation.</li>
 		<li>Improved installation guide.</li>
+		<li>Added a short description for the scoped application.</li>
 	</ol>
 	
 	<h3>2.3.0 - 2021-01-22</h3>
@@ -527,13 +529,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>342</sys_mod_count>
+        <sys_mod_count>344</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-11 11:08:09</sys_updated_on>
+        <sys_updated_on>2021-02-17 09:34:49</sys_updated_on>
     </sys_ui_page>
 </record_update>
