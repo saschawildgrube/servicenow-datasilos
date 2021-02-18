@@ -10,14 +10,14 @@
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var strTable = GetStringValue(step.inputs.u_table);
-    var strDescription = 'Checks if the business rule is correctly configured for table: ['+strTable+']\n';
+    var strDescription = 'Checks if DataSilos features are correctly implemented for table: ['+strTable+']\n';
 	return strDescription;
 }
 generateDescription();]]></description_generator>
-        <html_description><![CDATA[<p>Check the DataSilos specific business rule of a given table for compliance with DataSilos requirements.</p>]]></html_description>
+        <html_description><![CDATA[<p>Checks if DataSilos features are fully implemented for a given table. This includes business rules, fields, properties, ATF tests and more.  </p>]]></html_description>
         <icon>icon-article-document</icon>
         <inputs/>
-        <name>DataSilos - Check Business Rule</name>
+        <name>DataSilos - Check table implementation</name>
         <order>9998</order>
         <outputs/>
         <step_env display_value="Server - Independent">6c2bcea1870312009dccc9ded0e3ecca</step_env>
@@ -30,27 +30,25 @@ generateDescription();]]></description_generator>
 	stepResult.setSuccess();
 
 	var strTable = inputs.u_table;
-	var strMessage = 'DataSilos: Checks business rule for table: ['+strTable+']\n';
 
-	var strName = 'DataSilos - '+strTable;
-	
-	var grACL = new GlideRecord('sys_script');
-	grACL.addQuery('name','=',strName);
-	grACL.addQuery('active','=','true');
-	grACL.addQuery('action_insert','=','true');
-	grACL.addQuery('action_update','=','true');
-	grACL.addQuery('action_query','=','true');
-	grACL.addQuery('advanced','=','true');
-	grACL.addQuery('script','CONTAINS','x_snc_datasilos.ExecuteBusinessRule(current, previous);');
-	grACL.addQuery('when','=','before');
-	//grACL.addQuery('sys_scope','=','global');
-	grACL.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb'); // scope is DataSilos
-	grACL.addQuery('collection','=',strTable);
-	grACL.query();
+	var strMessage = 'DataSilos: Checking table: ['+strTable+']\n';
 
-	if (grACL.getRowCount() == 0)
+	var strBusinessRuleName = 'DataSilos - '+strTable;
+	var grBR = new GlideRecord('sys_script');
+	grBR.addQuery('name','=',strBusinessRuleName);
+	grBR.addQuery('active','=','true');
+	grBR.addQuery('action_insert','=','true');
+	grBR.addQuery('action_update','=','true');
+	grBR.addQuery('action_query','=','true');
+	grBR.addQuery('advanced','=','true');
+	grBR.addQuery('script','CONTAINS','x_snc_datasilos.ExecuteBusinessRule(current, previous);');
+	grBR.addQuery('when','=','before');
+	grBR.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb'); // scope is DataSilos
+	grBR.addQuery('collection','=',strTable);
+	grBR.query();
+	if (grBR.getRowCount() == 0)
 	{
-		strMessage += 'No active business rule has been found with name "'+strName+'" that matches all criteria!\n';
+		strMessage += 'No active business rule has been found with name "'+strBusinessRuleName+'" that matches all criteria!\n';
 		stepResult.setFailed();
 	}
 		
@@ -62,14 +60,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>8</sys_mod_count>
-        <sys_name>DataSilos - Check Business Rule</sys_name>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-04 10:41:34</sys_updated_on>
+        <sys_updated_on>2021-02-18 09:08:11</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>

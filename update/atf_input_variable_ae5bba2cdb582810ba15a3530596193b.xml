@@ -38,7 +38,7 @@
         <label>Table</label>
         <mandatory>true</mandatory>
         <max_length>40</max_length>
-        <model display_value="DataSilos - Check Business Rule">88b932e8db582810ba15a35305961982</model>
+        <model display_value="DataSilos - Check table implementation">88b932e8db582810ba15a35305961982</model>
         <model_id>88b932e8db582810ba15a35305961982</model_id>
         <model_table/>
         <name>var__m_atf_input_variable_88b932e8db582810ba15a35305961982</name>

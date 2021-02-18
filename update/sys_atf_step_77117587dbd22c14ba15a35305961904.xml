@@ -10,7 +10,7 @@
         <notes/>
         <order>9</order>
         <snapshot/>
-        <step_config display_value="DataSilos - Check Business Rule">88b932e8db582810ba15a35305961982</step_config>
+        <step_config display_value="DataSilos - Check table implementation">88b932e8db582810ba15a35305961982</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-17 15:38:14</sys_created_on>
