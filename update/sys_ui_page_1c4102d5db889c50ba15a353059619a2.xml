@@ -266,7 +266,7 @@ answer = bAnswer;
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
 	<h3>DataSilos API reference</h3>
-	<p>The following functions can be used to extend and modify out of the box behaviour DataSilos behaviour without making any changes to the core implementation. This allows for extentions which are compatible to future versions.</p> 
+	<p>The following functions can be used to extend and modify out of the box behaviour without making any changes to the core implementation. This allows for extentions which are compatible to future versions.</p> 
 	<p>
 	<g2:no_escape>$[docapi.RenderScriptIncludes()]</g2:no_escape>
 	</p>
@@ -532,13 +532,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>347</sys_mod_count>
+        <sys_mod_count>348</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-18 09:16:27</sys_updated_on>
+        <sys_updated_on>2021-02-18 09:53:05</sys_updated_on>
     </sys_ui_page>
 </record_update>

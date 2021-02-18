@@ -30,9 +30,11 @@ generateDescription();]]></description_generator>
 	stepResult.setSuccess();
 
 	var strTable = inputs.u_table;
+	var strAppSysId = 'dafbffebdbb78450ba15a353059619eb';
 
 	var strMessage = 'DataSilos: Checking table: ['+strTable+']\n';
 
+	// Business rule
 	var strBusinessRuleName = 'DataSilos - '+strTable;
 	var grBR = new GlideRecord('sys_script');
 	grBR.addQuery('name','=',strBusinessRuleName);
@@ -43,7 +45,7 @@ generateDescription();]]></description_generator>
 	grBR.addQuery('advanced','=','true');
 	grBR.addQuery('script','CONTAINS','x_snc_datasilos.ExecuteBusinessRule(current, previous);');
 	grBR.addQuery('when','=','before');
-	grBR.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb'); // scope is DataSilos
+	grBR.addQuery('sys_scope','=',strAppSysId);
 	grBR.addQuery('collection','=',strTable);
 	grBR.query();
 	if (grBR.getRowCount() == 0)
@@ -51,6 +53,70 @@ generateDescription();]]></description_generator>
 		strMessage += 'No active business rule has been found with name "'+strBusinessRuleName+'" that matches all criteria!\n';
 		stepResult.setFailed();
 	}
+	
+	
+	// Field "global"
+	var strFieldName = 'x_snc_datasilos_global'; 
+	var grSD = new GlideRecord('sys_dictionary');
+	grSD.addQuery('name','=',strTable);
+	grSD.addQuery('element','=',strFieldName);
+	grSD.addQuery('internal_type','=','boolean');
+	grSD.addQuery('active','=',true);
+	grSD.addQuery('display','=',0);
+	grSD.addQuery('column_label','=','DataSilos Global Visibility');
+	grSD.addQuery('default_value','=','false');
+	grSD.addQuery('mandatory','=',0);
+	grSD.addQuery('reference','=',null);
+	grSD.addQuery('read_only','=',0);
+	grSD.addQuery('audit','=',0);
+	grSD.addQuery('sys_scope','=',strAppSysId);
+	grSD.addQuery('reference_qual_condition','=',null);
+	grSD.addQuery('choice','=',null);
+	grSD.addQuery('text_index','=',0);
+	grSD.addQuery('function_definition','=',null);
+	grSD.query();
+	if (grSD.getRowCount() == 0)
+	{
+		strMessage += 'No field named "'+strFieldName+'" was found that matches all criteria!\n';
+		stepResult.setFailed();
+	}
+	
+	
+	// Module for the table
+	var grSAM = new GlideRecord('sys_app_module');
+	grSAM.addQuery('sys_scope','=',strAppSysId);
+	grSAM.addQuery('title','=',strTable);
+	grSAM.addQuery('roles','=','x_snc_datasilos.manager');
+	grSAM.addQuery('timeline_page','=',null);
+	grSAM.addQuery('device_type','=',null);
+	grSAM.addQuery('mobile_view_name','=','Mobile');
+	grSAM.addQuery('override_menu_roles','=',0);
+	grSAM.addQuery('assessment','=',null);
+	grSAM.addQuery('sys_name','=',strTable);
+	grSAM.addQuery('order','>',10000);
+	grSAM.addQuery('view_name','=','DataSilos');
+	grSAM.addQuery('image','=',null);
+	grSAM.addQuery('window_name','=',null);
+	grSAM.addQuery('query','=','&sysparm_view_forced=true');
+	grSAM.addQuery('active','=',1);
+	grSAM.addQuery('link_type','=','LIST');
+	grSAM.addQuery('filter','=',null);
+	grSAM.addQuery('application','=','949c7f2fdbb78450ba15a353059619d6');
+	grSAM.addQuery('hint','=',null);
+	grSAM.addQuery('name','=',strTable);
+	grSAM.addQuery('report','=',null);
+	grSAM.addQuery('map_page','=',null);
+	grSAM.addQuery('mobile_title','=',strTable);
+	grSAM.addQuery('homepage','=',null);
+	grSAM.query();
+	if (grSD.getRowCount() == 0)
+	{
+		strMessage += 'No application module named "'+strTable+'" was found that matches all criteria!\n';
+		stepResult.setFailed();
+	}
+
+	
+	
 		
 	stepResult.setOutputMessage(strMessage);
 	
@@ -60,14 +126,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-18 09:08:11</sys_updated_on>
+        <sys_updated_on>2021-02-18 09:45:55</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
