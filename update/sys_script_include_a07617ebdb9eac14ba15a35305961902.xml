@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetSecurityClearanceFromUser</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GetSecurityClearanceFromUser</name>
+        <script><![CDATA[function GetSecurityClearanceFromUser(strUserSysId)
+{
+	function Debug(strText)
+	{
+		x_snc_datasilos.Debug('GetSecurityClearanceFromUser: '+strUserSysId+': '+strText);
+	}
+	
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var RenderValue = x_snc_devtools.RenderValue;	
+	
+	strUserSysId = GetStringValue(strUserSysId);
+	var grUser = new GlideRecord('sys_user');
+	if (grUser.get(strUserSysId) == false)
+	{
+		return 0;
+	}
+	
+	var nUserSecurityClearance = GetIntegerValue(grUser.getValue('x_snc_datasilos_security_clearance'));
+	return nUserSecurityClearance;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-19 12:17:43</sys_created_on>
+        <sys_id>a07617ebdb9eac14ba15a35305961902</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>GetSecurityClearanceFromUser</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_a07617ebdb9eac14ba15a35305961902</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-19 12:20:16</sys_updated_on>
+    </sys_script_include>
+</record_update>
