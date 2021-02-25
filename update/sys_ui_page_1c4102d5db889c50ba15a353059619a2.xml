@@ -17,6 +17,7 @@
 	<p>Welcome to DataSilos - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.</p>
 	<p>The DataSilos application helps to separate data between different organisational units - so called&#160;<b>data silos</b>.</p>
 	<p>In contrast to domain separation DataSilos allows the exchange of data (in form of individual records) between data silos and makes them visible to users on a need-to-know basis.</p>
+	<p>In addition to the organizational dimension, access to records can also be controlled based on security clearance levels. Each record and user has a security clearance level. A user can only access a record if their security clearance level is equal or higher than the record's security clearance level.</p>
 	
 	<h2>Disclaimer</h2>
 	<p>DataSilos is NOT an officially supported ServiceNow product.</p>
@@ -141,13 +142,17 @@
 	</ol>
 	<h3>Installation</h3>
 	<ol>
-		<li>Create an account on GitHub (if not done already).</li>
-		<li>Fork the repository &#160;<a href="https://github.com/saschawildgrube/servicenow-devtools" target="_blank">https://github.com/saschawildgrube/servicenow-devtools</a>.</li>
-		<li>Go to Studio and import the DevTools application from source control.</li> 
-		<li>Check the DevTools version. If an incompatible version of DevTools was imported from source control you must create a branch based on the correct version tag and switch to that branch.</li>
+		<g2:no_escape>$[
+			docapi.RenderInstallationInstructionsImportFromSourceControl(
+				'DevTools',
+				'https://github.com/saschawildgrube/servicenow-devtools');
+		]</g2:no_escape>
 		<li>Follow the installation instruction contained in "DevTools/Start".</li>
-		<li>Fork the repository &#160;<a href="https://github.com/saschawildgrube/servicenow-datasilos" target="_blank">https://github.com/saschawildgrube/servicenow-datasilos</a>.</li>
-		<li>Go to Studio and import the DataSilos application from source control.</li> 
+		<g2:no_escape>$[
+			docapi.RenderInstallationInstructionsImportFromSourceControl(
+				'DataSilos',
+				'https://github.com/saschawildgrube/servicenow-datasilos');
+		]</g2:no_escape>
 		<li>Elevate roles to security_admin</li>
 		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incient.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Switch to global scope</li>
@@ -238,6 +243,7 @@ answer = bAnswer;
 		<li><b>x_snc_datasilos_group_whitelist</b>&#160;The group whitelist field stores a list of groups which should have access to the record.</li>
 		<li><b>x_snc_datasilos_supervisor_whitelist</b>&#160;The supervisor whitelist field stores a list of data silos. The users in the supervisor groups within the data silos will be able to access the record.</li>
 		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
+		<li><b>x_snc_datasilos_security_clearance</b>&#160;The security clearance field defines the required security clearance level that a user must have to be allowed to see a record.</li>
 		<li><b>x_snc_datasilos_ghost</b>&#160;The ghost flag controls if the record's whitelists should be updated. If set to false, whitelists are populated. If the ghost flag is true, whitelists remain unchanged. This allows custom implementations to control the whitelist population. If this flag is set to true, the record behaves in the same way as if it was changed by a user with the x_snc_datasilos.ghost role.</li>
 	</ul>
 	
@@ -323,6 +329,18 @@ Column name: x_snc_datasilos_global
 Name: DataSilos Global Visibility
 Requires role: x_snc_datasilos.manager 
 </pre>
+		<li>Add the security clearance field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
+<pre>
+Type: Integer
+Column label: DataSilos Security Clearance
+Column name: x_snc_datasilos_security_clearance
+Default value: 0
+</pre>
+		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
+<pre>
+Name: DataSilos Security Clearance
+Requires role: x_snc_datasilos.manager 
+</pre>
 		<li>Add the ghost field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
 <pre>
 Type: True/False
@@ -404,6 +422,7 @@ DataSilos - incident_task - cross-silo
 	<h3>2.4.0 - TODO</h3>
 	<ol>
 		<li>DevTools version 1.10.0 or higher is required.</li>
+		<li>Added support for security clearance levels. In addition to the organizational dimension, access to records can now also be controlled based on security clearance levels. Each record and user has a security clearance level. A user can only access a record if their security clearance level is equal or higher than the record's security clearance level.</li>
 		<li>The explicit check for Performance Analytics views has been replaced by a more generic check for queries starting with "sys_idIN". This will consider any query that comes with a defined list of records as not expensive.</li>
 		<li>In the data silos to group mapping table the data silo, group and type fields are now mandatory to prevent the entry of incomplete mapping records.</li>
 		<li>Renamed module "Import/Export" to "Groups to Silos". This is to clear the way for a potential upcoming feature to manage silo to silo relationships.</li>
@@ -534,13 +553,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>350</sys_mod_count>
+        <sys_mod_count>355</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-24 09:36:47</sys_updated_on>
+        <sys_updated_on>2021-02-25 15:11:42</sys_updated_on>
     </sys_ui_page>
 </record_update>
