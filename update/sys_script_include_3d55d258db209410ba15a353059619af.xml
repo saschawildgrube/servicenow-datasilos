@@ -10,6 +10,7 @@
         <script><![CDATA[function GetRelatedRecords(record)
 {
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var RenderValue = x_snc_devtools.RenderValue;
 
 	var aRelatedRecords = [];
 	
@@ -138,20 +139,23 @@
 			aRelatedRecords.push(grParent);
 		}
 	}			
-		
+	
+	
+	//Debug('GetRelatedRecords for: '+RenderValue(record)+'\nResult: '+RenderValue(aRelatedRecords));
+	
 	return aRelatedRecords;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-29 09:13:13</sys_created_on>
         <sys_id>3d55d258db209410ba15a353059619af</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>GetRelatedRecords</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_3d55d258db209410ba15a353059619af</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 11:28:48</sys_updated_on>
+        <sys_updated_on>2021-02-24 15:01:56</sys_updated_on>
     </sys_script_include>
 </record_update>

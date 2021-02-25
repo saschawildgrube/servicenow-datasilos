@@ -3,7 +3,7 @@
         <element label="DataSilos Ghost" max_length="40" name="x_snc_datasilos_ghost" type="boolean"/>
         <element label="DataSilos Global Visibility" max_length="40" name="x_snc_datasilos_global" type="boolean"/>
         <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" label="DataSilos Group Whitelist" max_length="4000" name="x_snc_datasilos_group_whitelist" reference="sys_user_group" reference_cascade_rule="none" type="glide_list"/>
-        <element default="0" label="DataSilos Security Clearance" max_length="40" name="x_snc_datasilos_security_clearance" type="integer"/>
+        <element label="DataSilos Security Clearance" max_length="40" name="x_snc_datasilos_security_clearance" type="integer"/>
         <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" label="DataSilos Supervisor Whitelist" max_length="4000" name="x_snc_datasilos_supervisor_whitelist" reference="x_snc_datasilos_datasilos" reference_cascade_rule="none" type="glide_list"/>
     </element>
 </database>
