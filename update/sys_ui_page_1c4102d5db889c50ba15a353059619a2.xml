@@ -20,8 +20,7 @@
 	<p>In addition to the organizational dimension, access to records can also be controlled based on security clearance levels. Each record and user has a security clearance level. A user can only access a record if their security clearance level is equal or higher than the record's security clearance level.</p>
 	
 	<h2>Disclaimer</h2>
-	<p>DataSilos is NOT an officially supported ServiceNow product.</p>
-	<p>DataSilos does NOT come with any kind of warranty. If you use it, you own it!</p>
+	<g2:no_escape>$[docapi.RenderDisclaimer()]</g2:no_escape>
 	
 	<h2>Use DataSilos if</h2>
 	<ul>
@@ -553,13 +552,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>355</sys_mod_count>
+        <sys_mod_count>356</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-25 15:11:42</sys_updated_on>
+        <sys_updated_on>2021-02-25 15:21:23</sys_updated_on>
     </sys_ui_page>
 </record_update>
