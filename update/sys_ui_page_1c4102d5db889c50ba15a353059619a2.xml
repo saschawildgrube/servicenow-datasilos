@@ -166,6 +166,7 @@
 		<li>Elevate roles to security_admin</li>
 		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incient.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Switch to global scope</li>
+		<li>Create a new update set in the global scope to capture all changes related to the DataSilos installation. In case some of the ACLs reside in different scopes, you might have to create additional update sets for these scopes to capture all changes.</li>
 		<li>For each of the following tables peform the steps listed below:</li>
 		<pre>
 incident
@@ -205,10 +206,13 @@ answer = bAnswer;
 		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
 		<ul>
 			<li>If tests fail directly on the first step it means that DataSilos (or the specific table) has not been configured to be active.</li>
-			<li>Test may fail because the scoped app "DevTools" has not been installed or not properly set up. Have all relevant tables been configured to allow cross-scope access from all scopes? Check out the DevTools installation guide for more details.</li>
+			<li>Tests may fail because the scoped app "DevTools" has not been installed or not properly set up. Have all relevant tables been configured to allow cross-scope access from all scopes? Check out the DevTools installation guide for more details.</li>
 			<li>In rare occations the ATF engine fails to remove test data that has been created during a test. This may result in test data being left over in several tables. The test "Test data sanity" can help to find such records. These records must be deleted manually.</li>
-			<li>Tests may fail because test data records cannot be created. One reason are customized fields which are configured to be required when creating a records. To resolve this, you can create business rules that populate these fields when new records are created. You may want to check if the name or short description starts with "ATF_DATASILOS_" to determine records that are created during DataSilos specific tests.</li>
+			<li>Tests may fail because test data records cannot be created. One reason are customized fields which are configured to be required when creating a record. To resolve this, you can create business rules that populate these fields when new records are created. You may want to check if the name or short description starts with "_ATF_DATASILOS_" to determine records that are created during DataSilos specific tests.</li>
+			<li>Tests may also fail to to restrictions that result from other before query business rules. Try deactivating them to see what happens. Maybe additional configuration on users, groups or roles are needed.</li>
+			<li>Also consider restrictions resulting from Domain Separation. DataSilos can be used in combination with Domain Separation - however make sure that test data records are all created in the same domain.</li>
 		</ul>
+		<li>Set all update sets to complete.</li>
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -435,7 +439,12 @@ DataSilos - incident_task - cross-silo
 
 	<h3>2.5.0 - TODO</h3>
 	<ol>
-		<li>TODO</li>
+		<li>DevTools version 1.11.0 or higher is required.</li>
+		<li>Extended test "DataSilos - Test data sanity" to cover all supported tables.</li>
+		<li>Extended test step configuration to check for a table specific test step in test "DataSilos - Test data sanity".</li>
+		<li>Added test step configuration "DataSilos - Log test data" which can be used to log all data of relevant test data records to the test step output. That can help to debug failing ATF tests.</li>
+		<li>Added function DataSilosTestDataAPI.GetAllData() and DataSilosTestDataAPI.GetAllDataSilos() to gather all relevant test data records.</li>
+		<li>Improved installation guide: Added information on what can be done in case of failing ATFs.</li>
 	</ol>
 	
 	
@@ -574,13 +583,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>364</sys_mod_count>
+        <sys_mod_count>370</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-01 08:41:24</sys_updated_on>
+        <sys_updated_on>2021-03-03 15:33:49</sys_updated_on>
     </sys_ui_page>
 </record_update>

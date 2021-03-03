@@ -404,6 +404,74 @@ generateDescription();]]></description_generator>
 	}		
 	
 	
+	// Check if all tests steps are configured in the "DataSilos - Test data sanity" test
+	var grSAS = new GlideRecord('sys_atf_step');
+	grSAS.addQuery('test','=','e87e8edf1b2c2090a89720a8ec4bcbaf'); // not ideal: better use the test name
+	grSAS.addQuery('step_config','=','0270b8005f30220012b44adb7f46666a'); // Record Query
+	grSAS.addQuery('active','=',true);
+	grSAS.addQuery('description','CONTAINS','starts with _ATF_DATASILOS_');
+	grSAS.addQuery('table',strTable);
+	grSAS.query();
+	if (grSAS.getRowCount() != 1)
+	{
+		strMessage += 'In the test "Test data sanity" no test step has been configured for table "'+strTable+'"!\n';
+		stepResult.setFailed();
+	}		
+	
+	
+	
+	/*
+	
+	
+	
+	var grSAS = new GlideRecord('sys_atf_step');
+if (grSAS.get('7137ad65db6aa410ba15a3530596191a')) {
+    gs.info('warning_message: ' + grSAS.getValue('warning_message'));
+    gs.info('step_config: ' + grSAS.getValue('step_config'));
+    gs.info('notes: ' + grSAS.getValue('notes'));
+    gs.info('test: ' + grSAS.getValue('test'));
+    gs.info('inputs: ' + grSAS.getValue('inputs'));
+    gs.info('active: ' + grSAS.getValue('active'));
+    gs.info('description: ' + grSAS.getValue('description'));
+    gs.info('sys_scope: ' + grSAS.getValue('sys_scope'));
+    gs.info('timeout: ' + grSAS.getValue('timeout'));
+    gs.info('order: ' + grSAS.getValue('order'));
+    gs.info('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.enforce_security: ' + grSAS.getValue('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.enforce_security'));
+    gs.info('enforce_security: ' + grSAS.getValue('enforce_security'));
+    gs.info('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.assert_type: ' + grSAS.getValue('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.assert_type'));
+    gs.info('assert_type: ' + grSAS.getValue('assert_type'));
+    gs.info('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.table: ' + grSAS.getValue('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.table'));
+    gs.info('table: ' + grSAS.getValue('table'));
+    gs.info('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.field_values: ' + grSAS.getValue('inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.field_values'));
+    gs.info('field_values: ' + grSAS.getValue('field_values'));
+}
+	
+	Security restricted: Read operation on table 'sys_atf_step' from scope 'DataSilos WORK IN PROGRESS' was granted and added to 'DataSilos WORK IN PROGRESS' cross scope privileges
+x_snc_datasilos: warning_message: null
+x_snc_datasilos: step_config: 0270b8005f30220012b44adb7f46666a
+x_snc_datasilos: notes: null
+x_snc_datasilos: test: e87e8edf1b2c2090a89720a8ec4bcbaf
+x_snc_datasilos: inputs: null
+x_snc_datasilos: active: 1
+x_snc_datasilos: description: Validate there are not any records in 'change_task' matching query:
+Short description starts with _ATF_DATASILOS_
+With a failure timeout of 5 Seconds
+x_snc_datasilos: sys_scope: dafbffebdbb78450ba15a353059619eb
+x_snc_datasilos: timeout: 1970-01-01 00:00:05
+x_snc_datasilos: order: 7
+x_snc_datasilos: inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.enforce_security: null
+x_snc_datasilos: enforce_security: null
+x_snc_datasilos: inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.assert_type: null
+x_snc_datasilos: assert_type: null
+x_snc_datasilos: inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.table: null
+x_snc_datasilos: table: change_task
+x_snc_datasilos: inputs.var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a.field_values: null
+x_snc_datasilos: field_values: null
+	
+	*/
+	
+	
+	
 	stepResult.setOutputMessage(strMessage);
 	
 }(inputs, outputs, stepResult, timeout));
@@ -412,14 +480,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>95</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-23 10:23:05</sys_updated_on>
+        <sys_updated_on>2021-03-01 17:05:44</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
