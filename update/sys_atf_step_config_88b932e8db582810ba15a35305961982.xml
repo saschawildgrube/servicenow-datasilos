@@ -337,89 +337,93 @@ generateDescription();]]></description_generator>
 	}
 
 	
-	// System property "active"
-	var strPropertySuffix = 'tables.'+strTable+'.active';
-	var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
-	var grSP = new GlideRecord('sys_properties');
-	grSP.addQuery('name','=',strPropertyName);
-	grSP.addQuery('sys_scope','=',strAppSysId);
-	grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."
-	grSP.addQuery('is_private','=',false);
-	grSP.addQuery('ignore_cache','=',false);
-	grSP.addQuery('suffix','=',strPropertySuffix);
-	grSP.addQuery('type','=','boolean');
-	grSP.addQuery('sys_class_name','=','sys_properties');
-	grSP.addQuery('write_roles','=','x_snc_datasilos.admin');
-	grSP.addQuery('read_roles','=',null);
-	grSP.addQuery('choices','=',null);
-	grSP.query();
-	if (grSP.getRowCount() != 1)
+	// Only for core DataSilos features
+	if (strAppSysId == strDataSilosAppSysId)
 	{
-		strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';
-		stepResult.setFailed();
-	}	
+	
+		// System property "active"
+		var strPropertySuffix = 'tables.'+strTable+'.active';
+		var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
+		var grSP = new GlideRecord('sys_properties');
+		grSP.addQuery('name','=',strPropertyName);
+		grSP.addQuery('sys_scope','=',strAppSysId);
+		grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."
+		grSP.addQuery('is_private','=',false);
+		grSP.addQuery('ignore_cache','=',false);
+		grSP.addQuery('suffix','=',strPropertySuffix);
+		grSP.addQuery('type','=','boolean');
+		grSP.addQuery('sys_class_name','=','sys_properties');
+		grSP.addQuery('write_roles','=','x_snc_datasilos.admin');
+		grSP.addQuery('read_roles','=',null);
+		grSP.addQuery('choices','=',null);
+		grSP.query();
+		if (grSP.getRowCount() != 1)
+		{
+			strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';
+			stepResult.setFailed();
+		}	
 
-	
-	
-	// System property "columns.instant_access.sys_user"
-	var strPropertySuffix = 'tables.'+strTable+'.columns.instant_access.sys_user';
-	var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
-	var grSP = new GlideRecord('sys_properties');
-	grSP.addQuery('name','=',strPropertyName);
-	grSP.addQuery('sys_scope','=',strAppSysId);
-	grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."
-	grSP.addQuery('is_private','=',false);
-	grSP.addQuery('ignore_cache','=',false);
-	grSP.addQuery('suffix','=',strPropertySuffix);
-	grSP.addQuery('type','=','string');
-	grSP.addQuery('sys_class_name','=','sys_properties');
-	grSP.addQuery('write_roles','=','x_snc_datasilos.admin');
-	grSP.addQuery('read_roles','=',null);
-	grSP.addQuery('choices','=',null);
-	grSP.query();
-	if (grSP.getRowCount() != 1)
-	{
-		strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';
-		stepResult.setFailed();
-	}		
-	
-	// System property "columns.whitelist_trigger.sys_user_group"
-	var strPropertySuffix = 'tables.'+strTable+'.columns.whitelist_trigger.sys_user_group';
-	var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
-	var grSP = new GlideRecord('sys_properties');
-	grSP.addQuery('name','=',strPropertyName);
-	grSP.addQuery('sys_scope','=',strAppSysId);
-	grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."
-	grSP.addQuery('is_private','=',false);
-	grSP.addQuery('ignore_cache','=',false);
-	grSP.addQuery('suffix','=',strPropertySuffix);
-	grSP.addQuery('type','=','string');
-	grSP.addQuery('sys_class_name','=','sys_properties');
-	grSP.addQuery('write_roles','=','x_snc_datasilos.admin');
-	grSP.addQuery('read_roles','=',null);
-	grSP.addQuery('choices','=',null);
-	grSP.query();
-	if (grSP.getRowCount() != 1)
-	{
-		strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';
-		stepResult.setFailed();
-	}		
-	
-	
-	// Check if all tests steps are configured in the "DataSilos - Test data sanity" test
-	var grSAS = new GlideRecord('sys_atf_step');
-	grSAS.addQuery('test','=','e87e8edf1b2c2090a89720a8ec4bcbaf'); // not ideal: better use the test name
-	grSAS.addQuery('step_config','=','0270b8005f30220012b44adb7f46666a'); // Record Query
-	grSAS.addQuery('active','=',true);
-	grSAS.addQuery('description','CONTAINS','starts with _ATF_DATASILOS_');
-	grSAS.addQuery('table',strTable);
-	grSAS.query();
-	if (grSAS.getRowCount() != 1)
-	{
-		strMessage += 'In the test "Test data sanity" no test step has been configured for table "'+strTable+'"!\n';
-		stepResult.setFailed();
-	}		
-	
+
+
+		// System property "columns.instant_access.sys_user"
+		var strPropertySuffix = 'tables.'+strTable+'.columns.instant_access.sys_user';
+		var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
+		var grSP = new GlideRecord('sys_properties');
+		grSP.addQuery('name','=',strPropertyName);
+		grSP.addQuery('sys_scope','=',strAppSysId);
+		grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."
+		grSP.addQuery('is_private','=',false);
+		grSP.addQuery('ignore_cache','=',false);
+		grSP.addQuery('suffix','=',strPropertySuffix);
+		grSP.addQuery('type','=','string');
+		grSP.addQuery('sys_class_name','=','sys_properties');
+		grSP.addQuery('write_roles','=','x_snc_datasilos.admin');
+		grSP.addQuery('read_roles','=',null);
+		grSP.addQuery('choices','=',null);
+		grSP.query();
+		if (grSP.getRowCount() != 1)
+		{
+			strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';
+			stepResult.setFailed();
+		}		
+
+		// System property "columns.whitelist_trigger.sys_user_group"
+		var strPropertySuffix = 'tables.'+strTable+'.columns.whitelist_trigger.sys_user_group';
+		var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
+		var grSP = new GlideRecord('sys_properties');
+		grSP.addQuery('name','=',strPropertyName);
+		grSP.addQuery('sys_scope','=',strAppSysId);
+		grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."
+		grSP.addQuery('is_private','=',false);
+		grSP.addQuery('ignore_cache','=',false);
+		grSP.addQuery('suffix','=',strPropertySuffix);
+		grSP.addQuery('type','=','string');
+		grSP.addQuery('sys_class_name','=','sys_properties');
+		grSP.addQuery('write_roles','=','x_snc_datasilos.admin');
+		grSP.addQuery('read_roles','=',null);
+		grSP.addQuery('choices','=',null);
+		grSP.query();
+		if (grSP.getRowCount() != 1)
+		{
+			strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';
+			stepResult.setFailed();
+		}		
+
+
+		// Check if all tests steps are configured in the "DataSilos - Test data sanity" test
+		var grSAS = new GlideRecord('sys_atf_step');
+		grSAS.addQuery('test','=','e87e8edf1b2c2090a89720a8ec4bcbaf'); // not ideal: better use the test name
+		grSAS.addQuery('step_config','=','0270b8005f30220012b44adb7f46666a'); // Record Query
+		grSAS.addQuery('active','=',true);
+		grSAS.addQuery('description','CONTAINS','starts with _ATF_DATASILOS_');
+		grSAS.addQuery('table',strTable);
+		grSAS.query();
+		if (grSAS.getRowCount() != 1)
+		{
+			strMessage += 'In the test "Test data sanity" no test step has been configured for table "'+strTable+'"!\n';
+			stepResult.setFailed();
+		}		
+	}
 	
 	
 	/*
@@ -482,14 +486,14 @@ x_snc_datasilos: field_values: null
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>96</sys_mod_count>
+        <sys_mod_count>98</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-18 09:38:47</sys_updated_on>
+        <sys_updated_on>2021-03-18 09:57:35</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
