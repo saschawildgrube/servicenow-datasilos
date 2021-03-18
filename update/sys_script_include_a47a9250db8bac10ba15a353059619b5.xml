@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordGetSupervisorWhitelistValue</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Retrieves the value of the supervisor whitelist field from a record.</description>
+        <name>RecordGetSupervisorWhitelistValue</name>
+        <script><![CDATA[function RecordGetSupervisorWhitelistValue(record)
+{
+	return x_snc_devtools.GetStringValue(record.getValue(GetScopeFromRecord(record)+'_supervisor_whitelist'));
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-18 12:22:23</sys_created_on>
+        <sys_id>a47a9250db8bac10ba15a353059619b5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RecordGetSupervisorWhitelistValue</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_a47a9250db8bac10ba15a353059619b5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-18 12:22:23</sys_updated_on>
+    </sys_script_include>
+</record_update>
