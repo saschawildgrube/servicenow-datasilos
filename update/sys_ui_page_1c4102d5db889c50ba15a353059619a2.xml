@@ -450,6 +450,7 @@ DataSilos - incident_task - cross-silo
 		<li>Extended test step configuration "DataSilos - Check table implementation" to support table implementations in other application scopes. That is a first step to enable scoped apps to serve as DataSilos plugins.</li>
 		<li>Added test step configuration "DataSilos - Log test data" which can be used to log all data of relevant test data records to the test step output. That can help to debug failing ATF tests.</li>
 		<li>Added function DataSilosTestDataAPI.GetAllData() and DataSilosTestDataAPI.GetAllDataSilos() to gather all relevant test data records.</li>
+		<li>RecordAddGroupToWhitelist() is now accessible from all application scopes.</li>
 		<li>Added get and set functions for all DataSilos specific fields. This is to support table fields provided by multiple application scopes.</li>
 		<li>Added stories for user, group and silo configuration automation to the documentation.</li>
 		<li>Improved installation guide: Added information on what can be done in case of failing ATFs.</li>
@@ -591,13 +592,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>377</sys_mod_count>
+        <sys_mod_count>378</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-18 13:09:51</sys_updated_on>
+        <sys_updated_on>2021-03-18 14:27:16</sys_updated_on>
     </sys_ui_page>
 </record_update>

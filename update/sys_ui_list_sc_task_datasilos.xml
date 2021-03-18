@@ -3,122 +3,182 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>number</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>9c95c2461b791450a89720a8ec4bcbb6</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>563e365cdb0fac10ba15a353059619dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>sys_created_on</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>1095c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>d63e365cdb0fac10ba15a353059619dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>request</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>9095c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>5a3e365cdb0fac10ba15a353059619dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>request_item</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>1495c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>da3e365cdb0fac10ba15a353059619dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>short_description</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>9495c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>5e3e365cdb0fac10ba15a353059619dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>x_snc_datasilos_group_whitelist</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <element>x_snc_datasilos_global</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>1895c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>de3e365cdb0fac10ba15a353059619dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>opened_by</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <element>x_snc_datasilos_supervisor_whitelist</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>9895c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>523e365cdb0fac10ba15a353059619dd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>assignment_group</element>
-            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">5495c2461b791450a89720a8ec4bcbb6</list_id>
+            <element>x_snc_datasilos_group_whitelist</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>7</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
-            <sys_id>1c95c2461b791450a89720a8ec4bcbb7</sys_id>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>d23e365cdb0fac10ba15a353059619dd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_snc_datasilos_security_clearance</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>563e365cdb0fac10ba15a353059619dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_snc_datasilos_ghost</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>d63e365cdb0fac10ba15a353059619dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>opened_by</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>5a3e365cdb0fac10ba15a353059619dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assignment_group</element>
+            <list_id display_value="sc_task" element="NULL" name="sc_task" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">1e3e365cdb0fac10ba15a353059619db</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
+            <sys_id>da3e365cdb0fac10ba15a353059619dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -132,10 +192,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2020-07-05 21:50:54</sys_created_on>
+            <sys_created_on>2021-03-18 14:58:43</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>5495c2461b791450a89720a8ec4bcbb6</sys_id>
+            <sys_id>1e3e365cdb0fac10ba15a353059619db</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>sc_task</sys_name>
             <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -143,7 +203,7 @@
             <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
             <sys_update_name>sys_ui_list_sc_task_datasilos</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2020-07-05 21:50:54</sys_updated_on>
+            <sys_updated_on>2021-03-18 14:58:43</sys_updated_on>
             <sys_user/>
             <view display_value="DataSilos" name="datasilos">268b1d0adb849090ba15a35305961902</view>
             <view_name/>
