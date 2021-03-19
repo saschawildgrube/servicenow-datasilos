@@ -16,7 +16,7 @@
         <sys_updated_by>abel.tuter</sys_updated_by>
         <sys_updated_on>2020-09-07 11:00:59</sys_updated_on>
         <target_name>GetBoolValue</target_name>
-        <target_scope display_value="DevTools WORK IN PROGRESS">d689f6901bd38450a89720a8ec4bcbfd</target_scope>
+        <target_scope/>
         <target_type>sys_script_include</target_type>
     </sys_scope_privilege>
 </record_update>

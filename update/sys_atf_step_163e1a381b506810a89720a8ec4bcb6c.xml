@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="DataSilos - Check ACLs">aa7b96741b506810a89720a8ec4bcb7b</copied_from>
+        <copied_from display_value="">aa7b96741b506810a89720a8ec4bcb7b</copied_from>
         <description>Checks if all ACLs are correctly configured for table: [problem]
 </description>
         <display_name>DataSilos - Check ACLs</display_name>

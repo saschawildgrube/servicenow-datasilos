@@ -6,12 +6,11 @@
 </description>
         <display_name>DevTools - Check scoped app dependency</display_name>
         <inputs/>
-        <inputs/>
         <mugshots_cache_json/>
         <notes/>
         <order>1</order>
         <snapshot/>
-        <step_config display_value="DevTools - Check scoped app dependency">c3f56886db3da490ba15a353059619ff</step_config>
+        <step_config/>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-01-20 11:16:34</sys_created_on>
@@ -30,57 +29,4 @@
         <warning_message/>
     </sys_atf_step>
     <sys_variable_value action="delete_multiple" query="document_key=5bb8688adb3da490ba15a353059619be"/>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_atf_step</document>
-        <document_key>5bb8688adb3da490ba15a353059619be</document_key>
-        <order>100</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-01-21 10:10:56</sys_created_on>
-        <sys_id>b053ad121b3de014a89720a8ec4bcbc4</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-03 14:12:39</sys_updated_on>
-        <value>1.11.0</value>
-        <variable display_value="">fc5964cadb3da490ba15a353059619b3</variable>
-    </sys_variable_value>
-    <sys_variable_value action="INSERT_OR_UPDATE">
-        <document>sys_atf_step</document>
-        <document_key>5bb8688adb3da490ba15a353059619be</document_key>
-        <order>100</order>
-        <sys_class_name>sys_variable_value</sys_class_name>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-01-21 10:10:56</sys_created_on>
-        <sys_id>f853ad121b3de014a89720a8ec4bcbc4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-21 10:10:56</sys_updated_on>
-        <value>d689f6901bd38450a89720a8ec4bcbfd</value>
-        <variable display_value="">7cf8ac8adb3da490ba15a353059619f5</variable>
-    </sys_variable_value>
-    <sys_element_mapping action="delete_multiple" query="id=5bb8688adb3da490ba15a353059619be"/>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>u_application</field>
-        <id>5bb8688adb3da490ba15a353059619be</id>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-01-21 10:10:56</sys_created_on>
-        <sys_id>f453ad121b3de014a89720a8ec4bcbc3</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-21 10:10:56</sys_updated_on>
-        <table>var__m_atf_input_variable_c3f56886db3da490ba15a353059619ff</table>
-        <value/>
-    </sys_element_mapping>
-    <sys_element_mapping action="INSERT_OR_UPDATE">
-        <field>u_versions</field>
-        <id>5bb8688adb3da490ba15a353059619be</id>
-        <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-01-21 10:10:56</sys_created_on>
-        <sys_id>3053ad121b3de014a89720a8ec4bcbc4</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-03 14:12:39</sys_updated_on>
-        <table>var__m_atf_input_variable_c3f56886db3da490ba15a353059619ff</table>
-        <value>1.11.0</value>
-    </sys_element_mapping>
 </record_update>

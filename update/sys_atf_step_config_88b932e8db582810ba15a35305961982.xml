@@ -73,6 +73,19 @@ generateDescription();]]></description_generator>
 		}
 
 
+		// Check if there is a test step that checks for the installation of ACLs for the table
+		var grSAS = new GlideRecord('sys_atf_step');
+		grSAS.addQuery('step_config','=','5f42f662db23d810ba15a353059619cd'); // DataSilos - Check ACLs
+		grSAS.addQuery('active','=',true);
+		grSAS.addQuery('description','CONTAINS','Checks if all ACLs are correctly configured for table: ['+strTable+']');
+		grSAS.addQuery('sys_scope',strAppSysId);
+		grSAS.query();
+		if (grSAS.getRowCount() != 1)
+		{
+			strMessage += 'There should be exactly one test step to check the ACLs for table "'+strTable+'"!\n';
+			stepResult.setFailed();
+		}		
+		
 		// Check ACL functions
 		function CheckFieldACLs(strTable,strField)
 		{
@@ -133,10 +146,10 @@ generateDescription();]]></description_generator>
 				}
 			}
 
-			CheckFieldACL(strTable,strField,'create',['x_snc_datasilos.manager']);
+			//CheckFieldACL(strTable,strField,'create',['x_snc_datasilos.manager']);
 			CheckFieldACL(strTable,strField,'read',['x_snc_datasilos.manager']);
 			CheckFieldACL(strTable,strField,'write',['x_snc_datasilos.manager']);
-			CheckFieldACL(strTable,strField,'delete',['x_snc_datasilos.manager']);
+			//CheckFieldACL(strTable,strField,'delete',['x_snc_datasilos.manager']);
 		}
 
 
@@ -500,14 +513,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>99</sys_mod_count>
+        <sys_mod_count>103</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-18 10:28:20</sys_updated_on>
+        <sys_updated_on>2021-03-19 21:04:31</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
