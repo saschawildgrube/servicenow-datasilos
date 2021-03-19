@@ -320,7 +320,7 @@ Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=
 Reference: Group
 Reference cascade rule: None (not "--None--"!)
 </pre>
-		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the table DataSilos whitelist columns for all affected tables:</li>
+		<li>Elevate role to security_admin and add read and write Access Controls to the table DataSilos whitelist columns for all affected tables:</li>
 <pre>
 Name: DataSilos Group Whitelist
 Requires role: x_snc_datasilos.manager 
@@ -334,7 +334,7 @@ Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=
 Reference: DataSilo (search for "x_snc_datasilos")
 Reference cascade rule: None (not "--None--"!)
 </pre>
-		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
+		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
 <pre>
 Name: DataSilos Supervisor Whitelist
 Requires role: x_snc_datasilos.manager 
@@ -346,7 +346,7 @@ Column label: DataSilos Global Visibility
 Column name: x_snc_datasilos_global
 Default value: false
 </pre>
-		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
+		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
 <pre>
 Name: DataSilos Global Visibility
 Requires role: x_snc_datasilos.manager 
@@ -358,7 +358,7 @@ Column label: DataSilos Security Clearance
 Column name: x_snc_datasilos_security_clearance
 Default value: 0
 </pre>
-		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
+		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
 <pre>
 Name: DataSilos Security Clearance
 Requires role: x_snc_datasilos.manager 
@@ -370,7 +370,7 @@ Column label: DataSilos Ghost
 Column name: x_snc_datasilos_ghost
 Default value: false
 </pre>
-		<li>Elevate role to security_admin and add create, write, read and delete Access Controls to the new field for all affected tables:</li>
+		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
 <pre>
 Name: DataSilos Ghost
 Requires role: x_snc_datasilos.manager 
@@ -594,13 +594,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>380</sys_mod_count>
+        <sys_mod_count>381</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-19 21:08:01</sys_updated_on>
+        <sys_updated_on>2021-03-19 21:10:17</sys_updated_on>
     </sys_ui_page>
 </record_update>
