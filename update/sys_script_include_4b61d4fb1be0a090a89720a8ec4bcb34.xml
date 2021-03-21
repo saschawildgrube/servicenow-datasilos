@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.RecordGetWhitelistHash</api_name>
+        <api_name>x_snc_datasilos.RecordGetVisibilityHash</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>Generates a hexadecimal hash based on a record's whitelists </description>
-        <name>RecordGetWhitelistHash</name>
-        <script><![CDATA[function RecordGetWhitelistHash(record)
+        <description>Generates a hexadecimal hash based on a record's whitelist and other visibility rules.</description>
+        <name>RecordGetVisibilityHash</name>
+        <script><![CDATA[function RecordGetVisibilityHash(record)
 {
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	
@@ -18,6 +18,7 @@
 		strRaw += 'GLOBAL'+RecordGetGlobalValue(record);
 		strRaw += 'GROUP'+RecordGetGroupWhitelistValue(record);
 		strRaw += 'SUPERVISOR'+RecordGetSupervisorWhitelistValue(record);
+		strRaw += 'SECURITYCLEARANCE'+RecordGetSecurityClearanceValue(record);
 	}
 	
 	var digest = new GlideDigest();
@@ -27,13 +28,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-24 16:50:41</sys_created_on>
         <sys_id>4b61d4fb1be0a090a89720a8ec4bcb34</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>RecordGetWhitelistHash</sys_name>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>RecordGetVisibilityHash</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_4b61d4fb1be0a090a89720a8ec4bcb34</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-18 12:23:22</sys_updated_on>
+        <sys_updated_on>2021-03-21 11:56:45</sys_updated_on>
     </sys_script_include>
 </record_update>

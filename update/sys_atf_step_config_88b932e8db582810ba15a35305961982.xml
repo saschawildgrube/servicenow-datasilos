@@ -33,8 +33,8 @@ generateDescription();]]></description_generator>
 
 	var strDataSilosAppSysId = 'dafbffebdbb78450ba15a353059619eb';
 
-	var strAppSysId = inputs.u_application;
-	var strTable = inputs.u_table;
+	var strAppSysId = GetStringValue(inputs.u_application);
+	var strTable = GetStringValue(inputs.u_table);
 	
 	var strMessage = 'DataSilos: Checking table: ['+strTable+']\n';
 	
@@ -51,6 +51,15 @@ generateDescription();]]></description_generator>
 	
 		// Determining the scope prefix
 		var strScopePrefix = GetStringValue(grApp.scope);
+		
+		
+		// IsTableSupported
+		var bSupported = IsTableSupported(strTable);
+		if (bSupported == false)
+		{
+			strMessage += 'IsTableSupported("'+strTable+'") returned false! Check the baseline configuration!\n';
+			stepResult.setFailed();
+		}
 
 		// Business rule
 		var strBusinessRuleName = 'DataSilos - '+strTable;
@@ -85,6 +94,20 @@ generateDescription();]]></description_generator>
 			strMessage += 'There should be exactly one test step to check the ACLs for table "'+strTable+'"!\n';
 			stepResult.setFailed();
 		}		
+		
+		// Check if there is a test step that checks for the table cross scope access
+		var grSAS = new GlideRecord('sys_atf_step');
+		grSAS.addQuery('step_config','=','8d6e6be5db28e850ba15a35305961936'); // DevTools - Check table cross scope access
+		grSAS.addQuery('active','=',true);
+		grSAS.addQuery('description','CONTAINS','Checks if full cross scope access is configured for table: ['+strTable+']');
+		grSAS.addQuery('sys_scope',strAppSysId);
+		grSAS.query();
+		if (grSAS.getRowCount() != 1)
+		{
+			strMessage += 'There should be exactly one test step to check cross scope access for table "'+strTable+'"!\n';
+			stepResult.setFailed();
+		}			
+		
 		
 		// Check ACL functions
 		function CheckFieldACLs(strTable,strField)
@@ -513,14 +536,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>103</sys_mod_count>
+        <sys_mod_count>106</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-19 21:04:31</sys_updated_on>
+        <sys_updated_on>2021-03-21 11:20:55</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
