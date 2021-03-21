@@ -42,7 +42,7 @@
 	RecordBulkProcessor(
 		grRecords,
 		CallbackRecordProcessor, // callback function to work on a single record
-		GetScopeFromTable(strTable)+'_last_processed', // the name of the field that stores that date/time of the last processing
+		GetScopeFromTable(strTable)+'_last_maintenance', // the name of the field that stores that date/time of the last processing
 		100000, // process up to 100K records
 		60*9, // run for 9 minutes
 		CallbackLog,
@@ -53,13 +53,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-21 16:29:14</sys_created_on>
         <sys_id>b33f2ed9db8fa050ba15a353059619bc</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>RecordMaintenance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_b33f2ed9db8fa050ba15a353059619bc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-21 16:33:35</sys_updated_on>
+        <sys_updated_on>2021-03-21 18:06:38</sys_updated_on>
     </sys_script_include>
 </record_update>
