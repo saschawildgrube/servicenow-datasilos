@@ -206,33 +206,54 @@ generateDescription();]]></description_generator>
 		CheckFieldACLs(strTable,strFieldName);
 
 
-		// Field "Ghost"
-		var strFieldName = strScopePrefix+'_ghost'; 
+		
+		// Field "Supervisor Whitelist"
+		var strFieldName = strScopePrefix+'_supervisor_whitelist'; 
 		var grSD = new GlideRecord('sys_dictionary');
-		grSD.addQuery('name','=',strTable);
-		grSD.addQuery('active','=',true);
-		grSD.addQuery('default_value','=','false');
-		grSD.addQuery('mandatory','=',0);
-		grSD.addQuery('display','=',0);
-		grSD.addQuery('column_label','=','DataSilos Ghost');
-		grSD.addQuery('reference','=',null);
-		grSD.addQuery('read_only','=',0);
-		grSD.addQuery('audit','=',0);
+		grSD.addQuery('name','=',strTable);	
+		grSD.addQuery('virtual','=',false);
+		grSD.addQuery('dynamic_ref_qual','=',null);
+		grSD.addQuery('use_dynamic_default','=',false);
+		grSD.addQuery('choice_field','=',null);
+		grSD.addQuery('function_field','=',false);
+		grSD.addQuery('mandatory','=',false);
+		grSD.addQuery('reference_cascade_rule','=','none');
+		grSD.addQuery('reference','=','x_snc_datasilos_datasilos');
+		grSD.addQuery('dynamic_default_value','=',null);
+		grSD.addQuery('read_only','=',false);
+		grSD.addQuery('audit','=',false);
 		grSD.addQuery('sys_scope','=',strAppSysId);
+		grSD.addQuery('reference_key','=',null);
 		grSD.addQuery('reference_qual_condition','=',null);
-		grSD.addQuery('choice','=',null);
-		grSD.addQuery('internal_type','=','boolean');
-		grSD.addQuery('text_index','=',0);
+		grSD.addQuery('dynamic_creation_script','=',null);	
+		grSD.addQuery('internal_type','=','glide_list');		
+		grSD.addQuery('dependent','=',null);		
 		grSD.addQuery('element','=',strFieldName);
+		grSD.addQuery('max_length','=',4000);	
+		grSD.addQuery('use_dependent_field','=',false);	
+		grSD.addQuery('column_label','=','DataSilos Supervisor Whitelist');	
+		grSD.addQuery('use_reference_qualifier','=','simple');	
+		grSD.addQuery('display','=',false);	
+		grSD.addQuery('reference_floats','=',false);		
+		grSD.addQuery('active','=',true);
+		grSD.addQuery('default_value','=',null);
+		grSD.addQuery('choice_table','=',null);		
+		grSD.addQuery('attributes','=','edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true');		
+		grSD.addQuery('dependent_on_field','=',null);		
+		grSD.addQuery('reference_qual','=',null);	
+		grSD.addQuery('choice','=',null);
+		grSD.addQuery('text_index','=',0);	
+		grSD.addQuery('dynamic_creation','=',0);		
 		grSD.addQuery('function_definition','=',null);
 		grSD.query();
 		if (grSD.getRowCount() != 1)
 		{
 			strMessage += 'No field named "'+strFieldName+'" was found that matches all criteria!\n';
 			stepResult.setFailed();
-		}
-		CheckFieldACLs(strTable,strFieldName);
-
+		}	
+		CheckFieldACLs(strTable,strFieldName);			
+		
+		
 		// Field "Group Whitelist"
 		var strFieldName = strScopePrefix+'_group_whitelist'; 
 		var grSD = new GlideRecord('sys_dictionary');
@@ -280,51 +301,7 @@ generateDescription();]]></description_generator>
 		CheckFieldACLs(strTable,strFieldName);
 
 
-		// Field "Supervisor Whitelist"
-		var strFieldName = strScopePrefix+'_supervisor_whitelist'; 
-		var grSD = new GlideRecord('sys_dictionary');
-		grSD.addQuery('name','=',strTable);	
-		grSD.addQuery('virtual','=',false);
-		grSD.addQuery('dynamic_ref_qual','=',null);
-		grSD.addQuery('use_dynamic_default','=',false);
-		grSD.addQuery('choice_field','=',null);
-		grSD.addQuery('function_field','=',false);
-		grSD.addQuery('mandatory','=',false);
-		grSD.addQuery('reference_cascade_rule','=','none');
-		grSD.addQuery('reference','=','x_snc_datasilos_datasilos');
-		grSD.addQuery('dynamic_default_value','=',null);
-		grSD.addQuery('read_only','=',false);
-		grSD.addQuery('audit','=',false);
-		grSD.addQuery('sys_scope','=',strAppSysId);
-		grSD.addQuery('reference_key','=',null);
-		grSD.addQuery('reference_qual_condition','=',null);
-		grSD.addQuery('dynamic_creation_script','=',null);	
-		grSD.addQuery('internal_type','=','glide_list');		
-		grSD.addQuery('dependent','=',null);		
-		grSD.addQuery('element','=',strFieldName);
-		grSD.addQuery('max_length','=',4000);	
-		grSD.addQuery('use_dependent_field','=',false);	
-		grSD.addQuery('column_label','=','DataSilos Supervisor Whitelist');	
-		grSD.addQuery('use_reference_qualifier','=','simple');	
-		grSD.addQuery('display','=',false);	
-		grSD.addQuery('reference_floats','=',false);		
-		grSD.addQuery('active','=',true);
-		grSD.addQuery('default_value','=',null);
-		grSD.addQuery('choice_table','=',null);		
-		grSD.addQuery('attributes','=','edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true');		
-		grSD.addQuery('dependent_on_field','=',null);		
-		grSD.addQuery('reference_qual','=',null);	
-		grSD.addQuery('choice','=',null);
-		grSD.addQuery('text_index','=',0);	
-		grSD.addQuery('dynamic_creation','=',0);		
-		grSD.addQuery('function_definition','=',null);
-		grSD.query();
-		if (grSD.getRowCount() != 1)
-		{
-			strMessage += 'No field named "'+strFieldName+'" was found that matches all criteria!\n';
-			stepResult.setFailed();
-		}	
-		CheckFieldACLs(strTable,strFieldName);		
+
 
 		// Field "Security Clearance"
 		var strFieldName = strScopePrefix+'_security_clearance'; 
@@ -353,6 +330,34 @@ generateDescription();]]></description_generator>
 		}
 		CheckFieldACLs(strTable,strFieldName);	
 
+		
+		// Field "Ghost"
+		var strFieldName = strScopePrefix+'_ghost'; 
+		var grSD = new GlideRecord('sys_dictionary');
+		grSD.addQuery('name','=',strTable);
+		grSD.addQuery('active','=',true);
+		grSD.addQuery('default_value','=','false');
+		grSD.addQuery('mandatory','=',0);
+		grSD.addQuery('display','=',0);
+		grSD.addQuery('column_label','=','DataSilos Ghost');
+		grSD.addQuery('reference','=',null);
+		grSD.addQuery('read_only','=',0);
+		grSD.addQuery('audit','=',0);
+		grSD.addQuery('sys_scope','=',strAppSysId);
+		grSD.addQuery('reference_qual_condition','=',null);
+		grSD.addQuery('choice','=',null);
+		grSD.addQuery('internal_type','=','boolean');
+		grSD.addQuery('text_index','=',0);
+		grSD.addQuery('element','=',strFieldName);
+		grSD.addQuery('function_definition','=',null);
+		grSD.query();
+		if (grSD.getRowCount() != 1)
+		{
+			strMessage += 'No field named "'+strFieldName+'" was found that matches all criteria!\n';
+			stepResult.setFailed();
+		}
+		CheckFieldACLs(strTable,strFieldName);
+		
 
 		// Module for the table
 		var grSAM = new GlideRecord('sys_app_module');
@@ -391,7 +396,6 @@ generateDescription();]]></description_generator>
 		// Only for core DataSilos features
 		if (strAppSysId == strDataSilosAppSysId)
 		{
-
 			// System property "active"
 			var strPropertySuffix = 'tables.'+strTable+'.active';
 			var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;
@@ -537,14 +541,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>107</sys_mod_count>
+        <sys_mod_count>108</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-21 15:02:16</sys_updated_on>
+        <sys_updated_on>2021-03-21 15:49:22</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
