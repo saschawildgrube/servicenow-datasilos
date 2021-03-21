@@ -3,29 +3,29 @@
         <active>true</active>
         <condition/>
         <conditional>false</conditional>
-        <name>DataSilos - Maintenance - incident</name>
+        <name>DataSilos - Maintenance - sc_req_item</name>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>
         <run_period>1970-01-01 00:10:00</run_period>
-        <run_start/>
+        <run_start>2021-03-21 16:53:44</run_start>
         <run_time>1969-12-31 23:00:00</run_time>
         <run_type>periodically</run_type>
-        <script><![CDATA[var grRecords = new GlideRecord('incident')
+        <script><![CDATA[var grRecords = new GlideRecord('sc_req_item')
 RecordMaintenance(grRecords);]]></script>
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-04 15:37:37</sys_created_on>
-        <sys_id>209641881b9dd810a89720a8ec4bcb95</sys_id>
-        <sys_mod_count>18</sys_mod_count>
-        <sys_name>DataSilos - Maintenance - incident</sys_name>
+        <sys_created_on>2021-03-21 16:54:14</sys_created_on>
+        <sys_id>7f657e19dbcfa050ba15a3530596191b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - Maintenance - sc_req_item</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sysauto_script_209641881b9dd810a89720a8ec4bcb95</sys_update_name>
+        <sys_update_name>sysauto_script_7f657e19dbcfa050ba15a3530596191b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-21 16:11:25</sys_updated_on>
+        <sys_updated_on>2021-03-21 16:54:14</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
 </record_update>

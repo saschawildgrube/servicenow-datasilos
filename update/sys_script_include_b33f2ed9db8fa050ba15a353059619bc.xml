@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordMaintenance</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>The RecordMaintenance funtion is used to update records in supported tables based on the current values in fields. Essentially the RecordMaintenance function iterates over records in the table pecified by the given GlideRecord object and simulates a change to each record. It is used to initialize records after inital installation or when specific silo configuration changes were made. It is recommended to trigger the RecordMaintenance function on a regular basis. A GlideRecord object must be provided to choose a specific table and a predefined filter. </description>
+        <name>RecordMaintenance</name>
+        <script><![CDATA[function RecordMaintenance(grRecords)
+{
+	var RecordBulkProcessor = x_snc_devtools.RecordBulkProcessor;
+	var RecordGetVisibilityHash = x_snc_datasilos.RecordGetVisibilityHash;
+	var RecordGetGhostValue = x_snc_datasilos.RecordGetGhostValue;
+
+	var strTable = grRecords.getRecordClassName();
+	
+	function CallbackRecordProcessor(record)
+	{
+		var strWhitelistHashOld = RecordGetVisibilityHash(record);
+
+		var bGhost = RecordGetGhostValue(record);
+		if (bGhost == false)
+		{
+			RecordUpdate(record);
+		}
+
+		var strWhitelistHashNew = RecordGetVisibilityHash(record);
+		if (strWhitelistHashOld != strWhitelistHashNew)
+		{
+			return true;
+		}
+		return false; 
+	}
+	function CallbackLog(strText)
+	{
+		Log('RecordMaintenance: ['+strTable+']: '+strText);
+	}
+
+	var nLogFrequency = GetConfigValue('maintenance','log_frequency');
+
+	RecordBulkProcessor(
+		grRecords,
+		CallbackRecordProcessor, // callback function to work on a single record
+		GetScopeFromTable(strTable)+'_last_processed', // the name of the field that stores that date/time of the last processing
+		100000, // process up to 100K records
+		60*9, // run for 9 minutes
+		CallbackLog,
+		nLogFrequency
+		);
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-21 16:29:14</sys_created_on>
+        <sys_id>b33f2ed9db8fa050ba15a353059619bc</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>RecordMaintenance</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_b33f2ed9db8fa050ba15a353059619bc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-21 16:33:35</sys_updated_on>
+    </sys_script_include>
+</record_update>
