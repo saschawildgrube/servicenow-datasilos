@@ -468,8 +468,9 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
-	<h3>2.6.0 - 2021-TODO</h3>
+	<h3>2.5.1 - 2021-03-22</h3>
 	<ol>
+		<li>Fixed a defect in the test step configuration "DataSilos - Check table implementation".</li>
 		<li>Updated documentation on the last maintenance field.</li>
 	</ol>
 	
@@ -649,13 +650,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>402</sys_mod_count>
+        <sys_mod_count>403</sys_mod_count>
         <sys_name>Start</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-22 21:29:17</sys_updated_on>
+        <sys_updated_on>2021-03-22 21:52:20</sys_updated_on>
     </sys_ui_page>
 </record_update>
