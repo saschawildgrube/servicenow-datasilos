@@ -318,7 +318,7 @@ Column label: DataSilos Global Visibility
 Column name: x_snc_datasilos_global
 Default value: false
 </pre>
-		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
+		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
 <pre>
 Name: DataSilos Global Visibility
 Requires role: x_snc_datasilos.manager 
@@ -332,7 +332,7 @@ Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=
 Reference: DataSilo (search for "x_snc_datasilos")
 Reference cascade rule: None (not "--None--"!)
 </pre>
-		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
+		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
 <pre>
 Name: DataSilos Supervisor Whitelist
 Requires role: x_snc_datasilos.manager 
@@ -346,7 +346,7 @@ Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=
 Reference: Group
 Reference cascade rule: None (not "--None--"!)
 </pre>
-		<li>Elevate role to security_admin and add read and write Access Controls to the table DataSilos whitelist columns for all affected tables:</li>
+		Elevate role to security_admin and add read and write Access Controls to the table DataSilos whitelist columns for all affected tables:
 <pre>
 Name: DataSilos Group Whitelist
 Requires role: x_snc_datasilos.manager 
@@ -358,7 +358,7 @@ Column label: DataSilos Security Clearance
 Column name: x_snc_datasilos_security_clearance
 Default value: 0
 </pre>
-		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
+		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
 <pre>
 Name: DataSilos Security Clearance
 Requires role: x_snc_datasilos.manager 
@@ -370,7 +370,7 @@ Column label: DataSilos Ghost
 Column name: x_snc_datasilos_ghost
 Default value: false
 </pre>
-		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
+		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
 <pre>
 Name: DataSilos Ghost
 Requires role: x_snc_datasilos.manager 
@@ -382,7 +382,7 @@ Column label: DataSilos Last Maintenance
 Column name: x_snc_datasilos_last_maintenance
 Default value: false
 </pre>
-		<li>Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:</li>
+		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
 <pre>
 Name: DataSilos Last Maintenance
 Requires role: x_snc_datasilos.manager 
@@ -417,13 +417,26 @@ Insert: true
 Update: true
 Query: true
 </pre>
-		<li>Add the following script:</li>
+		Add the following script:
 <pre>
 (function executeRule(current, previous /*null when async*/) {
 	x_snc_datasilos.ExecuteBusinessRule(current, previous);
 })(current, previous);
 </pre>
 		<li>Go to the "Business Rules" module and verify the new business rule is active and in the DataSilos application scope.</li>
+		<li>Add a scheduled job for each table (replace "table_name" with the exact name of the table):
+			<pre>
+Name: DataSilos - Maintenance - table_name
+Run: Periodically
+Repeat Intervall: 10 Minutes
+Run as: System Administrator
+			</pre>
+		Run this script (Again replace "table_name" by the table name):
+			<pre>
+var grRecords = new GlideRecord('table_name')
+Maintenance(grRecords);
+			</pre>
+		</li>
 		<li>Switch to global scope</li>
 		<li>Elevate access to "security_admin".</li>
 		<li>Add or modify corresponding ACLs for all affected tables. Refer to the implementation guide.</li>
@@ -454,10 +467,27 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
-	<h3>2.5.0 - TODO</h3>
+	<h3>2.5.0 - 2021-03-22</h3>
 	<ol>
 		<li>Madrid is no longer supported.</li>
-		<li>DevTools version 1.11.0 or higher is required.</li>
+		<li>DevTools version 1.12.1 or higher is required.</li>
+		<li>Due to a potential platform defect a number of removed ACLs might still be present after an update to DataSilos 2.5.0. This will cause the "DataSilos - Implementation" test to fail. Run the following script in GLOBAL scope to remove the useless ACLs:
+			<pre>
+var grSSA = new GlideRecord('sys_security_acl');
+grSSA.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
+grSSA.addQuery('name','CONTAINS','.');
+grSSA.query();
+while (grSSA.next())
+{
+	if (grSSA.operation == 'delete' || grSSA.operation == 'create')
+	{   
+		gs.info('Deleting ACL: '+grSSA.name+' / '+grSSA.operation+' / '+grSSA.sys_id);
+		grSSA.deleteRecord();
+	}
+}				
+			</pre>
+		</li>
+		<li>For unknown reasons a duplicate of ACL "change_request.x_snc_datasilos_security_clearance" for the "write" operation exist after an update to DataSilos 2.5.0 on some instances. The duplicate must be deleted (Eventually the sys_id is db149778dbeee010ba15a3530596191a but it may also differ). Make sure that the remaining ACL requires the x_snc_datasilos.manager role.</li>
 		<li>WARNING: The interface of the Maintenance() function changed. Introduced a new table maintenance mechanism based on the DevTools function RecordBulkProcessor(). A new field is introduced on all tables in scope: "Last Maintenance" which stores the point in time when the record has been "maintained" for the last time. New scheduled scripts have been introduced to maintain each table separately.</li>
 		<li>The warning message on the ACL form is now displayed in red (instead of blue).</li> 
 		<li>Extended test "DataSilos - Test data sanity" to cover all supported tables.</li>
@@ -613,13 +643,13 @@ DataSilos - incident_task - cross-silo
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>392</sys_mod_count>
+        <sys_mod_count>399</sys_mod_count>
         <sys_name>Start</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-22 17:43:03</sys_updated_on>
+        <sys_updated_on>2021-03-22 19:59:05</sys_updated_on>
     </sys_ui_page>
 </record_update>
