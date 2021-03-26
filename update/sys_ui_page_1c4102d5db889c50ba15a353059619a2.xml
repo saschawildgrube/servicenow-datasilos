@@ -144,7 +144,7 @@
 	<h3>Preparing validation</h3>
 	<p>The following spects should be considered for testing and validation:</p>
 	<ol>
-		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on hw many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behaviour in an production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
+		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on how many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behaviour in an production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
 		<li>It is recommended to identify pages and views that are most frequently used by users - both for automated and manual user acceptance testing.</li> 
 		<li>Functional test cases should proof that specific records are visible to specific user groups AND that other records are explicitly NOT visible to other user groups.</li>
 		<li>Functional test cases should cover scenarios in which records are passed from one silo to another.</li>
@@ -470,6 +470,7 @@ DataSilos - incident_task - cross-silo
 	
 	<h3>2.6.0 - 2021-TODO</h3>
 	<ol>
+		<li>Performance optimization in GetGroupsFromUser() - special thanks to Pat Casey.</li>
 		<li>All business rules responsible for whitelist population now run at order 10000 to avoid side-effects with other business rules which set fields that could impact filter rules.</li>
 		<li>Extended test step configuration "DataSilos - Check table implementation" to check if the business rule order is set to 10000.</li>
 	</ol>
@@ -656,13 +657,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>404</sys_mod_count>
+        <sys_mod_count>407</sys_mod_count>
         <sys_name>Start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-24 15:42:36</sys_updated_on>
+        <sys_updated_on>2021-03-26 23:29:06</sys_updated_on>
     </sys_ui_page>
 </record_update>
