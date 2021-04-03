@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RenderHtmlStatus</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Render a html fragment to provide the current status of DataSilos</description>
+        <name>RenderHtmlStatus</name>
+        <script><![CDATA[function RenderHtmlStatus()
+{
+	function RenderHtmlStatus(bActive,bGrey)
+	{
+		var strHtml = '';
+		var strColor = '';
+		if (bGrey)
+		{
+			strColor += 'grey';
+		}
+		else
+		{
+			if (bActive == true)
+			{
+				strColor = 'green';
+			}
+			else
+			{
+				strColor = 'red';
+			}
+		}
+		
+		if (bActive == true)
+		{
+			strHtml = '<span style="color: '+strColor+';">ACTIVE</span>';
+		}
+		else
+		{
+			strHtml = '<span style="color: '+strColor+';">INACTIVE</span>';
+		}
+		return strHtml;
+	}
+	
+	
+	var RenderValue = x_snc_devtools.RenderValue;
+	var GetValue = x_snc_devtools.GetValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+
+
+	var strHtml = '';
+	
+	
+	strHtml += '<style media="screen">';
+	strHtml += 'td,th { padding-right: 10px; }';
+	strHtml += '</style>';
+
+	var status = GetStatus();
+	
+	var bActive = GetBoolValue(GetValue(status,'active')); 
+	var strHtmlStatus = RenderHtmlStatus(bActive);
+	strHtml += '<h1>DataSilos Status - '+strHtmlStatus+'</h1>';
+	
+	var strHtmlTables = '';
+	var aTables = GetKeys(GetValue(status,'tables'));
+	//strHtmlTables += RenderValue(aTables);	
+	strHtmlTables += '<table><tbody>';
+		strHtmlTables += '<tr>';
+			strHtmlTables += '<th>Table</th>';
+			strHtmlTables += '<th>Active</th>';
+			strHtmlTables += '<th>Total</th>';
+			strHtmlTables += '<th>Hidden</th>';
+			strHtmlTables += '<th>Unmaintained</th>';
+
+	strHtmlTables += '</td>';
+
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		var strTable = aTables[nTable];
+		strHtmlTables += '<tr>';
+		
+		strHtmlTables += '<td>';
+			strHtmlTables += strTable;
+		strHtmlTables += '</td>';
+
+		strHtmlTables += '<td>';
+			var bTableActive = GetValue(status,'tables',strTable,'active'); 
+			strHtmlTables += RenderHtmlStatus(bTableActive,!bActive);
+		strHtmlTables += '</td>';
+		
+		strHtmlTables += '<td style="text-align: right;">';
+			var nTotal = GetValue(status,'tables',strTable,'total');
+			strHtmlTables += ''+GetStringValue(nTotal);
+		strHtmlTables += '</td>';		
+
+		strHtmlTables += '<td style="text-align: right;">';
+			var nHidden = GetValue(status,'tables',strTable,'hidden');
+			strHtmlTables += ''+GetStringValue(nHidden);
+		strHtmlTables += '</td>';		
+
+		strHtmlTables += '<td style="text-align: right;">';
+			var nUnmaintained = GetValue(status,'tables',strTable,'unmaintained');
+			strHtmlTables += ''+GetStringValue(nUnmaintained);
+		strHtmlTables += '</td>';		
+
+		
+		strHtmlTables += '</tr>';
+	}
+	strHtmlTables += '</tbody></table>';
+	strHtml += strHtmlTables;  
+
+	return strHtml;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-04-03 07:45:03</sys_created_on>
+        <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>RenderHtmlStatus</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-04-03 09:13:30</sys_updated_on>
+    </sys_script_include>
+</record_update>

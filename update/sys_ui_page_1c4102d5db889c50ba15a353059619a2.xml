@@ -4,7 +4,7 @@
         <client_script/>
         <description/>
         <direct>false</direct>
-        <endpoint>x_snc_datasilos_Start.do</endpoint>
+        <endpoint>x_snc_datasilos_start.do</endpoint>
         <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 <div style="padding-left: 20px;">
@@ -653,19 +653,19 @@ while (grSSA.next())
 <span style="visibility: hidden;">_CUT_HERE_</span>
 </div>
 </j:jelly>]]></html>
-        <name>Start</name>
+        <name>start</name>
         <processing_script/>
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>409</sys_mod_count>
-        <sys_name>Start</sys_name>
+        <sys_mod_count>410</sys_mod_count>
+        <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-28 18:09:07</sys_updated_on>
+        <sys_updated_on>2021-04-03 07:39:47</sys_updated_on>
     </sys_ui_page>
 </record_update>

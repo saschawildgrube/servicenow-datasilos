@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetStatus</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns an object with current status information (which also contains the current configuration).</description>
+        <name>GetStatus</name>
+        <script><![CDATA[function GetStatus()
+{
+	var GetValue = x_snc_devtools.GetValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	var Debug = x_snc_devtools.Debug;
+
+	var status = GetConfig();
+
+	var aTables = GetKeys(GetValue(status,'tables'));
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		var strTable = aTables[nTable];
+		var table = GetValue(status,'tables',strTable); 
+
+		var grTotal = new GlideRecord(strTable);
+		grTotal.query();
+		var nTotal = grTotal.getRowCount();
+		table['total'] = nTotal; 
+
+		var grHidden = new GlideRecord(strTable);
+		grHidden.addQuery(GetScopeFromRecord(grHidden)+'_global',false);
+		grHidden.addQuery(GetScopeFromRecord(grHidden)+'_group_whitelist','');
+		grHidden.addQuery(GetScopeFromRecord(grHidden)+'_supervisor_whitelist','');
+		grHidden.query();
+		var nHidden = grHidden.getRowCount();
+		table['hidden'] = nHidden; 
+
+		var grUnmaintained = new GlideRecord(strTable);
+		grUnmaintained.addQuery(GetScopeFromRecord(grUnmaintained)+'_last_maintenance',null);
+		grUnmaintained.query();
+		var nUnmaintained = grUnmaintained.getRowCount();
+		table['unmaintained'] = nUnmaintained; 
+
+	}
+	
+	return status;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-04-03 07:46:10</sys_created_on>
+        <sys_id>24747b11db972490ba15a35305961985</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>GetStatus</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_24747b11db972490ba15a35305961985</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-04-03 09:01:57</sys_updated_on>
+    </sys_script_include>
+</record_update>
