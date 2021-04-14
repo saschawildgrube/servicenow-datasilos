@@ -279,8 +279,50 @@ answer = bAnswer;
 	
 	<h2>Runbook</h2>
 	<h3>Incident models</h3>
+	<h4>Instance not responding / Several performance issue</h4>
+	<h5>Symptoms</h5>
+	<ul>
+		<li>The instance is completely unavailable.</li>
+		<li>Some requests take exetremely long to be answered.</li>
+		<li>Large amount of expensive database queries.</li>
+	</ul>
+	<h5>Procedure:</h5>
+	<ol>
+		<li>Independently of whether DataSilos is the root cause, deactivating DataSilos completely may be considered as an emergency option. This should be aligned with stakeholders as this will (temporarily) expose the organisation to legal or compliance risks.</li>
+		<li>Deactivate DataSilos by setting the&#160;<a href="/sys_properties.do?sys_id=c7949581db805c50ba15a353059619da" target="_blank">x_snc_datasilos.active</a>&#160;property to "false".</li>
+	</ol>
 	<h4>Technical integration does not longer work as expected</h4>
-	<p>Check if the technical user has the required access. Consider to apply the x_snc_datasilos.sentinel role.</p> 
+	<h5>Symptoms</h5>
+	<ul>
+		<li>A technical integration has suddenly stopped to work as expected.</li>
+		<li>Some records that should be exposed to a 3rd party system can no longer be accessed.</li>
+	</ul>
+	<h5>Procedure:</h5>
+	<ol>
+		<li>Identify the technical user(s) which are used as part of the integration.</li>
+		<li>Check if the technical user has the required access.</li>
+		<li>If not done already, consider to assign the x_snc_datasilos.sentinel role to such technical users. Keep in mind that this may provide access to the technical user which may not be intended. However this may be a temporary workaround.</li>
+	</ol>
+	<h4>Individual users complain about not being able to see specific records</h4>
+	<h5>Symptoms</h5>
+	<ul>
+		<li>A user reports that they do not have access to a specific record.</li>
+		<li>After creating a new record, errors are being displayed.</li>
+	</ul>
+	<h5>Procedure:</h5>
+	<ol>
+		<li>Identify the specific user record.</li>
+		<li>Check if the user has the x_snc_datasilos.sentinel role. If so, the user should not be affected by DataSilos filtering. The root cause is very likely somewhere else.</li>
+		<li>Seek the record in the list view of the containing table using the DataSilos view.</li>
+		<li>Check if the user has an equal or higher security clearance level as the record. If the user has a lower security clearance level than the record, the user is not allowed to see the record.</li>
+		<li>If the record is set to be globally visible, the user should see the record.</li>
+		<li>Check if the user is referenced in one of the user fields (e.g. caller, opened_by). Consider the specific configuration for the table as such fields may differ depending on table and configuration.</li>
+		<li>Identify the groups of that user.</li>
+		<li>Identify the silos that are associated with the user's group(s).</li>
+		<li>Check the supervisor and group whitelist to see if the user's groups and associated silos match. Keep in mind that a user's group must be a "supervisor" group in a silo so that a user get's access via the silo whitelist.</li>
+		<li>If the whitelisted silos or groups do not match expectations, the logic that populate the whitelists should be reviewed. Note that if a DataSilos extension sets the ghost field to true for a record, the default DataSilos whitelist population will not be applied.</li>
+		<li>If at least one of the filtering factors (user reference fields, group whitelist, supervisor whitelist, global visibility) in combination withthe security clearance level should allow the user to see the record, but the user cannot access the record, then it is very likely that other (non-DataSilos) related business rules or ACLs block the access to that record.</li>
+	</ol>
 		
 	
 	<h2>Developer guide</h2>
@@ -475,6 +517,7 @@ DataSilos - incident_task - cross-silo
 		<li>All business rules responsible for whitelist population now run at order 10000 to avoid side-effects with other business rules which set fields that could impact filter rules.</li>
 		<li>Extended test step configuration "DataSilos - Check table implementation" to check if the business rule order is set to 10000.</li>
 		<li>Using DevTools' GetGroupsFromUser() as the group filter is now part of DevTools.</li> 
+		<li>Extended runbook section in the documentation with a number of incident models.</li>
 	</ol>
 
 	<h3>2.5.1 - 2021-03-22</h3>
@@ -659,13 +702,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>410</sys_mod_count>
+        <sys_mod_count>416</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-03 07:39:47</sys_updated_on>
+        <sys_updated_on>2021-04-14 08:59:19</sys_updated_on>
     </sys_ui_page>
 </record_update>
