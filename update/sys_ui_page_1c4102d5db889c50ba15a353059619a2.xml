@@ -512,6 +512,7 @@ DataSilos - incident_task - cross-silo
 	
 	<h3>2.6.0 - 2021-TODO</h3>
 	<ol>
+		<li>Added property x_snc_datasilos.maintenance.active to control if the maintenance jobs should run (i.e. do their job) or not.</li>
 		<li>Renamed module "Table" to "ITSM" and added a new module "CORE" to contain core system tables like sys_user etc. - another step to allow for further extensions of DataSilos.</li> 
 		<li>Performance optimization in GetGroupsFromUser() - special thanks to Pat Casey.</li>
 		<li>All business rules responsible for whitelist population now run at order 10000 to avoid side-effects with other business rules which set fields that could impact filter rules.</li>
@@ -703,13 +704,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>417</sys_mod_count>
+        <sys_mod_count>418</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-15 09:32:59</sys_updated_on>
+        <sys_updated_on>2021-04-15 09:53:40</sys_updated_on>
     </sys_ui_page>
 </record_update>
