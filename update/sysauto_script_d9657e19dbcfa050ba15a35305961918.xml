@@ -12,20 +12,20 @@
         <run_start>2021-03-21 16:53:44</run_start>
         <run_time>1969-12-31 23:00:00</run_time>
         <run_type>periodically</run_type>
-        <script><![CDATA[var grRecords = new GlideRecord('sc_request')
+        <script><![CDATA[var grRecords = new GlideRecord('sc_request');
 Maintenance(grRecords);]]></script>
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-21 16:54:04</sys_created_on>
         <sys_id>d9657e19dbcfa050ba15a35305961918</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>DataSilos - Maintenance - sc_request</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sysauto_script_d9657e19dbcfa050ba15a35305961918</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-22 10:22:46</sys_updated_on>
+        <sys_updated_on>2021-04-15 09:29:51</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
 </record_update>

@@ -402,8 +402,8 @@ generateDescription();]]></description_generator>
 		grSA.addQuery('run_dayofweek','=',1);&#13;
 		grSA.addQuery('run_period','=','1970-01-01 00:10:00');&#13;
 		grSA.addQuery('run_type','=','periodically');&#13;
-		grSA.addQuery('script','CONTAINS','var grRecords = new GlideRecord(\''+strTable+'\')');&#13;
-		grSA.addQuery('script','CONTAINS','Maintenance(grRecords);');&#13;
+		grSA.addQuery('script','STARTSWITH','var grRecords = new GlideRecord(\''+strTable+'\');');&#13;
+		grSA.addQuery('script','ENDSWITH','Maintenance(grRecords);');&#13;
 		grSA.addQuery('script','DOES NOT CONTAIN','RecordMaintenance');&#13;
 		grSA.query();&#13;
 		if (grSA.getRowCount() != 1)&#13;
@@ -624,14 +624,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>116</sys_mod_count>
+        <sys_mod_count>117</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-24 15:33:10</sys_updated_on>
+        <sys_updated_on>2021-04-15 09:28:24</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>
