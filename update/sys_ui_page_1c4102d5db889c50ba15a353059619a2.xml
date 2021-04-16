@@ -225,11 +225,11 @@ answer = bAnswer;
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
 		<li>Go to "Options" and configure the tables. Which tables should be affected by filtering? Which fields should be considered for instant access and whitelisting?</li>
-		<li>Go to "Scheduled Jobs" and define the frequency in which the "Maintenance" scheduled script should run. Experience shows that the script can process approx. 1000 records per minute - so plan your roll-out procedure accordingly.</li>
+		<li>Go to "Options" and choose if the maintenance jobs should be active or not. As a general rule of thumb it's always a good idea to let them run UNLESS they cause a performance degradation. If there are already records in the tables in scope, the maintenance jobs need to run and process every record at least once to make sure all records are initialized (and hence visible). After initial processing of all existing records, the business rules on the affected tables should ensure that all records are visible to eligible users, however sometimes unexpected situations occur - like an import of data from an expernal system without triggering business rules etc. The maintenance jobs make sure that such events don't leave records invisible to users.</li>
 	</ol>
 	<h3>Activation</h3>
 	<ol>
-		<li>Go to "Scheduled Jobs" and activate the "Maintenance" scheduled scripts for the tables in scope. Wait until all existing records have been initialized by checking the oldest date in the "Last Maintenance" field.</li>
+		<li>Go to "Options" and activate the maintenance jobs. Wait until all existing records have been initialized by checking the oldest date in the "Last Maintenance" field. The "Status" page provides an overview on the progress of the initial maintenance.</li>
 		<li>Go to the "Options" module and activate the DataSilos application.</li>
 		<li>Deactivate any existing conflicting business rules that may have been identified earlier.</li>
 		<li>Go to "Test Suite" and execute all tests.</li>
@@ -513,6 +513,7 @@ DataSilos - incident_task - cross-silo
 	
 	<h3>2.6.0 - 2021-TODO</h3>
 	<ol>
+		<li>Added the "Status" page which provides an overview on the current configuration and state of the DataSilos application on a per table level.</li>
 		<li>Added property x_snc_datasilos.maintenance.active to control if the maintenance jobs should run (i.e. do their job) or not.</li>
 		<li>Renamed module "Table" to "ITSM" and added a new module "CORE" to contain core system tables like sys_user etc. - another step to allow for further extensions of DataSilos.</li> 
 		<li>Performance optimization in GetGroupsFromUser() - special thanks to Pat Casey.</li>
@@ -706,13 +707,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>420</sys_mod_count>
+        <sys_mod_count>422</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-16 07:24:53</sys_updated_on>
+        <sys_updated_on>2021-04-16 12:53:04</sys_updated_on>
     </sys_ui_page>
 </record_update>
