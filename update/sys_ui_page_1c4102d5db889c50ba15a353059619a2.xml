@@ -512,18 +512,20 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 	
-	<h3>2.6.0 - 2021-TODO</h3>
+	<h3>2.6.0 - 2021-04-16</h3>
 	<ol>
 		<li>Added the "Status" page which provides an overview on the current configuration and state of the DataSilos application on a per table level.</li>
 		<li>Added property x_snc_datasilos.maintenance.active to control if the maintenance jobs should run (i.e. do their job) or not.</li>
 		<li>Renamed module "Table" to "ITSM" and added a new module "CORE" to contain core system tables like sys_user etc. - another step to allow for further extensions of DataSilos.</li> 
 		<li>Performance optimization in GetGroupsFromUser() - special thanks to Pat Casey.</li>
+		<li>Performance improvement in RecordUpdateWhitelistsFromGroupByTypes() for the case that there may be thousands of supervisor groups in a silo.</li>
 		<li>All business rules responsible for whitelist population now run at order 10000 to avoid side-effects with other business rules which set fields that could impact filter rules.</li>
 		<li>Extended test step configuration "DataSilos - Check table implementation" to check if the business rule order is set to 10000.</li>
 		<li>Using DevTools' GetGroupsFromUser() as the group filter is now part of DevTools.</li> 
-		<li>GetGroupsFromUser() is now public so that it can be used by other scped apps.</li>
+		<li>GetGroupsFromUser() is now public so that it can be used by other scoped apps.</li>
 		<li>Improved the code in the maintenance jobs and extended the test step configuration "DataSilos - Check table implementation" to enforce the change in future implementations.</li>
 		<li>Extended runbook section in the documentation with a number of incident models.</li>
+		<li>Added more stories to the documentation.</li>
 	</ol>
 
 	<h3>2.5.1 - 2021-03-22</h3>
@@ -708,13 +710,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>423</sys_mod_count>
+        <sys_mod_count>424</sys_mod_count>
         <sys_name>start</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-16 14:11:26</sys_updated_on>
+        <sys_updated_on>2021-04-16 15:38:56</sys_updated_on>
     </sys_ui_page>
 </record_update>
