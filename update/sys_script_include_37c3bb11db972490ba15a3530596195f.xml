@@ -9,7 +9,31 @@
         <name>RenderHtmlStatus</name>
         <script><![CDATA[function RenderHtmlStatus()
 {
-	function RenderHtmlStatus(bActive,bGrey)
+	var RenderValue = x_snc_devtools.RenderValue;
+	var GetValue = x_snc_devtools.GetValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	
+	function RenderDateTimeUser(vTime)
+	{
+		var gdt = new GlideDateTime(vTime);
+		return gdt.getDisplayValue();
+	}
+	
+	function RenderHtmlLink(strURL, strText, bExternal)
+	{
+		strText = GetStringValue(strText);
+		if (strText == '')
+		{
+			strText = strURL;
+		}
+		var strTarget = (bExternal)?(' target="_blank"'):('');
+		var strHtml = '';
+		strHtml += '<a href="'+strURL+'"'+strTarget+'>'+strText+'</a>';
+		return strHtml;
+	}
+	function RenderHtmlSpanStatus(bActive,bGrey)
 	{
 		var strHtml = '';
 		var strColor = '';
@@ -41,16 +65,10 @@
 	}
 	
 	
-	var RenderValue = x_snc_devtools.RenderValue;
-	var GetValue = x_snc_devtools.GetValue;
-	var GetBoolValue = x_snc_devtools.GetBoolValue;
-	var GetKeys = x_snc_devtools.GetKeys;
-	var GetStringValue = x_snc_devtools.GetStringValue;
 
 
 	var strHtml = '';
-	
-	
+		
 	strHtml += '<style media="screen">';
 	strHtml += 'td,th { padding-right: 10px; }';
 	strHtml += '</style>';
@@ -58,7 +76,7 @@
 	var status = GetStatus();
 	
 	var bActive = GetBoolValue(GetValue(status,'active')); 
-	var strHtmlStatus = RenderHtmlStatus(bActive);
+	var strHtmlStatus = RenderHtmlSpanStatus(bActive);
 	strHtml += '<h1>DataSilos Status - '+strHtmlStatus+'</h1>';
 	
 	var strHtmlTables = '';
@@ -71,6 +89,7 @@
 			strHtmlTables += '<th>Total</th>';
 			strHtmlTables += '<th>Hidden</th>';
 			strHtmlTables += '<th>Unmaintained</th>';
+			strHtmlTables += '<th>Backmarker</th>';
 
 	strHtmlTables += '</td>';
 
@@ -80,12 +99,13 @@
 		strHtmlTables += '<tr>';
 		
 		strHtmlTables += '<td>';
-			strHtmlTables += strTable;
+			strHtmlTables += RenderHtmlLink('/nav_to.do?uri=%2F'+strTable+'_list.do%3Fsysparm_clear_stack%3Dtrue%26sysparm_view%3DDataSilos%26sysparm_view_forced%3Dtrue',strTable,true);
+			//strHtmlTables += strTable;
 		strHtmlTables += '</td>';
 
 		strHtmlTables += '<td>';
 			var bTableActive = GetValue(status,'tables',strTable,'active'); 
-			strHtmlTables += RenderHtmlStatus(bTableActive,!bActive);
+			strHtmlTables += RenderHtmlSpanStatus(bTableActive,!bActive);
 		strHtmlTables += '</td>';
 		
 		strHtmlTables += '<td style="text-align: right;">';
@@ -103,6 +123,18 @@
 			strHtmlTables += ''+GetStringValue(nUnmaintained);
 		strHtmlTables += '</td>';		
 
+		strHtmlTables += '<td style="text-align: left;">';
+			var strBackmarker = GetStringValue(GetValue(status,'tables',strTable,'backmarker'));
+			if (strBackmarker == '')
+			{
+				strBackmarker = '<span style="color: red;">Incomplete</span>';
+			}
+			else
+			{
+				strBackmarker = RenderDateTimeUser(strBackmarker);
+			}
+			strHtmlTables += strBackmarker;
+		strHtmlTables += '</td>';	
 		
 		strHtmlTables += '</tr>';
 	}
@@ -115,13 +147,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>RenderHtmlStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-03 09:13:30</sys_updated_on>
+        <sys_updated_on>2021-04-16 15:24:26</sys_updated_on>
     </sys_script_include>
 </record_update>

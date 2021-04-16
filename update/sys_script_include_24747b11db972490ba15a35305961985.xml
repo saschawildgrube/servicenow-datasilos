@@ -40,6 +40,16 @@
 		var nUnmaintained = grUnmaintained.getRowCount();
 		table['unmaintained'] = nUnmaintained; 
 
+		var strBackmarker = 'hello world';
+		var grBackmarker = new GlideRecord(strTable);
+		grBackmarker.orderBy(GetScopeFromRecord(grBackmarker)+'_last_maintenance');
+		grBackmarker.setLimit(1);
+		grBackmarker.query();
+		if (grBackmarker.next())
+		{
+			strBackmarker = grBackmarker.getValue(GetScopeFromRecord(grBackmarker)+'_last_maintenance');
+		}
+		table['backmarker'] = strBackmarker; 
 	}
 	
 	return status;
@@ -48,13 +58,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:46:10</sys_created_on>
         <sys_id>24747b11db972490ba15a35305961985</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>GetStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_24747b11db972490ba15a35305961985</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-03 09:01:57</sys_updated_on>
+        <sys_updated_on>2021-04-16 14:52:55</sys_updated_on>
     </sys_script_include>
 </record_update>
