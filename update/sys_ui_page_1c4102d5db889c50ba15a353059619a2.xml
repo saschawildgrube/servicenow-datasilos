@@ -518,6 +518,7 @@ DataSilos - incident_task - cross-silo
 		<li>All business rules responsible for whitelist population now run at order 10000 to avoid side-effects with other business rules which set fields that could impact filter rules.</li>
 		<li>Extended test step configuration "DataSilos - Check table implementation" to check if the business rule order is set to 10000.</li>
 		<li>Using DevTools' GetGroupsFromUser() as the group filter is now part of DevTools.</li> 
+		<li>GetGroupsFromUser() is now public so that it can be used by other scped apps.</li>
 		<li>Improved the code in the maintenance jobs and extended the test step configuration "DataSilos - Check table implementation" to enforce the change in future implementations.</li>
 		<li>Extended runbook section in the documentation with a number of incident models.</li>
 	</ol>
@@ -704,13 +705,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>418</sys_mod_count>
+        <sys_mod_count>419</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-15 09:53:40</sys_updated_on>
+        <sys_updated_on>2021-04-16 07:06:32</sys_updated_on>
     </sys_ui_page>
 </record_update>
