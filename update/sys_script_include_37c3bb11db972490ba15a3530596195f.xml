@@ -127,7 +127,14 @@
 			var strBackmarker = GetStringValue(GetValue(status,'tables',strTable,'backmarker'));
 			if (strBackmarker == '')
 			{
-				strBackmarker = '<span style="color: red;">Incomplete</span>';
+				if (nTotal == 0)
+				{
+					strBackmarker = '<span style="color: gray;">No records</span>';
+				}
+				else
+				{
+					strBackmarker = '<span style="color: red;">Incomplete</span>';
+				}
 			}
 			else
 			{
@@ -147,13 +154,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>RenderHtmlStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-16 15:24:26</sys_updated_on>
+        <sys_updated_on>2021-04-23 13:21:05</sys_updated_on>
     </sys_script_include>
 </record_update>
