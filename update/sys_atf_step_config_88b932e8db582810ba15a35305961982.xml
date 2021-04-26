@@ -547,6 +547,28 @@ generateDescription();]]></description_generator>
 				stepResult.setFailed();&#13;
 			}		&#13;
 &#13;
+			&#13;
+			// System property "avoid_expensive_queries"&#13;
+			var strPropertySuffix = 'tables.'+strTable+'.avoid_expensive_queries';&#13;
+			var strPropertyName = 'x_snc_datasilos.'+strPropertySuffix;&#13;
+			var grSP = new GlideRecord('sys_properties');&#13;
+			grSP.addQuery('name','=',strPropertyName);&#13;
+			grSP.addQuery('sys_scope','=',strAppSysId);&#13;
+			grSP.addQuery('description','CONTAINS',strTable);  // "incident: Defines if the incident table should be filtered by DataSilos."&#13;
+			grSP.addQuery('is_private','=',false);&#13;
+			grSP.addQuery('ignore_cache','=',false);&#13;
+			grSP.addQuery('suffix','=',strPropertySuffix);&#13;
+			grSP.addQuery('type','=','boolean');&#13;
+			grSP.addQuery('sys_class_name','=','sys_properties');&#13;
+			grSP.addQuery('write_roles','=','x_snc_datasilos.admin');&#13;
+			grSP.addQuery('read_roles','=',null);&#13;
+			grSP.addQuery('choices','=',null);&#13;
+			grSP.query();&#13;
+			if (grSP.getRowCount() != 1)&#13;
+			{&#13;
+				strMessage += 'No system property named "'+strPropertyName+'" was found that matches all criteria!\n';&#13;
+				stepResult.setFailed();&#13;
+			}				&#13;
 &#13;
 			// Check if all tests steps are configured in the "DataSilos - Test data sanity" test&#13;
 			var grSAS = new GlideRecord('sys_atf_step');&#13;
@@ -624,14 +646,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>118</sys_mod_count>
+        <sys_mod_count>119</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-15 13:16:32</sys_updated_on>
+        <sys_updated_on>2021-04-26 12:13:13</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">0d462a261b160010a89720a8ec4bcb8a</type>
         <wizard_redirect/>

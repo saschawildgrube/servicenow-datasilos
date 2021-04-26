@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>problem_task: Controls if expensive queries should be avoided for this table. Setting this option to true can bring a performance boost on queries if there are hughe amounts of records in the table. The downside is that some result list views might show the message that some records have been removed due to security constraints.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_snc_datasilos.tables.problem_task.avoid_expensive_queries</name>
+        <read_roles/>
+        <suffix>tables.problem_task.avoid_expensive_queries</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-04-26 12:09:48</sys_created_on>
+        <sys_id>0c9d8f7c1b3b6410f28a0d81ec4bcb37</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_snc_datasilos.tables.problem_task.avoid_expensive_queries</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_properties_0c9d8f7c1b3b6410f28a0d81ec4bcb37</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-04-26 12:22:24</sys_updated_on>
+        <type>boolean</type>
+        <value>false</value>
+        <write_roles>x_snc_datasilos.admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=0c9d8f7c1b3b6410f28a0d81ec4bcb37"/>
+</record_update>
