@@ -11,14 +11,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 13:08:47</sys_created_on>
         <sys_id>6a6096c9dbbe5c90ba15a353059619f4</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>x_snc_datasilos.tables.incident.columns.instant_access.sys_user</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_6a6096c9dbbe5c90ba15a353059619f4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-26 09:11:36</sys_updated_on>
+        <sys_updated_on>2021-04-26 11:58:08</sys_updated_on>
         <type>string</type>
         <value>opened_by,caller_id,u_contact</value>
         <write_roles>x_snc_datasilos.admin</write_roles>
