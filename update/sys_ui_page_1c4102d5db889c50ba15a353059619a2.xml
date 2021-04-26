@@ -125,6 +125,7 @@
 		<li>As the platform owner I want to reduce customizations. When upgrading to future releases we need checks if DataSilos can be replaced by OOTB features.</li>
 		<li>As the platform owner I want to ensure that users have access from day one. This requires to initialize all records before go-live.</li>
 		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone. Maintenance jobs should always run.</li>
+		<li>As the platform owner I want to ensure that scheduled jobs are run using a technical user of my choice.</li>
 		<li>As the platform owner I want to ensure maintenance job performance. Database indices for the last_maintenance fields should be added to all tables.</li>
 		<li>As the platform owner I want to reduce manual work. Where possible users should be assigned to groups automatically.</li>
 		<li>As the platform owner I want to reduce manual work. Where possible groups should be assigned to silos automatically.</li>
@@ -208,6 +209,7 @@ answer = bAnswer;
 			<li>
 			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues it is recommended to set the "answer" value only once at the end of the script.</li>
 		</ol>
+		<li>In case the default "System Admininstrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
 		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
 		<ul>
@@ -521,6 +523,7 @@ DataSilos - incident_task - cross-silo
 		<li>Added view "DataSilos" for scheduled jobs to show the "Run as" field.</li>
 		<li>The Status page now displays the backmarker correctly for empty tables.</li>
 		<li>Added stories for group and silo setup to the documentation.</li>
+		<li>Added stories and extended installation manual to consider technical users for scheduled jobs.</li>
 		<li>Added public function AppSetProperty() to allow other scoped apps to configure DataSilos via scripts.</li>
 		<li>Added internal function AppSetDefaults() to set all DataSilos system properties to their defaults to prepare a release.</li> 
 	</ol>
@@ -723,13 +726,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>435</sys_mod_count>
+        <sys_mod_count>437</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-26 12:26:57</sys_updated_on>
+        <sys_updated_on>2021-04-26 13:02:13</sys_updated_on>
     </sys_ui_page>
 </record_update>
