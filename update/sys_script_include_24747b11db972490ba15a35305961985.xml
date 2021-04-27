@@ -23,31 +23,42 @@
 		var table = GetValue(status,'tables',strTable); 
 
 		var grTotal = new GlideAggregate(strTable);
+		grTotal.addAggregate('COUNT');
 		grTotal.query();
-		var nTotal = grTotal.getRowCount();
+		var nTotal = 0;
+		if (grTotal.next())
+		{
+			nTotal = grTotal.getAggregate('COUNT');
+		}
 		table['total'] = nTotal; 
 
-		
-		//var grHidden = new GlideRecord(strTable);
 		var grHidden = new GlideAggregate(strTable);
 		grHidden.addQuery(GetScopeFromRecord(grHidden)+'_global',false);
 		grHidden.addQuery(GetScopeFromRecord(grHidden)+'_group_whitelist','');
 		grHidden.addQuery(GetScopeFromRecord(grHidden)+'_supervisor_whitelist','');
+		grHidden.addAggregate('COUNT');
 		grHidden.query();
-		var nHidden = grHidden.getRowCount();
+		var nHidden = 0;
+		if (grHidden.next())
+		{
+			nHidden = grHidden.getAggregate('COUNT');
+		}
 		table['hidden'] = nHidden; 
 		
-		//var grUnmaintained = new GlideRecord(strTable);
 		var grUnmaintained = new GlideAggregate(strTable);
 		grUnmaintained.addQuery(GetScopeFromRecord(grUnmaintained)+'_last_maintenance',null);
+		grUnmaintained.addAggregate('COUNT');
 		grUnmaintained.query();
-		var nUnmaintained = grUnmaintained.getRowCount();
+		var nUnmaintained = 0;
+		if (grUnmaintained.next())
+		{
+			nUnmaintained = grUnmaintained.getAggregate('COUNT');
+		}
 		table['unmaintained'] = nUnmaintained; 
 
 		var strBackmarker = '';
 		if (nUnmaintained == 0)
 		{
-
 			var grBackmarker = new GlideRecord(strTable);
 			grBackmarker.orderBy(GetScopeFromRecord(grBackmarker)+'_last_maintenance');
 			grBackmarker.setLimit(1);
@@ -66,13 +77,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:46:10</sys_created_on>
         <sys_id>24747b11db972490ba15a35305961985</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>33</sys_mod_count>
         <sys_name>GetStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_24747b11db972490ba15a35305961985</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-27 08:27:11</sys_updated_on>
+        <sys_updated_on>2021-04-27 08:43:16</sys_updated_on>
     </sys_script_include>
 </record_update>
