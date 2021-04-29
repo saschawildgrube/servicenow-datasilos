@@ -6,6 +6,7 @@
         <category display_value="Server">317c4dc20b202200a8d7a12cf6673aa8</category>
         <class_name/>
         <class_type>script</class_type>
+        <deprecated>false</deprecated>
         <description_generator><![CDATA[function generateDescription()
 {
 	return 'Displays all current test data records on the test step result log.';

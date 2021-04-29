@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source">
     <sys_data_source action="INSERT_OR_UPDATE">
+        <batch_size>1000</batch_size>
         <category/>
         <connection_timeout>0</connection_timeout>
         <connection_url>attachment://sys_data_source:8881562d1b995050a89720a8ec4bcbad/x_snc_datasilos_m2m_groups_datasilos.xlsx</connection_url>
         <connection_url_parameters/>
         <csv_delimiter/>
+        <data_in_single_column>false</data_in_single_column>
+        <data_loader><![CDATA[(function loadData(import_set_table) {
+
+	// Add your code here to insert data to import_set_table
+
+})(import_set_table);]]></data_loader>
+        <data_stream_action/>
+        <data_stream_action_inputs/>
         <database_name/>
         <database_port/>
         <discard_arrays>true</discard_arrays>
@@ -23,15 +32,21 @@
         <jpath_root_node/>
         <last_run_database_field/>
         <last_run_datetime/>
+        <last_success_import_time/>
         <ldap_target/>
+        <ldapprobe_result_set_rows>200</ldapprobe_result_set_rows>
+        <limit/>
         <maximum_rows>10000</maximum_rows>
         <mid_server/>
         <name>x_snc_datasilos_m2m_groups_datasilos.xls</name>
+        <offset>0</offset>
         <oracle_port>1521</oracle_port>
         <oracle_sid>orcl</oracle_sid>
+        <parsing_script><![CDATA[// The input value can be accessed through the variables named "line", "lineNumber" and "result"// The function uses result variable to return parse result back. (function(line,lineNumber,result) {	// add code here})(line,lineNumber,result);]]></parsing_script>
         <properties/>
         <query>All Rows from Table</query>
         <query_timeout>0</query_timeout>
+        <request_action/>
         <scp_authentication>Username and Password</scp_authentication>
         <scp_password/>
         <scp_port/>
@@ -40,6 +55,7 @@
         <sheet_number>0</sheet_number>
         <sql_statement/>
         <ssh_keyfile_path/>
+        <support_pagination>false</support_pagination>
         <sys_class_name>sys_data_source</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-09 12:54:40</sys_created_on>
@@ -54,9 +70,11 @@
         <sys_updated_on>2020-06-09 12:54:41</sys_updated_on>
         <table_name/>
         <type>File</type>
+        <use_batch_import>false</use_batch_import>
         <use_integrated_authentication>false</use_integrated_authentication>
         <use_last_run_datetime>false</use_last_run_datetime>
         <xpath_root_node/>
         <zipped>false</zipped>
     </sys_data_source>
+    <sys_variable_value action="delete_multiple" query="document_key=8881562d1b995050a89720a8ec4bcbad"/>
 </record_update>
