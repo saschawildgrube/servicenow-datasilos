@@ -45,7 +45,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-09 10:39:45</sys_updated_on>
         <value>change_task</value>
-        <variable display_value="Table">90144b535320220002c6435723dc3488</variable>
+        <variable display_value="">90144b535320220002c6435723dc3488</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
@@ -59,7 +59,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-09 10:35:58</sys_updated_on>
         <value>1</value>
-        <variable display_value="Enforce security">e6e3c7535320220002c6435723dc3496</variable>
+        <variable display_value="">e6e3c7535320220002c6435723dc3496</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
@@ -73,7 +73,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-09 10:35:58</sys_updated_on>
         <value>record_successfully_inserted</value>
-        <variable display_value="Assert type">9024a37f671003007ba405225685efe5</variable>
+        <variable display_value="">9024a37f671003007ba405225685efe5</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
@@ -87,7 +87,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-09 11:09:08</sys_updated_on>
         <value>short_description=TEST_TASK_2^opened_by={{step['33b1f52d1b195050a89720a8ec4bcb35'].first_record}}^change_request={{step['80c1f52d1b195050a89720a8ec4bcb7f'].record_id}}^EQ</value>
-        <variable display_value="Field values">dd54cf535320220002c6435723dc34fd</variable>
+        <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=14c1f52d1b195050a89720a8ec4bcbac"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">

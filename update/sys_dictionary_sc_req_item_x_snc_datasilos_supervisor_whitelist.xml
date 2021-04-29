@@ -53,15 +53,15 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-23 09:54:27</sys_created_on>
-        <sys_id>27a0a7a31b1b9090a89720a8ec4bcb19</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_id>44c9b575db732090bc44d844ca961913</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>DataSilos Supervisor Whitelist</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_dictionary_sc_req_item_x_snc_datasilos_supervisor_whitelist</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-23 09:54:58</sys_updated_on>
+        <sys_updated_on>2021-04-29 08:37:49</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

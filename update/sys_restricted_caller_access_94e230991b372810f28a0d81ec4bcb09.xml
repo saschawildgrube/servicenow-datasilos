@@ -2,7 +2,7 @@
     <sys_restricted_caller_access action="INSERT_OR_UPDATE">
         <operation>create</operation>
         <source>0c51b4191b372810f28a0d81ec4bcb62</source>
-        <source_scope display_value="DataSilosAZ WORK IN PROGRESS">044532c1db429410ba15a35305961966</source_scope>
+        <source_scope display_value="">044532c1db429410ba15a35305961966</source_scope>
         <source_table>sys_script_include</source_table>
         <source_type>2</source_type>
         <status>3</status>

@@ -41,7 +41,7 @@
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-08-03 14:03:43</sys_updated_on>
         <value/>
-        <variable display_value="User">586e2c4253e0220002c6435723dc3415</variable>
+        <variable display_value="">586e2c4253e0220002c6435723dc3415</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=f0b07d1fdb925850ba15a35305961959"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">
