@@ -527,6 +527,7 @@ DataSilos - incident_task - cross-silo
 		<li>Added stories and extended installation manual to consider technical users for scheduled jobs.</li>
 		<li>Added public function AppSetProperty() to allow other scoped apps to configure DataSilos via scripts.</li>
 		<li>Added internal function AppSetDefaults() to set all DataSilos system properties to their defaults to prepare a release.</li> 
+		<li>DataSilos tables are now configured to allow cross scope configuration to enable further extensions of functionality.</li>
 	</ol>
 	
 	<h3>2.6.0 - 2021-04-16</h3>
@@ -727,13 +728,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>438</sys_mod_count>
+        <sys_mod_count>439</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-29 09:02:16</sys_updated_on>
+        <sys_updated_on>2021-04-29 12:28:58</sys_updated_on>
     </sys_ui_page>
 </record_update>
