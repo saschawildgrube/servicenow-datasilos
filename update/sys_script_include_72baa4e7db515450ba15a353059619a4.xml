@@ -23,6 +23,66 @@
 		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.number+': '+strText);
 	}
 	
+	if (IsActive() == false)
+	{
+		return true;
+	}		
+	if (record.isNewRecord() == true)
+	{
+		//Debug('This is a new record. No filters apply.');
+		return true;
+	}
+
+	
+	var strTable = record.getRecordClassName(); 
+	
+	Debug(RenderValue(record));
+	Debug('IsTableActive("'+strTable+'") = '+IsTableActive(strTable));
+	
+	if (IsTableActive(strTable) == false)
+	{
+		Debug('IsTableActive("'+strTable+'") returned false! Is it a database view?');
+		//Debug('Database view: '+RenderValue(record));
+		var grDbView = new GlideRecord('sys_db_view');
+		grDbView.addQuery('name',strTable);
+		grDbView.query();
+		if (grDbView.next())
+		{
+			Debug('Database view: '+strTable+' is a database view: '+RenderValue(grDbView));
+			var grDbViewTable = new GlideRecord('sys_db_view_table');
+			grDbViewTable.addQuery('view',grDbView.sys_id);
+			grDbViewTable.query();
+			while (grDbViewTable.next())
+			{
+				var strViewTable = ''+grDbViewTable.table;
+				if (IsActive(strViewTable) == true)
+				{
+					//Debug('Database view: '+strClassName+': Found active table: '+RenderValue(grDbViewTable));
+					Debug('Database view: '+strTable+': Found active table: '+strViewTable);
+					var strPrefix = ''+grDbViewTable.variable_prefix;
+
+					var strRelatedRecordSysId = record.getValue(strPrefix+'_sys_id'); 
+
+					var grRelatedRecord = new GlideRecord(strViewTable);
+					if (grRelatedRecord.get(strRelatedRecordSysId) == false)
+					{
+						Debug('Database view: '+strTable+': returns false');
+						return false;   
+					}
+				}
+			}
+			Debug('Database view: '+strTable+': returns true');
+			return true;
+		}
+		else
+		{
+			Debug('Database view: '+strTable+' is NOT a database view: we return true');
+			return true;
+		}
+	}
+
+	// Consider caching
+	
 	var strUserSysId = gs.getUserID();
 	
 	var strValueNoFilter = GetStringValue(transactionCache.GetItem(strUserSysId+'_nofilter'));
@@ -44,25 +104,8 @@
 		{
 			return false;
 		}
-	}
+	}	
 	
-	if (IsActive() == false)
-	{
-		return true;
-	}		
-	
-	var strTable = record.getRecordClassName(); 
-	
-	if (IsTableActive(strTable) == false)
-	{
-		return true;
-	}
-	
-	if (record.isNewRecord() == true)
-	{
-		//Debug('This is a new record. No filters apply.');
-		return true;
-	}
 	if (strValueNoFilter == '')
 	{
 		if (gs.hasRole('admin') == true)
@@ -87,7 +130,6 @@
 		}
 	}
 	
-	//Debug('Record: '+RenderValue(record));
 	
 	// The following logic is required because under some circumstances, records are not provided to the ACL
 	// with all fields.
@@ -110,10 +152,8 @@
 	PrepareQuery(grRecord);
 	
 	var strEncodedQuery = grRecord.getEncodedQuery();
-	//Debug('strEncodedQuery: '+RenderValue(strEncodedQuery));
 	
 	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
-	//Debug('GlideFilter.checkRecord: '+RenderValue(bMatch));
 	
 	transactionCache.SetItem(strUserSysId+'_'+record.number, (bMatch)?('1'):('0') );
 	
@@ -124,13 +164,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>61</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-01-08 11:22:58</sys_updated_on>
+        <sys_updated_on>2021-05-07 16:48:23</sys_updated_on>
     </sys_script_include>
 </record_update>
