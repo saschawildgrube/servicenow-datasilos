@@ -10,8 +10,10 @@
         <script><![CDATA[function ExecuteBusinessRule(current, previous)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var RenderValue = x_snc_devtools.RenderValue;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
 	var BusinessRuleGetOperation = x_snc_devtools.BusinessRuleGetOperation;
+	var IsValidDatabaseView = x_snc_devtools.IsValidDatabaseView;
 	
 	
 	function Log(strText)
@@ -25,30 +27,20 @@
 	
 	var strTable = current.getRecordClassName(); 
 	
-	if (IsTableSupported(strTable) == false && strTable != 'sysapproval_approver')
-	{
-		return;
-	}
-	
 	var strOperation = BusinessRuleGetOperation(current);
 	
 	if (strOperation == 'query')
 	{
-		if (strTable == 'sysapproval_approver')
-		{
-			return;
-		}
-		
-		if (IsTableActive(strTable) == false)
-		{
-			return;
-		}
-		
 		if (IsActive() == false)
 		{
 			return;
 		}
-				
+		
+		if (strTable == 'sysapproval_approver')
+		{
+			return;
+		}
+
 		if (gs.hasRole('admin') == true)
 		{
 			//Debug('User has the admin role. Filters are not applied.');
@@ -58,8 +50,63 @@
 		{
 			//Debug('User has the sentinel role. Filters are not applied.');
 			return;
+		}		
+		
+		if (IsTableSupported(strTable) == false)
+		{
+			if (IsDatabaseViewsActive() == false)
+			{
+				return;
+			}
+
+			Debug('We are called from a database view!!!');
+			var grDbView = new GlideRecord('sys_db_view');
+			grDbView.addQuery('name',strTable);
+			grDbView.query();
+			if (grDbView.next() == false)
+			{
+				Debug('"'+strTable+'" is NOT supported and NOT a database view: we do nothing');
+				return;
+			}
+			else
+			{
+				Debug('Database view: '+strTable+' is a database view: '/*+RenderValue(grDbView)*/);
+				var grDbViewTable = new GlideRecord('sys_db_view_table');
+				grDbViewTable.addQuery('view',grDbView.sys_id);
+				grDbViewTable.query();
+				while (grDbViewTable.next())
+				{
+					var strViewTable = ''+grDbViewTable.table;
+					if (IsTableActive(strViewTable) == true)
+					{
+						var strPrefix = ''+grDbViewTable.variable_prefix;
+						Debug('Database view: '+strTable+': Found active table: '+strViewTable+': Prefix: '+strPrefix);
+						
+						PrepareQuery(current,strViewTable,strPrefix);
+						
+						/*var strPrefix = ''+grDbViewTable.variable_prefix;
+
+						var strRelatedRecordSysId = record.getValue(strPrefix+'_sys_id'); 
+
+						var grRelatedRecord = new GlideRecord(strViewTable);
+						if (grRelatedRecord.get(strRelatedRecordSysId) == false)
+						{
+							Debug('Database view: '+strTable+': returns false');
+							return false;   
+						}*/
+					}
+				}
+				Debug('New query: '+current.getEncodedQuery());
+				return;
+			}
+
 		}
-	
+		
+		if (IsTableActive(strTable) == false)
+		{
+			return;
+		}
+
 		var bAvoidExpensiveQueries = GetBoolValue(GetConfigValue('tables',strTable,'avoid_expensive_queries'));
 		if (bAvoidExpensiveQueries == true)
 		{
@@ -74,6 +121,12 @@
 		
 		PrepareQuery(current);
 		//Debug('Query updated: '+current.getEncodedQuery());
+		return;
+	}
+
+	
+	if (IsTableSupported(strTable) == false)
+	{
 		return;
 	}
 	
@@ -108,13 +161,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>124</sys_mod_count>
+        <sys_mod_count>132</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-15 10:03:35</sys_updated_on>
+        <sys_updated_on>2021-05-17 17:55:24</sys_updated_on>
     </sys_script_include>
 </record_update>

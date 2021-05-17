@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:55:14</sys_created_on>
         <sys_id>37a3b3d8db4474d0bc44d844ca961978</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_37a3b3d8db4474d0bc44d844ca961978</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-05-07 16:56:18</sys_updated_on>
+        <sys_updated_on>2021-05-17 18:01:20</sys_updated_on>
         <table/>
         <test display_value="DevTools - incident - database views">dbf133d4db4474d0bc44d844ca96194b</test>
         <timeout/>
@@ -50,9 +50,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:55:14</sys_created_on>
         <sys_id>dab3fbd4db4474d0bc44d844ca961901</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-05-07 16:56:18</sys_updated_on>
+        <sys_updated_on>2021-05-17 18:01:20</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -68,7 +68,7 @@ function Log(strText)&#13;
 &#13;
 	var bResult = true;&#13;
 	&#13;
-	function TestCase_RecordQuery(vInputUser, vInputTable, vInputSysId, vExpected)&#13;
+	function TestCase_RecordQuery(vInputUser, vInputTable, vInputPrefix, vInputSysId, vExpected)&#13;
 	{&#13;
 		Log('TestCase_RecordQuery');&#13;
 		&#13;
@@ -77,20 +77,27 @@ function Log(strText)&#13;
 		&#13;
 		Log('vInputUser : '+RenderValue(vInputUser) + ' '+GetStringValue(grUser.name));&#13;
 		Log('vInputTable: '+RenderValue(vInputTable));&#13;
+		Log('vInputPrefix: '+RenderValue(vInputPrefix));&#13;
 		Log('vInputSysId: '+RenderValue(vInputSysId));&#13;
 		Log('vExpected: '+RenderValue(vExpected));&#13;
 		&#13;
 		var bRecordFound = false;&#13;
 		&#13;
 		// 1. Impersonate&#13;
+		Log('Impersonate user: '+vInputUser);&#13;
 		var strCurrentUser = UserImpersonate(vInputUser);&#13;
 		&#13;
 		// 2. Query&#13;
+		Log('record get: '+vInputTable+' - '+vInputSysId);&#13;
 		var grRecord = new GlideRecordSecure(vInputTable);&#13;
-		if (grRecord.get(vInputSysId) == true)&#13;
+		grRecord.addQuery(vInputPrefix+'sys_id','=',vInputSysId);&#13;
+		grRecord.query();&#13;
+		if (grRecord.next())&#13;
 		{&#13;
+			Log('get returned true!');&#13;
 			if (grRecord.canRead() == true)&#13;
 			{&#13;
+				Log('can read returned true!');&#13;
 				bRecordFound = true;&#13;
 			}&#13;
 		}&#13;
@@ -112,14 +119,15 @@ function Log(strText)&#13;
 	// 1. Create test data&#13;
 	var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
 &#13;
-	var aSupportRoles = ['itil',''];&#13;
+	var aUserRoles = ['sn_incident_read'];&#13;
+	var aSupportRoles = ['itil'];&#13;
 	var aSentinelRoles = ['itil','x_snc_datasilos.sentinel'];&#13;
 	&#13;
 	var strUserSentinel = testdata.CreateUser('SENTINEL',aSentinelRoles);&#13;
 	var strUserSpectator = testdata.CreateUser('SPECTATOR',aSupportRoles);&#13;
 &#13;
-	var strUserCaller = testdata.CreateUser('CALLER',[]);&#13;
-	var strUserOpener = testdata.CreateUser('OPENER',[]);&#13;
+	var strUserCaller = testdata.CreateUser('CALLER',aUserRoles);&#13;
+	var strUserOpener = testdata.CreateUser('OPENER',aUserRoles);&#13;
 	&#13;
 	var strUserAlphaMember = testdata.CreateUser('ALPHA_MEMBER',aSupportRoles);&#13;
 	var strUserAlphaFulfiller = testdata.CreateUser('ALPHA_FULFILLER',aSupportRoles);&#13;
@@ -140,49 +148,53 @@ function Log(strText)&#13;
 	var strSiloAlpha = testdata.CreateSilo('ALPHA',['ALPHA_MEMBER'],['ALPHA_FULFILLER'],['ALPHA_SUPERVISOR']);	&#13;
 	var strSiloBeta = testdata.CreateSilo('BETA',['BETA_MEMBER'],['BETA_FULFILLER'],['BETA_SUPERVISOR']);&#13;
 &#13;
-	//var strTable = 'incident_sla';&#13;
-&#13;
-	var strTable = 'u_incident_test';&#13;
-	var strTable = 'incident';&#13;
+	var strTable = 'incident_sla';&#13;
+	var strPrefix = 'inc_';&#13;
+	&#13;
+	//var strTable = 'u_incident_test';&#13;
+	//var strPrefix = 'inc_';&#13;
+	&#13;
+	//var strTable = 'incident';&#13;
+	//var strPrefix = '';&#13;
 	&#13;
 	Log('\nCreate incident\n');&#13;
 	var strIncident = testdata.CreateIncident('TEST','OPENER','CALLER','ALPHA_MEMBER');&#13;
 		&#13;
-	TestCase_RecordQuery(strUserSentinel,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserSpectator,strTable,strIncident,false);&#13;
+	TestCase_RecordQuery(strUserSentinel,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserSpectator,strTable,strPrefix,strIncident,false);&#13;
 &#13;
-	TestCase_RecordQuery(strUserCaller,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserOpener,strTable,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserCaller,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserOpener,strTable,strPrefix,strIncident,true);&#13;
 &#13;
-	TestCase_RecordQuery(strUserAlphaMember,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserAlphaFulfiller,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserAlphaSupervisor,strTable,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserAlphaMember,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserAlphaFulfiller,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserAlphaSupervisor,strTable,strPrefix,strIncident,true);&#13;
 &#13;
-	TestCase_RecordQuery(strUserBetaMember,strTable,strIncident,false);&#13;
-	TestCase_RecordQuery(strUserBetaFulfiller,strTable,strIncident,false);&#13;
-	TestCase_RecordQuery(strUserBetaSupervisor,strTable,strIncident,false);&#13;
+	TestCase_RecordQuery(strUserBetaMember,strTable,strPrefix,strIncident,false);&#13;
+	TestCase_RecordQuery(strUserBetaFulfiller,strTable,strPrefix,strIncident,false);&#13;
+	TestCase_RecordQuery(strUserBetaSupervisor,strTable,strPrefix,strIncident,false);&#13;
 	&#13;
 &#13;
 	Log('\nMove incident to member team in beta silo\n');&#13;
 	RecordSetValue('incident',strIncident,'assignment_group',strGroupBetaMember);&#13;
 	&#13;
-	TestCase_RecordQuery(strUserSentinel,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserSpectator,strTable,strIncident,false);&#13;
+	TestCase_RecordQuery(strUserSentinel,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserSpectator,strTable,strPrefix,strIncident,false);&#13;
 &#13;
-	TestCase_RecordQuery(strUserCaller,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserOpener,strTable,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserCaller,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserOpener,strTable,strPrefix,strIncident,true);&#13;
 &#13;
-	TestCase_RecordQuery(strUserAlphaMember,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserAlphaFulfiller,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserAlphaSupervisor,strTable,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserAlphaMember,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserAlphaFulfiller,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserAlphaSupervisor,strTable,strPrefix,strIncident,true);&#13;
 &#13;
-	TestCase_RecordQuery(strUserBetaMember,strTable,strIncident,true);&#13;
-	TestCase_RecordQuery(strUserBetaFulfiller,strTable,strIncident,false);&#13;
-	TestCase_RecordQuery(strUserBetaSupervisor,strTable,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserBetaMember,strTable,strPrefix,strIncident,true);&#13;
+	TestCase_RecordQuery(strUserBetaFulfiller,strTable,strPrefix,strIncident,false);&#13;
+	TestCase_RecordQuery(strUserBetaSupervisor,strTable,strPrefix,strIncident,true);&#13;
 &#13;
 	&#13;
 	&#13;
-	Log(RenderValue(testdata.GetAllData(),true));&#13;
+	//Log(RenderValue(testdata.GetAllData(),true));&#13;
 		&#13;
 	stepResult.setOutputMessage(strLog);&#13;
 	return bResult;&#13;
