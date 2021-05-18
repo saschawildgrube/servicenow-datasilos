@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.DatabaseViewsMaintenance</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Prepares and adapts the configuration of existing database views on tables in scope.</description>
+        <name>DatabaseViewsMaintenance</name>
+        <script><![CDATA[function DatabaseViewsMaintenance()
+{
+	var GetRecord = x_snc_devtools.GetRecord;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var RenderValue = x_snc_devtools.RenderValue;
+
+	var aTables = GetAllSupportedTables();
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		var strTable = aTables[nTable];
+		
+		var grDbViewTable = new GlideRecord('sys_db_view_table');
+		grDbViewTable.addQuery('table',strTable);
+		grDbViewTable.addQuery('active','=','true');
+		grDbViewTable.query();
+		while (grDbViewTable.next())
+		{
+			var strDbViewSysId = grDbViewTable.view;
+			var grDbView = GetRecord('sys_db_view',strDbViewSysId);
+			if (IsValidRecord(grDbView))
+			{
+				var strDbViewName = GetStringValue(grDbView.name);
+				
+				Debug('DatabaseViewsMaintenance: '+strDbViewName);
+				
+				var grBR = new GlideRecord('sys_script');
+				Debug('DatabaseViewsMaintenance: '+RenderValue(grBR));
+				
+				
+				grBR.addQuery('name','=','DataSilos - '+strDbViewName+'');
+				grBR.addQuery('collection','=',strDbViewName);
+				grBR.addQuery('sys_scope','=','global');
+				grBR.query();
+				var bInsert = false;
+				if (grBR.next() == false)
+				{
+					bInsert = true;					
+					grBR.initialize();
+				}
+				grBR.name = 'DataSilos - '+strDbViewName+'';
+				grBR.collection = strDbViewName;
+				grBR.sys_scope = 'global';
+				grBR.active = 'true';
+				grBR.when = 'before';
+				grBR.advanced = 'true';
+				grBR.action_query = 'true';
+				grBR.script = "" 
+					+"(function executeRule(current, previous)"
+					+"{"
+					+"   x_snc_datasilos.ExecuteBusinessRule(current, previous);"
+					+"})(current, previous);";
+				var RunScriptInGlobalScope = x_snc_devtools.RunScriptInGlobalScope;
+				if (bInsert == true)
+				{
+					RunScriptInGlobalScope('param1.insert()',grBR);
+				}
+				else
+				{
+					RunScriptInGlobalScope('param1.update()',grBR);
+				}
+			}
+			
+			
+			var strDbViewTableSysId = GetStringValue(grDbViewTable.sys_id);
+			
+			var grFields = new GlideRecord('sys_db_view_table_field');
+			grFields.addQuery('view_table','=',strDbViewTableSysId);
+			grFields.query();
+			if (grFields.getRowCount() > 0)
+			{
+				function AddField(strField)
+				{
+					var grField = new GlideRecord('sys_db_view_table_field');
+					
+					grField.addQuery('view_table','=',strDbViewTableSysId);
+					grField.addQuery('field','=',strField);
+					grField.addQuery('table','=',grDbViewTable.table);
+					grField.query();
+					if (grField.getRowCount() == 0)
+					{
+						grField.initialize();
+						grField.view_table = strDbViewTableSysId;
+						grField.field = strField;
+						grField.sys_scope = grDbViewTable.sys_scope;
+						grField.table = grDbViewTable.table;
+						RunScriptInGlobalScope('param1.insert()',grField);
+					}
+				}
+				
+				AddField(GetScopeFromTable(strTable)+'_ghost');
+				AddField(GetScopeFromTable(strTable)+'_global');
+				AddField(GetScopeFromTable(strTable)+'_group_whitelist');
+				AddField(GetScopeFromTable(strTable)+'_security_clearance');
+				AddField(GetScopeFromTable(strTable)+'_supervisor_whitelist');
+				AddField(GetScopeFromTable(strTable)+'_last_maintenance');
+				
+				// what about sys_user reference fields?
+			}
+			
+			
+		}
+
+	}
+	
+	
+	
+	// Check for fields in database views
+	
+	
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-05-18 12:45:13</sys_created_on>
+        <sys_id>fc9620ccdb143490bc44d844ca9619d6</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>DatabaseViewsMaintenance</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_fc9620ccdb143490bc44d844ca9619d6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-05-18 17:45:27</sys_updated_on>
+    </sys_script_include>
+</record_update>
