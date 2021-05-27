@@ -4,21 +4,21 @@
         <copied_from/>
         <description/>
         <enable_parameterized_testing>false</enable_parameterized_testing>
-        <name>DevTools - incident - database views</name>
+        <name>DataSilos - incident - database views</name>
         <parameters/>
         <remember/>
         <sys_class_name>sys_atf_test</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:47:58</sys_created_on>
         <sys_id>dbf133d4db4474d0bc44d844ca96194b</sys_id>
-        <sys_mod_count>1</sys_mod_count>
-        <sys_name>DevTools - incident - database views</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DataSilos - incident - database views</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_test_dbf133d4db4474d0bc44d844ca96194b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-05-07 11:48:33</sys_updated_on>
+        <sys_updated_on>2021-05-19 12:51:16</sys_updated_on>
     </sys_atf_test>
     <sys_variable_value action="delete_multiple" query="document_key=dbf133d4db4474d0bc44d844ca96194b"/>
 </record_update>
