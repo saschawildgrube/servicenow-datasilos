@@ -27,6 +27,7 @@ If you find yourself unable to import your repository due to the presence of fil
    * Change Request
    * System Import Sets
    * Problem Tasks
+   * Text Index
    * Incident
    * Service Management Basics
    * Service Catalog Platform
