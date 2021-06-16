@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.PrepareQueryInternal</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>The PrepareQueryInternal function performs the actual query modification based on provided parameters.</description>
+        <name>PrepareQueryInternal</name>
+        <script><![CDATA[function PrepareQueryInternal(record, strTable, strPrefix, strUserSysId, aUserSupervisorSilos, aUserGroups, nUserSecurityClearance)
+{
+	var GetValue = x_snc_devtools.GetValue;
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;
+	
+	strTable = GetStringValue(strTable);
+	strPrefix = GetStringValue(strPrefix);
+	strUserSysId = GetStringValue(strUserSysId);
+	aUserSupervisorSilos = GetArrayValue(aUserSupervisorSilos);
+	aUserGroups = GetArrayValue(aUserGroups);
+	nUserSecurityClearance = GetIntegerValue(nUserSecurityClearance);
+	
+	var strScope = GetScopeFromTable(strTable);
+
+	if (GetBoolValue(GetValue(GetConfig(),'security_clearance','active')))
+	{
+		record.addQuery(strPrefix+strScope+'_security_clearance','<=',nUserSecurityClearance);
+	}
+	
+	
+	var query = record.addQuery(strPrefix+strScope+'_global','=','true');
+
+	var strUserColumns = GetValue(GetConfig(),'tables',strTable,'columns','instant_access','sys_user');
+	var aFields = GetArrayValue(strUserColumns);
+	for (var nIndex = 0;nIndex < aFields.length; nIndex++)
+	{
+		query.addOrCondition(strPrefix+aFields[nIndex],'=',strUserSysId);	
+	}
+	
+	for (var nIndex = 0; nIndex < aUserSupervisorSilos.length; nIndex++)
+	{
+		query.addOrCondition(strPrefix+strScope+'_supervisor_whitelist','CONTAINS',aUserSupervisorSilos[nIndex]);
+	}
+		
+	for (var nIndex = 0; nIndex < aUserGroups.length; nIndex++)
+	{
+		query.addOrCondition(strPrefix+strScope+'_group_whitelist','CONTAINS',aUserGroups[nIndex]);
+	}
+	
+	return true;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-06-16 09:54:56</sys_created_on>
+        <sys_id>cac79d9ddb3870583c6c09c2ba9619d9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>PrepareQueryInternal</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_cac79d9ddb3870583c6c09c2ba9619d9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-06-16 10:12:35</sys_updated_on>
+    </sys_script_include>
+</record_update>

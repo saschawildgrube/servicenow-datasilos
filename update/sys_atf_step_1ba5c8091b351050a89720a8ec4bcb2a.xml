@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Query">f312349cdb505c90ba15a35305961975</copied_from>
+        <copied_from display_value="Record Query (Deprecated)">f312349cdb505c90ba15a35305961975</copied_from>
         <description>Validate there is at least one record in 'problem' matching query:
 Sys ID = {{Step 9: Record Insert.Record}}
 With a failure timeout of 5 Seconds</description>
