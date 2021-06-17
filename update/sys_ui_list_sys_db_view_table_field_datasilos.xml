@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="sys_db_view_table_field" version="2" view="datasilos">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>view_table.view</element>
+            <list_id display_value="sys_db_view_table_field" element="NULL" name="sys_db_view_table_field" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">9a02826ddbb43058bc44d844ca9619fb</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-06-17 07:38:01</sys_created_on>
+            <sys_id>5602826ddbb43058bc44d844ca9619fc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-06-17 07:38:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>view_table</element>
+            <list_id display_value="sys_db_view_table_field" element="NULL" name="sys_db_view_table_field" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">9a02826ddbb43058bc44d844ca9619fb</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-06-17 07:38:01</sys_created_on>
+            <sys_id>d602826ddbb43058bc44d844ca9619fc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-06-17 07:38:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>table</element>
+            <list_id display_value="sys_db_view_table_field" element="NULL" name="sys_db_view_table_field" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">9a02826ddbb43058bc44d844ca9619fb</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-06-17 07:38:01</sys_created_on>
+            <sys_id>5a02826ddbb43058bc44d844ca9619fc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-06-17 07:38:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>field</element>
+            <list_id display_value="sys_db_view_table_field" element="NULL" name="sys_db_view_table_field" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">9a02826ddbb43058bc44d844ca9619fb</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-06-17 07:38:01</sys_created_on>
+            <sys_id>da02826ddbb43058bc44d844ca9619fc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-06-17 07:38:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>x_snc_datasilos_created</element>
+            <list_id display_value="sys_db_view_table_field" element="NULL" name="sys_db_view_table_field" parent="NULL" relationship="NULL" sys_domain="global" view="268b1d0adb849090ba15a35305961902">9a02826ddbb43058bc44d844ca9619fb</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-06-17 07:38:01</sys_created_on>
+            <sys_id>5e02826ddbb43058bc44d844ca9619fc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-06-17 07:38:01</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sys_db_view_table_field</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-06-17 07:38:01</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9a02826ddbb43058bc44d844ca9619fb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_db_view_table_field</sys_name>
+            <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+            <sys_update_name>sys_ui_list_sys_db_view_table_field_datasilos</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-06-17 07:38:01</sys_updated_on>
+            <sys_user/>
+            <view display_value="DataSilos" name="datasilos">268b1d0adb849090ba15a35305961902</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

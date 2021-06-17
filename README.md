@@ -30,5 +30,6 @@ If you find yourself unable to import your repository due to the presence of fil
    * Text Index
    * Incident
    * Service Management Basics
+   * System (apps/system1)
    * Service Catalog Platform
    * Problem Management

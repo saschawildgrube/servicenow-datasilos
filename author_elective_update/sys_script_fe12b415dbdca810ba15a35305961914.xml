@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>true</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>change_task</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>DataSilos - change_task</name>
+        <order>10000</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteBusinessRule(current, previous);
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-04 14:27:47</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fe12b415dbdca810ba15a35305961914</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>DataSilos - change_task</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_fe12b415dbdca810ba15a35305961914</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-24 15:30:43</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=fe12b415dbdca810ba15a35305961914"/>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>1dbfa963dbe708548aea21c405961993</instance_id>
+        <instance_name>empswildgrube3</instance_name>
+        <name>sys_script_fe12b415dbdca810ba15a35305961914</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;
+    &lt;sys_script action="INSERT_OR_UPDATE"&gt;
+        &lt;abort_action&gt;false&lt;/abort_action&gt;
+        &lt;access&gt;package_private&lt;/access&gt;
+        &lt;action_delete&gt;false&lt;/action_delete&gt;
+        &lt;action_insert&gt;true&lt;/action_insert&gt;
+        &lt;action_query&gt;true&lt;/action_query&gt;
+        &lt;action_update&gt;true&lt;/action_update&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;add_message&gt;false&lt;/add_message&gt;
+        &lt;advanced&gt;true&lt;/advanced&gt;
+        &lt;change_fields&gt;false&lt;/change_fields&gt;
+        &lt;client_callable&gt;false&lt;/client_callable&gt;
+        &lt;collection&gt;change_task&lt;/collection&gt;
+        &lt;condition/&gt;
+        &lt;description/&gt;
+        &lt;execute_function&gt;false&lt;/execute_function&gt;
+        &lt;filter_condition/&gt;
+        &lt;is_rest&gt;false&lt;/is_rest&gt;
+        &lt;message/&gt;
+        &lt;name&gt;DataSilos - change_task&lt;/name&gt;
+        &lt;order&gt;10000&lt;/order&gt;
+        &lt;priority&gt;100&lt;/priority&gt;
+        &lt;rest_method/&gt;
+        &lt;rest_method_text/&gt;
+        &lt;rest_service/&gt;
+        &lt;rest_service_text/&gt;
+        &lt;rest_variables/&gt;
+        &lt;role_conditions/&gt;
+        &lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+	x_snc_datasilos.ExecuteBusinessRule(current, previous);
+})(current, previous);]]&gt;&lt;/script&gt;
+        &lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2020-11-04 14:27:47&lt;/sys_created_on&gt;
+        &lt;sys_domain&gt;global&lt;/sys_domain&gt;
+        &lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;
+        &lt;sys_id&gt;fe12b415dbdca810ba15a35305961914&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;DataSilos - change_task&lt;/sys_name&gt;
+        &lt;sys_overrides/&gt;
+        &lt;sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="DataSilos WORK IN PROGRESS"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_script_fe12b415dbdca810ba15a35305961914&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2021-03-24 15:30:43&lt;/sys_updated_on&gt;
+        &lt;template/&gt;
+        &lt;when&gt;before&lt;/when&gt;
+    &lt;/sys_script&gt;
+    &lt;sys_translated_text action="delete_multiple" query="documentkey=fe12b415dbdca810ba15a35305961914"/&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>1824919575</payload_hash>
+        <record_name>DataSilos - change_task</record_name>
+        <reverted_from/>
+        <source>35e67df5dbffec50bc44d844ca961905</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-04-29 08:38:56</sys_created_on>
+        <sys_id>f81a71f5db732090bc44d844ca961942</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1791cc7f4c10000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-04-29 08:38:56</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>381a71f51473209039d50ec285580e42</update_guid>
+        <update_guid_history>381a71f51473209039d50ec285580e42:0,e5a97d35b2732090782f256bbcb8fc4f:-2104644906,bdf2f071bdef20906ff59934f9781ad7:0,5382b0fd58af209077dc25e97ccae563:1960981165,8b2f583d3aabec50f131a09fe964a04f:0,48ce54b9a2abec50c6c22d7baeb8ec58:-1243931754,a96a38b51e8b20106702e0461652b010:0,4cf97435528b20107bf7cb8b7e463ecb:-443786771,6cf614319ec7201021962e7bce634fa4:0,867690bd49872010302d25b71c2d1d09:-443786771,7defc4798d472010c20f3c60dbee0ea6:0,2e6fc0f54547201038a0472fae813922:-1243931754,e0bd37b16baa24102bebf79b692340fe:0,7e4df3318baa241094418a5333eff2c5:-443786771,a1ce6bb1d32a2410b53a868f19c75d90:0,ae5e6b31952a241023b3b39c223d0715:-1243931754,7bae6b6aad39e4508d6323feced0f4e2:0,d73eafe64f39e4509c714940d11d0b50:-443786771,43eadb2eb8b5e4506e5f338192c9302f:0,0d7a5faae5b5e450588d3f63514a44fa:-1243931754,3626a6ac8af82410b6089674bcdc8d0c:0,58b56a2caaf824102909306b4f7b5462:-443786771,857e0ad810702410155db0f5c76eed62:0,220e8a585470241047b74a4c0318f83a:-1243931754,a66c870d67a060107cfedf69da91ddbf:0,4e9b8789cda06010d81f97fd19b92be2:-443786771,fc914781856060105a62480adeb8101d:0,d4c00701a360601086e9c113c71a19f5:-443786771,a1243307ba182810fd6519fafca361be:0,e2a3f383ca182810a6c3c77d9b593f9c:-443786771,278634d5c95c2410f417fa4f80fe464a:910231383</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-06-17 08:58:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>281cbee9bc384e76aff36d0ca1a82104</sys_id>
+        <sys_metadata>fe12b415dbdca810ba15a35305961914</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - change_task</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent display_value="Change Task">1b24b1ebdbc310103c6c09c2ba961907</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_script_fe12b415dbdca810ba15a35305961914</sys_update_name>
+        <sys_update_version display_value="sys_script_fe12b415dbdca810ba15a35305961914">f81a71f5db732090bc44d844ca961942</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-06-17 08:58:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
