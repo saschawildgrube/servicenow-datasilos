@@ -2,12 +2,12 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.DatabaseViewsMaintenance</api_name>
+        <api_name>x_snc_datasilos.MaintenanceDatabaseViews</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Prepares and adapts the configuration of existing database views on tables in scope.</description>
-        <name>DatabaseViewsMaintenance</name>
-        <script><![CDATA[function DatabaseViewsMaintenance()
+        <name>MaintenanceDatabaseViews</name>
+        <script><![CDATA[function MaintenanceDatabaseViews()
 {
 	var GetRecord = x_snc_devtools.GetRecord;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
@@ -38,10 +38,10 @@
 			{
 				var strDbViewName = GetStringValue(grDbView.name);
 				
-				Debug('DatabaseViewsMaintenance: '+strDbViewName);
+				Debug('MaintenanceDatabaseViews: '+strDbViewName);
 				
 				var grBR = new GlideRecord('sys_script');
-				Debug('DatabaseViewsMaintenance: '+RenderValue(grBR));
+				Debug('MaintenanceDatabaseViews: '+RenderValue(grBR));
 				
 				
 				grBR.addQuery('name','=','DataSilos - '+strDbViewName+'');
@@ -136,13 +136,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-18 12:45:13</sys_created_on>
         <sys_id>fc9620ccdb143490bc44d844ca9619d6</sys_id>
-        <sys_mod_count>15</sys_mod_count>
-        <sys_name>DatabaseViewsMaintenance</sys_name>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>MaintenanceDatabaseViews</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_fc9620ccdb143490bc44d844ca9619d6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-15 15:18:14</sys_updated_on>
+        <sys_updated_on>2021-06-17 07:26:25</sys_updated_on>
     </sys_script_include>
 </record_update>
