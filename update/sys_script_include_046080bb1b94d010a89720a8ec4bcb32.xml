@@ -5,7 +5,7 @@
         <api_name>x_snc_datasilos.PrepareQuery</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>The PrepareQuery function is the heart of the DataSilos application. It takes a GlideRecord object and adds all filter criteria that apply to the current user when trying to access records in the given table. It is used by all entry point functions. However it does not check for the roles of the current user - which means it can also be used to check if a record would be visible to a user even if the user has the sentinel or admin role.</description>
+        <description>The PrepareQuery function is the heart of the DataSilos application. It takes a GlideRecord object and adds all filter criteria that apply to the current user when trying to access records in the given table. It is used by all entry point functions. However, it does not check for the roles of the current user - which means it can also be used to check if a record would be visible to a user even if the user has the sentinel or admin role.</description>
         <name>PrepareQuery</name>
         <script><![CDATA[function PrepareQuery(record, strTable, strPrefix, strUserSysId)
 {
@@ -54,13 +54,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-27 09:04:40</sys_created_on>
         <sys_id>046080bb1b94d010a89720a8ec4bcb32</sys_id>
-        <sys_mod_count>51</sys_mod_count>
+        <sys_mod_count>52</sys_mod_count>
         <sys_name>PrepareQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_046080bb1b94d010a89720a8ec4bcb32</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-16 10:01:46</sys_updated_on>
+        <sys_updated_on>2021-06-21 09:43:25</sys_updated_on>
     </sys_script_include>
 </record_update>

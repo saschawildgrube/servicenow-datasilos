@@ -5,7 +5,7 @@
         <api_name>x_snc_datasilos.ExecuteBusinessRule</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>This functions serves as the main entry point to the DataSilos application and should be called from the script block of a business rule which responds to insert, update and query operations.</description>
+        <description>This function serves as the main entry point to the DataSilos application and should be called from the script block of a business rule which responds to insert, update and query operations.</description>
         <name>ExecuteBusinessRule</name>
         <script><![CDATA[function ExecuteBusinessRule(current, previous)
 {
@@ -161,13 +161,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>132</sys_mod_count>
+        <sys_mod_count>133</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-05-17 17:55:24</sys_updated_on>
+        <sys_updated_on>2021-06-21 09:30:18</sys_updated_on>
     </sys_script_include>
 </record_update>

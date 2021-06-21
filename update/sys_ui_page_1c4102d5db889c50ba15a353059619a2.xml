@@ -15,9 +15,9 @@
 	]</g2:no_escape>	
 
 	<p>Welcome to DataSilos - created and maintained by&#160;<a href="mailto:sascha.wildgrube@servicenow.com">Sascha Wildgrube</a>.</p>
-	<p>The DataSilos application helps to separate data between different organisational units - so called&#160;<b>data silos</b>.</p>
+	<p>The DataSilos application helps to separate data between different organizational units - so called&#160;<b>data silos</b>.</p>
 	<p>In contrast to domain separation DataSilos allows the exchange of data (in form of individual records) between data silos and makes them visible to users on a need-to-know basis.</p>
-	<p>In addition to the organizational dimension, access to records can also be controlled based on security clearance levels. Each record and user has a security clearance level. A user can only access a record if their security clearance level is equal or higher than the record's security clearance level.</p>
+	<p>In addition to the organizational dimension, access to records can also be controlled based on security clearance levels. Each record and each user has a security clearance level. A user can only access a record if their security clearance level is equal or higher than the record's security clearance level.</p>
 	
 	<h2>Disclaimer</h2>
 	<g2:no_escape>$[docapi.RenderDisclaimer()]</g2:no_escape>
@@ -25,7 +25,7 @@
 	<h2>Use DataSilos if</h2>
 	<ul>
 		<li>Domain Separation is too strict</li>
-		<li>Domain Separation is already implemented for a different purpose and more detailed visibilty rules must be enforced WITHIN a domain</li> 
+		<li>Domain Separation is already implemented for a different purpose and more detailed visibility rules must be enforced WITHIN a domain</li> 
 		<li>There is a certain level of collaboration taking place between organizational units</li>
 		<li>Visibility of individual records can be defined by a user's assignment to groups</li>
 	</ul>
@@ -49,19 +49,19 @@
 	<p>In the organizational dimension user access to records is controlled on the basis of a user's group memberships and whether the user is directly associated to a record (e.g. because the user created the record).</p>  
 	<p>Users are members of groups. Groups can be associated to data silos by a silo manager. Each association between a group and a data silo has a type. Whether an individual user can see a record of a supported process depends on the type of their group's association with a silo.</p>
 	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group.</p>
-	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been initialily assigned to groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result fulfillers have an overview of all work that originates from the same silo. However fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
-	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have ever been assigned to any group of the same silo. As a result supervisors have an overview of all work originating and/or that is conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
+	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been initially assigned to groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result, fulfillers have an overview of all work that originates from the same silo. However, fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
+	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have ever been assigned to any group of the same silo. As a result, supervisors have an overview of all work originating and/or that is conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
 
 	<h3>Security clearance dimension</h3>
-	<p>Access to records can also be controlled on the basis of individual user security clearance levels. The security clearance level is a numeric value. All users and all records have level 0 by default. If a record is set to a higher level it can only be seen by users who have an equal or higher security clearance level.</p>
-	<p>DataSilos does not actively set the security clearance level when records or users are created. This should be done by a customer specific customization. But whenever two records are linked (like an incident task being associated to an incident) the highest security clearance level requirement of all related record is inherited. As a result all related records will then have the highest security clearance level requirement of all related records.</p>
-	<p>Security clearance based filtering and the organizational dimension are combined. If one of the two denies access, no access is granted. This may result in records not being visible even to the user who created it.</p>
+	<p>Access to records can also be controlled based on individual user security clearance levels. The security clearance level is a numeric value. All users and all records have level 0 by default. If a record is set to a higher level, it can only be seen by users who have an equal or higher security clearance level.</p>
+	<p>DataSilos does not actively set the security clearance level when records or users are created. This should be done by a customer specific customization. But whenever two records are linked (like an incident task being associated to an incident) the highest security clearance level requirement of all related record is inherited. As a result, all related records will then have the highest security clearance level requirement of all related records.</p>
+	<p>Security clearance-based filtering and the organizational dimension are combined. If one of the two denies access, no access is granted. This may result in records not being visible even to the user who created it.</p>
 	
 	<h2>Why DataSilos is probably the better solution</h2>
 	<p>Many solutions have been built over time by ServiceNow customers and ServiceNow consultants. Some of them at some point in time ran into either performance or maintenance issues. Here is why DataSilos is likely superior to many comparable solutions in the past:</p>
 	<ol>
 		<li>Many existing solutions reflected the complexity of the rules directly in the modified query with severe impact on performance. DataSilos separates the complexity of access control rules from the actual query. The rules are applied when records change, not when they are queried by the user.</li>
-		<li>With an increasing amount of records in a table, queries take longer - that can't be avoided. DataSilos always uses the same query pattern which remains unchanged even if the access rules change. As a result indices and query hints can be applied on database level to improve performance.</li>
+		<li>With an increasing number of records in a table, queries take longer - that can't be avoided. DataSilos always uses the same query pattern which remains unchanged even if the access rules change. As a result, indices and query hints can be applied on database level to improve performance.</li>
 		<li>DataSilos also covers corner cases when field values from records are included in a request to another table (dot walking) or when records are presented to ACLs incompletely. DataSilos considers these cases.</li>
 		<li>DataSilos also protects database views which contain tables that should be filtered. Most existing solutions did not cover that aspect and eventually left records unprotected when database views were in use.</li>
 		<li>Business rules and ACLs must be used in combination to cover all scenarios. Many solutions miss one of the two.</li>
@@ -90,8 +90,8 @@
 		
 		<!-- BASE DATA QUALITY -->
 		<li>Does the existing group structure support the later silo configuration? Are groups missing? Are there duplicates?</li>
-		<li>Are users are assigned to multiple groups? Will that result in expected and intended behaviour?</li>
-		<li>Are there users without any assignment groups? Such users might loose access that they currently have.</li>
+		<li>Are users are assigned to multiple groups? Will that result in expected and intended behavior?</li>
+		<li>Are there users without any assignment groups? Such users might lose access that they currently have.</li>
 		
 		<!-- OPS -->
 		<li>Who is responsible to define the data silos and can provide a mapping to groups? In large organizations this might be a challenging task - especially if there are multiple systems of record from which organization data is retrieved and imported into the ServiceNow instance.</li>
@@ -106,7 +106,7 @@
 		<li>Are there any before/query business rules that serve comparable purposes? Should they be replaced?</li>
 		<li>Are there any customized ACLs in place?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
-		<li>How many records exist in the affected tables? If its more than a million, expect a performance impact and validate carefully!</li>
+		<li>How many records exist in the affected tables? If there are more than a million, expect a performance impact and validate carefully!</li>
 		<li>Which database views exist that contain tables which are in scope? Should data segregation be applied?</li>
 		
 		<!-- REPORTING AND PA -->
@@ -134,7 +134,7 @@
 		<li>As the platform owner I want ServiceNow developers from my organization to be trained to maintain and support the solution.</li>
 		<li>As the platform owner I want to ensure that future changes do not break the data segregation logic (e.g. by adding additional ACLs that bypass filtering).</li>
 		<li>As the platform owner I want to reduce customizations. When upgrading to future releases we need checks if DataSilos can be replaced by OOTB features.</li>
-		<li>As the platform owner I want to ensure that users have access from day one. This requires to initialize all records before go-live.</li>
+		<li>As the platform owner I want to ensure that users have access from day one. This requires initializing all records before go-live.</li>
 		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone. Maintenance jobs should always run.</li>
 		<li>As the platform owner I want to ensure that scheduled jobs are run using a technical user of my choice.</li>
 		<li>As the platform owner I want to ensure maintenance job performance. Database indices for the last_maintenance fields should be added to all tables.</li>
@@ -147,13 +147,13 @@
 		<li>As the platform owner I want to ensure stability by running all related ATF tests as part of the development and deployment process.</li>
 		<li>As the platform owner I want to ensure stability and consider running all related ATF tests to monitor production.</li>
 		<li>As the platform owner I want to ensure that existing integrations continue to work as expected.</li>
-		<li>As the QA manager I need existing tests (both manual and automated) are updated to reflect the new expected behaviour.</li>
+		<li>As the QA manager I need existing tests (both manual and automated) are updated to reflect the new expected behavior.</li>
 		<li>As the QA manager I need new (manual and/or automated) tests to verify the new access restrictions work as expected.</li>
 		<li>As an operations user I want to be informed and trained properly so that I can operate the solution going forward.</li>
 		<li>As an operations user I need documented incident models and operational procedures to deal with issues being raised during operations.</li>
 		<li>As an operations user I need a process in place to manage user accounts that considers the new roles and eventually the need for new group memberships.</li>
 		<li>As an operations user I need a process in place to manage groups and their association to silos on a day-to-day basis.</li>
-		<li>As a user I need access to records even if I havn't been part of any group in the past.</li>
+		<li>As a user I need access to records even if I have not been part of any group in the past.</li>
 		<li>As a user I want to be informed about the introduction of data segregation and to know what that means to me and my work.</li>
 		<li>As the incident manager I want to make specific incidents (e.g. major incidents or incidents with the highest priority) visible to everyone in the organization.</li>
 		<li>As the one responsible for reporting and performance analytics I want to make sure that reports and dashboards work as expected.</li>
@@ -161,13 +161,13 @@
 	<h3>Preparing validation</h3>
 	<p>The following spects should be considered for testing and validation:</p>
 	<ol>
-		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on how many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behaviour in an production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
+		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on how many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behavior in a production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
 		<li>It is recommended to identify pages and views that are most frequently used by users - both for automated and manual user acceptance testing.</li> 
 		<li>Functional test cases should proof that specific records are visible to specific user groups AND that other records are explicitly NOT visible to other user groups.</li>
 		<li>Functional test cases should cover scenarios in which records are passed from one silo to another.</li>
 		<li>Functional and performance tests for dashboards.</li>
 		<li>Functional tests on existing reports and Performance Analytics based dashboards.</li> 
-		<li>Any existing test cases (that relate to the supported tables) should be executed as part of the QA. Behaviour that was expected in the past may no longer be working with active filtering. In some cases the silo configuration might have to be reviewed, in other cases, the test cases might have to be updated.</li>
+		<li>Any existing test cases (that relate to the supported tables) should be executed as part of the QA. Behavior that was expected in the past may no longer be working with active filtering. In some cases, the silo configuration might have to be reviewed, in other cases, the test cases might have to be updated.</li>
 		<li>It is strongly recommended to use specific test users and test groups for functional testing. Do not reuse users or groups from other tests!</li>
 	</ol>
 	<h3>Installation</h3>
@@ -184,10 +184,10 @@
 				'https://github.com/saschawildgrube/servicenow-datasilos');
 		]</g2:no_escape>
 		<li>Elevate roles to security_admin</li>
-		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incient.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
+		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incident.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Switch to global scope</li>
 		<li>Create a new update set in the global scope to capture all changes related to the DataSilos installation. In case some of the ACLs reside in different scopes, you might have to create additional update sets for these scopes to capture all changes.</li>
-		<li>For each of the following tables peform the steps listed below:</li>
+		<li>For each of the following tables perform the steps listed below:</li>
 		<pre>
 incident
 incident_task
@@ -220,15 +220,15 @@ answer = bAnswer;
 </pre>
 			</li>
 			<li>
-			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues it is recommended to set the "answer" value only once at the end of the script.</li>
+			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
 		</ol>
-		<li>In case the default "System Admininstrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
+		<li>In case the default "System Administrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
-		<li>If possible activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
+		<li>If possible, activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
 		<ul>
 			<li>If tests fail directly on the first step it means that DataSilos (or the specific table) has not been configured to be active.</li>
 			<li>Tests may fail because the scoped app "DevTools" has not been installed or not properly set up. Have all relevant tables been configured to allow cross-scope access from all scopes? Check out the DevTools installation guide for more details.</li>
-			<li>In rare occations the ATF engine fails to remove test data that has been created during a test. This may result in test data being left over in several tables. The test "Test data sanity" can help to find such records. These records must be deleted manually.</li>
+			<li>In rare occasions the ATF engine fails to remove test data that has been created during a test. This may result in test data being left over in several tables. The test "Test data sanity" can help to find such records. These records must be deleted manually.</li>
 			<li>Tests may fail because test data records cannot be created. One reason are customized fields which are configured to be required when creating a record. To resolve this, you can create business rules that populate these fields when new records are created. You may want to check if the name or short description starts with "_ATF_DATASILOS_" to determine records that are created during DataSilos specific tests.</li>
 			<li>Tests may also fail to to restrictions that result from other before query business rules. Try deactivating them to see what happens. Maybe additional configuration on users, groups or roles are needed.</li>
 			<li>Also consider restrictions resulting from Domain Separation. DataSilos can be used in combination with Domain Separation - however make sure that test data records are all created in the same domain.</li>
@@ -242,7 +242,7 @@ answer = bAnswer;
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
 		<li>Go to "Options" and configure the tables. Which tables should be affected by filtering? Which fields should be considered for instant access and whitelisting?</li>
-		<li>Go to "Options" and choose if the maintenance jobs should be active or not. As a general rule of thumb it's always a good idea to let them run UNLESS they cause a performance degradation. If there are already records in the tables in scope, the maintenance jobs need to run and process every record at least once to make sure all records are initialized (and hence visible). After initial processing of all existing records, the business rules on the affected tables should ensure that all records are visible to eligible users, however sometimes unexpected situations occur - like an import of data from an expernal system without triggering business rules etc. The maintenance jobs make sure that such events don't leave records invisible to users.</li>
+		<li>Go to "Options" and choose if the maintenance jobs should be active or not. As a general rule of thumb, it's always a good idea to let them run UNLESS they cause a performance degradation. If there are already records in the tables in scope, the maintenance jobs need to run and process every record at least once to make sure all records are initialized (and hence visible). After initial processing of all existing records, the business rules on the affected tables should ensure that all records are visible to eligible users, however sometimes unexpected situations occur - like an import of data from an external system without triggering business rules etc. The maintenance jobs make sure that such events don't leave records invisible to users.</li>
 		<li>Go to the "Status" page to verify the configuration settings.</li>
 	</ol>
 	<h3>Activation</h3>
@@ -274,7 +274,7 @@ answer = bAnswer;
 	<g2:no_escape>$[docapi.RenderProperties()]</g2:no_escape>
 	
 	<h2>Column fields</h2>
-	<p>Each supported table is equipped with a number of new column fields:</p>
+	<p>Each supported table is equipped with several new column fields:</p>
 	<ul>
 		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
 		<li><b>x_snc_datasilos_supervisor_whitelist</b>&#160;The supervisor whitelist field stores a list of data silos. The users in the supervisor groups within the data silos will be able to access the record.</li>
@@ -290,9 +290,9 @@ answer = bAnswer;
 	<h3>What happens if a record is not associated to any group?</h3>
 	<p>Only users who created that record or have the admin role will see this record.</p>
 	<h3>How does it actually work?</h3>
-	<p>DataSilos modifies all queries sent to the database of the tables in scope. Once the data comes back, the same filter logic is applied in ACLs. DataSilos adds a number of fields to all relevant tables that contain whitelists of groups and silos, the flag for global visibility, the security clearance level requirement and other relevant information. Whenever records are created or changed, these fields are updated according to the configured rules - as long as the ghost flag is not set for the record.</p>
+	<p>DataSilos modifies all queries sent to the database of the tables in scope. Once the data comes back, the same filter logic is applied in ACLs. DataSilos adds several fields to all relevant tables that contain whitelists of groups and silos, the flag for global visibility, the security clearance level requirement and other relevant information. Whenever records are created or changed, these fields are updated according to the configured rules - if the ghost flag is not set for the record.</p>
 	<h3>How do I apply my own visibility rules on records?</h3>
-	<p>DataSilos implements a default behaviour whenever a record is created or updated. Whitelists are extended and the security clearance level requirement is increased if a record is related to another record with a higher security clearance level. Some of that behaviour can be configured using system properties. If you need a completely different behaviour you can create a before business role that is triggered when a record is inserted or updated. In this business rule, set the ghost flag to true and populate the whitelists, security clearance level, and global flag as required. When the ghost flag is set to true, DataSilos will not make any changes to the record.</p>
+	<p>DataSilos implements a default behavior whenever a record is created or updated. Whitelists are extended and the security clearance level requirement is increased if a record is related to another record with a higher security clearance level. Some of that behavior can be configured using system properties. If you need a completely different behavior you can create a before business role that is triggered when a record is inserted or updated. In this business rule, set the ghost flag to true and populate the whitelists, security clearance level, and global flag as required. When the ghost flag is set to true, DataSilos will not make any changes to the record.</p>
 
 	
 	
@@ -302,12 +302,12 @@ answer = bAnswer;
 	<h5>Symptoms</h5>
 	<ul>
 		<li>The instance is completely unavailable.</li>
-		<li>Some requests take exetremely long to be answered.</li>
+		<li>Some requests take extremely long to be answered.</li>
 		<li>Large amount of expensive database queries.</li>
 	</ul>
 	<h5>Procedure</h5>
 	<ol>
-		<li>Independently of whether DataSilos is the root cause, deactivating DataSilos completely may be considered as an emergency option. This should be aligned with stakeholders as this will (temporarily) expose the organisation to legal or compliance risks.</li>
+		<li>Independently of whether DataSilos is the root cause, deactivating DataSilos completely may be considered as an emergency option. This should be aligned with stakeholders as this will (temporarily) expose the organization to legal or compliance risks.</li>
 		<li>Deactivate DataSilos by setting the&#160;<a href="/sys_properties.do?sys_id=c7949581db805c50ba15a353059619da" target="_blank">x_snc_datasilos.active</a>&#160;property to "false".</li>
 	</ol>
 	<h4>Technical integration does not longer work as expected</h4>
@@ -320,7 +320,7 @@ answer = bAnswer;
 	<ol>
 		<li>Identify the technical user(s) which are used as part of the integration.</li>
 		<li>Check if the technical user has the required access.</li>
-		<li>If not done already, consider to assign the x_snc_datasilos.sentinel role to such technical users. Keep in mind that this may provide access to the technical user which may not be intended. However this may be a temporary workaround.</li>
+		<li>If not done already, consider to assign the x_snc_datasilos.sentinel role to such technical users. Keep in mind that this may provide access to the technical user which may not be intended. However, this may be a temporary workaround.</li>
 	</ol>
 	<h4>Individual users complain about not being able to see specific records</h4>
 	<h5>Symptoms</h5>
@@ -338,9 +338,9 @@ answer = bAnswer;
 		<li>Check if the user is referenced in one of the user fields (e.g. caller, opened_by). Consider the specific configuration for the table as such fields may differ depending on table and configuration.</li>
 		<li>Identify the groups of that user.</li>
 		<li>Identify the silos that are associated with the user's group(s).</li>
-		<li>Check the supervisor and group whitelist to see if the user's groups and associated silos match. Keep in mind that a user's group must be a "supervisor" group in a silo so that a user get's access via the silo whitelist.</li>
+		<li>Check the supervisor and group whitelist to see if the user's groups and associated silos match. Keep in mind that a user's group must be a "supervisor" group in a silo so that a user gets access via the silo whitelist.</li>
 		<li>If the whitelisted silos or groups do not match expectations, the logic that populate the whitelists should be reviewed. Note that if a DataSilos extension sets the ghost field to true for a record, the default DataSilos whitelist population will not be applied.</li>
-		<li>If at least one of the filtering factors (user reference fields, group whitelist, supervisor whitelist, global visibility) in combination withthe security clearance level should allow the user to see the record, but the user cannot access the record, then it is very likely that other (non-DataSilos) related business rules or ACLs block the access to that record.</li>
+		<li>If at least one of the filtering factors (user reference fields, group whitelist, supervisor whitelist, global visibility) in combination with the security clearance level should allow the user to see the record, but the user cannot access the record, then it is very likely that other (non-DataSilos) related business rules or ACLs block the access to that record.</li>
 	</ol>
 		
 	
@@ -355,18 +355,18 @@ answer = bAnswer;
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
 	<h3>DataSilos API reference</h3>
-	<p>The following functions can be used to extend and modify out of the box behaviour without making any changes to the core implementation. This allows for extentions which are compatible to future versions.</p> 
+	<p>The following functions can be used to extend and modify out of the box behavior without making any changes to the core implementation. This allows for extensions which are compatible to future versions.</p> 
 	<p>
 	<g2:no_escape>$[docapi.RenderScriptIncludes()]</g2:no_escape>
 	</p>
 	
 	<h3>Extension of scope</h3> 
-	<p>Extending the scope of the DataSilos application essentially means to add the filtering logic to more tables. This may have impact on the applications, views, reports and other components that make use of these tables. So before actually extending the scope of DataSilos consider the following steps:</p>
+	<p>Extending the scope of the DataSilos application essentially means to add the filtering logic to more tables. This may have impact on the applications, views, reports, and other components that make use of these tables. So before actually extending the scope of DataSilos consider the following steps:</p>
 	<ol>
 		<li>Verify if there is a more recent version of DataSilos is available that may already cover the new requirements.</li>
-		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Maybe development work can be synchronized or knowledge can be shared. It is also possible that some of the analysis work has already been done.</li>
+		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Maybe development work can be synchronized, or knowledge can be shared. It is also possible that some of the analysis work has already been done.</li>
 		<li>Identify the specific data that requires protection.</li>
-		<li>Map out where the data is coming from: manual input from unsers, integrations?</li>
+		<li>Map out where the data is coming from: manual input from users or integrations?</li>
 		<li>Identify the rules to be used to control access.</li>
 	</ol>
 	<p>After a decision has been made to extend scope of the DataSilos application perform the following steps:</p>
@@ -463,7 +463,7 @@ x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group
 </pre>
 
 		
-		<li>New business rules need to be added for each table. These business rules are "before query" business rules that will affect out-of-scope tables. In order to make that change, the following client scripts and the following business rule must be deactivated:
+		<li>New business rules need to be added for each table. These business rules are "before query" business rules that will affect out-of-scope tables. To make that change, the following client scripts and the following business rule must be deactivated:
 			<ol>
 				<li><a href="/nav_to.do?uri=sys_script_client.do?sys_id=3c5ffd7ac3302200f7d1ca3adfba8f22" target="_blank">Client Script: "No query for out-of-scope tables" (onChange)</a></li>
 				<li><a href="/nav_to.do?uri=sys_script_client.do?sys_id=5d19f53ac3302200f7d1ca3adfba8f36" target="_blank">Client Script: "No query for out-of-scope tables" (onLoad)</a></li>
@@ -569,7 +569,7 @@ DataSilos - incident_task - cross-silo
 		<li>Using DevTools' GetGroupsFromUser() as the group filter is now part of DevTools.</li> 
 		<li>GetGroupsFromUser() is now public so that it can be used by other scoped apps.</li>
 		<li>Improved the code in the maintenance jobs and extended the test step configuration "DataSilos - Check table implementation" to enforce the change in future implementations.</li>
-		<li>Extended runbook section in the documentation with a number of incident models.</li>
+		<li>Extended runbook section in the documentation with several incident models.</li>
 		<li>Added more stories to the documentation.</li>
 	</ol>
 
@@ -583,7 +583,7 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>Madrid is no longer supported.</li>
 		<li>DevTools version 1.12.2 or higher is required.</li>
-		<li>Due to a potential platform defect a number of removed ACLs might still be present after an update to DataSilos 2.5.0. This will cause the "DataSilos - Implementation" test to fail. Run the following script in GLOBAL scope to remove the useless ACLs:
+		<li>Due to a potential platform defect, some removed ACLs might still be present after an update to DataSilos 2.5.0. This will cause the "DataSilos - Implementation" test to fail. Run the following script in GLOBAL scope to remove the useless ACLs:
 			<pre>
 var grSSA = new GlideRecord('sys_security_acl');
 grSSA.addQuery('sys_scope','=','dafbffebdbb78450ba15a353059619eb');
@@ -656,7 +656,7 @@ while (grSSA.next())
 		<li>DevTools version 1.5.0 or higher is required.</li>
 		<li>The Maintenance() function now supports a callback function to enable customized behavior when processing records.</li>
 		<li>The Maintenance() function now supports to select a "window" of records to be processed to support multiple instances of scheduled jobs to run in parallel.</li>
-		<li>The Maintenance() function no longer calls the RecordUpdate() function for records that have the ghost flag set to true. However if a callback function is provided, the function is always called. Which means the callback function is responsible to check the ghost flag if needed.</li>
+		<li>The Maintenance() function no longer calls the RecordUpdate() function for records that have the ghost flag set to true. However, if a callback function is provided, the function is always called. Which means the callback function is responsible to check the ghost flag if needed.</li>
 		<li>Improved log output of the Maintenance() function.</li>
 		<li>Extended installation guide on how to troubleshoot failing tests.</li>
 		<li>App sanity: All system properties have is_private set to false.</li>
@@ -672,17 +672,17 @@ while (grSSA.next())
 	<h3>2.0.0 - 2020-11-11</h3>
 	<ol>
 		<li>WARNING: The property x_snc_datasilos.incident.whitelist_trigger_fields has essentially be renamed to x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group! Make sure to redo the configuration during upgrade!</li>
-		<li>WARNING: The property x_snc_datasilos.active now controls the filter ONLY. It will no longer halt the population of the whitelists. As a result it can now be more effectively used as an ON/OFF switch while preparing a go-live or during trouble shooting - without any negative impact on the whitelists of records that are changed in the meantime.</li>
+		<li>WARNING: The property x_snc_datasilos.active now controls the filter ONLY. It will no longer halt the population of the whitelists. As a result, it can now be more effectively used as an ON/OFF switch while preparing a go-live or during trouble shooting - without any negative impact on the whitelists of records that are changed in the meantime.</li>
 		<li>WARNING: It is now required to configure ACLs not only for&#160;<b>table_name.*</b>,&#160;but also for&#160;<b>table_name</b>,&#160;. Updated the "ACLs" module and tests accordingly.</li>
 		<li>WARNING: The business rules are now part of the scoped application. Any existing "DataSilos" business rules in the global scope should be removed!</li>
 		<li>DevTools version 1.3.0 or higher is required.</li>
-		<li>Introduced the supervisor datasilo whitelist field to enable silo based whitelists for supervisors.</li>
+		<li>Introduced the supervisor datasilo whitelist field to enable silo-based whitelists for supervisors.</li>
 		<li>Introduced the global visibility flag for all tables.</li>
 		<li>Introduced the ghost flag for all tables. If set to true whitelists are not updated when a record is changed.</li>
 		<li>Introduced configurable group filter. An encoded query can now be configured to control which groups should be considered for whitelist population.</li>
 		<li>Introduced the option to avoid expensive queries. When the system property x_snc_datasilos.tables.<b>table_name</b>.avoid_expensive_queries is set to true, queries that do not contain a filter for active records are not altered. This results in users seeing a message that some records have been filtered from the result set and eventually empty result pages.</li>
 		<li>The test "DataSilos - incident - cross-silo" now impersonates a user of the current assignment group before re-assigning the incident. This change was made to consider strict customer-specific customizations.</li>
-		<li>A number of script includes have been opened up for use from different scopes to enable implementation of customer specific Maintenance() functions and business rules.</li>
+		<li>Several script includes have been opened up for use from different scopes to enable implementation of customer specific Maintenance() functions and business rules.</li>
 		<li>Extended the "Business Rules" module to show all before query business rules for the supported tables.</li> 
 		<li>Optimized ExecuteACL() so that it does not evaluate the access restrictions for a single record multiple times.</li>
 		<li>Introduced the use of customized test step configurations.</li>
@@ -701,7 +701,7 @@ while (grSSA.next())
 	</ol>
 	<h3>1.3.0 - 2020-07-16</h3>
 	<ol>
-		<li>Introduced the configurable whitelist_trigger_field option. By setting the table specific option (e.g. x_snc_datasilos.incident.whitelist_trigger_field) the fields that should be used to populate the whitelist can be explicitly configured. If the option is empty the default for each table based on the task table is the assignment_group field. However any other field that contains a reference to a group can be used. Dot-walking is NOT yet supported, though.</li> 
+		<li>Introduced the configurable whitelist_trigger_field option. By setting the table specific option (e.g. x_snc_datasilos.incident.whitelist_trigger_field) the fields that should be used to populate the whitelist can be explicitly configured. If the option is empty the default for each table based on the task table is the assignment_group field. However, any other field that contains a reference to a group can be used. Dot-walking is NOT yet supported, though.</li> 
 		<li>Introduced the maintenance.log_frequency option to control how often the maintenance script should log the current progress.</li>
 		<li>Deactivated the Log module for the time being.</li>
 	</ol>
@@ -721,7 +721,7 @@ while (grSSA.next())
 	<h3>1.2.0 - 2020-07-07</h3>
 	<ol>
 		<li>Added support for Service Catalog Requests.</li>
-		<li>Restructured the installation guide. It is now an implementation guide covering analysis, installation, configuration and the verification phase.</li>
+		<li>Restructured the installation guide. It is now an implementation guide covering analysis, installation, configuration, and the verification phase.</li>
 	</ol>
 	<h3>1.1.3 - 2020-07-06</h3>
 	<ol>
@@ -755,13 +755,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>456</sys_mod_count>
+        <sys_mod_count>473</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-18 11:03:11</sys_updated_on>
+        <sys_updated_on>2021-06-21 10:55:55</sys_updated_on>
     </sys_ui_page>
 </record_update>
