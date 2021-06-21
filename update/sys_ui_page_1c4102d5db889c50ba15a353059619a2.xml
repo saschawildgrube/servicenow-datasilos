@@ -234,6 +234,10 @@ answer = bAnswer;
 			<li>Also consider restrictions resulting from Domain Separation. DataSilos can be used in combination with Domain Separation - however make sure that test data records are all created in the same domain.</li>
 		</ul>
 		<li>Set all update sets to complete.</li>
+		<li>Execute the following background script in the DataSilos scope to trigger queries that may need database level optimization:</li>
+<pre>Log(x_snc_devtools.RenderValue(GetOptimizationStatus()));</pre>
+		<li>If the queries appear to be slow, raise a case with ServiceNow support to implement optimizations on database level.</li> 
+				
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -538,6 +542,7 @@ DataSilos - incident_task - cross-silo
 		<li>The test "DataSilos - incident - database views" now sets all required system properties to run the test.</li>
 		<li>The test step configuration "DataSilos - Check table implementation" no longer checks for the run_as user and if the scheduled job is active.</li>
 		<li>Added experimental function GetOptimizationStatus() to trigger and measure typical queries when modified by DataSilos. This function should help database administrators to apply suitable optimizations (like adding indices and query hints).</li>
+		<li>Added steps in the installation guide for database level optimizations.</li>
 		<li>Added stories to update and create new tests (manual and automated).</li>
 		<li>Added documentation on why DataSilos might be the better solution.</li>
 		<li>AppInstall() can now be executed directly from the application scope and runs MaintenanceDatabaseViews() to prepare database view protection.</li>
@@ -755,13 +760,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>473</sys_mod_count>
+        <sys_mod_count>475</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-21 10:55:55</sys_updated_on>
+        <sys_updated_on>2021-06-21 11:05:56</sys_updated_on>
     </sys_ui_page>
 </record_update>
