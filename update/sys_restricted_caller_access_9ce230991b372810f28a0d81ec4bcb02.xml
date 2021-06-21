@@ -12,14 +12,14 @@
         <sys_id>9ce230991b372810f28a0d81ec4bcb02</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>044532c1db429410ba15a35305961966</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_restricted_caller_access_9ce230991b372810f28a0d81ec4bcb02</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-04-27 14:13:09</sys_updated_on>
         <target name="x_snc_datasilos_datasilos" target_table="sys_db_object">2d9f89a71b48d490a89720a8ec4bcb85</target>
-        <target_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</target_scope>
+        <target_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</target_scope>
         <target_table>sys_db_object</target_table>
         <target_type>1</target_type>
     </sys_restricted_caller_access>
