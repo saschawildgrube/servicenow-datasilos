@@ -71,7 +71,7 @@
 	<h2>System requirements</h2>
 	<ul>
 		<li>Orlando, Paris or Quebec</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.16.0</a></li>
+		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.17.0</a></li>
 	</ul>
 	
 	<h2>Implementation guide</h2>
@@ -533,7 +533,7 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
-	<h3>2.8.0 - TODO</h3>
+	<h3>2.8.0 - 2021-06-21</h3>
 	<ol>
 		<li>Added generic protection of database views including automatic configuration of required business rules and database view table fields.</li>
 		<li>Added system property "database_views.active" to control if database views should be protected or not.</li>
@@ -760,13 +760,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>475</sys_mod_count>
+        <sys_mod_count>477</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-21 11:05:56</sys_updated_on>
+        <sys_updated_on>2021-06-21 13:58:41</sys_updated_on>
     </sys_ui_page>
 </record_update>
