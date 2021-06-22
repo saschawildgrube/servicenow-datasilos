@@ -20,6 +20,7 @@
 	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;
 	var GlideRecordDelete = x_snc_devtools.GlideRecordDelete;
 	var RecordSetValue = x_snc_devtools.RecordSetValue;
+	var GetHash = x_snc_devtools.GetHash;
 
 	function Log(strText)
 	{
@@ -28,7 +29,21 @@
 	function Debug(strText)
 	{
 		//x_snc_datasilos.Debug('MaintenanceDatabaseViews: '+strText);
-	}	
+	}
+	function MakeBusinessRuleName(strDatabaseViewName)
+	{
+		var strPrefix = 'DataSilos - ';
+		strDatabaseViewName = GetStringValue(strDatabaseViewName);
+		var strDatabaseViewNameStripped = strDatabaseViewName;
+		if (strDatabaseViewName.length > (40 - strPrefix.length))
+		{
+			var nHashLength = 4;
+			var strHash = GetHash(strDatabaseViewName);
+			strDatabaseViewNameStripped = strDatabaseViewNameStripped.substr(0, (40 - strPrefix.length - nHashLength));
+			strDatabaseViewNameStripped += strHash.substr(0,nHashLength);
+		}
+		return strPrefix + strDatabaseViewNameStripped;
+	}
 	
 	if (GetBoolValue(GetConfigValue('database_views','active')) == true)
 	{
@@ -53,6 +68,8 @@
 				if (IsValidRecord(grDbView))
 				{
 					var strDbViewName = GetStringValue(grDbView.name);
+					
+					var strBusinessRuleName = MakeBusinessRuleName(strDbViewName);
 
 					//Debug('MaintenanceDatabaseViews: '+strDbViewName);
 
@@ -60,7 +77,7 @@
 					//Debug('MaintenanceDatabaseViews: '+RenderValue(grBR));
 
 
-					grBR.addQuery('name','=','DataSilos - '+strDbViewName+'');
+					grBR.addQuery('name','=',strBusinessRuleName);
 					grBR.addQuery('collection','=',strDbViewName);
 					grBR.addQuery('sys_scope','=','global');
 					grBR.query();
@@ -71,7 +88,7 @@
 						grBR.initialize();
 					}
 					grBR.x_snc_datasilos_created = true;
-					grBR.name = 'DataSilos - '+strDbViewName+'';
+					grBR.name = strBusinessRuleName;
 					grBR.collection = strDbViewName;
 					grBR.sys_scope = 'global';
 					grBR.active = 'true';
@@ -176,13 +193,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-18 12:45:13</sys_created_on>
         <sys_id>fc9620ccdb143490bc44d844ca9619d6</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>MaintenanceDatabaseViews</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_fc9620ccdb143490bc44d844ca9619d6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-17 09:02:30</sys_updated_on>
+        <sys_updated_on>2021-06-22 08:13:41</sys_updated_on>
     </sys_script_include>
 </record_update>
