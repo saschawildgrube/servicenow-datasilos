@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:55:14</sys_created_on>
         <sys_id>37a3b3d8db4474d0bc44d844ca961978</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_37a3b3d8db4474d0bc44d844ca961978</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-23 08:49:59</sys_updated_on>
+        <sys_updated_on>2021-06-23 12:54:08</sys_updated_on>
         <table/>
         <test display_value="DataSilos - incident - database views">dbf133d4db4474d0bc44d844ca96194b</test>
         <timeout/>
@@ -50,9 +50,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:55:14</sys_created_on>
         <sys_id>dab3fbd4db4474d0bc44d844ca961901</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>48</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-23 08:49:59</sys_updated_on>
+        <sys_updated_on>2021-06-23 12:54:08</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -120,6 +120,7 @@ function Log(strText)&#13;
 	AppSetProperty('active','true');&#13;
 	AppSetProperty('tables.incident.active','true');&#13;
 	AppSetProperty('database_views.active','true');&#13;
+	&#13;
 	&#13;
 	Log('2. Create test data');&#13;
 	var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
@@ -207,6 +208,7 @@ function Log(strText)&#13;
 		&#13;
 		var strIncident = testdata.CreateIncident('TEST_'+strTable,'OPENER','CALLER','ALPHA_MEMBER');&#13;
 		Log('\nCreateIncident returned: '+RenderValue(strIncident)+'\n');&#13;
+		Log(RenderValue(testdata.GetAllIncidents()));&#13;
 		&#13;
 		TestCase_RecordQuery(strUserSentinel,strTable,strPrefix,strIncident,true);&#13;
 		TestCase_RecordQuery(strUserSpectator,strTable,strPrefix,strIncident,false);&#13;
@@ -247,8 +249,14 @@ function Log(strText)&#13;
 	Log('4. The actual test');&#13;
 	&#13;
 	TestScenario('Original table','incident','');&#13;
-	TestScenario('OOTB database view without fields','incident_sla','inc_');&#13;
-	TestScenario('Custom database view with multiple tables WITH fields',testdata.GetDatabaseViewName(strDbViewHandleTest1),'inc_');&#13;
+&#13;
+	// The following test rely on timely creation of task_sla records:&#13;
+	// com.snc.sla.engine.async must be false, otherwise the task_sla record will be created later and some of the test cases would fail.&#13;
+	if (gs.getProperty('com.snc.sla.engine.async') == 'false')&#13;
+	{&#13;
+		TestScenario('OOTB database view without fields','incident_sla','inc_');&#13;
+		TestScenario('Custom database view with multiple tables WITH fields',testdata.GetDatabaseViewName(strDbViewHandleTest1),'inc_');&#13;
+	}&#13;
 	TestScenario('Custom database view with a single table WITH fields',testdata.GetDatabaseViewName(strDbViewHandleTest2),'inc_');&#13;
 &#13;
 	&#13;
