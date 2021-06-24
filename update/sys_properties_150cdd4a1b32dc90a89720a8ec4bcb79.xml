@@ -13,9 +13,9 @@
         <sys_id>150cdd4a1b32dc90a89720a8ec4bcb79</sys_id>
         <sys_mod_count>17</sys_mod_count>
         <sys_name>x_snc_datasilos.group_filter</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_150cdd4a1b32dc90a89720a8ec4bcb79</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-05-05 12:16:20</sys_updated_on>
