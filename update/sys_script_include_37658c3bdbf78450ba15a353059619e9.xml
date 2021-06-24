@@ -82,7 +82,16 @@
 						var strPrefix = ''+grDbViewTable.variable_prefix;
 						Debug('Database view: '+strTable+': Found active table: '+strViewTable+': Prefix: '+strPrefix);
 						
-						PrepareQuery(current,strViewTable,strPrefix);
+						var bLeftJoin = GetBoolValue(grDbViewTable.left_join);
+						var bWhereClause = GetBoolValue(GetStringValue(grDbViewTable.where_clause).length);
+						
+						var bAllowEmptySysId = false;
+						if (bLeftJoin && bWhereClause)
+						{
+							bAllowEmptySysId = true;
+						}
+						
+						PrepareQuery(current,strViewTable,strPrefix,false,bAllowEmptySysId);
 						
 						/*var strPrefix = ''+grDbViewTable.variable_prefix;
 
@@ -161,13 +170,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>133</sys_mod_count>
+        <sys_mod_count>135</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-21 09:30:18</sys_updated_on>
+        <sys_updated_on>2021-06-23 17:10:29</sys_updated_on>
     </sys_script_include>
 </record_update>

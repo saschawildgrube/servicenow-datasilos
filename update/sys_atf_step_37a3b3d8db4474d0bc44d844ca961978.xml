@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:55:14</sys_created_on>
         <sys_id>37a3b3d8db4474d0bc44d844ca961978</sys_id>
-        <sys_mod_count>38</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_37a3b3d8db4474d0bc44d844ca961978</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-18 09:55:43</sys_updated_on>
+        <sys_updated_on>2021-06-24 08:30:19</sys_updated_on>
         <table/>
         <test display_value="DataSilos - incident - database views">dbf133d4db4474d0bc44d844ca96194b</test>
         <timeout/>
@@ -50,9 +50,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-07 11:55:14</sys_created_on>
         <sys_id>dab3fbd4db4474d0bc44d844ca961901</sys_id>
-        <sys_mod_count>38</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-18 09:55:43</sys_updated_on>
+        <sys_updated_on>2021-06-24 08:30:20</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -89,16 +89,16 @@ function Log(strText)&#13;
 		var strCurrentUser = UserImpersonate(vInputUser);&#13;
 		&#13;
 		// 2. Query&#13;
-		Log('record get: '+vInputTable+' - '+vInputSysId);&#13;
+		Log('Query record: '+vInputTable+' / '+vInputSysId);&#13;
 		var grRecord = new GlideRecordSecure(vInputTable);&#13;
 		grRecord.addQuery(vInputPrefix+'sys_id','=',vInputSysId);&#13;
 		grRecord.query();&#13;
 		if (grRecord.next())&#13;
 		{&#13;
-			Log('get returned true!');&#13;
+			Log('Record found.');&#13;
 			if (grRecord.canRead() == true)&#13;
 			{&#13;
-				Log('can read returned true!');&#13;
+				Log('canRead() returned true.');&#13;
 				bRecordFound = true;&#13;
 			}&#13;
 		}&#13;
@@ -120,6 +120,7 @@ function Log(strText)&#13;
 	AppSetProperty('active','true');&#13;
 	AppSetProperty('tables.incident.active','true');&#13;
 	AppSetProperty('database_views.active','true');&#13;
+	&#13;
 	&#13;
 	Log('2. Create test data');&#13;
 	var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
@@ -153,7 +154,8 @@ function Log(strText)&#13;
 	var strSiloAlpha = testdata.CreateSilo('ALPHA',['ALPHA_MEMBER'],['ALPHA_FULFILLER'],['ALPHA_SUPERVISOR']);	&#13;
 	var strSiloBeta = testdata.CreateSilo('BETA',['BETA_MEMBER'],['BETA_FULFILLER'],['BETA_SUPERVISOR']);&#13;
 &#13;
-	var strDbView1 = testdata.CreateDatabaseView('TEST1',&#13;
+	var strDbViewHandleTest1 = 'TEST1_WITH_A_VERY_LENGTH_DATABASE_VIEW_NAME';&#13;
+	var strDbView1 = testdata.CreateDatabaseView(strDbViewHandleTest1,&#13;
 		{&#13;
 			'tables':&#13;
 				[&#13;
@@ -175,19 +177,65 @@ function Log(strText)&#13;
 		&#13;
 		});&#13;
 	&#13;
-	Log(RenderValue(testdata.GetAllDatabaseViews()));&#13;
+	&#13;
+	var strDbViewHandleTest2 = 'TEST2';&#13;
+	var strDbView2 = testdata.CreateDatabaseView(strDbViewHandleTest2,&#13;
+		{&#13;
+			'tables':&#13;
+				[&#13;
+					{&#13;
+						'table': 'incident',&#13;
+						'variable_prefix': 'inc',&#13;
+						'order': 100,&#13;
+						'where_clause': '',&#13;
+						'fields': ['active','sys_id','short_description','sys_class_name','number']&#13;
+					}			&#13;
+				]&#13;
+		&#13;
+		});	&#13;
+	&#13;
+	&#13;
+	var strDbViewHandleLeftJoin1 = 'LEFTJOIN1';&#13;
+	var strDbViewLeftJoin1 = testdata.CreateDatabaseView(strDbViewHandleLeftJoin1,&#13;
+		{&#13;
+			'tables':&#13;
+				[&#13;
+					{&#13;
+						'table': 'incident',&#13;
+						'variable_prefix': 'incident1',&#13;
+						'order': 100,&#13;
+						'left_join': false,&#13;
+						'where_clause': '',&#13;
+						'fields': ['active','sys_id','short_description','sys_class_name','number']&#13;
+					},			&#13;
+					{&#13;
+						'table': 'incident',&#13;
+						'variable_prefix': 'incident2',&#13;
+						'order': 101,&#13;
+						'left_join': true,&#13;
+						'where_clause': 'incident2_parent_incident=incident1_sys_id',&#13;
+						'fields': ['active','sys_id','short_description','sys_class_name','number','parent_incident']&#13;
+					}			&#13;
+				]&#13;
+		&#13;
+		});		&#13;
+	&#13;
+	//Log(RenderValue(testdata.GetAllDatabaseViews()));&#13;
 	&#13;
 	Log('3. Run MaintenanceDatabaseViews()');&#13;
 	MaintenanceDatabaseViews();&#13;
+	&#13;
+	//Log(RenderValue(testdata.GetAllData()));&#13;
 &#13;
 	function TestScenario(strInfo,strTable,strPrefix)&#13;
 	{&#13;
 &#13;
-		Log('Test scenario "'+strInfo+'" on table "'+strTable+'"\n');&#13;
+		Log('\nTest scenario "'+strInfo+'" on table "'+strTable+'"\n');&#13;
 		&#13;
-		Log('\nCreate incident\n');&#13;
 		var strIncident = testdata.CreateIncident('TEST_'+strTable,'OPENER','CALLER','ALPHA_MEMBER');&#13;
-&#13;
+		Log('\nCreateIncident returned: '+RenderValue(strIncident)+'\n');&#13;
+		//Log(RenderValue(testdata.GetAllIncidents()));&#13;
+		&#13;
 		TestCase_RecordQuery(strUserSentinel,strTable,strPrefix,strIncident,true);&#13;
 		TestCase_RecordQuery(strUserSpectator,strTable,strPrefix,strIncident,false);&#13;
 &#13;
@@ -219,16 +267,28 @@ function Log(strText)&#13;
 		TestCase_RecordQuery(strUserBetaMember,strTable,strPrefix,strIncident,true);&#13;
 		TestCase_RecordQuery(strUserBetaFulfiller,strTable,strPrefix,strIncident,false);&#13;
 		TestCase_RecordQuery(strUserBetaSupervisor,strTable,strPrefix,strIncident,true);&#13;
+		&#13;
+		Log('\n\n');&#13;
 &#13;
 	}&#13;
 &#13;
 	Log('4. The actual test');&#13;
 	&#13;
 	TestScenario('Original table','incident','');&#13;
-	TestScenario('OOTB database view without fields','incident_sla','inc_');&#13;
-	TestScenario('Custom database view WITH fields',testdata.GetDatabaseViewName('TEST1'),'inc_');&#13;
-		&#13;
-	//Log(RenderValue(testdata.GetAllData(),true));&#13;
+&#13;
+	// The following test rely on timely creation of task_sla records:&#13;
+	// com.snc.sla.engine.async must be false, otherwise the task_sla record will be created later and some of the test cases would fail.&#13;
+	if (gs.getProperty('com.snc.sla.engine.async') == 'false')&#13;
+	{&#13;
+		TestScenario('OOTB database view without fields','incident_sla','inc_');&#13;
+		TestScenario('Custom database view with multiple tables WITH fields',testdata.GetDatabaseViewName(strDbViewHandleTest1),'inc_');&#13;
+	}&#13;
+	TestScenario('Custom database view with a single table WITH fields',testdata.GetDatabaseViewName(strDbViewHandleTest2),'inc_');&#13;
+&#13;
+	TestScenario('Custom database view with a left join on the same table',testdata.GetDatabaseViewName(strDbViewHandleLeftJoin1),'incident1_');&#13;
+&#13;
+	&#13;
+	Log(RenderValue(testdata.GetAllData(),true));&#13;
 		&#13;
 	stepResult.setOutputMessage(strLog);&#13;
 	return bResult;&#13;

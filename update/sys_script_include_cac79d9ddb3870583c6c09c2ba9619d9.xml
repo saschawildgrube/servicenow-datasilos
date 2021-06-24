@@ -7,7 +7,15 @@
         <client_callable>false</client_callable>
         <description>The PrepareQueryInternal function performs the actual query modification based on provided parameters.</description>
         <name>PrepareQueryInternal</name>
-        <script><![CDATA[function PrepareQueryInternal(record, strTable, strPrefix, strUserSysId, aUserSupervisorSilos, aUserGroups, nUserSecurityClearance)
+        <script><![CDATA[function PrepareQueryInternal(
+	record,
+	strTable,
+	strPrefix,
+	strUserSysId,
+	bAllowEmptySysId,
+	aUserSupervisorSilos,
+	aUserGroups,
+	nUserSecurityClearance)
 {
 	var GetValue = x_snc_devtools.GetValue;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
@@ -19,20 +27,29 @@
 	strTable = GetStringValue(strTable);
 	strPrefix = GetStringValue(strPrefix);
 	strUserSysId = GetStringValue(strUserSysId);
+	bAllowEmptySysId = GetBoolValue(bAllowEmptySysId);
 	aUserSupervisorSilos = GetArrayValue(aUserSupervisorSilos);
 	aUserGroups = GetArrayValue(aUserGroups);
 	nUserSecurityClearance = GetIntegerValue(nUserSecurityClearance);
-	
+		
 	var strScope = GetScopeFromTable(strTable);
 
 	if (GetBoolValue(GetValue(GetConfig(),'security_clearance','active')))
 	{
-		record.addQuery(strPrefix+strScope+'_security_clearance','<=',nUserSecurityClearance);
+		var query1 = record.addQuery(strPrefix+strScope+'_security_clearance','<=',nUserSecurityClearance);
+		if (bAllowEmptySysId == true)
+		{
+			query1.addOrCondition(strPrefix+'sys_id','=','');	
+		}
 	}
-	
 	
 	var query = record.addQuery(strPrefix+strScope+'_global','=','true');
 
+	if (bAllowEmptySysId == true)
+	{
+		query.addOrCondition(strPrefix+'sys_id','=',null);	
+	}
+	
 	var strUserColumns = GetValue(GetConfig(),'tables',strTable,'columns','instant_access','sys_user');
 	var aFields = GetArrayValue(strUserColumns);
 	for (var nIndex = 0;nIndex < aFields.length; nIndex++)
@@ -56,13 +73,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-06-16 09:54:56</sys_created_on>
         <sys_id>cac79d9ddb3870583c6c09c2ba9619d9</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>PrepareQueryInternal</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_cac79d9ddb3870583c6c09c2ba9619d9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-16 10:12:35</sys_updated_on>
+        <sys_updated_on>2021-06-24 08:23:28</sys_updated_on>
     </sys_script_include>
 </record_update>
