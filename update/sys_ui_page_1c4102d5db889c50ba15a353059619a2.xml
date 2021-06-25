@@ -234,7 +234,7 @@ answer = bAnswer;
 			<li>Also consider restrictions resulting from Domain Separation. DataSilos can be used in combination with Domain Separation - however make sure that test data records are all created in the same domain.</li>
 		</ul>
 		<li>Set all update sets to complete.</li>
-		<li>Execute the following background script in the DataSilos scope to trigger queries that may need database level optimization:</li>
+		<li>Execute the following background script in the x_snc_datasilos scope to trigger queries that may need database level optimization:</li>
 <pre>Log(x_snc_devtools.RenderValue(GetOptimizationStatus()));</pre>
 		<li>If the queries appear to be slow, raise a case with ServiceNow support to implement optimizations on database level.</li> 
 				
@@ -346,7 +346,22 @@ answer = bAnswer;
 		<li>If the whitelisted silos or groups do not match expectations, the logic that populate the whitelists should be reviewed. Note that if a DataSilos extension sets the ghost field to true for a record, the default DataSilos whitelist population will not be applied.</li>
 		<li>If at least one of the filtering factors (user reference fields, group whitelist, supervisor whitelist, global visibility) in combination with the security clearance level should allow the user to see the record, but the user cannot access the record, then it is very likely that other (non-DataSilos) related business rules or ACLs block the access to that record.</li>
 	</ol>
-		
+	<h4>ATF test "DataSilos - Test data sanity" fails</h4>
+	<h5>Symptoms</h5>
+	<ul>
+		<li>ATF test "DataSilos - Test data sanity" fails.</li>
+	</ul>
+	<h5>Procedure</h5>
+	<ol>
+		<li>Run this script in scope x_snc_datasilos:</li>
+<pre>
+// Delete DataSilos Test Data
+var testdata = new x_snc_datasilos.DataSilosTestDataAPI('_ATF_DATASILOS_');
+x_snc_datasilos.Log('Before DeleteAllData(): '+x_snc_devtools.RenderValue(testdata.GetAllData()));
+testdata.DeleteAllData(testdata.GetAllData());
+x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdata.GetAllData()));
+</pre>
+	</ol>
 	
 	<h2>Developer guide</h2>
 	<h3>Entry points</h3>
@@ -535,7 +550,8 @@ DataSilos - incident_task - cross-silo
 
 	<h3>2.9.0 - 2021-TODO</h3>
 	<ol>
-		<li>TODO</li>
+		<li>Fixed a bug in GetOptimizationStatus() leading to slightly incorrect queries to be checked for performance.</li>
+		<li>Added incident model for the failing ATF test "DataSilos - Test data sanity".</li>
 	</ol>
 			
 	<h3>2.8.1 - 2021-06-24</h3>
@@ -776,13 +792,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>483</sys_mod_count>
+        <sys_mod_count>486</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-24 11:57:52</sys_updated_on>
+        <sys_updated_on>2021-06-25 09:30:09</sys_updated_on>
     </sys_ui_page>
 </record_update>
