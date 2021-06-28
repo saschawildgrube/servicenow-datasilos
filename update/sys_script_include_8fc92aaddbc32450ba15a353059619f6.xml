@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
-        <active>false</active>
+        <active>true</active>
         <api_name>x_snc_datasilos.AppInstall</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
@@ -9,6 +9,10 @@
         <name>AppInstall</name>
         <script><![CDATA[function AppInstall()
 {
+	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;
+	var RenderValue = x_snc_devtools.RenderValue;
+
+
 	function Log(strText)
 	{
 		x_snc_datasilos.Log('AppInstall: '+strText);
@@ -32,7 +36,7 @@
 				grACL.advanced = true;
 				grACL.script = 'answer = x_snc_datasilos.ExecuteACL(current);';
 				var bResult = GlideRecordUpdate(grACL);
-				Log('Update() returned: '+x_snc_devtools.RenderValue(bResult));
+				Log('Update() returned: '+RenderValue(bResult));
 			}
 			else
 			{
@@ -42,7 +46,7 @@
 		
 	}
 	
-	var aTables = x_snc_datasilos.GetAllSupportedTables();
+	var aTables = GetAllSupportedTables();
 	for (nIndex = 0; nIndex < aTables.length; nIndex++)
 	{
 		AppInstallTable(aTables[nIndex]);
@@ -54,13 +58,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-22 10:49:05</sys_created_on>
         <sys_id>8fc92aaddbc32450ba15a353059619f6</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>AppInstall</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_8fc92aaddbc32450ba15a353059619f6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-17 09:29:10</sys_updated_on>
+        <sys_updated_on>2021-06-28 12:22:45</sys_updated_on>
     </sys_script_include>
 </record_update>
