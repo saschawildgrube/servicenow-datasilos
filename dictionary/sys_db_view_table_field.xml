@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="sys_metadata" label="View Field" max_length="40" name="sys_db_view_table_field" sizeclass="71" text_index="true" type="collection">
+    <element attributes="update_synch=true" extends="sys_metadata" label="View Field" max_length="40" name="sys_db_view_table_field" sizeclass="109" text_index="true" type="collection">
         <element label="Created by DataSilos" max_length="40" name="x_snc_datasilos_created" type="boolean"/>
     </element>
 </database>
