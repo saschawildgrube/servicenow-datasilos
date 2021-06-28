@@ -13,9 +13,9 @@
         <sys_id>5d9e79e8db142810ba15a35305961992</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>x_snc_datasilos.tables.sc_task.columns.whitelist_trigger.sys_user_group</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_5d9e79e8db142810ba15a35305961992</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-04-26 11:40:41</sys_updated_on>
