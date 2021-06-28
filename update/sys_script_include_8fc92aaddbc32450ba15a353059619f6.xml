@@ -10,8 +10,10 @@
         <script><![CDATA[function AppInstall()
 {
 	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;
+	var GlideRecordInsert = x_snc_devtools.GlideRecordInsert;
 	var RenderValue = x_snc_devtools.RenderValue;
-
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var StringRemoveCharacters = x_snc_devtools.StringRemoveCharacters;
 
 	function Log(strText)
 	{
@@ -20,6 +22,37 @@
 	function AppInstallTable(strTable)
 	{
 		Log('AppInstallTable: ['+strTable+']');
+		
+		var strScriptSimple = 'answer = x_snc_datasilos.ExecuteACL(current);';
+		
+		var strScriptComplex =
+			"var bAnswer = false;\n"
+			+"bAnswer = {CODE}\n"
+			+"if (bAnswer == true)\n"
+			+"{\n"
+			+"   bAnswer = x_snc_datasilos.ExecuteACL(current);\n"
+			+"}\n"
+			+"answer = bAnswer;";	
+
+		var grACL = new GlideRecord('sys_security_acl');
+		grACL.addQuery('name','=',strTable+'.*');
+		grACL.addActiveQuery();
+		grACL.addQuery('operation','=','read');
+		grACL.query();
+		if (grACL.getRowCount() == 0)
+		{
+			Log('Did not find an ACL named '+strTable+'.* - so we need to add one!');
+			grACL.initialize();
+			grACL.name = strTable+'.*';
+			grACL.active = true;
+			grACL.operation = 'read';
+			grACL.description = 'Added during DataSilos installation';
+			grACL.advanced = true;
+			grACL.script = strScriptSimple;
+			var bResult = GlideRecordInsert(grACL);
+			Log('GlideRecordInsert() returned: '+RenderValue(bResult));
+		}
+			
 		
 		var grACL = new GlideRecord('sys_security_acl');
 		var condition = grACL.addQuery('name','=',strTable);
@@ -34,13 +67,52 @@
 			{
 				Log('ACL is not set to advanced. Adding script...');
 				grACL.advanced = true;
-				grACL.script = 'answer = x_snc_datasilos.ExecuteACL(current);';
+				grACL.script = strScriptSimple;
 				var bResult = GlideRecordUpdate(grACL);
-				Log('Update() returned: '+RenderValue(bResult));
+				Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
 			}
 			else
 			{
-				// In that case we would have to modify the existing script....maybe later!
+				var strScript = GetStringValue(grACL.script);
+				if (CheckACLScript(strScript) == false)
+				{
+					if (strScript == '')
+					{
+						Log('ACL is set to advanced, but the script is empty. Adding script...');
+						grACL.script = strScriptSimple;
+						var bResult = GlideRecordUpdate(grACL);
+						Log('Update() returned: '+RenderValue(bResult));
+					}
+					else
+					{
+						Log('ACL is set to advanced, but the script is not compliant. Modifying script...');
+						Log('Existing script:');
+						Log(strScript);
+						
+						if (strScript.indexOf('\n') != -1)
+						{
+							Log('Multiline script! We don\'t touch this!');
+						
+						}
+						else
+						{
+							var strScriptNoAnswer = strScript;
+							var strScriptNoWhitespaces = StringRemoveCharacters(strScript,' \t');
+							if (strScriptNoWhitespaces.indexOf('answer=') == 0)
+							{
+								strScriptNoAnswer = strScript.replace('answer =','').trim();
+							}
+							var strScriptNew = strScriptComplex.replace('{CODE}',strScriptNoAnswer);
+							Log('New script:');
+							Log(strScriptNew);
+							Log('CheckACLScript: '+RenderValue(CheckACLScript(strScriptNew)));
+							//Log('IN FACT: DOING NOTHING...');
+							grACL.script = strScriptNew;
+							var bResult = GlideRecordUpdate(grACL);
+							Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
+						}
+					}
+				}
 			}
 		}
 		
@@ -58,13 +130,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-22 10:49:05</sys_created_on>
         <sys_id>8fc92aaddbc32450ba15a353059619f6</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>AppInstall</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_8fc92aaddbc32450ba15a353059619f6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-28 12:22:45</sys_updated_on>
+        <sys_updated_on>2021-06-28 13:45:13</sys_updated_on>
     </sys_script_include>
 </record_update>
