@@ -51,7 +51,7 @@
     <sys_translated_text action="DELETE" query="documentkey=fe12b415dbdca810ba15a35305961914"/>
 <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
         <file_path/>
         <instance_id>1dbfa963dbe708548aea21c405961993</instance_id>
         <instance_name>empswildgrube3</instance_name>
@@ -135,10 +135,10 @@
         <sys_metadata>fe12b415dbdca810ba15a35305961914</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>DataSilos - change_task</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_parent display_value="Change Task">1b24b1ebdbc310103c6c09c2ba961907</sys_parent>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
         <sys_update_name>sys_script_fe12b415dbdca810ba15a35305961914</sys_update_name>
         <sys_update_version display_value="sys_script_fe12b415dbdca810ba15a35305961914">f81a71f5db732090bc44d844ca961942</sys_update_version>
