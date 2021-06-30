@@ -71,8 +71,19 @@
 	<h2>System requirements</h2>
 	<ul>
 		<li>Orlando, Paris or Quebec</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.18.0</a></li>
+		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.19.0</a></li>
 	</ul>
+	
+	<h2>Protection mechanisms</h2>
+	<p>The following mechanism are applied to enforce the filtering:</p> 
+	<h3>Before query business rules</h3>
+	<p>DataSilos has business rules that modify the query which is used to retrieve data for a table in scope from the database. Before query business rules are triggered whenever a user or background job requests data explicitly from a table. However, before query business rules are not triggered if data from a table is integrated into the response for a different table - e.g. if fields from a referenced record are used in a list view or form.</p>
+	<h3>ACLs</h3>
+	<p>Since before query business rules are not always triggered when retrieving data from a given table, ACLs are in place to perform a check on every single record that is delivered back from the database. This inlcudes cases where fields are joined from other tables via dot-walking or reference fields.</p>
+	<p>It's in the nature of ACLs to allow access to a table, record, or specific field if there is at least one ACL that grants access. This means that the DataSilos specific logic must be considered in every single ACL of a table in scope. And that implies that the protection mechanism is always in danger to be compromised by later changes to the platform. New or changed features might require new ACLs to be added or existing ones to be modified. A developer who is not aware of the role ACLs play for DataSilos filtering might easily remove (or not add) the required logic to the ACL script. To mitigate this, DataSilos contains ATF tests that check the configuration of all relevant ACLs. However, it is crucial that these tests are execute as part of the regular development and deployment process.</p>
+	<h3>Database view protection</h3>
+	<p>Database views need to be protected explicitly. The before query business rule of a table are not triggered if a database view is used to retrieve data from a table. ACLs are triggered when records are retrieved through a database view - but the records being presented to the ACL script are incomplete, so specific logic must be applied when checking records within database views.</p>
+	<p>In order to apply the filtering on records when using database views DataSilos uses a background job to configure business rules for all databse views automatically. In addition it adds the fields to the table view configuration of a databse view if required. As a result, no additional manual configuration is required to protect data delivered via database views.</p> 
 	
 	<h2>Implementation guide</h2>
 	<h3>Analysis</h3>
@@ -187,8 +198,23 @@
 		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incident.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Switch to global scope</li>
 		<li>Create a new update set in the global scope to capture all changes related to the DataSilos installation. In case some of the ACLs reside in different scopes, you might have to create additional update sets for these scopes to capture all changes.</li>
-		<li>For each of the following tables perform the steps listed below:</li>
-		<pre>
+		<li>The next step is the configuration of existing ACLs. There are two options:</li>
+		<ol>
+			<li>Automated approach - WARNING: a script is going to make changes to existing scripts within ACLs. This approach is less work but it's only safe if you have sufficient test coverage in place to confirm regression safety.</li>
+			<li>Manual approach - This is more work but you have full control over what is happening.</li>
+		</ol>
+		<li>Automated approach:</li>
+			<ol>
+				<g2:no_escape>$[
+					docapi.RenderInstallationInstructionsAppInstall();
+				]</g2:no_escape>
+				<li>Check out if there are any warnings in the script output.</li>
+				<li>Apply the manual approach on those ACLs which were not changed automatically.</li>
+			</ol>
+		<li>Manual approach:</li>
+		<ol>
+			<li>For each of the following tables perform the steps listed below:</li>
+<pre>
 incident
 incident_task
 change_request
@@ -198,29 +224,28 @@ problem_task
 sc_request
 sc_req_item
 sc_task
-		</pre>
-		<ol>
-			<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
-			<li>Activate "Advanced" (if not active already) and add the following script:
+</pre>
+			<ol>
+				<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
+				<li>Activate "Advanced" (if not active already) and add the following script:</li>
 <pre>
 answer = x_snc_datasilos.ExecuteACL(current);	
 </pre>
-			<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
+				<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
 <pre>
 var bAnswer = false;
 
 /* Enter your (existing) code here! Make sure you set bAnswer (and not answer)! */
 bAnswer = your_code;	
-	
+
 if (bAnswer == true)
 {
 	bAnswer = x_snc_datasilos.ExecuteACL(current);
 }
 answer = bAnswer;
 </pre>
-			</li>
-			<li>
-			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
+				<li>CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
+			</ol>
 		</ol>
 		<li>In case the default "System Administrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
@@ -370,6 +395,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 		<li>ExecuteBusinessRule</li>
 		<li>ExecuteACL</li>
 		<li>Maintenance</li>
+		<li>MaintenanceDatabaseViews</li>
 	</ol>
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
@@ -548,6 +574,17 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
+	<h3>2.9.0 - 2021-06-30</h3>
+	<ol>
+		<li>DevTools 1.19.0 is now required.</li>
+		<li>AppInstall() can now add missing ACLs and existing modify one-line scripts. The installation guide has been updated accordingly.</li>
+		<li>Added function CheckACLScript() to check if an ACL script complies with DataSilos requirements. The function is being used in the test step configuration and the evolving yet experimental AppInstall() function.</li>
+		<li>Added chapter "Protection mechanisms" to the documentation.</li>
+		<li>The test step configuration "DataSilos - Check table implementation" no longer checks for a test step that checks for a cross scope configuration on tables as this is no longer required.</li>
+		<li>The security clearance level query condition was added as a float value. This has been fixed. It is an integer value now.</li>
+	</ol>
+
+	
 	<h3>2.8.2 - 2021-06-28</h3>
 	<ol>
 		<li>Fixed a bug in GetOptimizationStatus() leading to slightly incorrect queries to be checked for performance.</li>
@@ -792,13 +829,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>487</sys_mod_count>
+        <sys_mod_count>502</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-28 09:37:03</sys_updated_on>
+        <sys_updated_on>2021-06-30 13:47:41</sys_updated_on>
     </sys_ui_page>
 </record_update>

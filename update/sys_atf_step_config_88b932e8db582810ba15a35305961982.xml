@@ -100,6 +100,7 @@ generateDescription();]]></description_generator>
 		}		&#13;
 		&#13;
 		// Check if there is a test step that checks for the table cross scope access&#13;
+/*&#13;
 		var grSAS = new GlideRecord('sys_atf_step');&#13;
 		grSAS.addQuery('step_config','=','8d6e6be5db28e850ba15a35305961936'); // DevTools - Check table cross scope access&#13;
 		grSAS.addQuery('active','=',true);&#13;
@@ -111,7 +112,7 @@ generateDescription();]]></description_generator>
 			strMessage += 'There should be exactly one test step to check cross scope access for table "'+strTable+'"!\n';&#13;
 			stepResult.setFailed();&#13;
 		}			&#13;
-		&#13;
+	*/	&#13;
 		&#13;
 		// Check ACL functions&#13;
 		function CheckFieldACLs(strTable,strField)&#13;
@@ -647,16 +648,16 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>120</sys_mod_count>
+        <sys_mod_count>121</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-18 11:01:28</sys_updated_on>
+        <sys_updated_on>2021-06-30 12:24:50</sys_updated_on>
         <template_reminder>TBD</template_reminder>
-        <type display_value="Test Step" name="sys_atf_step">2348b92fdb0710103c6c09c2ba961981</type>
+        <type display_value="Test Step" name="sys_atf_step">f653cf3f1b343010577f43b5bb4bcb46</type>
         <wizard_redirect/>
     </sys_atf_step_config>
     <sys_translated_text action="delete_multiple" query="documentkey=88b932e8db582810ba15a35305961982"/>

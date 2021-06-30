@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if full cross scope access is configured for table: [problem_task]
+</description>
+        <display_name>DevTools - Check table cross scope access</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>4</order>
+        <snapshot/>
+        <step_config display_value="DevTools - Check table cross scope access">8d6e6be5db28e850ba15a35305961936</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-21 11:25:17</sys_created_on>
+        <sys_id>cb1aad11db8ba050ba15a3530596197f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DevTools - Check table cross scope access</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_cb1aad11db8ba050ba15a3530596197f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-21 11:25:17</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - problem - installation">1a3e1a381b506810a89720a8ec4bcb65</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=cb1aad11db8ba050ba15a3530596197f"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>cb1aad11db8ba050ba15a3530596197f</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-21 11:25:17</sys_created_on>
+        <sys_id>112aed11db8ba050ba15a353059619c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-21 11:25:17</sys_updated_on>
+        <value>problem_task</value>
+        <variable display_value="">896e6be5db28e850ba15a3530596193b</variable>
+    </sys_variable_value>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>027b763fdb383810601a11f84896197c</instance_id>
+        <instance_name>empswildgrubedevorlando</instance_name>
+        <name>sys_atf_step_cb1aad11db8ba050ba15a3530596197f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if full cross scope access is configured for table: [problem_task]
+</description>
+        <display_name>DevTools - Check table cross scope access</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>4</order>
+        <snapshot/>
+        <step_config display_value="DevTools - Check table cross scope access">8d6e6be5db28e850ba15a35305961936</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-21 11:25:17</sys_created_on>
+        <sys_id>cb1aad11db8ba050ba15a3530596197f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DevTools - Check table cross scope access</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_cb1aad11db8ba050ba15a3530596197f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-21 11:25:17</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - problem - installation">1a3e1a381b506810a89720a8ec4bcb65</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=cb1aad11db8ba050ba15a3530596197f"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>cb1aad11db8ba050ba15a3530596197f</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-21 11:25:17</sys_created_on>
+        <sys_id>112aed11db8ba050ba15a353059619c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-21 11:25:17</sys_updated_on>
+        <value>problem_task</value>
+        <variable display_value="">896e6be5db28e850ba15a3530596193b</variable>
+    </sys_variable_value>
+</record_update>]]></payload>
+        <payload_hash>-1661842648</payload_hash>
+        <record_name>DevTools - Check table cross scope access</record_name>
+        <reverted_from/>
+        <source>6d2bef891bc5b0105331b8449b4bcb01</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-06-28 12:16:37</sys_created_on>
+        <sys_id>2e4ba30d1bc5b0105331b8449b4bcb74</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17a528cd0510000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-06-28 12:16:37</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>ea4ba30ddfc5b010b4d886e4e29ad574</update_guid>
+        <update_guid_history>ea4ba30ddfc5b010b4d886e4e29ad574:-1661842648</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-06-28 13:38:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>0b65ce83731d47a38dfdd558b7d50ad1</sys_id>
+        <sys_metadata>cb1aad11db8ba050ba15a3530596197f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DevTools - Check table cross scope access</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_cb1aad11db8ba050ba15a3530596197f</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_cb1aad11db8ba050ba15a3530596197f">2e4ba30d1bc5b0105331b8449b4bcb74</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-06-28 13:38:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
