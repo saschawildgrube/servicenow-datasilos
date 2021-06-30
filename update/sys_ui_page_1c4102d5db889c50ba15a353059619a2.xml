@@ -198,8 +198,23 @@
 		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incident.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Switch to global scope</li>
 		<li>Create a new update set in the global scope to capture all changes related to the DataSilos installation. In case some of the ACLs reside in different scopes, you might have to create additional update sets for these scopes to capture all changes.</li>
-		<li>For each of the following tables perform the steps listed below:</li>
-		<pre>
+		<li>The next step is the configuration of existing ACLs. There are two options:</li>
+		<ol>
+			<li>Automated approach - WARNING: a script is going to make changes to existing scripts within ACLs. This approach is less work but it's only safe if you have sufficient test coverage in place to confirm regression safety.</li>
+			<li>Manual approach - This is more work but you have full control over what is happening.</li>
+		</ol>
+		<li>Automated approach:</li>
+			<ol>
+				<g2:no_escape>$[
+					docapi.RenderInstallationInstructionsAppInstall();
+				]</g2:no_escape>
+				<li>Check out if there are any warnings in the script output.</li>
+				<li>Apply the manual approach on those ACLs which were not changed automatically.</li>
+			</ol>
+		<li>Manual approach:</li>
+		<ol>
+			<li>For each of the following tables perform the steps listed below:</li>
+<pre>
 incident
 incident_task
 change_request
@@ -209,29 +224,28 @@ problem_task
 sc_request
 sc_req_item
 sc_task
-		</pre>
-		<ol>
-			<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
-			<li>Activate "Advanced" (if not active already) and add the following script:
+</pre>
+			<ol>
+				<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
+				<li>Activate "Advanced" (if not active already) and add the following script:</li>
 <pre>
 answer = x_snc_datasilos.ExecuteACL(current);	
 </pre>
-			<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
+				<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
 <pre>
 var bAnswer = false;
 
 /* Enter your (existing) code here! Make sure you set bAnswer (and not answer)! */
 bAnswer = your_code;	
-	
+
 if (bAnswer == true)
 {
 	bAnswer = x_snc_datasilos.ExecuteACL(current);
 }
 answer = bAnswer;
 </pre>
-			</li>
-			<li>
-			CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
+				<li>CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
+			</ol>
 		</ol>
 		<li>In case the default "System Administrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
 		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
@@ -563,7 +577,7 @@ DataSilos - incident_task - cross-silo
 	<h3>2.9.0 - 2021-TODO</h3>
 	<ol>
 		<li>DevTools 1.19.0 is now required.</li>
-		<li>AppInstall() can now add missing ACLs and existing modify one-line scripts. However, the use of AppInstall() is yet discouraged as it is still in experimental state.</li>
+		<li>AppInstall() can now add missing ACLs and existing modify one-line scripts. The installation guide has been updated accordingly.</li>
 		<li>Added function CheckACLScript() to check if an ACL script complies with DataSilos requirements. The function is being used in the test step configuration and the evolving yet experimental AppInstall() function.</li>
 		<li>Added chapter "Protection mechanisms" to the documentation.</li>
 		<li>The test step configuration "DataSilos - Check table implementation" no longer checks for a test step that checks for a cross scope configuration on tables as this is no longer required.</li>
@@ -815,13 +829,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>497</sys_mod_count>
+        <sys_mod_count>501</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-30 12:35:58</sys_updated_on>
+        <sys_updated_on>2021-06-30 13:44:22</sys_updated_on>
     </sys_ui_page>
 </record_update>

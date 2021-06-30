@@ -91,7 +91,7 @@
 						
 						if (strScript.indexOf('\n') != -1)
 						{
-							Log('Multiline script! We don\'t touch this!');
+							Log('Warning: The ACL contains a script that cannot be changed automatically!');
 						
 						}
 						else
@@ -104,9 +104,8 @@
 							}
 							var strScriptNew = strScriptComplex.replace('{CODE}',strScriptNoAnswer);
 							Log('New script:');
-							Log(strScriptNew);
+							Log('\n'+strScriptNew);
 							Log('CheckACLScript: '+RenderValue(CheckACLScript(strScriptNew)));
-							//Log('IN FACT: DOING NOTHING...');
 							grACL.script = strScriptNew;
 							var bResult = GlideRecordUpdate(grACL);
 							Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
@@ -130,13 +129,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-22 10:49:05</sys_created_on>
         <sys_id>8fc92aaddbc32450ba15a353059619f6</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>AppInstall</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_8fc92aaddbc32450ba15a353059619f6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-28 13:45:13</sys_updated_on>
+        <sys_updated_on>2021-06-30 13:42:43</sys_updated_on>
     </sys_script_include>
 </record_update>
