@@ -74,6 +74,17 @@
 		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.19.0</a></li>
 	</ul>
 	
+	<h2>Protection mechanisms</h2>
+	<p>The following mechanism are applied to enforce the filtering:</p> 
+	<h3>Before query business rules</h3>
+	<p>DataSilos has business rules that modify the query which is used to retrieve data for a table in scope from the database. Before query business rules are triggered whenever a user or background job requests data explicitly from a table. However, before query business rules are not triggered if data from a table is integrated into the response for a different table - e.g. if fields from a referenced record are used in a list view or form.</p>
+	<h3>ACLs</h3>
+	<p>Since before query business rules are not always triggered when retrieving data from a given table, ACLs are in place to perform a check on every single record that is delivered back from the database. This inlcudes cases where fields are joined from other tables via dot-walking or reference fields.</p>
+	<p>It's in the nature of ACLs to allow access to a table, record, or specific field if there is at least one ACL that grants access. This means that the DataSilos specific logic must be considered in every single ACL of a table in scope. And that implies that the protection mechanism is always in danger to be compromised by later changes to the platform. New or changed features might require new ACLs to be added or existing ones to be modified. A developer who is not aware of the role ACLs play for DataSilos filtering might easily remove (or not add) the required logic to the ACL script. To mitigate this, DataSilos contains ATF tests that check the configuration of all relevant ACLs. However, it is crucial that these tests are execute as part of the regular development and deployment process.</p>
+	<h3>Database view protection</h3>
+	<p>Database views need to be protected explicitly. The before query business rule of a table are not triggered if a database view is used to retrieve data from a table. ACLs are triggered when records are retrieved through a database view - but the records being presented to the ACL script are incomplete, so specific logic must be applied when checking records within database views.</p>
+	<p>In order to apply the filtering on records when using database views DataSilos uses a background job to configure business rules for all databse views automatically. In addition it adds the fields to the table view configuration of a databse view if required. As a result, no additional manual configuration is required to protect data delivered via database views.</p> 
+	
 	<h2>Implementation guide</h2>
 	<h3>Analysis</h3>
 	<p>The following aspects and topics should be considered when implementing the DataSilos application:</p>
@@ -370,6 +381,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 		<li>ExecuteBusinessRule</li>
 		<li>ExecuteACL</li>
 		<li>Maintenance</li>
+		<li>MaintenanceDatabaseViews</li>
 	</ol>
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
@@ -552,6 +564,7 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>DevTools 1.19.0 is now required.</li>
 		<li>Added function CheckACLScript() to check if an ACL script complies with DataSilos requirements. The function is being used in the test step configuration and the evolving yet experimental AppInstall() function. AppInstall() can now add missing ACLs and existing modify one-line scripts. However, the use of AppInstall() is yet discouraged as it is still in experimental state.</li>
+		<li>Added chapter "Protection mechanisms" to the documentation.</li>
 	</ol>
 
 	
@@ -799,13 +812,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>491</sys_mod_count>
+        <sys_mod_count>494</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-28 13:49:16</sys_updated_on>
+        <sys_updated_on>2021-06-30 08:55:13</sys_updated_on>
     </sys_ui_page>
 </record_update>
