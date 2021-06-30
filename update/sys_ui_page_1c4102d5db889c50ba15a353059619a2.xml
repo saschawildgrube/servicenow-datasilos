@@ -567,6 +567,7 @@ DataSilos - incident_task - cross-silo
 		<li>Added function CheckACLScript() to check if an ACL script complies with DataSilos requirements. The function is being used in the test step configuration and the evolving yet experimental AppInstall() function.</li>
 		<li>Added chapter "Protection mechanisms" to the documentation.</li>
 		<li>The test step configuration "DataSilos - Check table implementation" no longer checks for a test step that checks for a cross scope configuration on tables as this is no longer required.</li>
+		<li>The security clearance level query condition was added as a float value. This has been fixed. It is an integer value now.</li>
 	</ol>
 
 	
@@ -814,13 +815,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>495</sys_mod_count>
+        <sys_mod_count>497</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-30 12:26:57</sys_updated_on>
+        <sys_updated_on>2021-06-30 12:35:58</sys_updated_on>
     </sys_ui_page>
 </record_update>
