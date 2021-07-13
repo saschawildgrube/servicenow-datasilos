@@ -277,7 +277,8 @@ Thank you very much.
 	
 Best regards,
 </pre>	
-		<li>After the database optimization is in place and the maintenance scripts are running at full speed, navigate to the DataSilos log and check if there are messages that indicate aborting maintenance scripts. The log entry will state the sys_id of the record that is blocking the maintenance script. All data issues in existing records must be fixed so that the mainetnance script can process all records in the table continuously.</li>		
+		<li>After the database optimization is in place and the maintenance scripts are running at full speed, navigate to the DataSilos log and check if there are messages that indicate aborting maintenance scripts. The log entry will state the sys_id of the record that is blocking the maintenance script. All data issues in existing records must be fixed so that the mainetnance script can process all records in the table continuously.</li>	
+		<li>Navigate to "DataSilos/Status" and verify that there are no active tables that are marked "incomplete". Do not proceed until all records have been processed at least once.</li> 
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -854,13 +855,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>517</sys_mod_count>
+        <sys_mod_count>518</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-13 12:59:46</sys_updated_on>
+        <sys_updated_on>2021-07-13 13:06:21</sys_updated_on>
     </sys_ui_page>
 </record_update>
