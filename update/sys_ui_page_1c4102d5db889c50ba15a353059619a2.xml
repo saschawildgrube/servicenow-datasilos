@@ -128,7 +128,7 @@
 		<li>DataSilos introduces new roles (admin, manager etc.). What implication does it have to your license and user access management processes?</li> 
 		
 		<!-- GO LIVE -->
-		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. How exactly will this initialization take place? What should be considered?</li>
+		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. Do existing records have sufficient information to apply the visibility rules? Can all records be updated? Would such updates trigger unnecessary notifications?</li>
 	
 	</ol>
 	<h3>User stories</h3>
@@ -158,6 +158,7 @@
 		<li>As the platform owner I want to ensure stability by running all related ATF tests as part of the development and deployment process.</li>
 		<li>As the platform owner I want to ensure stability and consider running all related ATF tests to monitor production.</li>
 		<li>As the platform owner I want to ensure that existing integrations continue to work as expected.</li>
+		<li>As the platform owner I want to ensure that maintenance jobs do not trigger unnecessary notifications.</li>
 		<li>As the QA manager I need existing tests (both manual and automated) are updated to reflect the new expected behavior.</li>
 		<li>As the QA manager I need new (manual and/or automated) tests to verify the new access restrictions work as expected.</li>
 		<li>As an operations user I want to be informed and trained properly so that I can operate the solution going forward.</li>
@@ -569,6 +570,7 @@ DataSilos - incident_task - cross-silo
 		<li>AppInstall() is now available from all application scopes.</li>
 		<li>Updated installation instructions to always use AppInstall() to configure ACLs automatically.</li>
 		<li>Updated installation instructions with the recommendation to use source control and to consider additional custom scoped apps that extend DataSilos' functionality.</li>
+		<li>Extended analysis agenda and added a story to verify that no unnessecary notifications are triggered by maintenance jobs.</li> 
 	</ol>
 	
 	<h3>2.9.0 - 2021-06-30</h3>
@@ -826,13 +828,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>509</sys_mod_count>
+        <sys_mod_count>511</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-13 12:07:13</sys_updated_on>
+        <sys_updated_on>2021-07-13 12:13:34</sys_updated_on>
     </sys_ui_page>
 </record_update>
