@@ -182,6 +182,8 @@
 		<li>It is strongly recommended to use specific test users and test groups for functional testing. Do not reuse users or groups from other tests!</li>
 	</ol>
 	<h3>Installation</h3>
+	<p>Before installing, verify if there is a plugin scoped app that contains specific customizations and additions relevant to your organization's instance and which may come with its own installation instructions. In such cases, follow the installation instructions shipped with the custom scoped app.</p>
+	<p>Please note that is it NOT RECOMMENDED to deploy DataSilos and related scoped apps using update sets. Use source control instead!</p>
 	<ol>
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsImportFromSourceControl(
@@ -237,7 +239,6 @@ answer = bAnswer;
 			<li>CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
 		</ol>
 		<li>In case the default "System Administrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
-		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
 		<li>If possible, activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
 		<ul>
 			<li>If tests fail directly on the first step it means that DataSilos (or the specific table) has not been configured to be active.</li>
@@ -567,6 +568,7 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>AppInstall() is now available from all application scopes.</li>
 		<li>Updated installation instructions to always use AppInstall() to configure ACLs automatically.</li>
+		<li>Updated installation instructions with the recommendation to use source control and to consider additional custom scoped apps that extend DataSilos' functionality.</li>
 	</ol>
 	
 	<h3>2.9.0 - 2021-06-30</h3>
@@ -824,13 +826,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>506</sys_mod_count>
+        <sys_mod_count>509</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-13 12:00:29</sys_updated_on>
+        <sys_updated_on>2021-07-13 12:07:13</sys_updated_on>
     </sys_ui_page>
 </record_update>
