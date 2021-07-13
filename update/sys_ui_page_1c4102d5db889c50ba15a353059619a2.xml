@@ -267,14 +267,17 @@ The "backmarker" query returns exactly one record and should not take more than 
 This can be achieved by adding a database index on the "Last Maintenance" fields.
 On tables that are derived from the "task" table, a combined index with the "sys_class_name" field is recommended.
 	
-All other queries should not take more than 1000ms each.
+All other queries should not take more than 500ms each.
 Please check if additional indices and query hints can be used to optimize these queries.
+	
+Please note that all options for code-level optimization have already been exhausted.
+The queries are already the fastest and most efficient known way to archieve customer requirements. 
 
 Thank you very much.
 	
 Best regards,
 </pre>	
-				
+		<li>After the database optimization is in place and the maintenance scripts are running at full speed, navigate to the DataSilos log and check if there are messages that indicate aborting maintenance scripts. The log entry will state the sys_id of the record that is blocking the maintenance script. All data issues in existing records must be fixed so that the mainetnance script can process all records in the table continuously.</li>		
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -592,6 +595,7 @@ DataSilos - incident_task - cross-silo
 		<li>Updated installation instructions to always use AppInstall() to configure ACLs automatically.</li>
 		<li>Updated installation instructions with the recommendation to use source control and to consider additional custom scoped apps that extend DataSilos' functionality.</li>
 		<li>Updated installation instructions with specific guidance on database optimization.</li>
+		<li>Updated installation instructions with guidance regarding records with data issues which cannot be updated during maintenance.</li>
 		<li>Extended analysis agenda and added a story to verify that no unnessecary notifications are triggered by maintenance jobs.</li> 
 	</ol>
 	
@@ -850,13 +854,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>514</sys_mod_count>
+        <sys_mod_count>517</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-13 12:36:39</sys_updated_on>
+        <sys_updated_on>2021-07-13 12:59:46</sys_updated_on>
     </sys_ui_page>
 </record_update>
