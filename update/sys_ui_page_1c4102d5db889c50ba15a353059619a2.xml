@@ -250,9 +250,30 @@ answer = bAnswer;
 			<li>Also consider restrictions resulting from Domain Separation. DataSilos can be used in combination with Domain Separation - however make sure that test data records are all created in the same domain.</li>
 		</ul>
 		<li>Set all update sets to complete.</li>
-		<li>Execute the following background script in the x_snc_datasilos scope to trigger queries that may need database level optimization:</li>
-<pre>Log(x_snc_devtools.RenderValue(GetOptimizationStatus()));</pre>
-		<li>If the queries appear to be slow, raise a case with ServiceNow support to implement optimizations on database level.</li> 
+		<li>Optimize the database:</li>
+		<p>Raise a case with ServiceNow support (or in case you run your instance on-premise with your internal database support team) and ask for the following:</p>
+<pre>
+Hello,
+	
+as part of the installation of DataSilos, optimization on database level is required.
+
+Please execute the following background script in the x_snc_datasilos scope to trigger queries that may need optimization:
+	
+x_snc_datasilos.Log(x_snc_devtools.RenderValue(x_snc_datasilos.GetOptimizationStatus()));
+
+Check out the time required to execute the different queries.
+	
+The "backmarker" query returns exactly one record and should not take more than 50ms.
+This can be achieved by adding a database index on the "Last Maintenance" fields.
+On tables that are derived from the "task" table, a combined index with the "sys_class_name" field is recommended.
+	
+All other queries should not take more than 1000ms each.
+Please check if additional indices and query hints can be used to optimize these queries.
+
+Thank you very much.
+	
+Best regards,
+</pre>	
 				
 	</ol>
 	<h3>Configuration</h3>
@@ -570,6 +591,7 @@ DataSilos - incident_task - cross-silo
 		<li>AppInstall() is now available from all application scopes.</li>
 		<li>Updated installation instructions to always use AppInstall() to configure ACLs automatically.</li>
 		<li>Updated installation instructions with the recommendation to use source control and to consider additional custom scoped apps that extend DataSilos' functionality.</li>
+		<li>Updated installation instructions with specific guidance on database optimization.</li>
 		<li>Extended analysis agenda and added a story to verify that no unnessecary notifications are triggered by maintenance jobs.</li> 
 	</ol>
 	
@@ -828,13 +850,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>511</sys_mod_count>
+        <sys_mod_count>514</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-13 12:13:34</sys_updated_on>
+        <sys_updated_on>2021-07-13 12:36:39</sys_updated_on>
     </sys_ui_page>
 </record_update>
