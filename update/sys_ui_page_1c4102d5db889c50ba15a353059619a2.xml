@@ -264,7 +264,7 @@ x_snc_datasilos.Log(x_snc_devtools.RenderValue(x_snc_datasilos.GetOptimizationSt
 
 Check out the time required to execute the different queries.
 	
-The "backmarker" query returns exactly one record and should not take more than 50ms.
+The "backmarker" queries return exactly one record and should not take more than 50ms.
 This can be achieved by adding a database index on the "Last Maintenance" fields.
 On tables that are derived from the "task" table, a combined index with the "sys_class_name" field is recommended.
 	
@@ -272,7 +272,7 @@ All other queries should not take more than 500ms each.
 Please check if additional indices and query hints can be used to optimize these queries.
 	
 Please note that all options for code-level optimization have already been exhausted.
-The queries are already the fastest and most efficient known way to archieve customer requirements. 
+The queries are already the fastest and most efficient known way to fulfill customer requirements. 
 
 Thank you very much.
 	
@@ -857,13 +857,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>520</sys_mod_count>
+        <sys_mod_count>521</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-19 09:44:05</sys_updated_on>
+        <sys_updated_on>2021-07-19 10:11:28</sys_updated_on>
     </sys_ui_page>
 </record_update>
