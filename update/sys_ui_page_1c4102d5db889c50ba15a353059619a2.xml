@@ -338,7 +338,7 @@ Best regards,
 	<h3>How does it actually work?</h3>
 	<p>DataSilos modifies all queries sent to the database of the tables in scope. Once the data comes back, the same filter logic is applied in ACLs. DataSilos adds several fields to all relevant tables that contain whitelists of groups and silos, the flag for global visibility, the security clearance level requirement and other relevant information. Whenever records are created or changed, these fields are updated according to the configured rules - if the ghost flag is not set for the record.</p>
 	<h3>How do I apply my own visibility rules on records?</h3>
-	<p>DataSilos implements a default behavior whenever a record is created or updated. Whitelists are extended and the security clearance level requirement is increased if a record is related to another record with a higher security clearance level. Some of that behavior can be configured using system properties. If you need a completely different behavior you can create a before business role that is triggered when a record is inserted or updated. In this business rule, set the ghost flag to true and populate the whitelists, security clearance level, and global flag as required. When the ghost flag is set to true, DataSilos will not make any changes to the record.</p>
+	<p>DataSilos implements a default behavior whenever a record is created or updated. Whitelists are extended and the security clearance level requirement is increased if a record is related to another record with a higher security clearance level. Some of that behavior can be configured using system properties. If you need a completely different behavior you can create a business rule that is triggered before a record is inserted or updated. In this business rule, set the ghost flag to true and populate the whitelists, security clearance level, and global flag as required. When the ghost flag is set to true, DataSilos will not make any further changes to the record.</p>
 
 	
 	
@@ -857,13 +857,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>521</sys_mod_count>
+        <sys_mod_count>522</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-19 10:11:28</sys_updated_on>
+        <sys_updated_on>2021-07-20 12:24:33</sys_updated_on>
     </sys_ui_page>
 </record_update>
