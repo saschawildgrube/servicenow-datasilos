@@ -149,6 +149,7 @@
 		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone. Maintenance jobs should always run.</li>
 		<li>As the platform owner I want to ensure that scheduled jobs are run using a technical user of my choice.</li>
 		<li>As the platform owner I want to ensure maintenance job performance. Database indices for the last_maintenance fields should be added to all tables.</li>
+		<li>As the platform owner I must ensure that all records in all tables in scope can be updated by the maintenance jobs.</li>
 		<li>As the platform owner I want to reduce manual work. Where possible users should be assigned to groups automatically.</li>
 		<li>As the platform owner I want to reduce manual work. Where possible groups should be assigned to silos automatically.</li>
 		<li>As the platform owner I want to reduce manual work. User's security clearance levels should be set automatically.</li>
@@ -593,13 +594,16 @@ DataSilos - incident_task - cross-silo
 
 	<h3>2.10.0 - 2021-07-TODO</h3>
 	<ol>
+		<li>DevTools 1.21.0 is now required.</li>
 		<li>AppInstall() is now available from all application scopes.</li>
 		<li>GetOptimizationStatus() is now available from all application scopes.</li>
+		<li>GetOptimizationStatus() now uses DevTools's PerformanceQueryMultiple() function.</li>
 		<li>Updated installation instructions to always use AppInstall() to configure ACLs automatically.</li>
 		<li>Updated installation instructions with the recommendation to use source control and to consider additional custom scoped apps that extend DataSilos' functionality.</li>
 		<li>Updated installation instructions with specific guidance on database optimization.</li>
 		<li>Updated installation instructions with guidance regarding records with data issues which cannot be updated during maintenance.</li>
 		<li>Extended analysis agenda and added a story to verify that no unnessecary notifications are triggered by maintenance jobs.</li> 
+		<li>Added a story to cover the work required to ensure that all records in all tables in scope can be updated by maintenance jobs.</li>
 	</ol>
 	
 	<h3>2.9.0 - 2021-06-30</h3>
@@ -857,13 +861,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>522</sys_mod_count>
+        <sys_mod_count>524</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-20 12:24:33</sys_updated_on>
+        <sys_updated_on>2021-08-24 15:14:59</sys_updated_on>
     </sys_ui_page>
 </record_update>
