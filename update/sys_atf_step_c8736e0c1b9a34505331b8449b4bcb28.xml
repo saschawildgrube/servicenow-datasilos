@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if there is any test data left over with prefix: _ATF_DATASILOS_
+</description>
+        <display_name>DevTools - Check test data sanity</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="DevTools - Check test data sanity">da7ede081b9a34505331b8449b4bcb00</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-26 07:47:24</sys_created_on>
+        <sys_id>c8736e0c1b9a34505331b8449b4bcb28</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DevTools - Check test data sanity</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_c8736e0c1b9a34505331b8449b4bcb28</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-26 07:47:24</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - Test data sanity">e87e8edf1b2c2090a89720a8ec4bcbaf</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=c8736e0c1b9a34505331b8449b4bcb28"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>c8736e0c1b9a34505331b8449b4bcb28</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-26 07:47:24</sys_created_on>
+        <sys_id>4a73a24c1b9a34505331b8449b4bcb5e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-26 07:47:24</sys_updated_on>
+        <value>_ATF_DATASILOS_</value>
+        <variable display_value="">e23fd6481b9a34505331b8449b4bcbd1</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=c8736e0c1b9a34505331b8449b4bcb28"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>u_prefix</field>
+        <id>c8736e0c1b9a34505331b8449b4bcb28</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-26 07:47:24</sys_created_on>
+        <sys_id>c273a24c1b9a34505331b8449b4bcb5e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-26 07:47:24</sys_updated_on>
+        <table>var__m_atf_input_variable_da7ede081b9a34505331b8449b4bcb00</table>
+        <value>_ATF_DATASILOS_</value>
+    </sys_element_mapping>
+</record_update>
