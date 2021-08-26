@@ -70,8 +70,12 @@
 	
 	<h2>System requirements</h2>
 	<ul>
-		<li>Orlando, Paris or Quebec</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.22.0</a></li>
+		<g2:no_escape>$[
+			docapi.RenderSystemRequirements(
+				'Orlando,Paris,Quebec',
+				true,
+				AppGetDependencies());
+		]</g2:no_escape>	
 	</ul>
 	
 	<h2>Protection mechanisms</h2>
@@ -592,9 +596,9 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
-	<h3>2.10.0 - 2021-07-TODO</h3>
+	<h3>2.10.0 - 2021-08-TODO</h3>
 	<ol>
-		<li>DevTools 1.21.0 is now required.</li>
+		<li>DevTools 1.22.0 is now required.</li>
 		<li>AppInstall() is now available from all application scopes.</li>
 		<li>GetOptimizationStatus() is now available from all application scopes.</li>
 		<li>GetOptimizationStatus() now uses DevTools's PerformanceQueryMultiple() function.</li>
@@ -604,6 +608,9 @@ DataSilos - incident_task - cross-silo
 		<li>Updated installation instructions with guidance regarding records with data issues which cannot be updated during maintenance.</li>
 		<li>Extended analysis agenda and added a story to verify that no unnessecary notifications are triggered by maintenance jobs.</li> 
 		<li>Added a story to cover the work required to ensure that all records in all tables in scope can be updated by maintenance jobs.</li>
+		<li>Refactored test "DataSilos - Test data sanity" to use the new test step config "DevTools - Check test data sanity".</li>
+		<li>Now using DocumentationAPI.RenderSystemRequirements() function to automatically render system requirements including dependencies to other apps.</li>
+		<li>The new function AppGetDependencies() now provides information about dependencies to other apps.</li>
 	</ol>
 	
 	<h3>2.9.0 - 2021-06-30</h3>
@@ -861,13 +868,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>525</sys_mod_count>
+        <sys_mod_count>530</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-08-26 11:33:45</sys_updated_on>
+        <sys_updated_on>2021-08-26 12:30:48</sys_updated_on>
     </sys_ui_page>
 </record_update>
