@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
     <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
-        <dependency display_value="Problem Management" source="com.snc.problem">3b7183fb1bf03010577f43b5bb4bcbf5</dependency>
+        <dependency display_value="Problem Management" source="com.snc.problem">dba8f9561b263010edf3642aab4bcb32</dependency>
         <min_version>1.0.0</min_version>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 12:41:54</sys_created_on>

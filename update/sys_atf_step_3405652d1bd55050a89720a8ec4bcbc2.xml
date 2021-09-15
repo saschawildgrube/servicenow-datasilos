@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">e312349cdb505c90ba15a3530596193a</copied_from>
+        <copied_from display_value="">e312349cdb505c90ba15a3530596193a</copied_from>
         <description>Insert a record into 'change_request' with the following values:
 Short description = _ATF_DATASILOS_ALPHA_MEMBER
 and Opened by = {{Step 4: Record Query.First record}}

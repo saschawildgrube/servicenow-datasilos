@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="DataSilos - IsTableActive">130eee68db182810ba15a35305961966</copied_from>
+        <copied_from display_value="">130eee68db182810ba15a35305961966</copied_from>
         <description>Checks if DataSilos is globally active and if the table [incident] is active.
 </description>
         <display_name>DataSilos - IsTableActive</display_name>
