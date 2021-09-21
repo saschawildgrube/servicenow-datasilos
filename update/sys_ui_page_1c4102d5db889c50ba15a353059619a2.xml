@@ -600,7 +600,8 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>DataSilos has been fully tested on Rome.</li>
 		<li>Orlando is no longer actively supported.</li>
-		<li>DevTools 1.22.0 is now required.</li>
+		<li>DevTools 1.23.0 is now required.</li>
+		<li>Introduced extension point instance for "DevTools" to support the "Up" button on silo-to-group mapping record forms.</li>
 		<li>Added "DataSilos - DevTools" child test suite to the "DataSilos" test suite so that all relevant tests can be run in one go.</li>
 		<li>Missing ACLs are now added into the global scope (instead of DataSilos) by MaintenanceACLs().</li>
 		<li>AppInstall() is now available from all application scopes.</li>
@@ -875,13 +876,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>536</sys_mod_count>
+        <sys_mod_count>537</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-21 11:41:14</sys_updated_on>
+        <sys_updated_on>2021-09-21 15:36:59</sys_updated_on>
     </sys_ui_page>
 </record_update>
