@@ -8,9 +8,9 @@
         <sys_id>d28da7f11b66b0905331b8449b4bcbb4</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>191b1c33db0cfc50bc44d844ca9619b6</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_test_suite_test_d28da7f11b66b0905331b8449b4bcbb4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-09-13 09:56:04</sys_updated_on>
