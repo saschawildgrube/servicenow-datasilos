@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">64bc52681bb49410a89720a8ec4bcbdd</copied_from>
+        <copied_from display_value="">64bc52681bb49410a89720a8ec4bcbdd</copied_from>
         <description>Insert a record into 'problem' with the following values:
 Problem statement = _ATF_DATASILOS_ALPHA_FULFILLER
 Confirm the record was successfully inserted</description>

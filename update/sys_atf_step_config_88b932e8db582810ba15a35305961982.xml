@@ -572,19 +572,6 @@ generateDescription();]]></description_generator>
 				stepResult.setFailed();&#13;
 			}				&#13;
 &#13;
-			// Check if all tests steps are configured in the "DataSilos - Test data sanity" test&#13;
-			var grSAS = new GlideRecord('sys_atf_step');&#13;
-			grSAS.addQuery('test','=','e87e8edf1b2c2090a89720a8ec4bcbaf'); // not ideal: better use the test name&#13;
-			grSAS.addQuery('step_config','=','0270b8005f30220012b44adb7f46666a'); // Record Query&#13;
-			grSAS.addQuery('active','=',true);&#13;
-			grSAS.addQuery('description','CONTAINS','starts with _ATF_DATASILOS_');&#13;
-			grSAS.addQuery('table',strTable);&#13;
-			grSAS.query();&#13;
-			if (grSAS.getRowCount() != 1)&#13;
-			{&#13;
-				strMessage += 'In the test "Test data sanity" no test step has been configured for table "'+strTable+'"!\n';&#13;
-				stepResult.setFailed();&#13;
-			}		&#13;
 		}&#13;
 &#13;
 &#13;
@@ -648,16 +635,16 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>121</sys_mod_count>
+        <sys_mod_count>122</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-30 12:24:50</sys_updated_on>
+        <sys_updated_on>2021-09-09 11:25:15</sys_updated_on>
         <template_reminder>TBD</template_reminder>
-        <type display_value="Test Step" name="sys_atf_step">f653cf3f1b343010577f43b5bb4bcb46</type>
+        <type display_value="Test Step" name="sys_atf_step">32cab51a1b663010edf3642aab4bcbb8</type>
         <wizard_redirect/>
     </sys_atf_step_config>
     <sys_translated_text action="delete_multiple" query="documentkey=88b932e8db582810ba15a35305961982"/>

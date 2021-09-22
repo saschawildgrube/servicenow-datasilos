@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.MaintenanceACLs</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Maintain existing ACLs and create missing ACLs required to protect the tables in scope. </description>
+        <name>MaintenanceACLs</name>
+        <script><![CDATA[function MaintenanceACLs()
+{
+	var bSuccess = true;
+	
+	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;
+	var GlideRecordInsert = x_snc_devtools.GlideRecordInsert;
+	var RenderValue = x_snc_devtools.RenderValue;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var StringRemoveCharacters = x_snc_devtools.StringRemoveCharacters;
+
+	function Log(strText)
+	{
+		x_snc_datasilos.Log('MaintenanceACLs: '+strText);
+	}
+	function MaintenanceACLsForTable(strTable)
+	{
+		Log('MaintenanceACLsForTable: ['+strTable+']');
+		
+		var strScriptSimple = 'answer = x_snc_datasilos.ExecuteACL(current);';
+		
+		var strScriptComplex =
+			"var bAnswer = false;\n"
+			+"bAnswer = {CODE}\n"
+			+"if (bAnswer == true)\n"
+			+"{\n"
+			+"   bAnswer = x_snc_datasilos.ExecuteACL(current);\n"
+			+"}\n"
+			+"answer = bAnswer;";	
+
+		var grACL = new GlideRecord('sys_security_acl');
+		grACL.addQuery('name','=',strTable+'.*');
+		grACL.addActiveQuery();
+		grACL.addQuery('operation','=','read');
+		grACL.query();
+		if (grACL.getRowCount() == 0)
+		{
+			Log('Did not find an ACL named '+strTable+'.* - so we need to add one!');
+			grACL.initialize();
+			grACL.sys_scope = 'global';
+			grACL.name = strTable+'.*';
+			grACL.active = true;
+			grACL.operation = 'read';
+			grACL.description = 'Added during DataSilos installation';
+			grACL.advanced = true;
+			grACL.script = strScriptSimple;
+			var bResult = GlideRecordInsert(grACL);
+			Log('GlideRecordInsert() returned: '+RenderValue(bResult));
+			if (bResult == false)
+			{
+				bSuccess = false;
+			}	
+		}
+			
+		
+		var grACL = new GlideRecord('sys_security_acl');
+		var condition = grACL.addQuery('name','=',strTable);
+		condition.addOrCondition('name','=',strTable+'.*');
+		grACL.addActiveQuery();
+		grACL.addQuery('operation','=','read');
+		grACL.query();
+		while (grACL.next())
+		{
+			Log('Active ACL found: '+grACL.name+' / '+grACL.operation+' / '+grACL.sys_id);
+			if (grACL.advanced == false)
+			{
+				Log('ACL is not set to advanced. Adding script...');
+				grACL.advanced = true;
+				grACL.script = strScriptSimple;
+				var bResult = GlideRecordUpdate(grACL);
+				Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
+				if (bResult == false)
+				{
+					bSuccess = false;
+				}				
+			}
+			else
+			{
+				var strScript = GetStringValue(grACL.script);
+				if (CheckACLScript(strScript) == false)
+				{
+					if (strScript == '')
+					{
+						Log('ACL is set to advanced, but the script is empty. Adding script...');
+						grACL.script = strScriptSimple;
+						var bResult = GlideRecordUpdate(grACL);
+						Log('Update() returned: '+RenderValue(bResult));
+						if (bResult == false)
+						{
+							bSuccess = false;
+						}
+					}
+					else
+					{
+						Log('ACL is set to advanced, but the script is not compliant. Modifying script...');
+						Log('Existing script:');
+						Log(strScript);
+						
+						if (strScript.indexOf('\n') != -1)
+						{
+							Log('Warning: The ACL contains a script that cannot be changed automatically!');
+							bSuccess = false;
+						}
+						else
+						{
+							var strScriptNoAnswer = strScript;
+							var strScriptNoWhitespaces = StringRemoveCharacters(strScript,' \t');
+							if (strScriptNoWhitespaces.indexOf('answer=') == 0)
+							{
+								strScriptNoAnswer = strScript.replace('answer =','').trim();
+							}
+							var strScriptNew = strScriptComplex.replace('{CODE}',strScriptNoAnswer);
+							Log('New script:');
+							Log('\n'+strScriptNew);
+							Log('CheckACLScript: '+RenderValue(CheckACLScript(strScriptNew)));
+							grACL.script = strScriptNew;
+							var bResult = GlideRecordUpdate(grACL);
+							Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
+							if (bResult == false)
+							{
+								bSuccess = false;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	var aTables = GetAllSupportedTables();
+	for (nIndex = 0; nIndex < aTables.length; nIndex++)
+	{
+		MaintenanceACLsForTable(aTables[nIndex]);
+	}
+	return bSuccess;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-30 13:28:55</sys_created_on>
+        <sys_id>bec75c6d1b167850577f43b5bb4bcb65</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>MaintenanceACLs</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_bec75c6d1b167850577f43b5bb4bcb65</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-16 08:37:12</sys_updated_on>
+    </sys_script_include>
+</record_update>

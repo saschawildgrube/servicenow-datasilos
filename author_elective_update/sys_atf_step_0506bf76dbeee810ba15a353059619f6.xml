@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from/>
+        <description>Validate there are not any records in 'change_task' matching query:
+Short description starts with _ATF_DATASILOS_
+With a failure timeout of 5 Seconds</description>
+        <display_name>Record Query (Deprecated)</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>6</order>
+        <snapshot/>
+        <step_config display_value="Record Query (Deprecated)">0270b8005f30220012b44adb7f46666a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-01 16:56:16</sys_created_on>
+        <sys_id>0506bf76dbeee810ba15a353059619f6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Record Query (Deprecated)</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_0506bf76dbeee810ba15a353059619f6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-26 07:47:04</sys_updated_on>
+        <table>change_task</table>
+        <test display_value="DataSilos - Test data sanity">e87e8edf1b2c2090a89720a8ec4bcbaf</test>
+        <timeout>1970-01-01 00:00:05</timeout>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=0506bf76dbeee810ba15a353059619f6"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>0506bf76dbeee810ba15a353059619f6</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-01 16:56:16</sys_created_on>
+        <sys_id>221633b6dbeee810ba15a35305961914</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-01 16:56:16</sys_updated_on>
+        <value>1</value>
+        <variable display_value="">9459c28673103300f660eeadfff6a7dd</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>0506bf76dbeee810ba15a353059619f6</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-01 16:56:16</sys_created_on>
+        <sys_id>2e1633b6dbeee810ba15a35305961913</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-01 16:56:16</sys_updated_on>
+        <value>no_records_match_query</value>
+        <variable display_value="">dd091e22675003007ba405225685ef69</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>0506bf76dbeee810ba15a353059619f6</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-01 16:56:16</sys_created_on>
+        <sys_id>a61633b6dbeee810ba15a35305961914</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-01 16:56:16</sys_updated_on>
+        <value>short_descriptionSTARTSWITH_ATF_DATASILOS_^EQ</value>
+        <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>0506bf76dbeee810ba15a353059619f6</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-03-01 16:56:16</sys_created_on>
+        <sys_id>e21633b6dbeee810ba15a35305961914</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-03-01 16:56:16</sys_updated_on>
+        <value>change_task</value>
+        <variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable>
+    </sys_variable_value>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>027b763fdb383810601a11f84896197c</instance_id>
+        <instance_name>empswildgrubedevorlando</instance_name>
+        <name>sys_atf_step_0506bf76dbeee810ba15a353059619f6</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from/><description>Validate there are not any records in 'change_task' matching query:
+Short description starts with _ATF_DATASILOS_
+With a failure timeout of 5 Seconds</description><display_name>Record Query (Deprecated)</display_name><inputs/><mugshots_cache_json/><notes/><order>6</order><snapshot/><step_config display_value="Record Query (Deprecated)">0270b8005f30220012b44adb7f46666a</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-03-01 16:56:16</sys_created_on><sys_id>0506bf76dbeee810ba15a353059619f6</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Record Query (Deprecated)</sys_name><sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_atf_step_0506bf76dbeee810ba15a353059619f6</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-08-26 07:47:04</sys_updated_on><table>change_task</table><test display_value="DataSilos - Test data sanity">e87e8edf1b2c2090a89720a8ec4bcbaf</test><timeout>1970-01-01 00:00:05</timeout><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=0506bf76dbeee810ba15a353059619f6"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>0506bf76dbeee810ba15a353059619f6</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-03-01 16:56:16</sys_created_on><sys_id>221633b6dbeee810ba15a35305961914</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-03-01 16:56:16</sys_updated_on><value>1</value><variable display_value="">9459c28673103300f660eeadfff6a7dd</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>0506bf76dbeee810ba15a353059619f6</document_key><order>200</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-03-01 16:56:16</sys_created_on><sys_id>2e1633b6dbeee810ba15a35305961913</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-03-01 16:56:16</sys_updated_on><value>no_records_match_query</value><variable display_value="">dd091e22675003007ba405225685ef69</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>0506bf76dbeee810ba15a353059619f6</document_key><order>400</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-03-01 16:56:16</sys_created_on><sys_id>a61633b6dbeee810ba15a35305961914</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-03-01 16:56:16</sys_updated_on><value>short_descriptionSTARTSWITH_ATF_DATASILOS_^EQ</value><variable display_value="">cf167c405f30220012b44adb7f46660d</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>0506bf76dbeee810ba15a353059619f6</document_key><order>300</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-03-01 16:56:16</sys_created_on><sys_id>e21633b6dbeee810ba15a35305961914</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-03-01 16:56:16</sys_updated_on><value>change_task</value><variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable></sys_variable_value></record_update>]]></payload>
+        <payload_hash>-1232739342</payload_hash>
+        <record_name>Record Query (Deprecated)</record_name>
+        <reverted_from/>
+        <source>d6167b0a1b093c10577f43b5bb4bcb00</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-26 07:47:04</sys_created_on>
+        <sys_id>4563224c1b9a34505331b8449b4bcb00</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17b816d395b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-26 07:47:04</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>4d63ee0cc79a3450519bf9bd5fc578ff</update_guid>
+        <update_guid_history>4d63ee0cc79a3450519bf9bd5fc578ff:-1232739342,ba3babc9c5c5b010b65c504b816f3b13:-738189923</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-26 07:47:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>062ef2ce0a3249cc8f4c7738133ae5b9</sys_id>
+        <sys_metadata>0506bf76dbeee810ba15a353059619f6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Record Query</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_0506bf76dbeee810ba15a353059619f6</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_0506bf76dbeee810ba15a353059619f6">4563224c1b9a34505331b8449b4bcb00</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-26 07:47:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

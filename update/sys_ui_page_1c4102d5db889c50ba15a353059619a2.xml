@@ -70,8 +70,12 @@
 	
 	<h2>System requirements</h2>
 	<ul>
-		<li>Orlando, Paris or Quebec</li>
-		<li><a href="https://github.com/saschawildgrube/servicenow-devtools/" target="_blank">DevTools 1.19.0</a></li>
+		<g2:no_escape>$[
+			docapi.RenderSystemRequirements(
+				'Paris,Quebec,Rome',
+				true,
+				AppGetDependencies());
+		]</g2:no_escape>	
 	</ul>
 	
 	<h2>Protection mechanisms</h2>
@@ -128,7 +132,7 @@
 		<li>DataSilos introduces new roles (admin, manager etc.). What implication does it have to your license and user access management processes?</li> 
 		
 		<!-- GO LIVE -->
-		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. How exactly will this initialization take place? What should be considered?</li>
+		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. Do existing records have sufficient information to apply the visibility rules? Can all records be updated? Would such updates trigger unnecessary notifications?</li>
 	
 	</ol>
 	<h3>User stories</h3>
@@ -149,6 +153,7 @@
 		<li>As the platform owner I want to ensure that no records become totally inaccessible to everyone. Maintenance jobs should always run.</li>
 		<li>As the platform owner I want to ensure that scheduled jobs are run using a technical user of my choice.</li>
 		<li>As the platform owner I want to ensure maintenance job performance. Database indices for the last_maintenance fields should be added to all tables.</li>
+		<li>As the platform owner I must ensure that all records in all tables in scope can be updated by the maintenance jobs.</li>
 		<li>As the platform owner I want to reduce manual work. Where possible users should be assigned to groups automatically.</li>
 		<li>As the platform owner I want to reduce manual work. Where possible groups should be assigned to silos automatically.</li>
 		<li>As the platform owner I want to reduce manual work. User's security clearance levels should be set automatically.</li>
@@ -158,6 +163,8 @@
 		<li>As the platform owner I want to ensure stability by running all related ATF tests as part of the development and deployment process.</li>
 		<li>As the platform owner I want to ensure stability and consider running all related ATF tests to monitor production.</li>
 		<li>As the platform owner I want to ensure that existing integrations continue to work as expected.</li>
+		<li>As the platform owner I want to ensure that maintenance jobs do not trigger unnecessary notifications.</li>
+		<li>As the platform owner I want to automate the steps required during installation.</li>
 		<li>As the QA manager I need existing tests (both manual and automated) are updated to reflect the new expected behavior.</li>
 		<li>As the QA manager I need new (manual and/or automated) tests to verify the new access restrictions work as expected.</li>
 		<li>As an operations user I want to be informed and trained properly so that I can operate the solution going forward.</li>
@@ -182,6 +189,8 @@
 		<li>It is strongly recommended to use specific test users and test groups for functional testing. Do not reuse users or groups from other tests!</li>
 	</ol>
 	<h3>Installation</h3>
+	<p>Before installing, verify if there is a plugin scoped app that contains specific customizations and additions relevant to your organization's instance and which may come with its own installation instructions. In such cases, follow the installation instructions shipped with the custom scoped app.</p>
+	<p>Please note that is it NOT RECOMMENDED to deploy DataSilos and related scoped apps using update sets. Use source control instead!</p>
 	<ol>
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsImportFromSourceControl(
@@ -198,22 +207,12 @@
 		<li>Go to "DataSilos/Access Control (ACL)" and check if there are any ACLs in the "DataSilos" application scope that refer to OOTB tables (e.g. incident, incident_task, etc.) with a name like e.g. incident.* (This is "incident DOT asterix"). If you see some, they must be deleted. Do NOT delete any ACLs that refer to any x_snc_datasilos* fields (like e.g. x_snc_datasilos_group_whitelist). A platform bug eventually creates them during installation and associates them to the app scope. Note that they cannot be deleted directly, because the platform denies any change to an ACL that refers to a table in the global scope from within an application scope. Use the following trick: Change the table to "Data Silos" then "Save" and then "Delete" them.</li>
 		<li>Switch to global scope</li>
 		<li>Create a new update set in the global scope to capture all changes related to the DataSilos installation. In case some of the ACLs reside in different scopes, you might have to create additional update sets for these scopes to capture all changes.</li>
-		<li>The next step is the configuration of existing ACLs. There are two options:</li>
-		<ol>
-			<li>Automated approach - WARNING: a script is going to make changes to existing scripts within ACLs. This approach is less work but it's only safe if you have sufficient test coverage in place to confirm regression safety.</li>
-			<li>Manual approach - This is more work but you have full control over what is happening.</li>
-		</ol>
-		<li>Automated approach:</li>
-			<ol>
-				<g2:no_escape>$[
-					docapi.RenderInstallationInstructionsAppInstall();
-				]</g2:no_escape>
-				<li>Check out if there are any warnings in the script output.</li>
-				<li>Apply the manual approach on those ACLs which were not changed automatically.</li>
-			</ol>
-		<li>Manual approach:</li>
-		<ol>
-			<li>For each of the following tables perform the steps listed below:</li>
+		<li>WARNING: In the following steps, a script is going to make changes to existing scripts within ACLs or add scripts to ACLs. Verify that you have sufficient test coverage in place to confirm regression safety.</li>
+		<g2:no_escape>$[
+			docapi.RenderInstallationInstructionsAppInstall();
+			]</g2:no_escape>
+		<li>Check out if there are any errors or warnings in the script output.</li>
+		<li>If there are ACLs which have not been modified automatically, then perform the steps listed below for each of the supported tables (including but not limited to the following):</li>
 <pre>
 incident
 incident_task
@@ -225,13 +224,13 @@ sc_request
 sc_req_item
 sc_task
 </pre>
-			<ol>
-				<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
-				<li>Activate "Advanced" (if not active already) and add the following script:</li>
+		<ol>
+			<li>At least two ACLs for the&#160;<b>read</b>&#160;operation must exist for each table:&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>. Ideally only ONE ACL exists for&#160;<b>table_name</b>&#160;and&#160;<b>table_name.*</b>&#160;(Note it is "table_name DOT asterix") for the&#160;<b>read</b>&#160;operation. You may have to create or change existing ACLs or consolidate multiple ACLs into one. Either way: make sure that all active ACLs contain the following script logic.</li> 
+			<li>Activate "Advanced" (if not active already) and add the following script:</li>
 <pre>
 answer = x_snc_datasilos.ExecuteACL(current);	
 </pre>
-				<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
+			<li>If the ACL already contains a script, you will need to combine the DataSilos specific code with the existing script. You should use the following template:</li>
 <pre>
 var bAnswer = false;
 
@@ -244,11 +243,9 @@ if (bAnswer == true)
 }
 answer = bAnswer;
 </pre>
-				<li>CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
-			</ol>
+			<li>CAUTION: setting the response variable "answer" sometimes only works ONCE during a script. To avoid any issues, it is recommended to set the "answer" value only once at the end of the script.</li>
 		</ol>
 		<li>In case the default "System Administrator" user does no longer exist, is deactivated or should not be used to run scheduled jobs, identify a technical user that should be used to run scheduled jobs and configure the user for all DataSilos related jobs.</li>
-		<li>Install any additional customer specific applications that are based on DataSilos and extend its functionality.</li>
 		<li>If possible, activate the DataSilos app in the options and then go to "Test Suite" and execute all tests. Fix any issues reported by the tests. If needed deactivate the DataSilos app after running all tests. The following list may help you to troubleshoot failing tests:</li>
 		<ul>
 			<li>If tests fail directly on the first step it means that DataSilos (or the specific table) has not been configured to be active.</li>
@@ -259,10 +256,35 @@ answer = bAnswer;
 			<li>Also consider restrictions resulting from Domain Separation. DataSilos can be used in combination with Domain Separation - however make sure that test data records are all created in the same domain.</li>
 		</ul>
 		<li>Set all update sets to complete.</li>
-		<li>Execute the following background script in the x_snc_datasilos scope to trigger queries that may need database level optimization:</li>
-<pre>Log(x_snc_devtools.RenderValue(GetOptimizationStatus()));</pre>
-		<li>If the queries appear to be slow, raise a case with ServiceNow support to implement optimizations on database level.</li> 
-				
+		<li>Optimize the database:</li>
+		<p>Raise a case with ServiceNow support (or in case you run your instance on-premise with your internal database support team) and ask for the following:</p>
+<pre>
+Hello,
+	
+as part of the installation of DataSilos, optimization on database level is required.
+
+Please execute the following background script in the x_snc_datasilos scope to trigger queries that may need optimization:
+	
+x_snc_datasilos.Log(x_snc_devtools.RenderValue(x_snc_datasilos.GetOptimizationStatus()));
+
+Check out the time required to execute the different queries.
+	
+The "backmarker" queries return exactly one record and should not take more than 50ms.
+This can be achieved by adding a database index on the "Last Maintenance" fields.
+On tables that are derived from the "task" table, a combined index with the "sys_class_name" field is recommended.
+	
+All other queries should not take more than 500ms each.
+Please check if additional indices and query hints can be used to optimize these queries.
+	
+Please note that all options for code-level optimization have already been exhausted.
+The queries are already the fastest and most efficient known way to fulfill customer requirements. 
+
+Thank you very much.
+	
+Best regards,
+</pre>	
+		<li>After the database optimization is in place and the maintenance scripts are running at full speed, navigate to the DataSilos log and check if there are messages that indicate aborting maintenance scripts. The log entry will state the sys_id of the record that is blocking the maintenance script. All data issues in existing records must be fixed so that the mainetnance script can process all records in the table continuously.</li>	
+		<li>Navigate to "DataSilos/Status" and verify that there are no active tables that are marked "incomplete". Do not proceed until all records have been processed at least once.</li> 
 	</ol>
 	<h3>Configuration</h3>
 	<ol>
@@ -321,7 +343,7 @@ answer = bAnswer;
 	<h3>How does it actually work?</h3>
 	<p>DataSilos modifies all queries sent to the database of the tables in scope. Once the data comes back, the same filter logic is applied in ACLs. DataSilos adds several fields to all relevant tables that contain whitelists of groups and silos, the flag for global visibility, the security clearance level requirement and other relevant information. Whenever records are created or changed, these fields are updated according to the configured rules - if the ghost flag is not set for the record.</p>
 	<h3>How do I apply my own visibility rules on records?</h3>
-	<p>DataSilos implements a default behavior whenever a record is created or updated. Whitelists are extended and the security clearance level requirement is increased if a record is related to another record with a higher security clearance level. Some of that behavior can be configured using system properties. If you need a completely different behavior you can create a before business role that is triggered when a record is inserted or updated. In this business rule, set the ghost flag to true and populate the whitelists, security clearance level, and global flag as required. When the ghost flag is set to true, DataSilos will not make any changes to the record.</p>
+	<p>DataSilos implements a default behavior whenever a record is created or updated. Whitelists are extended and the security clearance level requirement is increased if a record is related to another record with a higher security clearance level. Some of that behavior can be configured using system properties. If you need a completely different behavior you can create a business rule that is triggered before a record is inserted or updated. In this business rule, set the ghost flag to true and populate the whitelists, security clearance level, and global flag as required. When the ghost flag is set to true, DataSilos will not make any further changes to the record.</p>
 
 	
 	
@@ -574,6 +596,32 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
+	<h3>2.10.0 - 2021-09-22</h3>
+	<ol>
+		<li>DataSilos has been fully tested on Rome.</li>
+		<li>Orlando is no longer actively supported.</li>
+		<li>DevTools 1.23.0 is now required.</li>
+		<li>Introduced extension point instance for "DevTools" to support the "Up" button on silo-to-group mapping record forms.</li>
+		<li>Added "DataSilos - DevTools" child test suite to the "DataSilos" test suite so that all relevant tests can be run in one go.</li>
+		<li>Missing ACLs are now added into the global scope (instead of DataSilos) by MaintenanceACLs().</li>
+		<li>AccessAnalysis() is now available from all application scopes and provides information on which user may see which records - but not yet why.</li>
+		<li>AppInstall() is now available from all application scopes.</li>
+		<li>AppInstall() now uses DevTools' InstallerAPI class for installation.</li>
+		<li>Added function MaintenanceACLs() to encapsulate all ACL related configuration activities.</li>
+		<li>GetOptimizationStatus() is now available from all application scopes.</li>
+		<li>GetOptimizationStatus() now uses DevTools's PerformanceQueryMultiple() function.</li>
+		<li>Updated installation instructions to always use AppInstall() to configure ACLs automatically.</li>
+		<li>Updated installation instructions with the recommendation to use source control and to consider additional custom scoped apps that extend DataSilos' functionality.</li>
+		<li>Updated installation instructions with specific guidance on database optimization.</li>
+		<li>Updated installation instructions with guidance regarding records with data issues which cannot be updated during maintenance.</li>
+		<li>Extended analysis agenda and added a story to verify that no unnessecary notifications are triggered by maintenance jobs.</li> 
+		<li>Added a story to cover the work required to ensure that all records in all tables in scope can be updated by maintenance jobs.</li>
+		<li>Refactored test "DataSilos - Test data sanity" to use the new test step config "DevTools - Check test data sanity".</li>
+		<li>Now using DocumentationAPI.RenderSystemRequirements() function to automatically render system requirements including dependencies to other apps.</li>
+		<li>The new function AppGetDependencies() now provides information about dependencies to other apps.</li>
+		<li>The "Test Suite" module now point to the DataSilos test suite explicitly.</li>
+	</ol>
+	
 	<h3>2.9.0 - 2021-06-30</h3>
 	<ol>
 		<li>DevTools 1.19.0 is now required.</li>
@@ -829,13 +877,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>502</sys_mod_count>
+        <sys_mod_count>539</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-30 13:47:41</sys_updated_on>
+        <sys_updated_on>2021-09-22 12:29:31</sys_updated_on>
     </sys_ui_page>
 </record_update>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Query (Deprecated)">c8b87d251bfc5810a89720a8ec4bcba2</copied_from>
+        <copied_from display_value="">c8b87d251bfc5810a89720a8ec4bcba2</copied_from>
         <description>Validate there is at least one record in 'sys_user' matching query:
 Name = _ATF_DATASILOS_ALPHA_MEMBER
 With a failure timeout of 5 Seconds</description>

@@ -18,7 +18,7 @@
         <sys_update_name>sys_restricted_caller_access_9ce230991b372810f28a0d81ec4bcb02</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-04-27 14:13:09</sys_updated_on>
-        <target name="x_snc_datasilos_datasilos" target_table="sys_db_object">2d9f89a71b48d490a89720a8ec4bcb85</target>
+        <target name="x_snc_datasilos_datasilos" target_table="sys_db_object">6ad94eea1b627010edf3642aab4bcbc7</target>
         <target_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</target_scope>
         <target_table>sys_db_object</target_table>
         <target_type>1</target_type>
