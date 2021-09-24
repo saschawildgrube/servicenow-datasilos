@@ -2,12 +2,12 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.GetOptimizationStatus</api_name>
+        <api_name>x_snc_datasilos.GetStatusPerformance</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>Returns an object with current status information about the database optimization.</description>
-        <name>GetOptimizationStatus</name>
-        <script><![CDATA[function GetOptimizationStatus()
+        <description>Returns an object with current status information about database performance.</description>
+        <name>GetStatusPerformance</name>
+        <script><![CDATA[function GetStatusPerformance()
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
@@ -88,13 +88,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-06-16 09:43:44</sys_created_on>
         <sys_id>0e359159db3870583c6c09c2ba9619a5</sys_id>
-        <sys_mod_count>19</sys_mod_count>
-        <sys_name>GetOptimizationStatus</sys_name>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>GetStatusPerformance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_0e359159db3870583c6c09c2ba9619a5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-08-23 13:39:26</sys_updated_on>
+        <sys_updated_on>2021-09-24 09:08:44</sys_updated_on>
     </sys_script_include>
 </record_update>
