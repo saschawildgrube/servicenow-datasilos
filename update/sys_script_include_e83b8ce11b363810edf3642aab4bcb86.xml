@@ -2,12 +2,12 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.GetStatusDatabaseIndex</api_name>
+        <api_name>x_snc_datasilos.GetStatusDatabaseIndexes</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Returns an object with current status information about the database indexes.</description>
-        <name>GetStatusDatabaseIndex</name>
-        <script><![CDATA[function GetStatusDatabaseIndex()
+        <name>GetStatusDatabaseIndexes</name>
+        <script><![CDATA[function GetStatusDatabaseIndexes()
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
@@ -29,6 +29,21 @@
 		
 		// Last Maintenance
 		
+		// Determine the storage column alias
+		// Get existing database indexes
+		// check if a fitting index is present
+		
+/*		
+		var grIndex = new GlideRecord('v_index_creator');
+		grIndex.addQuery('table','=','37a83d561b263010edf3642aab4bcb05');
+		grIndex.query();
+		while(grIndex.next())
+		{
+			Debug(RenderValue(grIndex));
+
+		}
+*/		
+		
 		// Global Visibility
 		
 		// Security Clearance
@@ -42,13 +57,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-24 09:04:23</sys_created_on>
         <sys_id>e83b8ce11b363810edf3642aab4bcb86</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>GetStatusDatabaseIndex</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>GetStatusDatabaseIndexes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_e83b8ce11b363810edf3642aab4bcb86</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-24 09:07:29</sys_updated_on>
+        <sys_updated_on>2021-09-24 11:31:23</sys_updated_on>
     </sys_script_include>
 </record_update>
