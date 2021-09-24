@@ -22,9 +22,9 @@
 		'An error occured while configuring database views. Manual review is required.');
 	
 	installer.GenericAction(
-		MaintenanceDatabaseIndices(),
-		'Database indices have been configured successfully.',
-		'An error occured while configuring database indices. Manual review is required.');
+		MaintenanceDatabaseIndexes(),
+		'Database indexes have been configured successfully.',
+		'An error occured while configuring database indexes. Manual review is required.');
 	
 	return installer.Finish();
 
@@ -33,13 +33,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-22 10:49:05</sys_created_on>
         <sys_id>8fc92aaddbc32450ba15a353059619f6</sys_id>
-        <sys_mod_count>31</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>AppInstall</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_8fc92aaddbc32450ba15a353059619f6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-24 08:18:45</sys_updated_on>
+        <sys_updated_on>2021-09-24 09:01:55</sys_updated_on>
     </sys_script_include>
 </record_update>
