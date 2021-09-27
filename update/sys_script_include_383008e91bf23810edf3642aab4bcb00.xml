@@ -9,19 +9,47 @@
         <name>MaintenanceDatabaseIndexes</name>
         <script><![CDATA[function MaintenanceDatabaseIndexes()
 {
+	var GetBoolValue = x_snc_devtools.GetBoolValue;
+	var IsValidColumn = x_snc_devtools.IsValidColumn;
+	var RenderValue = x_snc_devtools.RenderValue;
+	var DatabaseIndexCreate = x_snc_devtools.DatabaseIndexCreate;
+	
+	if (GetBoolValue(GetConfigValue('database_indexes','active')) == true)
+	{
+		Log('Automatic database index creation is active. Adding all recommeded indexes where needed.');
+		
+		var aTables = GetAllSupportedTables();
+		for (var nTable = 0; nTable < aTables.length; nTable++)
+		{
+			var strTable = aTables[nTable];
+			
+			// Last Maintenance
+			
+			var aColumns = [];
+			if (IsValidColumn(strTable,'sys_class_name') == true)
+			{
+				aColumns.push('sys_class_name');
+			}
+			aColumns.push(GetScopeFromTable(strTable)+'_last_maintenance');
+			Log('Create database index on table '+strTable+' with columns:'+RenderValue(aColumns));
+			
+			//DatabaseIndexCreate(strTable,aColumns);
+
+		}
+	}
 	return true;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-24 08:17:03</sys_created_on>
         <sys_id>383008e91bf23810edf3642aab4bcb00</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>MaintenanceDatabaseIndexes</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_383008e91bf23810edf3642aab4bcb00</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-24 09:01:31</sys_updated_on>
+        <sys_updated_on>2021-09-27 16:51:15</sys_updated_on>
     </sys_script_include>
 </record_update>
