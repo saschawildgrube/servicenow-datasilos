@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
+    <sys_properties_category_m2m action="INSERT_OR_UPDATE">
+        <category display_value="datasilos_itsm">8a3aedf61b7ef810edf3642aab4bcb82</category>
+        <order>3600</order>
+        <property display_value="x_snc_datasilos.tables.sc_task.columns.whitelist_trigger.sys_user_group" name="x_snc_datasilos.tables.sc_task.columns.whitelist_trigger.sys_user_group">5d9e79e8db142810ba15a35305961992</property>
+        <sys_class_name>sys_properties_category_m2m</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-28 13:12:29</sys_created_on>
+        <sys_id>355aa53a1b7ef810edf3642aab4bcb4d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_snc_datasilos.tables.sc_task.columns.whitelist_trigger.sys_user_group.DataSilos ITMS</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_properties_category_m2m_355aa53a1b7ef810edf3642aab4bcb4d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-28 13:12:29</sys_updated_on>
+    </sys_properties_category_m2m>
+</record_update>

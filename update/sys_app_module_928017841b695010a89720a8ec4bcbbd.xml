@@ -33,7 +33,7 @@
         <mobile_title>ACLs</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>sys_security_acl</name>
-        <order>10001</order>
+        <order>10002</order>
         <override_menu_roles>false</override_menu_roles>
         <query>&amp;sysparm_view_forced=true</query>
         <report/>
@@ -44,17 +44,17 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>928017841b695010a89720a8ec4bcbbd</sys_id>
-        <sys_mod_count>12</sys_mod_count>
-        <sys_name>ACLs</sys_name>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>ITSM ACLs</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_928017841b695010a89720a8ec4bcbbd</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-28 12:24:00</sys_updated_on>
+        <sys_updated_on>2021-09-28 13:18:00</sys_updated_on>
         <timeline_page/>
-        <title>ACLs</title>
+        <title>ITSM ACLs</title>
         <uncancelable>false</uncancelable>
         <view_name>DataSilos</view_name>
         <window_name/>

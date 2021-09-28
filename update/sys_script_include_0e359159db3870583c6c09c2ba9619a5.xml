@@ -32,7 +32,7 @@
 
 		var grQuery = new GlideRecord(strTable);
 		grQuery.addActiveQuery();
-		PrepareQueryInternal(grQuery, strTable, '', strPseudoSysId, false, [strPseudoSysId], [strPseudoSysId], 0);
+		PrepareQueryInternal(grQuery, strTable, '', strPseudoSysId, false, [strPseudoSysId], [strPseudoSysId], [strPseudoSysId], 0);
 		aQueries.push(
 			{
 				name: 'List active',
@@ -42,7 +42,7 @@
 			});
 		
 		var grQuery = new GlideRecord(strTable);
-		PrepareQueryInternal(grQuery, strTable, '', strPseudoSysId, false, [strPseudoSysId], [strPseudoSysId], 0);
+		PrepareQueryInternal(grQuery, strTable, '', strPseudoSysId, false, [strPseudoSysId], [strPseudoSysId], [strPseudoSysId], 0);
 		aQueries.push(
 			{
 				name: 'List all',
@@ -88,13 +88,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-06-16 09:43:44</sys_created_on>
         <sys_id>0e359159db3870583c6c09c2ba9619a5</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>GetStatusPerformance</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_0e359159db3870583c6c09c2ba9619a5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-24 09:08:44</sys_updated_on>
+        <sys_updated_on>2021-09-28 12:06:40</sys_updated_on>
     </sys_script_include>
 </record_update>

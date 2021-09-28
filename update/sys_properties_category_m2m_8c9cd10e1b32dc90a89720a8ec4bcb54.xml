@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
     <sys_properties_category_m2m action="INSERT_OR_UPDATE">
-        <category display_value="DataSilos">baf491c1db805c50ba15a3530596194e</category>
+        <category display_value="datasilos">baf491c1db805c50ba15a3530596194e</category>
         <order>500</order>
         <property display_value="x_snc_datasilos.group_filter" name="x_snc_datasilos.group_filter">150cdd4a1b32dc90a89720a8ec4bcb79</property>
         <sys_class_name>sys_properties_category_m2m</sys_class_name>

@@ -14,6 +14,7 @@
 	strUserSysId,
 	bAllowEmptySysId,
 	aUserSupervisorSilos,
+	aUserFulfillerSilos,
 	aUserGroups,
 	nUserSecurityClearance)
 {
@@ -29,6 +30,7 @@
 	strUserSysId = GetStringValue(strUserSysId);
 	bAllowEmptySysId = GetBoolValue(bAllowEmptySysId);
 	aUserSupervisorSilos = GetArrayValue(aUserSupervisorSilos);
+	aUserFulfillerSilos = GetArrayValue(aUserFulfillerSilos);
 	aUserGroups = GetArrayValue(aUserGroups);
 	nUserSecurityClearance = GetIntegerValue(nUserSecurityClearance);
 		
@@ -61,6 +63,11 @@
 	{
 		query.addOrCondition(strPrefix+strScope+'_supervisor_whitelist','CONTAINS',aUserSupervisorSilos[nIndex]);
 	}
+	
+	for (var nIndex = 0; nIndex < aUserFulfillerSilos.length; nIndex++)
+	{
+		query.addOrCondition(strPrefix+strScope+'_fulfiller_whitelist','CONTAINS',aUserFulfillerSilos[nIndex]);
+	}	
 		
 	for (var nIndex = 0; nIndex < aUserGroups.length; nIndex++)
 	{
@@ -73,13 +80,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-06-16 09:54:56</sys_created_on>
         <sys_id>cac79d9ddb3870583c6c09c2ba9619d9</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>PrepareQueryInternal</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_cac79d9ddb3870583c6c09c2ba9619d9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-30 12:31:14</sys_updated_on>
+        <sys_updated_on>2021-09-28 12:04:13</sys_updated_on>
     </sys_script_include>
 </record_update>

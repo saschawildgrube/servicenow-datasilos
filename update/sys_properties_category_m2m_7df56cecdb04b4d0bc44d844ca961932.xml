@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category_m2m">
     <sys_properties_category_m2m action="INSERT_OR_UPDATE">
-        <category display_value="DataSilos">baf491c1db805c50ba15a3530596194e</category>
+        <category display_value="datasilos">baf491c1db805c50ba15a3530596194e</category>
         <order>900</order>
         <property display_value="x_snc_datasilos.database_indexes.active" name="x_snc_datasilos.database_indexes.active">b55aef1cdb4074d0bc44d844ca96194b</property>
         <sys_class_name>sys_properties_category_m2m</sys_class_name>

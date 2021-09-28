@@ -2,15 +2,15 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.CreateTestData</api_name>
+        <api_name>x_snc_datasilos.CreateDemoData</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>Creates test data records for various cenarios. Do not use on production environments!</description>
-        <name>CreateTestData</name>
-        <script><![CDATA[function CreateTestData()
+        <description>Creates demo data records for various scenarios. Do not use on production environments!</description>
+        <name>CreateDemoData</name>
+        <script><![CDATA[function CreateDemoData()
 {
 		
-	var testdata = new DataSilosTestDataAPI('_TEST_DATASILOS_'); //
+	var testdata = new DataSilosTestDataAPI('_DEMO_DATASILOS_'); //
 	
 	// Users
 	testdata.CreateUser('ALICE',['itil']);
@@ -62,13 +62,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>72</sys_mod_count>
-        <sys_name>CreateTestData</sys_name>
+        <sys_mod_count>73</sys_mod_count>
+        <sys_name>CreateDemoData</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-22 14:58:54</sys_updated_on>
+        <sys_updated_on>2021-09-28 13:30:09</sys_updated_on>
     </sys_script_include>
 </record_update>
