@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.AppBuilder</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>The function turns an existing scoped app into a DataSilos plugin app and adds all components required to support a given set of tables.</description>
+        <name>AppBuilder</name>
+        <script>function AppBuilder(strAppSysIdOrScopeName,aTables)&#13;
+{&#13;
+	var GetStringValue = x_snc_devtools.GetStringValue;&#13;
+	var GetArrayValue = x_snc_devtools.GetArrayValue;&#13;
+	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	var IsValidTable = x_snc_devtools.IsValidTable;&#13;
+	var GlideRecordInsert = x_snc_devtools.GlideRecordInsert;&#13;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;&#13;
+&#13;
+	function Log(strText)&#13;
+	{&#13;
+		x_snc_datasilos.Log('AppBuilder: '+strText);&#13;
+	}&#13;
+	&#13;
+	var grApp = x_snc_devtools.AppBuilder(strAppSysIdOrScopeName);&#13;
+	if (grApp == false)&#13;
+	{&#13;
+		Log('Error: x_snc_devtools.AppBuilder returned false.');&#13;
+		return false;&#13;
+	}&#13;
+	&#13;
+	var strAppSysId = GetStringValue(grApp.sys_id);&#13;
+	var strAppScope = GetStringValue(grApp.scope); &#13;
+	&#13;
+	var aTables = GetArrayValue(aTables);&#13;
+	&#13;
+	Log('AppBuilder is working on app '+strAppScope+'. The following tables will be supported: '+RenderValue(aTables));&#13;
+	&#13;
+	&#13;
+	&#13;
+	&#13;
+	for (var nTable = 0; nTable &lt; aTables.length; nTable++)&#13;
+	{&#13;
+		var strTable = aTables[nTable];&#13;
+		if (IsValidTable(strTable) == false)&#13;
+		{&#13;
+			Log('IsValidTable("'+strTable+'") returned false. Ignoring table.');&#13;
+		}&#13;
+		else&#13;
+		{&#13;
+			Log('Working on table "'+strTable+'"...');&#13;
+			&#13;
+		&#13;
+			Log('Working on field "Fulfiller Whitelist"...');&#13;
+			var strFieldSysId = '';&#13;
+			var grSD = new GlideRecord('sys_dictionary');&#13;
+			grSD.addQuery('name','=',strTable);&#13;
+			grSD.addQuery('element','CONTAINS','fulfiller_whitelist');&#13;
+			grSD.query();&#13;
+			if (grSD.getRowCount() != 0)&#13;
+			{&#13;
+				grSD.next();&#13;
+				strFieldSysId = GetStringValue(grSD.sys_id);&#13;
+				Log('Field "Fulfiller Whitelist" already exists in table "'+strTable+'".');&#13;
+			}&#13;
+			else&#13;
+			{&#13;
+				var grSD = new GlideRecord('sys_dictionary');&#13;
+				grSD.initialize();&#13;
+				grSD.active = true;&#13;
+				grSD.array = false;&#13;
+				grSD.array_denormalized = false;&#13;
+				grSD.attributes = 'edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true';&#13;
+				grSD.audit = false;&#13;
+				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
+				grSD.column_label = 'DataSilos Fulfiller Whitelist';&#13;
+				grSD.display = false&#13;
+				grSD.dynamic_creation = false;&#13;
+				grSD.element = strAppScope+'_fulfiller_whitelist';&#13;
+				grSD.element_reference = false;&#13;
+				grSD.function_field = false;&#13;
+				grSD.internal_type = 'glide_list';&#13;
+				grSD.mandatory = false;&#13;
+				grSD.max_length = 4000;&#13;
+				grSD.name = strTable;&#13;
+				grSD.primary = false;&#13;
+				grSD.read_only = false;&#13;
+				grSD.reference = 'x_snc_datasilos_datasilos';&#13;
+				grSD.reference_cascade_rule = 'none';&#13;
+				grSD.reference_floats = false;&#13;
+				grSD.spell_check = false;&#13;
+				grSD.staged = false;&#13;
+				grSD.sys_name = 'DataSilos Fulfiller Whitelist';&#13;
+				grSD.sys_scope = strAppSysId;&#13;
+				grSD.table_reference = false;&#13;
+				grSD.text_index = false;&#13;
+				grSD.unique = false;&#13;
+				grSD.use_dependent_field = false;&#13;
+				grSD.use_dynamic_default = false;&#13;
+				grSD.use_reference_qualifier = 'simple';&#13;
+				grSD.virtual = false;&#13;
+				grSD.xml_view = false;&#13;
+				&#13;
+				strFieldSysId = GlideRecordInsert(grSD);&#13;
+				Log('Fulfiller Whitelist field: '+RenderValue(strFieldSysId));&#13;
+			}&#13;
+			&#13;
+			if (IsValidSysId(strFieldSysId) == true)&#13;
+			{&#13;
+				AppBuilderAddFieldACL(strAppScope, strTable, 'fulfiller_whitelist', strFieldSysId, 'read');&#13;
+				AppBuilderAddFieldACL(strAppScope, strTable, 'fulfiller_whitelist', strFieldSysId, 'write');&#13;
+			}&#13;
+			&#13;
+		}&#13;
+	}&#13;
+	&#13;
+	&#13;
+	&#13;
+	&#13;
+	Log('Done!');&#13;
+	&#13;
+	return grApp;&#13;
+&#13;
+&#13;
+&#13;
+	function AppBuilderAddFieldACL(strAppScope, strTable, strFieldName, strFieldSysId,strOperation)&#13;
+	{&#13;
+		strAppScope = GetStringValue(strAppScope);&#13;
+		strTable = GetStringValue(strTable);&#13;
+		strFieldName = GetStringValue(strFieldName);&#13;
+		strFieldSysId = GetStringValue(strFieldSysId);&#13;
+		strOperation = GetStringValue(strOperation);&#13;
+&#13;
+		Log('Working on ACL for "'+strOperation+'" operation...');&#13;
+		var strAclName = strTable+'.'+strAppScope+'_'+strFieldName;&#13;
+		var strAclSysId = '';&#13;
+		var grSSA = new GlideRecord('sys_security_acl');&#13;
+		grSSA.addQuery('type','=','record');&#13;
+		grSSA.addQuery('operation','=',strOperation);&#13;
+		grSSA.addQuery('name','=',strAclName);&#13;
+		grSSA.query();&#13;
+		if (grSSA.getRowCount() != 0)&#13;
+		{&#13;
+			grSSA.next();&#13;
+			strAclSysId = GetStringValue(grSSA.sys_id);&#13;
+			Log('ACL for "'+strOperation+'" operation already exists for field "'+strFieldName+'" in table "'+strTable+'".');&#13;
+		}&#13;
+		else&#13;
+		{&#13;
+			var grSSA = new GlideRecord('sys_security_acl');&#13;
+			grSSA.initialize();&#13;
+			grSSA.active = true;&#13;
+			grSSA.admin_overrides = true;&#13;
+			grSSA.advanced = false;&#13;
+			grSSA.name  = strAclName; &#13;
+			grSSA.operation = strOperation;&#13;
+			grSSA.sys_scope = strAppSysId;&#13;
+			grSSA.type = 'record';&#13;
+			strAclSysId = GlideRecordInsert(grSSA);&#13;
+			Log(strFieldName+' ACL for "'+strOperation+'" operation: '+RenderValue(strAclSysId));&#13;
+		}&#13;
+&#13;
+&#13;
+		if (IsValidSysId(strAclSysId) == true)&#13;
+		{&#13;
+			// Add Role&#13;
+			Log('Working on ACL role...');&#13;
+			var strAclRoleSysId = '';&#13;
+			var grSSAR = new GlideRecord('sys_security_acl_role');&#13;
+			grSSAR.addQuery('sys_security_acl','=',strAclSysId);&#13;
+			grSSAR.addQuery('sys_user_role','=','23df0da71b48d490a89720a8ec4bcb72'); // x_snc_datasilos.manager&#13;
+			grSSAR.query();&#13;
+			if (grSSAR.getRowCount() != 0)&#13;
+			{&#13;
+				grSSAR.next();&#13;
+				strAclRoleSysId = GetStringValue(grSSAR.sys_id);&#13;
+				Log('Role for ACL for "'+strOperation+'" operation already exists for field "'+strFieldName+'" in table "'+strTable+'".');&#13;
+			}&#13;
+			else&#13;
+			{&#13;
+				var grSSAR = new GlideRecord('sys_security_acl_role');&#13;
+				grSSAR.initialize();&#13;
+				grSSAR.sys_scope = strAppSysId;&#13;
+				grSSAR.sys_security_acl = strAclSysId;&#13;
+				grSSAR.sys_user_role = '23df0da71b48d490a89720a8ec4bcb72'; // x_snc_datasilos.manager;&#13;
+				strAclRoleSysId = GlideRecordInsert(grSSAR);&#13;
+				Log('Role for "'+strFieldName+'" ACL for "'+strOperation+'" operation: '+RenderValue(strAclRoleSysId));&#13;
+			}&#13;
+		}&#13;
+	}&#13;
+&#13;
+&#13;
+}</script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-28 09:53:31</sys_created_on>
+        <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
+        <sys_mod_count>21</sys_mod_count>
+        <sys_name>AppBuilder</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-28 11:48:35</sys_updated_on>
+    </sys_script_include>
+</record_update>
