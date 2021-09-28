@@ -122,7 +122,11 @@
 		<li>Are there any customized ACLs in place?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
 		<li>How many records exist in the affected tables? If there are more than a million, expect a performance impact and validate carefully!</li>
-		<li>Which database views exist that contain tables which are in scope? Should data segregation be applied?</li>
+		<li>Which database views exist that contain tables which are in scope? Should data segregation be applied to views?</li>
+		
+		<!-- PERFORMANCE -->
+		<li>How many records are in the tables in scope. Any number higher than approx. two Million should raise concerns as queries might become slow. Can records be archived?</li>
+		<li>How many database indexes are "left" on the tables in scope? Often there is a maximum of 64 indexes per physical database table. Are there enough indexes left to apply recommended optimizations?</li>
 		
 		<!-- REPORTING AND PA -->
 		<li>What reports are maintained and run and by whom? Consider the impact of data segregation on reports!</li>
@@ -158,7 +162,7 @@
 		<li>As the platform owner I want to reduce manual work. Where possible groups should be assigned to silos automatically.</li>
 		<li>As the platform owner I want to reduce manual work. User's security clearance levels should be set automatically.</li>
 		<li>As the platform owner I want to ensure platform performance. One aspect is the consolidation of multiple ACLs into one.</li>
-		<li>As the platform owner I want to ensure platform performance. One aspect is the optimization of expensive queries on database level.</li>
+		<li>As the platform owner I want to ensure platform performance. One option is to add database indexes to optimize query performance.</li>
 		<li>As the platform owner I want to ensure that existing and future database views do not bypass access restrictions.</li>
 		<li>As the platform owner I want to ensure stability by running all related ATF tests as part of the development and deployment process.</li>
 		<li>As the platform owner I want to ensure stability and consider running all related ATF tests to monitor production.</li>
@@ -257,7 +261,10 @@ answer = bAnswer;
 		</ul>
 		<li>Set all update sets to complete.</li>
 		<li>Optimize the database:</li>
-		<p>Raise a case with ServiceNow support (or in case you run your instance on-premise with your internal database support team) and ask for the following:</p>
+		<p>There are two options:</p>
+		<ol>
+			<li>Let DataSilos automatically create recommended indexes by setting the system property&#160;<a href="/sys_properties.do?sys_id=b55aef1cdb4074d0bc44d844ca96194b" target="_blank">x_snc_datasilos.database_indexes.active</a>&#160;to true.</li>
+			<li>Raise a case with ServiceNow support (or in case you run your instance on-premise with your internal database support team) and ask for the following:</li>
 <pre>
 Hello,
 	
@@ -283,6 +290,7 @@ Thank you very much.
 	
 Best regards,
 </pre>	
+		</ol>
 		<li>After the database optimization is in place and the maintenance scripts are running at full speed, navigate to the DataSilos log and check if there are messages that indicate aborting maintenance scripts. The log entry will state the sys_id of the record that is blocking the maintenance script. All data issues in existing records must be fixed so that the mainetnance script can process all records in the table continuously.</li>	
 		<li>Navigate to "DataSilos/Status" and verify that there are no active tables that are marked "incomplete". Do not proceed until all records have been processed at least once.</li> 
 	</ol>
@@ -886,13 +894,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>546</sys_mod_count>
+        <sys_mod_count>548</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-24 09:10:47</sys_updated_on>
+        <sys_updated_on>2021-09-28 07:46:42</sys_updated_on>
     </sys_ui_page>
 </record_update>
