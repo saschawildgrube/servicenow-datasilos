@@ -31,14 +31,18 @@ AppBuilder('x_snc_datasilos',[&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
 	var IsValidTable = x_snc_devtools.IsValidTable;&#13;
 	var GlideRecordInsert = x_snc_devtools.GlideRecordInsert;&#13;
+	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;&#13;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;&#13;
+	var RecordGetValue = x_snc_devtools.RecordGetValue;&#13;
 &#13;
 	function Log(strText)&#13;
 	{&#13;
 		x_snc_datasilos.Log('AppBuilder: '+strText);&#13;
 	}&#13;
 	&#13;
-	var grApp = x_snc_devtools.AppBuilder(strAppSysIdOrScopeName);&#13;
+	var grApp = x_snc_devtools.AppBuilder(&#13;
+		strAppSysIdOrScopeName,&#13;
+		'949c7f2fdbb78450ba15a353059619d6'); // DataSilos application menu&#13;
 	if (grApp == false)&#13;
 	{&#13;
 		Log('Error: x_snc_devtools.AppBuilder returned false.');&#13;
@@ -47,6 +51,8 @@ AppBuilder('x_snc_datasilos',[&#13;
 	&#13;
 	var strAppSysId = GetStringValue(grApp.sys_id);&#13;
 	var strAppScope = GetStringValue(grApp.scope); &#13;
+	var strAppVersion = GetStringValue(grApp.version);&#13;
+	var strDataSilosVersion = RecordGetValue('sys_app','dafbffebdbb78450ba15a353059619eb','version');&#13;
 	&#13;
 	var aTables = GetArrayValue(aTables);&#13;
 	&#13;
@@ -132,6 +138,34 @@ AppBuilder('x_snc_datasilos',[&#13;
 	&#13;
 	&#13;
 	&#13;
+	// Modify AppGetDependencies script include&#13;
+	var grSI = new GlideRecord('sys_script_include');&#13;
+	grSI.addQuery('sys_scope','=',strAppSysId);&#13;
+	grSI.addQuery('name','=','AppGetDependencies');&#13;
+	grSI.query();&#13;
+	while (grSI.next())&#13;
+	{&#13;
+		var strScript = GetStringValue(grSI.script);&#13;
+		if (strScript.indexOf("name: 'DataSilos'") == -1)&#13;
+		{&#13;
+			Log('Modifying script include AppGetDependencies to add dependency to DataSilos...');&#13;
+		&#13;
+			strScriptDataSilosDependency = ""&#13;
+				+"\t,\n"&#13;
+				+"\t\t{\n"&#13;
+				+"\t\t\tname: 'DataSilos',\n"&#13;
+				+"\t\t\tversion: '"+strDataSilosVersion+"',\n"&#13;
+				+"\t\t\turl: 'https://github.com/saschawildgrube/servicenow-datasilos/',\n"&#13;
+				+"\t\t\twebsite_url: 'https://www.wildgrube.com/servicenow-datasilos'\n"&#13;
+				+"\t\t}\n"&#13;
+				+"\t];";&#13;
+			&#13;
+			strScript = strScript.replace('];',strScriptDataSilosDependency);&#13;
+			grSI.script = strScript;&#13;
+			GlideRecordUpdate(grSI);&#13;
+		}&#13;
+	}&#13;
+	&#13;
 	&#13;
 	Log('Done!');&#13;
 	&#13;
@@ -211,13 +245,13 @@ AppBuilder('x_snc_datasilos',[&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-28 12:01:13</sys_updated_on>
+        <sys_updated_on>2021-09-28 14:51:27</sys_updated_on>
     </sys_script_include>
 </record_update>

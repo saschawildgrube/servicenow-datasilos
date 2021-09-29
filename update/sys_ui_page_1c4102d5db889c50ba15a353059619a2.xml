@@ -337,6 +337,7 @@ Best regards,
 	<ul>
 		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
 		<li><b>x_snc_datasilos_supervisor_whitelist</b>&#160;The supervisor whitelist field stores a list of data silos. The users in the supervisor groups within the data silos will be able to access the record.</li>
+		<li><b>x_snc_datasilos_fulfiller_whitelist</b>&#160;The fulfiller whitelist field also stores a list of data silos. The users in the fulfiller groups within the data silos will be able to access the record.</li>
 		<li><b>x_snc_datasilos_group_whitelist</b>&#160;The group whitelist field stores a list of groups which should have access to the record.</li>
 		<li><b>x_snc_datasilos_security_clearance</b>&#160;The security clearance field defines the required security clearance level that a user must have to be allowed to see a record.</li>
 		<li><b>x_snc_datasilos_ghost</b>&#160;The ghost flag controls if the record's whitelists should be updated. If set to false, whitelists are populated. If the ghost flag is true, whitelists remain unchanged. This allows custom implementations to control the whitelist population. If this flag is set to true, the record behaves in the same way as if it was changed by a user with the x_snc_datasilos.ghost role.</li>
@@ -897,13 +898,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>551</sys_mod_count>
+        <sys_mod_count>552</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-28 13:34:24</sys_updated_on>
+        <sys_updated_on>2021-09-29 09:37:06</sys_updated_on>
     </sys_ui_page>
 </record_update>
