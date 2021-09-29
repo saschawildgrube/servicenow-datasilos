@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="live_feed=true" audit="true" defaultsort="-1" extends="task" label="Problem" max_length="40" name="problem" sizeclass="24" text_index="true" type="collection">
+    <element attributes="live_feed=true" audit="true" defaultsort="-1" extends="task" label="Problem" max_length="40" name="problem" sizeclass="27" text_index="true" type="collection">
         <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" calculation="&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;" label="DataSilos Fulfiller Whitelist" max_length="4000" name="x_snc_datasilos_fulfiller_whitelist" reference="x_snc_datasilos_datasilos" reference_cascade_rule="none" type="glide_list"/>
         <element label="DataSilos Ghost" max_length="40" name="x_snc_datasilos_ghost" type="boolean"/>
         <element label="DataSilos Global Visibility" max_length="40" name="x_snc_datasilos_global" type="boolean"/>

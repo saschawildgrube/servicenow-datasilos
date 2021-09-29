@@ -169,6 +169,39 @@ AppBuilder('x_snc_datasilos',[&#13;
 			}&#13;
 					&#13;
 			&#13;
+			Log('Working on business rule...');&#13;
+			var strBusinessRuleName = 'DataSilos - '+strTable;&#13;
+			var grBR = new GlideRecord('sys_script');&#13;
+			grBR.addQuery('name','=',strBusinessRuleName);&#13;
+			grBR.addQuery('sys_scope','=',strAppSysId);&#13;
+			grBR.query();&#13;
+			if (grBR.getRowCount() != 0)&#13;
+			{&#13;
+				grBR.next();&#13;
+				Log('Business rule already exists for table "'+strTable+'".');&#13;
+			}&#13;
+			else&#13;
+			{&#13;
+				var grBR = new GlideRecord('sys_script');&#13;
+				grBR.initialize();&#13;
+				grBR.active = true;&#13;
+				grBR.name = strBusinessRuleName;&#13;
+				grBR.sys_scope = strAppSysId;&#13;
+				grBR.action_insert = true;&#13;
+				grBR.action_update = true;&#13;
+				grBR.action_query = true;&#13;
+				grBR.advanced = true;&#13;
+				grBR.when = 'before';&#13;
+				grBR.order = 10000;&#13;
+				grBR.collection = strTable;&#13;
+				var strScript = ""&#13;
+					+"(function executeRule(current, previous /*null when async*/) {\n"&#13;
+					+"\tx_snc_datasilos.ExecuteBusinessRule(current, previous);\n"&#13;
+					+"})(current, previous);";&#13;
+				grBR.script = strScript;				&#13;
+				var strBusinessRuleSysId = GlideRecordInsert(grBR);&#13;
+				Log('Business rule: '+RenderValue(strBusinessRuleSysId));&#13;
+			}&#13;
 			&#13;
 			&#13;
 			&#13;
@@ -208,6 +241,64 @@ AppBuilder('x_snc_datasilos',[&#13;
 			GlideRecordUpdate(grSI);&#13;
 		}&#13;
 	}&#13;
+	&#13;
+	&#13;
+	// Adding script include "DataSilos" which implements the extension point&#13;
+	var strDataSilosScriptInclude = false;&#13;
+	var strScript = RecordGetValue('sys_extension_point','68e24c12db76b8104647dad1f396198e','example');&#13;
+	strScript = strScript.replaceAll('x_this_app_scope',strAppScope);&#13;
+	var grSSI = new GlideRecord('sys_script_include');&#13;
+	grSSI.addQuery('sys_scope','=',strAppSysId);&#13;
+	grSSI.addQuery('name','=','DataSilos');&#13;
+	grSSI.query();&#13;
+	if (grSSI.getRowCount() != 0)&#13;
+	{&#13;
+		Log('Script include "DataSilos" already exists. Updating it...');&#13;
+		grSSI.next();&#13;
+		grSSI.script = strScript;&#13;
+		GlideRecordUpdate(grSSI);&#13;
+		strDataSilosScriptInclude = grSSI.sys_id;&#13;
+	}&#13;
+	else&#13;
+	{&#13;
+		Log('Adding script include "DataSilos"...');&#13;
+		var grSSI = new GlideRecord('sys_script_include');&#13;
+		grSSI.initialize();&#13;
+		grSSI.name = 'DataSilos';&#13;
+		grSSI.description = "Implements the extension point for DataSilos.";&#13;
+		grSSI.sys_scope = strAppSysId;&#13;
+		grSSI.access = 'public';&#13;
+		grSSI.caller_access = '1';&#13;
+		grSSI.script = strScript;&#13;
+		strDataSilosScriptInclude = GlideRecordInsert(grSSI);&#13;
+	}&#13;
+	Log('Script include "DataSilos": '+RenderValue(strDataSilosScriptInclude));&#13;
+&#13;
+	// Adding extension point instance&#13;
+	var strEPI = false;&#13;
+	var grEPI = new GlideRecord('sys_extension_instance');&#13;
+	grEPI.addQuery('sys_scope','=',strAppSysId);&#13;
+	grEPI.addQuery('point','=','x_snc_datasilos.DataSilos');&#13;
+	grEPI.query();&#13;
+	if (grEPI.getRowCount() != 0)&#13;
+	{&#13;
+		grEPI.next();&#13;
+		Log('Extension point instance for "DataSilos" already exists: '+grEPI.sys_id);&#13;
+	}&#13;
+	else&#13;
+	{&#13;
+		Log('Adding extension point instance for "DataSilos"...');&#13;
+		var grEPI = new GlideRecord('sys_extension_instance');&#13;
+		grEPI.initialize();&#13;
+		grEPI.active = true;&#13;
+		grEPI.point = 'x_snc_datasilos.DataSilos';&#13;
+		grEPI.sys_scope = strAppSysId;&#13;
+		grEPI.script_include = strDataSilosScriptInclude;&#13;
+		grEPI.order = 100;&#13;
+		strEPI = GlideRecordInsert(grEPI);&#13;
+		Log('Adding extension point instance for "DataSilos": '+RenderValue(strEPI));&#13;
+	}&#13;
+&#13;
 	&#13;
 	&#13;
 	Log('Done!');&#13;
@@ -288,13 +379,13 @@ AppBuilder('x_snc_datasilos',[&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-29 10:11:28</sys_updated_on>
+        <sys_updated_on>2021-09-29 11:23:12</sys_updated_on>
     </sys_script_include>
 </record_update>
