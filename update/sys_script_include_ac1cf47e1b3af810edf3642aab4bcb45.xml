@@ -133,6 +133,49 @@ AppBuilder('x_snc_datasilos',[&#13;
 				AppBuilderAddFieldACL(strAppScope, strTable, 'fulfiller_whitelist', strFieldSysId, 'write');&#13;
 			}&#13;
 			&#13;
+			&#13;
+			&#13;
+			Log('Working on table maintenance scheduled job...');&#13;
+			var strJobName = 'DataSilos - Maintenance - '+strTable;&#13;
+			var grSA = new GlideRecord('sysauto_script');&#13;
+			grSA.addQuery('name','=',strJobName);&#13;
+			grSA.addQuery('sys_scope','=',strAppSysId);&#13;
+			grSA.query();&#13;
+			if (grSA.getRowCount() != 0)&#13;
+			{&#13;
+				grSA.next();&#13;
+				Log('Maintenance scheduled job already exists for table "'+strTable+'".');&#13;
+			}&#13;
+			else&#13;
+			{&#13;
+				var grSA = new GlideRecord('sysauto_script');&#13;
+				grSA.initialize();&#13;
+				grSA.name = strJobName;&#13;
+				grSA.sys_scope = strAppSysId;&#13;
+				grSA.active = true;&#13;
+				grSA.conditional = false;&#13;
+				grSA.run_as = '6816f79cc0a8016401c5a33be04be441'; // system admin&#13;
+				grSA.run_dayofmonth = '1';&#13;
+				grSA.run_dayofweek = '1';&#13;
+				grSA.run_time = '1969-12-31 23:00:00';&#13;
+				grSA.run_period.setDateNumericValue(600000); // 10 minutes&#13;
+				grSA.run_type = 'periodically';&#13;
+				var strScript = ""&#13;
+					+"var grRecords = new GlideRecord('"+strTable+"');\n"&#13;
+					+"x_snc_datasilos.Maintenance(grRecords);\n";&#13;
+				grSA.script = strScript;				&#13;
+				var strJobSysId = GlideRecordInsert(grSA);&#13;
+				Log('Scheduled job: '+RenderValue(strJobSysId));&#13;
+			}&#13;
+					&#13;
+			&#13;
+			&#13;
+			&#13;
+			&#13;
+			&#13;
+			&#13;
+			&#13;
+			&#13;
 		}&#13;
 	}&#13;
 	&#13;
@@ -245,13 +288,13 @@ AppBuilder('x_snc_datasilos',[&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-28 14:51:27</sys_updated_on>
+        <sys_updated_on>2021-09-29 10:11:28</sys_updated_on>
     </sys_script_include>
 </record_update>
