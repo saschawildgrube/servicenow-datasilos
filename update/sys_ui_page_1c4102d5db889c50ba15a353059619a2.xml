@@ -332,8 +332,8 @@ Best regards,
 	<h2>Configuration options</h2>
 	<g2:no_escape>$[docapi.RenderProperties()]</g2:no_escape>
 	
-	<h2>Column fields</h2>
-	<p>Each supported table is equipped with several new column fields:</p>
+	<h2>Table columns</h2>
+	<p>Each supported table is equipped with several new columns to support DataSilos filtering:</p>
 	<ul>
 		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
 		<li><b>x_snc_datasilos_supervisor_whitelist</b>&#160;The supervisor whitelist field stores a list of data silos. The users in the supervisor groups within the data silos will be able to access the record.</li>
@@ -898,13 +898,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>552</sys_mod_count>
+        <sys_mod_count>553</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-29 09:37:06</sys_updated_on>
+        <sys_updated_on>2021-09-29 09:38:56</sys_updated_on>
     </sys_ui_page>
 </record_update>
