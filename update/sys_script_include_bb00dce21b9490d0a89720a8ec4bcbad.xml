@@ -11,15 +11,36 @@
 {
 	var RenderValue = x_snc_devtools.RenderValue;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var IsValidFunction = x_snc_devtools.IsValidFunction;
+
 	
 	if (IsValidRecord(record) == false)
 	{
-		//Debug('RecordUpdate: record is undefined or null');
 		return false;
+	}
+
+	var bResult = false;
+	var eps = new GlideScriptedExtensionPoint().getExtensions('DataSilos');
+	for (var nEP = 0; nEP < eps.length; nEP++)
+	{
+		var ep = eps[nEP];
+		if (IsValidFunction(ep.RecordUpdate))
+		{
+			if (ep.RecordUpdate(record) == true)
+			{
+				bResult = true;
+			}
+		}
+	}	
+	
+	
+	
+	if (RecordGetGhostValue(record) == true)
+	{
+		return bResult;
 	}
 	
 	var strTable = record.getRecordClassName(); 
-	//Debug('RecordUpdate: '+strTable+': '+record.sys_id/*+RenderValue(record)*/);
 	
 	if (IsTableSupported(strTable))
 	{
@@ -39,21 +60,19 @@
 	{
 		return OnApproval(record);	
 	}
-	
-	//Debug('RecordUpdate: Unsupported class name: '+strTable+'');
-	return false;
+	return bResult;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-23 13:00:48</sys_created_on>
         <sys_id>bb00dce21b9490d0a89720a8ec4bcbad</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>RecordUpdate</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_bb00dce21b9490d0a89720a8ec4bcbad</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-24 17:04:44</sys_updated_on>
+        <sys_updated_on>2021-09-30 15:12:49</sys_updated_on>
     </sys_script_include>
 </record_update>
