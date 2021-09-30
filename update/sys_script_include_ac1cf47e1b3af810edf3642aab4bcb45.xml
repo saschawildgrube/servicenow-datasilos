@@ -165,7 +165,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.sys_scope = strAppSysId;&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Global Visibility" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('global',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'global',strAppSysId);&#13;
 			}&#13;
 			&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
@@ -208,7 +208,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.use_reference_qualifier = 'simple';&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Supervisor Whitelist" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('supervisor_whitelist',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'supervisor_whitelist',strAppSysId);&#13;
 			}&#13;
 			&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
@@ -249,7 +249,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.use_reference_qualifier = 'simple';&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Fulfiller Whitelist" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('fulfiller_whitelist',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'fulfiller_whitelist',strAppSysId);&#13;
 			}&#13;
 			&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
@@ -290,7 +290,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.use_reference_qualifier = 'simple';&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Group Whitelist" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('group_whitelist',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'group_whitelist',strAppSysId);&#13;
 			}&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
 			{&#13;
@@ -325,7 +325,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.sys_scope = strAppSysId;&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Security Clearance" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('security_clearance',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'security_clearance',strAppSysId);&#13;
 			}&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
 			{&#13;
@@ -361,7 +361,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.sys_scope = strAppSysId;&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Ghost" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('ghost',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'ghost',strAppSysId);&#13;
 			}&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
 			{&#13;
@@ -395,7 +395,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 				grSD.sys_scope = strAppSysId;&#13;
 				strFieldSysId = GlideRecordInsert(grSD);&#13;
 				Log('Adding the "Last Maintenance" field: '+RenderValue(strFieldSysId));&#13;
-				AppBuilderFieldLabelsSetScope('last_maintenance',strAppScope);&#13;
+				AppBuilderFieldLabelsSetScope(strAppScope,strTable,'last_maintenance',strAppSysId);&#13;
 &#13;
 			}&#13;
 			if (IsValidSysId(strFieldSysId) == true)&#13;
@@ -657,15 +657,16 @@ AppBuilder('x_snc_datasilos',[&#13;
 	return grApp;&#13;
 &#13;
 &#13;
-	function AppBuilderFieldLabelsSetScope(strColumn,strScope)&#13;
+	function AppBuilderFieldLabelsSetScope(strAppScope,strTable,strColumn,strScope)&#13;
 	{&#13;
 		var grSD = new GlideRecord('sys_documentation');&#13;
-		grSI.addQuery('element','=',strColumn);&#13;
-		grSI.query();&#13;
-		while (grSI.next())&#13;
+		grSD.addQuery('name','=',strTable);&#13;
+		grSD.addQuery('element','=',strAppScope+'_'+strColumn);&#13;
+		grSD.query();&#13;
+		while (grSD.next())&#13;
 		{&#13;
-			grSI.sys_scope = strScope;&#13;
-			GlideRecordUpdate(grSI);&#13;
+			grSD.sys_scope = strScope;&#13;
+			GlideRecordUpdate(grSD);&#13;
 		}&#13;
 	}&#13;
 &#13;
@@ -741,13 +742,13 @@ AppBuilder('x_snc_datasilos',[&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>62</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-30 07:52:00</sys_updated_on>
+        <sys_updated_on>2021-09-30 11:32:45</sys_updated_on>
     </sys_script_include>
 </record_update>
