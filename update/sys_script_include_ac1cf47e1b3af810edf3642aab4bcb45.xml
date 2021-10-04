@@ -22,6 +22,10 @@ AppBuilder('x_snc_datasilos',[&#13;
     'sc_task']);&#13;
 */	&#13;
 	&#13;
+/*&#13;
+AppBuilder('x_snc_datasilosci',['cmdb_ci']);&#13;
+*/	&#13;
+	&#13;
 	&#13;
 	&#13;
 	&#13;
@@ -571,6 +575,7 @@ AppBuilder('x_snc_datasilos',[&#13;
 					strScriptTableConfig = ""&#13;
 						+"config['tables']['"+strTable+"'] =\n"&#13;
 						+"\t{\n"&#13;
+						+"\t\t'scope': '"+strAppScope+"',\n"&#13;
 						+"\t\t'active': true,\n"&#13;
 						+"\t\t'avoid_expensive_queries': false,\n"&#13;
 						+"\t\t'columns':\n"&#13;
@@ -816,13 +821,13 @@ AppBuilder('x_snc_datasilos',[&#13;
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>67</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-30 15:22:22</sys_updated_on>
+        <sys_updated_on>2021-10-04 07:43:17</sys_updated_on>
     </sys_script_include>
 </record_update>
