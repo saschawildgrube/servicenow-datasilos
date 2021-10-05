@@ -622,7 +622,7 @@
 					strScriptTableConfig = ""&#13;
 						+"if (strTable == '"+strTable+"')\n"&#13;
 						+"\t{\n"&#13;
-						+"\t\t//Add your code here...\n"&#13;
+						+"\t\t// Add your code here...\n"&#13;
 						+"\t}\n"&#13;
 						+"\t\n"&#13;
 						+"\treturn aRelatedRecords;";&#13;
@@ -891,13 +891,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>72</sys_mod_count>
+        <sys_mod_count>73</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-04 17:25:14</sys_updated_on>
+        <sys_updated_on>2021-10-05 13:38:24</sys_updated_on>
     </sys_script_include>
 </record_update>
