@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.ModifyACLScript</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns a modified, DataSilos-compliant ACL script based on a given script.</description>
+        <name>ModifyACLScript</name>
+        <script><![CDATA[function ModifyACLScript(strScript)
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var StringRemoveCharacters = x_snc_devtools.StringRemoveCharacters;
+	
+	strScript = GetStringValue(strScript);
+	
+	var strScriptNoWhiteSpace = StringRemoveCharacters(strScript,' \n\r\t');
+	if (strScriptNoWhiteSpace == '')
+	{
+		return "answer = x_snc_datasilos.ExecuteACL(current);";
+	}
+	
+	if (strScript.indexOf('\n') == -1)
+	{
+		var strScriptSingleLine = ""
+			+"var bAnswer = false;\n"
+			+"bAnswer = {CODE}\n"
+			+"if (bAnswer == true)\n"
+			+"{\n"
+			+"\tbAnswer = x_snc_datasilos.ExecuteACL(current);\n"
+			+"}\n"
+			+"answer = bAnswer;";	
+
+		var strScriptNoAnswer = strScript;
+		var strScriptNoWhitespaces = StringRemoveCharacters(strScript,' \t');
+		if (strScriptNoWhitespaces.indexOf('answer=') == 0)
+		{
+			strScriptNoAnswer = strScript.replace('answer =','').trim();
+		}
+		return strScriptSingleLine.replace('{CODE}',strScriptNoAnswer);
+	}
+	
+	
+	
+	return strScript;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-06 15:25:16</sys_created_on>
+        <sys_id>fc759b951b4bb450edf3642aab4bcbeb</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>ModifyACLScript</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_fc759b951b4bb450edf3642aab4bcbeb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-06 15:55:34</sys_updated_on>
+    </sys_script_include>
+</record_update>
