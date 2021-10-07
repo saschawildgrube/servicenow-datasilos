@@ -25,15 +25,6 @@
 	{
 		Log('MaintenanceACLsForTable: ['+strTable+']');
 		
-		var strScriptComplex = ""
-			+"var bAnswer = false;\n"
-			+"bAnswer = {CODE}\n"
-			+"if (bAnswer == true)\n"
-			+"{\n"
-			+"\tbAnswer = x_snc_datasilos.ExecuteACL(current);\n"
-			+"}\n"
-			+"answer = bAnswer;";	
-
 		var grACL = new GlideRecord('sys_security_acl');
 		grACL.addQuery('name','=',strTable+'.*');
 		grACL.addActiveQuery();
@@ -51,11 +42,15 @@
 			grACL.advanced = true;
 			grACL.script = ModifyACLScript('');
 			var bResult = GlideRecordInsert(grACL);
-			Log('GlideRecordInsert() returned: '+RenderValue(bResult));
 			if (bResult == false)
 			{
+				Log('ERROR: Failed to insert new  ACL!');
 				bSuccess = false;
 			}	
+			else
+			{
+				Log('New ACL has been inserted successfully.');
+			}
 		}
 			
 		
@@ -74,11 +69,15 @@
 				grACL.advanced = true;
 				grACL.script = ModifyACLScript('');
 				var bResult = GlideRecordUpdate(grACL);
-				Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
 				if (bResult == false)
 				{
+					Log('ERROR: Failed to update ACL!');
 					bSuccess = false;
-				}				
+				}	
+				else
+				{
+					Log('New ACL has been updated successfully.');
+				}			
 			}
 			else
 			{
@@ -100,57 +99,38 @@
 					{
 						Log('ACL is set to advanced, but the script is not compliant. Modifying script...');
 						Log('Existing script:');
-						Log(strScript);
-						
-						/*
-						
-						if (strScript.indexOf('\n') != -1)
-						{
-							Log('Warning: The ACL contains a script that cannot be changed automatically!');
-							bSuccess = false;
-						}
-						else
-						{
-							var strScriptNoAnswer = strScript;
-							var strScriptNoWhitespaces = StringRemoveCharacters(strScript,' \t');
-							if (strScriptNoWhitespaces.indexOf('answer=') == 0)
-							{
-								strScriptNoAnswer = strScript.replace('answer =','').trim();
-							}
-							var strScriptNew = strScriptComplex.replace('{CODE}',strScriptNoAnswer);
-							Log('New script:');
-							Log('\n'+strScriptNew);
-							Log('CheckACLScript: '+RenderValue(CheckACLScript(strScriptNew)));
-							grACL.script = strScriptNew;
-							var bResult = GlideRecordUpdate(grACL);
-							Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
-							if (bResult == false)
-							{
-								bSuccess = false;
-							}
-						}
-						*/
+						Log('\n'+strScript);
 
 						var strScriptNew = ModifyACLScript(strScript);
 						var bCheckScript = CheckACLScript(strScriptNew);
 						Log('New script:');
 						Log('\n'+strScriptNew);
 						Log('CheckACLScript: '+RenderValue(bCheckScript));
-	
-						
+							
 						if (bCheckScript == false)
 						{
-							Log('Warning: The ACL contains a script that cannot be changed automatically!');
+							Log('WARNING: The ACL contains a script that cannot be changed automatically!');
 							bSuccess = false;					
 						}
 						else
 						{
 							grACL.script = strScriptNew;
+							grACL.description = grACL.description + ''
+								+'\n'
+								+'DataSilos has modified this ACL script. The original script was:\n'
+								+'___BEGIN___\n'
+								+strScript+'\n'
+								+'___END___\n';
+							
 							var bResult = GlideRecordUpdate(grACL);
-							Log('GlideRecordUpdate() returned: '+RenderValue(bResult));
 							if (bResult == false)
 							{
+								Log('ERROR: Failed to update ACL!');
 								bSuccess = false;
+							}
+							else
+							{
+								Log('ACL updated successfully.');
 							}
 						}
 					}
@@ -171,13 +151,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-08-30 13:28:55</sys_created_on>
         <sys_id>bec75c6d1b167850577f43b5bb4bcb65</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>MaintenanceACLs</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_bec75c6d1b167850577f43b5bb4bcb65</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-06 15:46:26</sys_updated_on>
+        <sys_updated_on>2021-10-07 11:48:47</sys_updated_on>
     </sys_script_include>
 </record_update>
