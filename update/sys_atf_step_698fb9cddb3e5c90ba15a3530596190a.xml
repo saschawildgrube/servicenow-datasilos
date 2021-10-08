@@ -14,16 +14,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 11:54:05</sys_created_on>
         <sys_id>698fb9cddb3e5c90ba15a3530596190a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_698fb9cddb3e5c90ba15a3530596190a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-21 11:58:07</sys_updated_on>
+        <sys_updated_on>2021-10-07 14:45:04</sys_updated_on>
         <table/>
-        <test display_value="DataSilos - Config">ba6f39cddb3e5c90ba15a35305961954</test>
+        <test display_value="DataSilos - GetConfig">ba6f39cddb3e5c90ba15a35305961954</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
@@ -50,9 +50,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 11:54:05</sys_created_on>
         <sys_id>d4bf7dcddb3e5c90ba15a3530596190d</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-08-21 11:58:07</sys_updated_on>
+        <sys_updated_on>2021-10-07 14:45:04</sys_updated_on>
         <value>var strLog = '';&#13;
 function Log(strText)&#13;
 {&#13;
@@ -61,30 +61,7 @@ function Log(strText)&#13;
 (function(outputs, steps, stepResult, assertEqual)&#13;
 {&#13;
 	var bResult = true;&#13;
-	&#13;
-	/*&#13;
-	function FunctionXXX(vInput)&#13;
-	{&#13;
-		return 'Hello '+vInput;&#13;
-	}&#13;
 &#13;
-	function TestCase_FunctionXXX(vInput, vExpected)&#13;
-	{&#13;
-		Log('TestCase_FunctionXXX');&#13;
-		Log('Input: '+vInput);&#13;
-		Log('Expected: '+vExpected);&#13;
-		var vResult = FunctionXXX(vInput);&#13;
-		Log('Result  : '+vResult);&#13;
-		if (vResult != vExpected)&#13;
-		{&#13;
-			bResult = false;&#13;
-			Log('Test case FAILED');&#13;
-		}&#13;
-		Log('');&#13;
-	}&#13;
-	&#13;
-	TestCase_FunctionXXX('John','Hello John');&#13;
-	TestCase_FunctionXXX('Jane','Hello Jane');*/&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
 	&#13;
 	Log('GetConfigBaseline: '+RenderValue(GetConfigBaseline())+'\n');&#13;
