@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
         <api_name>x_snc_datasilos.RecordDistributeVisibilityToRelatedRecords</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Distributes the visibility of the given record to all related records.</description>
         <name>RecordDistributeVisibilityToRelatedRecords</name>
         <script><![CDATA[function RecordDistributeVisibilityToRelatedRecords(record)
 {
@@ -73,13 +73,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-22 12:27:33</sys_created_on>
         <sys_id>461a72531b975090a89720a8ec4bcb85</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>RecordDistributeVisibilityToRelatedRecords</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_461a72531b975090a89720a8ec4bcb85</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-14 12:22:52</sys_updated_on>
+        <sys_updated_on>2021-10-13 07:52:08</sys_updated_on>
     </sys_script_include>
 </record_update>
