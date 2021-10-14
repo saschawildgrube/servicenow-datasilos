@@ -65,22 +65,23 @@
 			grDbViewTable.query();
 			while (grDbViewTable.next())
 			{
-				var strViewTable = ''+grDbViewTable.table;
-				if (IsTableActive(strViewTable) == true)
+				var strViewTable = GetStringValue(grDbViewTable.table);
+				var strSupportedViewTable = GetSupportedTable(strViewTable);
+				if (IsTableActive(strSupportedViewTable) == true)
 				{
 					//Debug('Database view: '+strClassName+': Found active table: '+RenderValue(grDbViewTable));
-					Debug('Database view: '+strTable+': Found active table: '+strViewTable);
+					Debug('Database view: '+strTable+': Found active table: '+strSupportedViewTable);
 					var strPrefix = ''+grDbViewTable.variable_prefix;
 
-					var strRelatedRecordSysId = record.getValue(strPrefix+'_sys_id'); 
+					var strRecordSysId = record.getValue(strPrefix+'_sys_id'); 
 					
-					if (IsValidSysId(strRelatedRecordSysId) == false)
+					if (IsValidSysId(strRecordSysId) == false)
 					{
 						return true;
 					}
 
-					var grRelatedRecord = new GlideRecord(strViewTable);
-					if (grRelatedRecord.get(strRelatedRecordSysId) == false)
+					var grRecord = new GlideRecord(strSupportedViewTable);
+					if (grRecord.get(strRecordSysId) == false)
 					{
 						Debug('Database view: '+strTable+': returns false');
 						return false;   
@@ -97,7 +98,7 @@
 		}
 	}
 
-	var strTable = GetSupportedTableFromRecord(record);
+	var strTable = GetSupportedTable(strTable);
 	
 	if (IsTableActive(strTable) == false)
 	{
@@ -190,13 +191,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>87</sys_mod_count>
+        <sys_mod_count>89</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-07 12:50:45</sys_updated_on>
+        <sys_updated_on>2021-10-13 15:44:57</sys_updated_on>
     </sys_script_include>
 </record_update>

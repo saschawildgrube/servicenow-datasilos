@@ -25,6 +25,22 @@
 			RecordSetGlobalValue(record,true);
 		}
 		
+		// Supervisor Silo whitelist
+		var strSupervisorSiloWhitelist = RecordGetSupervisorWhitelistValue(aRelatedRecords[nIndex]);
+		var aSupervisorSiloWhitelist = GetArrayValue(strSupervisorSiloWhitelist);
+		aSupervisorSiloWhitelist.forEach( function(strSiloSysId)
+		{
+			RecordAddSiloToSupervisorWhitelist(record,strSiloSysId);
+		});		
+
+		// Fulfiller Silo whitelist
+		var strFulfillerSiloWhitelist = RecordGetFulfillerWhitelistValue(aRelatedRecords[nIndex]);
+		var aFulfillerSiloWhitelist = GetArrayValue(strFulfillerSiloWhitelist);
+		aFulfillerSiloWhitelist.forEach( function(strSiloSysId)
+		{
+			RecordAddSiloToFulfillerWhitelist(record,strSiloSysId);
+		});
+		
 		// Group Whitelist
 		var strGroupWhitelist = RecordGetGroupWhitelistValue(aRelatedRecords[nIndex]);
 		var aGroupsWhitelist = GetArrayValue(strGroupWhitelist);
@@ -32,14 +48,7 @@
 		{
 			RecordAddGroupToWhitelist(record,strGroupSysId);
 		});		
-			
-		// Silo Supervisor whitelist
-		var strSupervisorSiloWhitelist = RecordGetSupervisorWhitelistValue(aRelatedRecords[nIndex]);
-		var aSupervisorSiloWhitelist = GetArrayValue(strSupervisorSiloWhitelist);
-		aSupervisorSiloWhitelist.forEach( function(strSiloSysId)
-		{
-			RecordAddSiloToSupervisorWhitelist(record,strSiloSysId);
-		});		
+	
 		
 		// Security Clearance
 		RecordSetSecurityClearanceValue(
@@ -54,13 +63,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-22 12:26:14</sys_created_on>
         <sys_id>0c29b2131b975090a89720a8ec4bcba1</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>RecordInheritVisibilityFromRelatedRecords</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_0c29b2131b975090a89720a8ec4bcba1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-13 07:52:52</sys_updated_on>
+        <sys_updated_on>2021-10-13 15:35:52</sys_updated_on>
     </sys_script_include>
 </record_update>

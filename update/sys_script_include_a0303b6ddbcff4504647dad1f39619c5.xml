@@ -9,7 +9,6 @@
         <name>GetSupportedTableFromRecord</name>
         <script><![CDATA[function GetSupportedTableFromRecord(record)
 {
-	var GetParentTable = x_snc_devtools.GetParentTable;
 	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	
 	if (IsValidRecord(record) == false)
@@ -17,35 +16,20 @@
 		return false;
 	}
 	var strTable = record.getRecordClassName();
-	if (IsTableSupported(strTable))
-	{
-		return strTable;
-	}
 	
-	var strParentTable = GetParentTable(strTable);
-	do 
-	{
-		if (IsTableSupported(strParentTable) == true)
-		{
-			return strParentTable;
-		}
-		strParentTable = GetParentTable(strParentTable);
-	}
-	while (strParentTable != false);
-	
-	return false;
+	return GetSupportedTable(strTable);
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-07 12:08:17</sys_created_on>
         <sys_id>a0303b6ddbcff4504647dad1f39619c5</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>GetSupportedTableFromRecord</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_a0303b6ddbcff4504647dad1f39619c5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-07 15:03:23</sys_updated_on>
+        <sys_updated_on>2021-10-13 15:40:06</sys_updated_on>
     </sys_script_include>
 </record_update>
