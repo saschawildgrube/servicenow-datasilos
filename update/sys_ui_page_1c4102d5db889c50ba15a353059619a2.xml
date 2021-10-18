@@ -63,6 +63,7 @@
 		<li>Many existing solutions reflected the complexity of the rules directly in the modified query with severe impact on performance. DataSilos separates the complexity of access control rules from the actual query. The rules are applied when records change, not when they are queried by the user.</li>
 		<li>With an increasing number of records in a table, queries take longer - that can't be avoided. DataSilos always uses the same query pattern which remains unchanged even if the access rules change. As a result, indices and query hints can be applied on database level to improve performance.</li>
 		<li>DataSilos also covers corner cases when field values from records are included in a request to another table (dot walking) or when records are presented to ACLs incompletely. DataSilos considers these cases.</li>
+		<li>DataSilos can handle the derived tables of tables in scope for filtering.</li> 
 		<li>DataSilos also protects database views which contain tables that should be filtered. Most existing solutions did not cover that aspect and eventually left records unprotected when database views were in use.</li>
 		<li>Business rules and ACLs must be used in combination to cover all scenarios. Many solutions miss one of the two.</li>
 		<li>When ACLs are used to control access based on a general access rule, these rules must be checked in every ACL on a given table. If just one ACL does not also check the filtering rule, access might be granted to users which should not access the record. DataSilos uses ATF tests to verify that all ACLs of a table are configured correctly and can help to prevent that future changes open up security issues.</li>
@@ -900,13 +901,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>555</sys_mod_count>
+        <sys_mod_count>556</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-08 12:10:57</sys_updated_on>
+        <sys_updated_on>2021-10-18 11:41:13</sys_updated_on>
     </sys_ui_page>
 </record_update>
