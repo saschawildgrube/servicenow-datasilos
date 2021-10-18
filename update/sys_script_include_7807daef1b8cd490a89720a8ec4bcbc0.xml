@@ -2,15 +2,22 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
-        <api_name>x_snc_datasilos.CreateDemoData</api_name>
+        <api_name>x_snc_datasilos.CreateTestData</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>Creates demo data records for various scenarios. Do not use on production environments!</description>
-        <name>CreateDemoData</name>
-        <script><![CDATA[function CreateDemoData()
+        <description>Creates test data records for various scenarios. Do not use on production environments!</description>
+        <name>CreateTestData</name>
+        <script><![CDATA[function CreateTestData(strPrefix)
 {
+	var GetStringValue = x_snc_devtools.GetStringValue;
+
+	strPrefix = GetStringValue(strPrefix);
+	if (strPrefix == '')
+	{
+		strPrefix = '_TEST_DATASILOS_';
+	}
 		
-	var testdata = new DataSilosTestDataAPI('_DEMO_DATASILOS_'); //
+	var testdata = new DataSilosTestDataAPI(strPrefix);
 	
 	// Users
 	testdata.CreateUser('ALICE',['itil']);
@@ -56,20 +63,19 @@
 	testdata.CreateProblem('C','CALLER','TEAM_GAMMA_MEMBER');	
 	
 	
-	
 }
 ]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>74</sys_mod_count>
-        <sys_name>CreateDemoData</sys_name>
+        <sys_mod_count>75</sys_mod_count>
+        <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-06 14:27:26</sys_updated_on>
+        <sys_updated_on>2021-10-18 16:35:42</sys_updated_on>
     </sys_script_include>
 </record_update>
