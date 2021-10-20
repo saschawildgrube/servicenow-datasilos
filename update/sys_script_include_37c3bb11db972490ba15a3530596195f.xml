@@ -15,6 +15,7 @@
 	var GetKeys = x_snc_devtools.GetKeys;
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
+	var GetInstanceListPath = x_snc_devtools.GetInstanceListPath;
 	
 	function RenderDateTimeUser(vTime)
 	{
@@ -85,10 +86,11 @@
 	{
 		var strTable = aTables[nTable];
 		strHtmlTables += '<tr>';
+
+		var strPath = GetInstanceListPath(strTable,'DataSilos');
 		
 		strHtmlTables += '<td>';
-			strHtmlTables += HtmlRenderLink('/nav_to.do?uri=%2F'+strTable+'_list.do%3Fsysparm_clear_stack%3Dtrue%26sysparm_view%3DDataSilos%26sysparm_view_forced%3Dtrue',strTable,true);
-			//strHtmlTables += strTable;
+			strHtmlTables += HtmlRenderLink('/'+strPath,strTable,true);
 		strHtmlTables += '</td>';
 
 		strHtmlTables += '<td>';
@@ -133,24 +135,39 @@
 		
 		
 		strHtmlTables += '<td>';
-			strHtmlTables += HtmlRenderLink(
-				'/nav_to.do?'
-				+'uri=%2Fsys_storage_alias_list.do%3Fsysparm_query%3D'
-				+'table_name%253D'+strTable+'%255Eelement_nameSTARTSWITH'+GetScopeFromTable(strTable)
-				+'%26sysparm_first_row%3D1%26sysparm_view%3DDevTools%26sysparm_choice_query_raw%3D%26sysparm_list_header_search%3Dtrue',
-				'Aliases',true);
-			/*
-			strHtmlTables += HtmlRenderLink(
-				'/nav_to.do?'
-				+'uri=%2Fsys_storage_alias_list.do%3Fsysparm_query%3D'
-				+'table_name%253D'+strTable+'%255Eelement_nameSTARTSWITH'+GetScopeFromTable(strTable)
-				+'%26sysparm_first_row%3D1%26sysparm_view%3DDevTools%26sysparm_choice_query_raw%3D%26sysparm_list_header_search%3Dtrue',
-				'Aliases',true);	
-		*/
-		
 
-		strHtmlTables += '</td>';	
+		var strEncodedQuery = 'operation=read^name='+strTable+'^ORname='+strTable+'.*';
+		var strPath = GetInstanceListPath('sys_security_acl','DataSilos',strEncodedQuery);
+		strHtmlTables += HtmlRenderLink(
+			'/'+strPath,
+			'ACLs',true);
+		strHtmlTables += '&#160;';
 		
+		var strEncodedQuery = 'table='+strTable;
+		var strPath = GetInstanceListPath('sys_db_view_table','DataSilos',strEncodedQuery);
+		strHtmlTables += HtmlRenderLink(
+			'/'+strPath,
+			'DB Views',true);
+		strHtmlTables += '&#160;';
+
+		
+		var strEncodedQuery = 'table_name='+strTable+'^element_nameSTARTSWITH'+GetScopeFromTable(strTable);
+		var strPath = GetInstanceListPath('sys_storage_alias','DevTools',strEncodedQuery);
+		strHtmlTables += HtmlRenderLink(
+			'/'+strPath,
+			'Aliases',true);
+	
+		/*
+		strHtmlTables += HtmlRenderLink(
+			'/nav_to.do?'
+			+'uri=%2Fsys_storage_alias_list.do%3Fsysparm_query%3D'
+			+'table_name%253D'+strTable+'%255Eelement_nameSTARTSWITH'+GetScopeFromTable(strTable)
+			+'%26sysparm_first_row%3D1%26sysparm_view%3DDevTools%26sysparm_choice_query_raw%3D%26sysparm_list_header_search%3Dtrue',
+			'Aliases',true);
+		*/
+	
+		strHtmlTables += '</td>';
+	
 		strHtmlTables += '</tr>';
 	}
 	strHtmlTables += '</tbody></table>';
@@ -162,13 +179,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>34</sys_mod_count>
+        <sys_mod_count>45</sys_mod_count>
         <sys_name>HtmlRenderStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-20 07:32:10</sys_updated_on>
+        <sys_updated_on>2021-10-20 13:46:09</sys_updated_on>
     </sys_script_include>
 </record_update>
