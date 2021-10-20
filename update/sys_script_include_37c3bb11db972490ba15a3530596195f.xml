@@ -78,7 +78,7 @@
 			strHtmlTables += '<th>Hidden</th>';
 			strHtmlTables += '<th>Unmaintained</th>';
 			strHtmlTables += '<th>Backmarker</th>';
-			strHtmlTables += '<th>Links</th>';
+			strHtmlTables += '<th></th>';
 
 	strHtmlTables += '</td>';
 
@@ -150,6 +150,19 @@
 			'DB Views',true);
 		strHtmlTables += '&#160;';
 
+		var grTable = new GlideRecord('sys_db_object');
+		grTable.addQuery('name','=',strTable);
+		grTable.query();
+		if (grTable.next())
+		{
+			var strEncodedQuery = 'table='+grTable.sys_id;
+			var strPath = GetInstanceListPath('v_index_creator','DataSilos',strEncodedQuery);
+			strHtmlTables += HtmlRenderLink(
+				'/'+strPath,
+				'Indexes',true);
+			strHtmlTables += '&#160;';
+		}
+		
 		
 		var strEncodedQuery = 'table_name='+strTable+'^element_nameSTARTSWITH'+GetScopeFromTable(strTable);
 		var strPath = GetInstanceListPath('sys_storage_alias','DevTools',strEncodedQuery);
@@ -179,13 +192,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>HtmlRenderStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-20 13:46:09</sys_updated_on>
+        <sys_updated_on>2021-10-20 14:00:39</sys_updated_on>
     </sys_script_include>
 </record_update>
