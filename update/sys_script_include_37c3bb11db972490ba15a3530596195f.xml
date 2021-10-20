@@ -142,6 +142,13 @@
 			'/'+strPath,
 			'ACLs',true);
 		strHtmlTables += '&#160;';
+
+		var strEncodedQuery = 'when=before^action_query=true^collection='+strTable;
+		var strPath = GetInstanceListPath('sys_script','DataSilos',strEncodedQuery);
+		strHtmlTables += HtmlRenderLink(
+			'/'+strPath,
+			'Before query business rules',true);
+		strHtmlTables += '&#160;';		
 		
 		var strEncodedQuery = 'table='+strTable;
 		var strPath = GetInstanceListPath('sys_db_view_table','DataSilos',strEncodedQuery);
@@ -192,13 +199,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>50</sys_mod_count>
         <sys_name>HtmlRenderStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-20 14:00:39</sys_updated_on>
+        <sys_updated_on>2021-10-20 14:05:52</sys_updated_on>
     </sys_script_include>
 </record_update>
