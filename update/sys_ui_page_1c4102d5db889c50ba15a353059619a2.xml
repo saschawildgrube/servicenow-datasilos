@@ -610,13 +610,15 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>Introduced silo based filtering for fulfillers.</li> 
 		<li>Record maintenance no longer triggers business rules, auditing and sys field updates, allowing seamless updated of whitelists on records without triggering any unintended processes.</li>
+		<li>The "Status" page now contains links to ACLs, business rules, storage aliases and database indexes for each table.</li>
 		<li>The new function AppBuilder() can now be used to build scoped apps that extend DataSilos.</li>
 		<li>The scheduled job "DataSilos - Maintenance" (formerly "DataSilos - Database view protection") is now maintaining both database view and ACL configuration.</li>
 		<li>All relevant ACLs are now reconfigured automatically where required. Changes made are documented within the ACL description.</li>
 		<li>Removed scheduled job "DataSilos - CreateTestData".</li>
 		<li>The function CreateTestData() is now available from all scopes and can be used to create records for demos, manual testing and automated testing scenarios.</li>
+		<li>Table specific application menu modules have been removed and the test step configuration "DataSilos - Check table implementation" no longer checks for table specific application menu modules. The status page contains all the table specific links.</li>
 		<li>Renamed function GetOptimizationStatus() to GetStatusPerformance().</li>
-		<li>The Options are is now split up between general settings in "Options" and ITSM table specific options at "ITSM Options".</li>
+		<li>The "Options" area is now split up between general settings in "Options" and ITSM table specific options at "ITSM Options".</li>
 	</ol>
 
 	
@@ -901,13 +903,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>557</sys_mod_count>
+        <sys_mod_count>558</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-18 16:36:35</sys_updated_on>
+        <sys_updated_on>2021-10-21 14:19:42</sys_updated_on>
     </sys_ui_page>
 </record_update>
