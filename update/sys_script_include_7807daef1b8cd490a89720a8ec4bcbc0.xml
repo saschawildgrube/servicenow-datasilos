@@ -10,6 +10,7 @@
         <script><![CDATA[function CreateTestData(strPrefix)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var RecordSetValue = x_snc_devtools.RecordSetValue;
 
 	strPrefix = GetStringValue(strPrefix);
 	if (strPrefix == '')
@@ -20,6 +21,11 @@
 	var testdata = new DataSilosTestDataAPI(strPrefix);
 	
 	// Users
+	testdata.CreateUser('CALLER',null);
+	testdata.CreateUser('SPECTATOR','itil');
+	testdata.CreateUser('SENTINEL',['itil','x_snc_datasilos.sentinel']);
+	//testdata.CreateUser('ADMIN',['admin']); // This does not work. Why?
+	
 	testdata.CreateUser('ALICE',['itil']);
 	testdata.CreateUser('AMBER',['itil']);
 	testdata.CreateUser('ALBERT',['itil']);
@@ -32,7 +38,6 @@
 	testdata.CreateUser('GERRY',['itil']);
 	testdata.CreateUser('GANDALF',['itil']);
 	
-	testdata.CreateUser('CALLER',null);
 
 	// Groups
 	testdata.CreateGroup('TEAM_ALPHA_MEMBER',['ALICE']);
@@ -56,7 +61,8 @@
 	testdata.CreateIncident('A','ALICE','CALLER','TEAM_ALPHA_MEMBER');
 	testdata.CreateIncident('B','BOB','CALLER','TEAM_BETA_MEMBER');
 	testdata.CreateIncident('C','GEMMA','CALLER','TEAM_GAMMA_MEMBER');	
-
+	RecordSetValue('incident',testdata.CreateIncident('GLOBAL','ALICE','CALLER','TEAM_ALPHA_MEMBER'),'x_snc_datasilos_global','true');
+	
 	// Problems
 	testdata.CreateProblem('A','CALLER','TEAM_ALPHA_MEMBER');
 	testdata.CreateProblem('B','CALLER','TEAM_BETA_MEMBER');
@@ -69,13 +75,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>75</sys_mod_count>
+        <sys_mod_count>81</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-18 16:35:42</sys_updated_on>
+        <sys_updated_on>2021-10-22 14:38:32</sys_updated_on>
     </sys_script_include>
 </record_update>
