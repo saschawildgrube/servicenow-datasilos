@@ -166,7 +166,7 @@
 					if (grRecord == false)
 					{
 						record.sys_id = 'invalid';
-						record.reason = 'Record does not exist.';
+						record.explanation = 'Record does not exist.';
 					}
 					else
 					{
@@ -188,37 +188,44 @@
 						record.group_whitelist = RecordGetGroupWhitelistValue(grRecord);
 					
 						// Get the reason for visibility
-						var strReason = '';
+						var strExplanation = '';
+						var nReasons = 0;
 						if (bAccess == true)
 						{
-							strReason += 'User '+user.user_name+' ('+strUserSysId+') can see the record because:';
+							strExplanation += 'User '+user.user_name+' ('+strUserSysId+') can see the record because:';
 							if (IsActive() == false)
 							{
-								strReason += '\nDataSilos is inactive.';
+								strExplanation += '\nDataSilos is inactive.';
+								nReasons++;
 							}
 							var strSupportedTable = GetSupportedTable(strTable);
 							if (IsTableActive(strSupportedTable) == false)
 							{
-								strReason += '\nThe filtering on the supported table ['+strSupportedTable+'] is inactive.';
+								strExplanation += '\nThe filtering on the supported table ['+strSupportedTable+'] is inactive.';
+								nReasons++;
 							}
 							if (user.admin == true)
 							{
-								strReason += '\nThe user has the admin role.';
+								strExplanation += '\nThe user has the admin role.';
+								nReasons++;
 							}
 							if (user.sentinel == true)
 							{
-								strReason += '\nThe user has the sentinel role.';
+								strExplanation += '\nThe user has the sentinel role.';
+								nReasons++;
 							}
 							if (record.global == true)
 							{
-								strReason += '\nThe record is globally visible.';
+								strExplanation += '\nThe record is globally visible.';
+								nReasons++;
 							}
 							
 							for (var nSilo = 0; nSilo < user.supervisor_silos.length; nSilo++)
 							{
 								if (record.supervisor_whitelist.indexOf(user.supervisor_silos[nSilo].sys_id) != -1)
 								{
-									strReason += '\nSupervisor silo '+user.supervisor_silos[nSilo].name+' is whitelisted.';		
+									strExplanation += '\nSupervisor silo '+user.supervisor_silos[nSilo].name+' is whitelisted.';
+									nReasons++;
 								}
 							}
 							
@@ -226,7 +233,8 @@
 							{
 								if (record.fulfiller_whitelist.indexOf(user.fulfiller_silos[nSilo].sys_id) != -1)
 								{
-									strReason += '\nFulfiller silo '+user.fulfiller_silos[nSilo].name+' is whitelisted.';		
+									strExplanation += '\nFulfiller silo '+user.fulfiller_silos[nSilo].name+' is whitelisted.';
+									nReasons++;
 								}
 							}
 
@@ -234,7 +242,8 @@
 							{
 								if (record.group_whitelist.indexOf(user.groups[nGroup].sys_id) != -1)
 								{
-									strReason += '\nGroup '+user.groups[nGroup].name+' is whitelisted.';		
+									strExplanation += '\nGroup '+user.groups[nGroup].name+' is whitelisted.';
+									nReasons++;
 								}
 							}
 							
@@ -243,18 +252,26 @@
 								var strUserColumn = aUserColumns[nUserColumn];
 								if (user.sys_id == GetStringValue(grRecord.getValue(strUserColumn)))
 								{
-									strReason += '\nThe user is directly associated to the record in column "'+strUserColumn+'".';
+									strExplanation += '\nThe user is directly associated to the record in column "'+strUserColumn+'".';
+									nReasons++;
 								}
 							}
 						
-						
+							if (nReasons == 0)
+							{
+								strExplanation += '\nNo reason was found why the user should see the record. That indicates a technical defect!';
+							}
+							else
+							{
+								strExplanation += '\nFound '+nReasons+' reason(s) why the user can see the record.';
+							}
 						
 						}
 						else
 						{
-							strReason += 'User '+user.user_name+' ('+strUserSysId+') can NOT see the record.';
+							strExplanation += 'User '+user.user_name+' ('+strUserSysId+') can NOT see the record.';
 						}
-						record.reason = strReason;
+						record.explanation = strExplanation;
 					}
 						
 					aRecords.push(record);
@@ -276,13 +293,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-01-27 14:00:33</sys_created_on>
         <sys_id>47e091541b0ee814a89720a8ec4bcb3a</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>53</sys_mod_count>
         <sys_name>AccessAnalysis</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_47e091541b0ee814a89720a8ec4bcb3a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-22 15:13:00</sys_updated_on>
+        <sys_updated_on>2021-10-25 09:35:32</sys_updated_on>
     </sys_script_include>
 </record_update>
