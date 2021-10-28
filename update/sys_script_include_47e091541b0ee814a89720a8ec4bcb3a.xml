@@ -155,7 +155,6 @@
 				var aRecordSysIds = GetArrayValue(GetValue(records,strTable));
 		
 				var aUserColumns = GetArrayValue(GetConfigValue('tables',strTable,'columns','instant_access','sys_user'));
-				Debug(aUserColumns);
 				
 				var aRecords = [];
 				for (var nRecord = 0; nRecord < aRecordSysIds.length; nRecord++)
@@ -186,7 +185,9 @@
 						var bAccess = (nRecordsFound == 1)?(true):(false);
 						*/
 						
-						record.access = RecordCheckFilter(grRecord,strUserSysId);
+						var bAccess = RecordCheckFilter(grRecord,strUserSysId);
+						
+						record.access = bAccess;
 					
 						record.global = RecordGetGlobalValue(grRecord);
 						record.supervisor_whitelist = RecordGetSupervisorWhitelistValue(grRecord);
@@ -300,13 +301,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-01-27 14:00:33</sys_created_on>
         <sys_id>47e091541b0ee814a89720a8ec4bcb3a</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>AccessAnalysis</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_47e091541b0ee814a89720a8ec4bcb3a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-27 13:32:51</sys_updated_on>
+        <sys_updated_on>2021-10-28 09:52:48</sys_updated_on>
     </sys_script_include>
 </record_update>
