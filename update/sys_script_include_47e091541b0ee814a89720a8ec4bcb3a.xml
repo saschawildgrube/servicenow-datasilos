@@ -172,20 +172,13 @@
 					{
 						record.sys_id = strRecordSysId;
 						record.display = grRecord.getDisplayValue();
-						//record.summary = RecordGetSummary(grRecord);
+						record.summary = RenderRecordSummary(grRecord);
 						if (IsValidColumn(strTable,'short_description'))
 						{
 							record.short_description = GetStringValue(grRecord.short_description);
 						}
 						
-						
-						/*						
-						var queryresult = PerformanceQuery('', strTable, 'sys_id='+strRecordSysId, '', 1, strUserSysId, 0);
-						var nRecordsFound = queryresult.records;
-						var bAccess = (nRecordsFound == 1)?(true):(false);
-						*/
-						
-						var bAccess = RecordCheckFilter(grRecord,strUserSysId);
+						var bAccess = RecordCheckAccess(grRecord,strUserSysId);
 						
 						record.access = bAccess;
 					
@@ -196,11 +189,12 @@
 					
 						// Get the reason for visibility
 						var strExplanation = '';
+						strExplanation += 'Checked record: '+RenderRecordSummary(grRecord)+'\n';
 						var nReasons = 0;
 						if (bAccess == true)
 						{
-							strExplanation += 'Checked record: '+RenderRecordSummary(grRecord)+'\n';
-							strExplanation += 'The user '+user.user_name+' ('+strUserSysId+') can see the record because:';
+							
+							strExplanation += 'The user '+user.user_name+' ('+strUserSysId+') can potentially access the record.';
 							if (IsActive() == false)
 							{
 								strExplanation += '\nDataSilos is inactive.';
@@ -271,13 +265,14 @@
 							}
 							else
 							{
-								strExplanation += '\nFound '+nReasons+' reason(s) why the user can see the record.';
+								strExplanation += '\nFound '+nReasons+' reason(s) why the user can access the record.';
+								strExplanation += '\nNote that other security rules may prevent the user from accessing the record.';
 							}
 						
 						}
 						else
 						{
-							strExplanation += 'User '+user.user_name+' ('+strUserSysId+') can NOT see the record.';
+							strExplanation += 'User '+user.user_name+' ('+strUserSysId+') can NOT access the record due to DataSilos filtering.';
 						}
 						record.explanation = strExplanation;
 					}
@@ -301,13 +296,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-01-27 14:00:33</sys_created_on>
         <sys_id>47e091541b0ee814a89720a8ec4bcb3a</sys_id>
-        <sys_mod_count>59</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>AccessAnalysis</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_47e091541b0ee814a89720a8ec4bcb3a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-28 09:52:48</sys_updated_on>
+        <sys_updated_on>2021-10-28 10:07:23</sys_updated_on>
     </sys_script_include>
 </record_update>

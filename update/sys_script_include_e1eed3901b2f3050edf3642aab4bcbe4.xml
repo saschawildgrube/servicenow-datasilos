@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.RecordCheckFilter</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Checks if the given record would pass the DataSilos filter for a given user but only strictly based on the query filter, ignoring the user's roles. The function may return true if DataSilos does not filter the record, but the user might still not be able to access it due to other security contraints (e.g. missing roles etc.). The function may return false, but if the user has the admin or sentinel role, they may still access the record.</description>
+        <name>RecordCheckFilter</name>
+        <script><![CDATA[function RecordCheckFilter(grRecord,strUserSysId)
+{
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;
+	var IsUserAdmin = x_snc_devtools.IsUserAdmin;
+	
+	if (IsValidRecord(grRecord) == false)
+	{
+		return false;
+	}
+	strUserSysId = GetStringValue(strUserSysId);
+	if (IsValidSysId(strUserSysId) == false)
+	{
+		strUserSysId = gs.getUserID();
+	}
+	
+	var grFilter = new GlideRecord(GetSupportedTableFromRecord(grRecord));
+	PrepareQuery(grFilter,'','',strUserSysId);
+	var strEncodedQuery = grFilter.getEncodedQuery();
+	var bMatch = GlideFilter.checkRecord(grRecord,strEncodedQuery);
+
+	return bMatch;
+
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-28 10:04:00</sys_created_on>
+        <sys_id>e1eed3901b2f3050edf3642aab4bcbe4</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>RecordCheckFilter</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_e1eed3901b2f3050edf3642aab4bcbe4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-28 10:25:43</sys_updated_on>
+    </sys_script_include>
+</record_update>
