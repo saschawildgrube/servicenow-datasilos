@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="">86d639a11bfc5810a89720a8ec4bcb63</copied_from>
+        <copied_from/>
         <description>Run Server Side Validation Script</description>
         <display_name>Run Server Side Script</display_name>
         <inputs/>
@@ -12,50 +12,51 @@
         <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 09:40:17</sys_created_on>
-        <sys_id>6405a9e91bd55050a89720a8ec4bcb12</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_created_on>2021-11-09 14:47:15</sys_created_on>
+        <sys_id>52c21694dbb738504647dad1f39619e3</sys_id>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
-        <sys_update_name>sys_atf_step_6405a9e91bd55050a89720a8ec4bcb12</sys_update_name>
+        <sys_update_name>sys_atf_step_52c21694dbb738504647dad1f39619e3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-09 14:56:32</sys_updated_on>
+        <sys_updated_on>2021-11-09 15:02:47</sys_updated_on>
         <table/>
-        <test display_value="DataSilos - change_request - basic">6005a9e91bd55050a89720a8ec4bcb09</test>
+        <test display_value="DataSilos - change_request - derived tables">eb829ad0dbb738504647dad1f39619d2</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=6405a9e91bd55050a89720a8ec4bcb12"/>
+    <sys_variable_value action="delete_multiple" query="document_key=52c21694dbb738504647dad1f39619e3"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>6405a9e91bd55050a89720a8ec4bcb12</document_key>
+        <document_key>52c21694dbb738504647dad1f39619e3</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 09:40:17</sys_created_on>
-        <sys_id>2c05652d1bd55050a89720a8ec4bcb96</sys_id>
+        <sys_created_on>2021-11-09 14:47:15</sys_created_on>
+        <sys_id>2bc2d294dbb738504647dad1f396190d</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-09 09:40:17</sys_updated_on>
+        <sys_updated_on>2021-11-09 14:47:15</sys_updated_on>
         <value>3.1</value>
         <variable display_value="">42f2564b73031300440211d8faf6a777</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>6405a9e91bd55050a89720a8ec4bcb12</document_key>
+        <document_key>52c21694dbb738504647dad1f39619e3</document_key>
         <order>200</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-06-09 09:40:17</sys_created_on>
-        <sys_id>ec05652d1bd55050a89720a8ec4bcb96</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_created_on>2021-11-09 14:47:15</sys_created_on>
+        <sys_id>abc2d694dbb738504647dad1f39619ab</sys_id>
+        <sys_mod_count>7</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-09 14:56:32</sys_updated_on>
+        <sys_updated_on>2021-11-09 15:02:47</sys_updated_on>
         <value>(function(outputs, steps, stepResult, assertEqual)&#13;
 {&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	var RecordSetValue = x_snc_devtools.RecordSetValue;&#13;
 	&#13;
 	AppSetProperty('active','true'); &#13;
 	AppSetProperty('tables.change_request.active','true'); &#13;
@@ -78,8 +79,14 @@
 	var strChangeRequestMember = testdata.CreateChangeRequest('ALPHA_MEMBER','ALPHA_MEMBER','REQUESTER','ALPHA_MEMBER');&#13;
 	var strChangeRequestFulfiller = testdata.CreateChangeRequest('ALPHA_FULFILLER','ALPHA_FULFILLER','REQUESTER','ALPHA_FULFILLER');&#13;
 &#13;
-	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
+	// Now move the change requests into the 'change_request_imac' table&#13;
+	RecordSetValue('change_request',strChangeRequestMember,'sys_class_name','change_request_imac');&#13;
+	RecordSetValue('change_request',strChangeRequestFulfiller,'sys_class_name','change_request_imac');&#13;
 	&#13;
+	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
+&#13;
+	&#13;
+	test.Log('Check if the protection of the change_request table inherently protects records in the derived table "change_request_imac"'); &#13;
 	&#13;
 	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'change_request','',strChangeRequestMember,false);&#13;
 	test.TestCase_IsRecordAccessibleByUser(strUserRequester,'change_request','',strChangeRequestMember,true);&#13;
@@ -92,7 +99,20 @@
 	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'change_request','',strChangeRequestFulfiller,false);&#13;
 	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'change_request','',strChangeRequestFulfiller,true);&#13;
 	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'change_request','',strChangeRequestFulfiller,true);&#13;
+&#13;
+	test.Log('Check if records requested from the derived table are also protected by the filter on the super class');  &#13;
 	&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'change_request_imac','',strChangeRequestMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserRequester,'change_request_imac','',strChangeRequestMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'change_request_imac','',strChangeRequestMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'change_request_imac','',strChangeRequestMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'change_request_imac','',strChangeRequestMember,true);&#13;
+&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'change_request_imac','',strChangeRequestFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserRequester,'change_request_imac','',strChangeRequestFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'change_request_imac','',strChangeRequestFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'change_request_imac','',strChangeRequestFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'change_request_imac','',strChangeRequestFulfiller,true);&#13;
 	&#13;
 	test.Log(RenderValue(testdata.GetAllData(),true));&#13;
 	&#13;

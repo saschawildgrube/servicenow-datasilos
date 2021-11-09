@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-06-16 10:26:40</sys_created_on>
         <sys_id>1cce19d1dbb870583c6c09c2ba9619a2</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_1cce19d1dbb870583c6c09c2ba9619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-08-31 12:43:34</sys_updated_on>
+        <sys_updated_on>2021-11-09 14:57:11</sys_updated_on>
         <table/>
         <test display_value="DataSilos - incident - basic">1b12785cdb505c90ba15a35305961965</test>
         <timeout/>
@@ -36,12 +36,11 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-06-16 10:26:44</sys_created_on>
         <sys_id>3f0f1d95dbb870583c6c09c2ba9619b5</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-08-31 12:43:34</sys_updated_on>
+        <sys_updated_on>2021-11-09 14:57:11</sys_updated_on>
         <value>(function(outputs, steps, stepResult, assertEqual)&#13;
 {&#13;
-	var UserImpersonate = x_snc_devtools.UserImpersonate;&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
 	&#13;
 	AppSetProperty('active','true'); &#13;
