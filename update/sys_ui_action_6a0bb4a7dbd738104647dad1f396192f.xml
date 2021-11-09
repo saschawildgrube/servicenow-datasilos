@@ -37,10 +37,8 @@
 		return;
 	}
 	
-	//alert(current.getRecordClassName() + ' - '+current.sys_id);
-	
 	var ga = new GlideAjax('DataSilosClientAPI');
-	ga.addParam('sysparm_name','AccessAnalysisForRecordAndUser');
+	ga.addParam('sysparm_name','AccessAnalysisForUserAndRecord');
 	ga.addParam('sysparm_user',strUser);
 	ga.addParam('sysparm_table',g_form.getTableName());
 	ga.addParam('sysparm_record',g_form.getUniqueValue());
@@ -61,7 +59,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6a0bb4a7dbd738104647dad1f396192f</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>DataSilos Access Analysis</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -69,7 +67,7 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_action_6a0bb4a7dbd738104647dad1f396192f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-27 13:24:26</sys_updated_on>
+        <sys_updated_on>2021-11-09 14:36:10</sys_updated_on>
         <table>global</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>true</ui16_compatible>
