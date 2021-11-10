@@ -108,7 +108,7 @@
 		var grSSI = new GlideRecord('sys_script_include');&#13;
 		grSSI.initialize();&#13;
 		grSSI.name = 'DataSilosGetRelatedRecords';&#13;
-		grSSI.description = "The DataSilosGetRelatedRecords function is called by the DataSilos extension point instance class and returns an array of related records to the given record. If the record does not have any related records the function should return an empty array. If the function returns false, the default DataSilos function will provide the related records.";&#13;
+		grSSI.description = "The DataSilosGetRelatedRecords function is called by the DataSilos extension point instance class and returns an array of related records to the given record. If the record does not have any related records the function should return an empty array. If the function returns false, the default DataSilos function or other extensions will provide the related records.";&#13;
 		grSSI.sys_scope = strAppSysId;&#13;
 		grSSI.access = 'public';&#13;
 		grSSI.caller_access = '1';&#13;
@@ -122,7 +122,7 @@
 			+"\n"&#13;
 			+"\tvar strTable = x_snc_datasilos.GetSupportedTableFromRecord(record);\n"&#13;
 			+"\n"&#13;
-			+"\treturn aRelatedRecords;\n"&#13;
+			+"\treturn false;\n"&#13;
 			+"}";&#13;
 		strSSI = GlideRecordInsert(grSSI);&#13;
 		Log('Script include "DataSilosGetRelatedRecords": '+RenderValue(strSSI));	&#13;
@@ -613,7 +613,7 @@
 			{&#13;
 				Log('Modifying script include "DataSilosGetRelatedRecords"...');&#13;
 				var strScript = GetStringValue(grSSI.script);&#13;
-				if (strScript.indexOf('return aRelatedRecords;') == -1)&#13;
+				if (strScript.indexOf('return false;') == -1)&#13;
 				{&#13;
 					Log('ERROR: Script include "DataSilosGetRelatedRecords" DOES NOT SEEM TO BE IMPLEMENTED CORRECTLY...');&#13;
 				}&#13;
@@ -623,10 +623,11 @@
 						+"if (strTable == '"+strTable+"')\n"&#13;
 						+"\t{\n"&#13;
 						+"\t\t// Add your code here...\n"&#13;
+						+"\t\treturn aRelatedRecords;\n"&#13;
 						+"\t}\n"&#13;
 						+"\t\n"&#13;
-						+"\treturn aRelatedRecords;";&#13;
-					strScript = strScript.replace('return aRelatedRecords;',strScriptTableConfig);&#13;
+						+"\treturn false;";&#13;
+					strScript = strScript.replace('return false;',strScriptTableConfig);&#13;
 					grSSI.script = strScript;&#13;
 					strSSI = GlideRecordUpdate(grSSI);&#13;
 					Log('Updating script include "DataSilosGetRelatedRecords": '+RenderValue(strSSI));	&#13;
@@ -891,13 +892,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>80</sys_mod_count>
+        <sys_mod_count>85</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-28 14:14:05</sys_updated_on>
+        <sys_updated_on>2021-11-10 08:44:45</sys_updated_on>
     </sys_script_include>
 </record_update>
