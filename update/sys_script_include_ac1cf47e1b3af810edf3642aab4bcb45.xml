@@ -34,14 +34,22 @@
 	var GetArrayValue = x_snc_devtools.GetArrayValue;&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
 	var IsValidTable = x_snc_devtools.IsValidTable;&#13;
+	var IsValidColumn = x_snc_devtools.IsValidColumn;&#13;
 	var GlideRecordInsert = x_snc_devtools.GlideRecordInsert;&#13;
 	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;&#13;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;&#13;
 	var RecordGetValue = x_snc_devtools.RecordGetValue;&#13;
 &#13;
+	var strTable = '';&#13;
+	&#13;
 	function Log(strText)&#13;
 	{&#13;
-		x_snc_datasilos.Log('AppBuilder: '+strText);&#13;
+		var strTableLog = '';&#13;
+		if (strTable != '')&#13;
+		{&#13;
+			strTableLog = strTable + ': ';&#13;
+		}&#13;
+		x_snc_datasilos.Log('AppBuilder: '+strTableLog+strText);&#13;
 	}&#13;
 	&#13;
 	var grApp = x_snc_devtools.AppBuilder(&#13;
@@ -207,7 +215,7 @@
 	&#13;
 	for (var nTable = 0; nTable &lt; aTables.length; nTable++)&#13;
 	{&#13;
-		var strTable = aTables[nTable];&#13;
+		strTable = aTables[nTable];&#13;
 		if (IsValidTable(strTable) == false)&#13;
 		{&#13;
 			Log('IsValidTable("'+strTable+'") returned false. Ignoring table.');&#13;
@@ -707,8 +715,98 @@
 			&#13;
 			&#13;
 			&#13;
+			Log('Working on UI list...');&#13;
+			var grUL = new GlideRecord('sys_ui_list');&#13;
+			grUL.addQuery('name','=',strTable);&#13;
+			grUL.addQuery('sys_scope','=',strAppSysId);&#13;
+			grUL.query();&#13;
+			if (grUL.getRowCount() != 0)&#13;
+			{&#13;
+				grUL.next();&#13;
+				Log('UI list (layout) already exists for table "'+strTable+'".');&#13;
+			}&#13;
+			else&#13;
+			{&#13;
+				var grUL = new GlideRecord('sys_ui_list');&#13;
+				grUL.initialize();&#13;
+				//grUL.active = true;&#13;
+				grUL.name = strTable;&#13;
+				grUL.sys_scope = strAppSysId;&#13;
+				grUL.view = '268b1d0adb849090ba15a35305961902'; // the DataSilos view&#13;
+				var strUiListSysId = GlideRecordInsert(grUL);&#13;
+				Log('UI list (layout) : '+RenderValue(strUiListSysId));&#13;
+				if (IsValidSysId(strUiListSysId) == true)&#13;
+				{&#13;
+					&#13;
+					/*&#13;
+					&#13;
+					&lt;sys_ui_list_element&gt;&#13;
+&lt;average_value&gt;false&lt;/average_value&gt;&#13;
+&lt;element&gt;x_snc_datasilos_global&lt;/element&gt;&#13;
+&lt;list_id display_value="change_request" name="change_request" parent="NULL" view="268b1d0adb849090ba15a35305961902" relationship="NULL" sys_domain="global" element="NULL"&gt;363855f21bbaf810edf3642aab4bcb2e&lt;/list_id&gt;&#13;
+&lt;max_value&gt;false&lt;/max_value&gt;&#13;
+&lt;min_value&gt;false&lt;/min_value&gt;&#13;
+&lt;position&gt;3&lt;/position&gt;&#13;
+&lt;sum&gt;false&lt;/sum&gt;&#13;
+&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&#13;
+&lt;sys_created_on&gt;2021-09-28 11:53:22&lt;/sys_created_on&gt;&#13;
+&lt;sys_id&gt;763855f21bbaf810edf3642aab4bcb2f&lt;/sys_id&gt;&#13;
+&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&#13;
+&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&#13;
+&lt;sys_updated_on&gt;2021-09-28 11:53:22&lt;/sys_updated_on&gt;&#13;
+&lt;/sys_ui_list_element&gt;&#13;
+					&#13;
+					*/&#13;
+					&#13;
+					&#13;
+					var nPosition = 0;&#13;
+					function AddUiListElement(strColumn)&#13;
+					{&#13;
+						var strElement = strColumn;&#13;
+						if (IsValidColumn(strTable,strElement) == false)&#13;
+						{&#13;
+							strElement = strAppScope+'_' + strColumn;&#13;
+							if (IsValidColumn(strTable,strElement) == false)&#13;
+							{&#13;
+								return false;&#13;
+							}&#13;
+						}&#13;
+						&#13;
+						var grULE = new GlideRecord('sys_ui_list_element');&#13;
+						grULE.initialize();&#13;
+						grULE.element = strElement;&#13;
+						grULE.list_id = strUiListSysId;&#13;
+						grULE.position = nPosition++;&#13;
+						grULE.sys_scope = strAppSysId;&#13;
+						//grULE.view = '268b1d0adb849090ba15a35305961902'; // the DataSilos view&#13;
+						var strUiListElementSysId = GlideRecordInsert(grULE);&#13;
+						Log('Added UI list element "'+strColumn+'": '+RenderValue(strUiListElementSysId));&#13;
+						&#13;
+						&#13;
+					}&#13;
+					&#13;
+					AddUiListElement('number');&#13;
+					AddUiListElement('name');&#13;
+					AddUiListElement('short_description');&#13;
+					AddUiListElement('global');&#13;
+					AddUiListElement('supervisor_whitelist');&#13;
+					AddUiListElement('fulfiller_whitelist');&#13;
+					AddUiListElement('group_whitelist');&#13;
+					AddUiListElement('security_clearance');&#13;
+					AddUiListElement('ghost');&#13;
+					AddUiListElement('last_maintenance');&#13;
+					&#13;
+					&#13;
+				}&#13;
+			}&#13;
+			&#13;
+			&#13;
+			&#13;
+			&#13;
 		}&#13;
 	}&#13;
+	&#13;
+	strTable = '';&#13;
 	&#13;
 	&#13;
 	&#13;
@@ -892,13 +990,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>86</sys_mod_count>
+        <sys_mod_count>93</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-11 09:01:05</sys_updated_on>
+        <sys_updated_on>2021-11-11 16:27:08</sys_updated_on>
     </sys_script_include>
 </record_update>
