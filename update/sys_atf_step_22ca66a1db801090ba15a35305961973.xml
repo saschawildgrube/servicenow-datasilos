@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="">c1cc6415dbc09c50ba15a353059619ca</copied_from>
+        <copied_from/>
         <description>Impersonate the user: {{Step 6: Record Query.First record}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
@@ -15,14 +15,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 11:26:41</sys_created_on>
         <sys_id>22ca66a1db801090ba15a35305961973</sys_id>
-        <sys_mod_count>115</sys_mod_count>
+        <sys_mod_count>116</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_22ca66a1db801090ba15a35305961973</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 15:49:44</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:18</sys_updated_on>
         <table/>
         <test display_value="DataSilos - incident_task - basic">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">281f9b6bdbdeac14ba15a3530596190e</copied_from>
+        <copied_from/>
         <description>Insert a record into 'incident' with the following values:
 Short description = _ATF_DATASILOS_SC_0
-and Caller = {{Step 3: Record Query.First record}}
-and Assignment group = {{Step 11: Record Query.First record}}
+and Caller = {{Step 3: Record Query (Deprecated).First record}}
+and Assignment group = {{Step 11: Record Query (Deprecated).First record}}
 and DataSilos Security Clearance = 0
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
@@ -20,14 +20,14 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-23 15:11:48</sys_created_on>
         <sys_id>35a468c1db662410ba15a35305961972</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_35a468c1db662410ba15a35305961972</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-03 15:27:14</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:03</sys_updated_on>
         <table>incident</table>
         <test display_value="DataSilos - incident_task - security clearance">59a428c1db662410ba15a35305961962</test>
         <timeout/>

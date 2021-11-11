@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="">86d639a11bfc5810a89720a8ec4bcb63</copied_from>
+        <copied_from/>
         <description>Run Server Side Validation Script</description>
         <display_name>Run Server Side Script</display_name>
         <inputs/>
@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 09:58:11</sys_created_on>
         <sys_id>4fa588091b351050a89720a8ec4bcbc6</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_4fa588091b351050a89720a8ec4bcbc6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:14:57</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:13</sys_updated_on>
         <table/>
         <test display_value="DataSilos - problem - basic">7ea588091b351050a89720a8ec4bcb57</test>
         <timeout/>

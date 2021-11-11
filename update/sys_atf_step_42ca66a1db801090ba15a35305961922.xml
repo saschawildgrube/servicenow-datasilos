@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="">9b4a395ddb489c50ba15a35305961951</copied_from>
+        <copied_from/>
         <description>Update a record in 'incident' with the following values:
 Assignment group = {{Step 9: Record Query.First record}}
 Confirm the record was successfully updated</description>
@@ -17,14 +17,14 @@ Confirm the record was successfully updated</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-08 11:26:39</sys_created_on>
         <sys_id>42ca66a1db801090ba15a35305961922</sys_id>
-        <sys_mod_count>104</sys_mod_count>
+        <sys_mod_count>105</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_42ca66a1db801090ba15a35305961922</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 15:49:44</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:15</sys_updated_on>
         <table>incident</table>
         <test display_value="DataSilos - incident_task - basic">0dcaae61db801090ba15a353059619fb</test>
         <timeout/>

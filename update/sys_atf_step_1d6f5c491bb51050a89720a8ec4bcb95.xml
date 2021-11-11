@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Insert">9f4f65691b195050a89720a8ec4bcb8b</copied_from>
+        <copied_from/>
         <description>Insert a record into 'problem_task' with the following values:
 Short description = _ATF_DATASILOS_TEST_2
 and Problem = {{Step 12: Record Insert.Record}}
@@ -18,14 +18,14 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 11:50:35</sys_created_on>
         <sys_id>1d6f5c491bb51050a89720a8ec4bcb95</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_1d6f5c491bb51050a89720a8ec4bcb95</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:18:00</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:15</sys_updated_on>
         <table>problem_task</table>
         <test display_value="DataSilos - problem_task - basic">f86f1c091bb51050a89720a8ec4bcb61</test>
         <timeout/>
