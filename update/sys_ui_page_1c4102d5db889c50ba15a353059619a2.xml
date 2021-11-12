@@ -438,150 +438,47 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 	</p>
 	
 	<h3>Extension of scope</h3> 
-	<p>Extending the scope of the DataSilos application essentially means to add the filtering logic to more tables. This may have impact on the applications, views, reports, and other components that make use of these tables. So before actually extending the scope of DataSilos consider the following steps:</p>
+	<p>You can extend the scope of the DataSilos application by adding the filtering logic to more tables. You might also modify the regular behavior of DataSilos when working with tables already supported by DataSilos. In either scenario you need to create a DataSilos plugin application. Before you start the implementation, perform the following steps:</p>
 	<ol>
-		<li>Verify if there is a more recent version of DataSilos is available that may already cover the new requirements.</li>
-		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Maybe development work can be synchronized, or knowledge can be shared. It is also possible that some of the analysis work has already been done.</li>
-		<li>Identify the specific data that requires protection.</li>
-		<li>Map out where the data is coming from: manual input from users or integrations?</li>
+		<li>Check if there is a more recent version of DataSilos available that may already cover the new requirements.</li>
+		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Eventually analysis or development work can be re-used or at least knowledge can be shared. Maybe the feature you are considering is already work in progress.</li>
+		<li>Identify the specific data (tables) that requires protection.</li>
 		<li>Identify the rules to be used to control access.</li>
+		<li>Identify where data is coming from. Is it manual input from users or is data provided via integrations?</li>
+		<li>Verify if these sources provide the necessary details that are required to derive the visibility rules.</li>
 	</ol>
-	<p>After a decision has been made to extend scope of the DataSilos application perform the following steps:</p>
+	<p>After a decision has been made to creat a DataSilos plugin application perform the following steps:</p>
 	<ol>
+		<li>Create a new scoped application in Studio.</li>
 		<li>Identify the affected tables</li>
-		<li>Add new test steps in the ATF test "DataSilos - Implementation" for each of the tables. As soon as all following steps are completed, the test should pass.</li> 
-		<li>Add the global visibility field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-<pre>
-Type: True/False
-Column label: DataSilos Global Visibility
-Column name: x_snc_datasilos_global
-Default value: false
+		<li>Create a new script include "AppBuilder" in the new scoped application.</li>
+		<li>Implement the AppBuilder function based on the following template:</li>
+<pre>function AppBuilder()
+{
+	x_snc_datasilos.AppBuilder(
+		'x_abc_your_app_scope',
+		[
+			'table1',
+			'table2'
+		]);				
+}
 </pre>
-		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
-<pre>
-Name: DataSilos Global Visibility
-Requires role: x_snc_datasilos.manager 
-</pre>
-		<li>Add the supervisor silo whitelist field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-<pre>
-Type: List
-Column label: DataSilos Supervisor Whitelist
-Column name: x_snc_datasilos_supervisor_whitelist
-Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true
-Reference: DataSilo (search for "x_snc_datasilos")
-Reference cascade rule: None (not "--None--"!)
-</pre>
-		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
-<pre>
-Name: DataSilos Supervisor Whitelist
-Requires role: x_snc_datasilos.manager 
-</pre>
-		<li>Add the group whitelist field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-<pre>
-Type: List
-Column label: DataSilos Group Whitelist
-Column name: x_snc_datasilos_group_whitelist
-Attributes: edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true
-Reference: Group
-Reference cascade rule: None (not "--None--"!)
-</pre>
-		Elevate role to security_admin and add read and write Access Controls to the table DataSilos whitelist columns for all affected tables:
-<pre>
-Name: DataSilos Group Whitelist
-Requires role: x_snc_datasilos.manager 
-</pre>
-		<li>Add the security clearance field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-<pre>
-Type: Integer
-Column label: DataSilos Security Clearance
-Column name: x_snc_datasilos_security_clearance
-Default value: 0
-</pre>
-		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
-<pre>
-Name: DataSilos Security Clearance
-Requires role: x_snc_datasilos.manager 
-</pre>
-		<li>Add the ghost field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-<pre>
-Type: True/False
-Column label: DataSilos Ghost
-Column name: x_snc_datasilos_ghost
-Default value: false
-</pre>
-		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
-<pre>
-Name: DataSilos Ghost
-Requires role: x_snc_datasilos.manager 
-</pre>
-		<li>Add the last maintenance field to all affected tables! Please note that you MUST adapt the column name after entering the column label!</li>
-<pre>
-Type: Date/Time
-Column label: DataSilos Last Maintenance
-Column name: x_snc_datasilos_last_maintenance
-Default value: false
-</pre>
-		Elevate role to security_admin and add read and write Access Controls to the new field for all affected tables:
-<pre>
-Name: DataSilos Last Maintenance
-Requires role: x_snc_datasilos.manager 
-</pre>		
-		<li>Add new navigation modules to display the new tables</li>
-		<li>Configure the DataSilos view for these new modules</li>
-		<li>Extend the GetConfigBaseline script include to support all new tables. Use the existing table configurations as templates.</li>
-		<li>Extend the GetRelatedRecords script include to support the identification of related records of a record (e.g. to get the incident_task records from an incident)</li>
-		<li>Extend the filter condition in the "ACLs" module to cover the new tables.</li>
-		<li>Extend the filter condition in the "Business Rules" module to cover the new tables.</li>
-		<li>Add the properties for each table and add the properties to the DataSilos system property category. You can use the following properties as a template:</li>
-<pre>
-x_snc_datasilos.tables.incident.active
-x_snc_datasilos.tables.incident.columns.instant_access.sys_user
-x_snc_datasilos.tables.incident.columns.whitelist_trigger.sys_user_group 
-</pre>
+		<li>Replace "x_abc_your_app_scope" by the actual app scope identifier.</li>
+		<li>Add the tables to be supported into the array. Note that you do not need to add tables which are already supported by DataSilos in order to implement deviating behavior for visibility rules.</li>
+			
+		<g2:no_escape>$[
+			docapi.RenderInstallationInstructionsBackgroundScript('Now build the boiler-plate code and prepare the implementation of your new DataSilos plugin application. Replace x_abc_your_app_scope by the actual scope identifier of your new application.', 'x_abc_your_app_scope.AppBuilder();', 'x_abc_your_app_scope');
+		]</g2:no_escape>
 
-		
-		<li>New business rules need to be added for each table. These business rules are "before query" business rules that will affect out-of-scope tables. To make that change, the following client scripts and the following business rule must be deactivated:
-			<ol>
-				<li><a href="/nav_to.do?uri=sys_script_client.do?sys_id=3c5ffd7ac3302200f7d1ca3adfba8f22" target="_blank">Client Script: "No query for out-of-scope tables" (onChange)</a></li>
-				<li><a href="/nav_to.do?uri=sys_script_client.do?sys_id=5d19f53ac3302200f7d1ca3adfba8f36" target="_blank">Client Script: "No query for out-of-scope tables" (onLoad)</a></li>
-				<li><a href="/nav_to.do?uri=sys_script.do?sys_id=ccaf8afec3302200f7d1ca3adfba8f14" target="_blank">Business Rule: "Reject before-Q for out-of-scope tables"</a></li>
-			</ol>
-		</li>
-		<li>Add a new business rule for each of the new supported tables in the DataSilos application scope!</li>
-		<li>Configure the business rule as follows (replace "table_name" by the corresponding table name):</li>
-<pre>
-Name: "DataSilos - table_name"
-When: before
-Insert: true
-Update: true
-Query: true
-</pre>
-		Add the following script:
-<pre>
-(function executeRule(current, previous /*null when async*/) {
-	x_snc_datasilos.ExecuteBusinessRule(current, previous);
-})(current, previous);
-</pre>
-		<li>Go to the "Business Rules" module and verify the new business rule is active and in the DataSilos application scope.</li>
-		<li>Add a scheduled job for each table (replace "table_name" with the exact name of the table):
-			<pre>
-Name: DataSilos - Maintenance - table_name
-Run: Periodically
-Repeat Intervall: 10 Minutes
-Run as: System Administrator
-			</pre>
-		Run this script (Again replace "table_name" by the table name):
-			<pre>
-var grRecords = new GlideRecord('table_name')
-Maintenance(grRecords);
-			</pre>
-		</li>
-		<li>Switch to global scope</li>
-		<li>Elevate access to "security_admin".</li>
-		<li>Add or modify corresponding ACLs for all affected tables. Refer to the implementation guide.</li>
-		<li>Switch back to DataSilos scope</li>
+		<li>Modify or add your specific code in script include "DataSilosGetConfig". For example you can specifiy fields the reference users or groups which should impact the visibility of records.</li>
+		<li>Modify or add your specific code in script include "DataSilosGetRelatedRecords". Use this function to identify records that are related to a record. By specifying related records you can automatically derive visibility from one record to be applied to its related records (e.g. the task records associated to a story record, etc.).</li>
+		<li>Modify or add your specific code in script include "DataSilosRecordInsert" to specify what should happen when a record is inserted.</li>
+		<li>Modify or add your specific code in script include "DataSilosRecordUpdate" to specify what should happen when a record is updated or maintained on a regular basis.</li>
+		<li>Modify the DataSilos ui list view for the supported tables.</li>
 		<li>Create ATF tests. The following tests can (and should) be used as templates:</li>
-			<pre>
+<pre>
+DataSilos - installation
+DataSilos - implementation
 DataSilos - incident - installation
 DataSilos - incident - basic
 DataSilos - incident - opener, caller and sentinel
@@ -590,9 +487,8 @@ DataSilos - incident - cross-silo
 DataSilos - incident_task - installation
 DataSilos - incident_task - basic
 DataSilos - incident_task - cross-silo
-			</pre>
-		<li>Update THIS documentation</li>
-		<li>Test the new feature against all known existing use cases related to the added tables.</li> 
+</pre>
+		<li>Write documentation</li>
 	</ol>
 	
 	<h3>Test Steps</h3>
@@ -907,13 +803,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>561</sys_mod_count>
+        <sys_mod_count>563</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-28 10:28:46</sys_updated_on>
+        <sys_updated_on>2021-11-12 11:18:31</sys_updated_on>
     </sys_ui_page>
 </record_update>
