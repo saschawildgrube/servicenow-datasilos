@@ -20,10 +20,9 @@
 		'sc_request',&#13;
 		'sc_req_item',&#13;
 		'sc_task']);&#13;
-*/	&#13;
-	&#13;
-/*&#13;
-	x_snc_datasilos.AppBuilder('x_snc_datasilosci',['cmdb_ci']);&#13;
+&#13;
+	x_snc_datasilos.AppBuilder('x_snc_datasilosci',[&#13;
+		'cmdb_ci']);&#13;
 */	&#13;
 	&#13;
 	&#13;
@@ -788,6 +787,8 @@
 					AddUiListElement('number');&#13;
 					AddUiListElement('name');&#13;
 					AddUiListElement('short_description');&#13;
+					AddUiListElement('sys_class_name');&#13;
+					AddUiListElement('sys_created_on');&#13;
 					AddUiListElement('global');&#13;
 					AddUiListElement('supervisor_whitelist');&#13;
 					AddUiListElement('fulfiller_whitelist');&#13;
@@ -795,6 +796,13 @@
 					AddUiListElement('security_clearance');&#13;
 					AddUiListElement('ghost');&#13;
 					AddUiListElement('last_maintenance');&#13;
+					AddUiListElement('opened_by');&#13;
+					AddUiListElement('caller_id');&#13;
+					AddUiListElement('requested_for');&#13;
+					AddUiListElement('requested_by');&#13;
+					AddUiListElement('assignment_group');&#13;
+	&#13;
+					&#13;
 					&#13;
 					&#13;
 				}&#13;
@@ -990,13 +998,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-11 16:27:08</sys_updated_on>
+        <sys_updated_on>2021-11-12 10:15:55</sys_updated_on>
     </sys_script_include>
 </record_update>
