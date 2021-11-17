@@ -25,8 +25,8 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 		result.change_request = this.GetAllChangeRequests();
 		result.change_task = this.GetAllChangeTasks();
 		result.sc_request = this.GetAllRequests();
-		//result.sc_req_item = this.GetAllRequestedItems();
-		//result.sc_task = this.GetAllRequestTasks();
+		result.sc_req_item = this.GetAllRequestItems();
+		result.sc_task = this.GetAllRequestTasks();
 		result.sys_db_view = this.GetAllDatabaseViews();
 		result.x_snc_datasilos_datasilos = this.GetAllDataSilos();
 		
@@ -146,10 +146,71 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 		return strDataSiloSysId;
 	},
 	
+	
+	CreateSuperSiloRelationShip: function(strSuperSiloName,strSubSiloName)
+	{
+		var GetStringValue = x_snc_devtools.GetStringValue;
+		var RenderValue = x_snc_devtools.RenderValue;
+		var strPrefix = this.GetPrefix();
+
+		var strSuperSiloName = GetStringValue(strSuperSiloName);
+		var strSubSiloName = GetStringValue(strSubSiloName);
+		
+		var grSuperSilo = new GlideRecord('x_snc_datasilos_datasilos');
+		grSuperSilo.addQuery('name','=',strPrefix + strSuperSiloName);
+		grSuperSilo.query();
+		if (grSuperSilo.next() == false)
+		{
+			return false;
+		}
+		
+		Debug(RenderValue(grSuperSilo));
+
+		var grSubSilo = new GlideRecord('x_snc_datasilos_datasilos');
+		grSubSilo.addQuery('name','=',strPrefix + strSubSiloName);
+		grSubSilo.query();
+		if (grSubSilo.next() == false)
+		{
+			return false;
+		}
+		
+		Debug(RenderValue(grSubSilo));
+
+		var grSiloToSilo = new GlideRecord('x_snc_datasilos_m2m_datasilos_datasilos');
+		grSiloToSilo.initialize();
+		grSiloToSilo.datasilo_super = grSuperSilo.sys_id;
+		grSiloToSilo.datasilo_sub = grSubSilo.sys_id;
+		var strSiloToSiloSysId = grSiloToSilo.insert();
+		
+		Debug('CreateSuperSiloRelationShip: '+x_snc_devtools.RenderValue(x_snc_devtools.GetRecord('x_snc_datasilos_m2m_datasilos_datasilos',strSiloToSiloSysId)));
+		
+		return strSiloToSiloSysId;
+	},
+	
 	GetAllDataSilos:function()
 	{
 		var aResult = [];
 		var strPrefix = this.GetPrefix();
+		
+		function GetSiloGroupsByType(strSiloSysId,strType)
+		{
+			var aGroupsToSilos = [];
+			var grGroupsToSilos = new GlideRecord('x_snc_datasilos_m2m_groups_datasilos');
+			grGroupsToSilos.addQuery('datasilo','=',strSiloSysId);
+			grGroupsToSilos.addQuery('type','=',strType);
+			grGroupsToSilos.query();
+			while (grGroupsToSilos.next())
+			{
+				var grGroup = new GlideRecord('sys_user_group');
+				if (grGroup.get(grGroupsToSilos.group))
+				{
+					aGroupsToSilos.push(grGroup.name);
+				}
+			}
+			aGroupsToSilos = aGroupsToSilos.sort();
+			return aGroupsToSilos;
+		}
+		
 		
 		var grDataSilos = new GlideRecord('x_snc_datasilos_datasilos');
 		grDataSilos.addQuery('name','STARTSWITH',strPrefix);
@@ -157,7 +218,44 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
 		grDataSilos.query();
 		while (grDataSilos.next())
 		{
-			aResult.push(x_snc_devtools.Clone(grDataSilos));
+			var datasilo = x_snc_devtools.Clone(grDataSilos);
+			
+			datasilo['_groups_supervisor'] = GetSiloGroupsByType(grDataSilos.sys_id,'supervisor');
+			datasilo['_groups_fulfiller'] = GetSiloGroupsByType(grDataSilos.sys_id,'fulfiller');
+			datasilo['_groups_member'] = GetSiloGroupsByType(grDataSilos.sys_id,'member');
+			
+			var aSilosToSilos = [];
+			var grSilosToSilos = new GlideRecord('x_snc_datasilos_m2m_datasilos_datasilos');
+			grSilosToSilos.addQuery('datasilo_super','=',grDataSilos.sys_id);
+			grSilosToSilos.query();
+			while (grSilosToSilos.next())
+			{
+				var grSilo = new GlideRecord('x_snc_datasilos_datasilos');
+				if (grSilo.get(grSilosToSilos.datasilo_sub))
+				{
+					aSilosToSilos.push(grSilo.name);
+				}
+			}
+			aSilosToSilos = aSilosToSilos.sort();
+			datasilo['_silos_sub'] = aSilosToSilos;
+
+			var aSilosToSilos = [];
+			var grSilosToSilos = new GlideRecord('x_snc_datasilos_m2m_datasilos_datasilos');
+			grSilosToSilos.addQuery('datasilo_sub','=',grDataSilos.sys_id);
+			grSilosToSilos.query();
+			while (grSilosToSilos.next())
+			{
+				var grSilo = new GlideRecord('x_snc_datasilos_datasilos');
+				if (grSilo.get(grSilosToSilos.datasilo_super))
+				{
+					aSilosToSilos.push(grSilo.name);
+				}
+			}
+			aSilosToSilos = aSilosToSilos.sort();
+			datasilo['_silos_super'] = aSilosToSilos;
+
+						
+			aResult.push(datasilo);
 		}
 		return aResult;
 	},
@@ -168,13 +266,13 @@ DataSilosTestDataAPI.prototype = Object.extendsObject(x_snc_devtools.TestDataAPI
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-05-14 11:34:11</sys_created_on>
         <sys_id>5b9580191b781810a89720a8ec4bcbfc</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>DataSilosTestDataAPI</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5b9580191b781810a89720a8ec4bcbfc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-22 13:19:31</sys_updated_on>
+        <sys_updated_on>2021-11-17 12:26:57</sys_updated_on>
     </sys_script_include>
 </record_update>
