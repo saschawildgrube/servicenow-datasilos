@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.DataSilosRecordInsert</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>The DataSilosRecordInsert function is called by the DataSilos extension point instance class and processes a record when it is inserted into a table. Return true if the record is handled by the function, false if not.</description>
+        <name>DataSilosRecordInsert</name>
+        <script><![CDATA[function DataSilosRecordInsert(record)
+{
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var RenderValue = x_snc_devtools.RenderValue;
+
+	var bResult = false;
+
+	var strTable = x_snc_datasilos.GetSupportedTableFromRecord(record);
+
+	if (strTable == 'incident')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'incident_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'change_request')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'change_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'problem')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'problem_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'sc_request')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'sc_req_item')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'sc_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	return bResult;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:24:44</sys_created_on>
+        <sys_id>8c73ee72db37fc904647dad1f3961926</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>DataSilosRecordInsert</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_8c73ee72db37fc904647dad1f3961926</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:24:50</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_script_include_8c73ee72db37fc904647dad1f3961926</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_snc_datasilos.DataSilosRecordInsert&lt;/api_name&gt;&lt;caller_access&gt;1&lt;/caller_access&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;The DataSilosRecordInsert function is called by the DataSilos extension point instance class and processes a record when it is inserted into a table. Return true if the record is handled by the function, false if not.&lt;/description&gt;&lt;name&gt;DataSilosRecordInsert&lt;/name&gt;&lt;script&gt;&lt;![CDATA[function DataSilosRecordInsert(record)
+{
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var RenderValue = x_snc_devtools.RenderValue;
+
+	var bResult = false;
+
+	var strTable = x_snc_datasilos.GetSupportedTableFromRecord(record);
+
+	if (strTable == 'incident')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'incident_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'change_request')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'change_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'problem')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'problem_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'sc_request')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'sc_req_item')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	if (strTable == 'sc_task')
+	{
+		//Add your code here...
+		bResult = true;
+	}
+	
+	return bResult;
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-11-17 10:24:44&lt;/sys_created_on&gt;&lt;sys_id&gt;8c73ee72db37fc904647dad1f3961926&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;DataSilosRecordInsert&lt;/sys_name&gt;&lt;sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="DataSilos WORK IN PROGRESS"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_8c73ee72db37fc904647dad1f3961926&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-17 10:24:50&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-134106618</payload_hash>
+        <record_name>DataSilosRecordInsert</record_name>
+        <reverted_from/>
+        <source>db7cdcd91b773090edf3642aab4bcb7a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:24:50</sys_created_on>
+        <sys_id>9d7322b2db37fc904647dad1f39619de</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d2d6d7ec40000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:24:50</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>157322b2e037fc90d4fe4131d00fe7de</update_guid>
+        <update_guid_history>157322b2e037fc90d4fe4131d00fe7de:-134106618,d97322b2ca37fc905f454befb6fbbead:-1248525949,c97322b25537fc90280c8dc3706fc870:-2023876047,817322b27337fc90f313ec195b2c2740:701077380,307322b26537fc90a6b4a5d93dfb6f1c:794202486,2073ee723b37fc90b597c4cc4ed7f6df:1811680936,2073ee723b37fc900d49fa02ee9582bb:-295152507,d473ee726d37fc90acc39fc038efd18a:-1667385968,5473ee72b837fc902c94a2d0c244f466:1102404047,0473ee725f37fc90b0d68bc14f05f92a:1557122520</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:30:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>021b14ffb3754afc801d603a0e890c09</sys_id>
+        <sys_metadata>8c73ee72db37fc904647dad1f3961926</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilosRecordInsert</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_script_include_8c73ee72db37fc904647dad1f3961926</sys_update_name>
+        <sys_update_version display_value="sys_script_include_8c73ee72db37fc904647dad1f3961926">9d7322b2db37fc904647dad1f39619de</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:30:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

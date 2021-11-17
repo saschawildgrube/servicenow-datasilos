@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.DataSilos</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>Implements the extension point for DataSilos.</description>
+        <name>DataSilos</name>
+        <script><![CDATA[var DataSilos = Class.create();
+DataSilos.prototype = {
+    initialize: function() {
+    },
+
+    GetConfig: function(config)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_snc_datasilos.DataSilosGetConfig))
+		{
+			config = DataSilosGetConfig(config);
+		}
+        return config;
+    },
+	
+    GetRelatedRecords: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_snc_datasilos.DataSilosGetRelatedRecords))
+		{
+			return DataSilosGetRelatedRecords(record);
+		}
+        return false;
+    },		
+
+    RecordInitialize: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_snc_datasilos.DataSilosRecordInsert))
+		{
+			return DataSilosRecordInsert(record);
+		}
+        return false;
+    },		
+	
+    RecordUpdate: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_snc_datasilos.DataSilosRecordUpdate))
+		{
+			return DataSilosRecordUpdate(record);
+		}
+        return false;
+    },	
+
+    type: 'DataSilos'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:24:50</sys_created_on>
+        <sys_id>ad7322b2db37fc904647dad1f39619eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_ad7322b2db37fc904647dad1f39619eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:24:50</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_script_include_ad7322b2db37fc904647dad1f39619eb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_snc_datasilos.DataSilos&lt;/api_name&gt;&lt;caller_access&gt;1&lt;/caller_access&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;Implements the extension point for DataSilos.&lt;/description&gt;&lt;name&gt;DataSilos&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var DataSilos = Class.create();
+DataSilos.prototype = {
+    initialize: function() {
+    },
+
+    GetConfig: function(config)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() &amp;&amp; IsValidFunction(x_snc_datasilos.DataSilosGetConfig))
+		{
+			config = DataSilosGetConfig(config);
+		}
+        return config;
+    },
+	
+    GetRelatedRecords: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() &amp;&amp; IsValidFunction(x_snc_datasilos.DataSilosGetRelatedRecords))
+		{
+			return DataSilosGetRelatedRecords(record);
+		}
+        return false;
+    },		
+
+    RecordInitialize: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() &amp;&amp; IsValidFunction(x_snc_datasilos.DataSilosRecordInsert))
+		{
+			return DataSilosRecordInsert(record);
+		}
+        return false;
+    },		
+	
+    RecordUpdate: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() &amp;&amp; IsValidFunction(x_snc_datasilos.DataSilosRecordUpdate))
+		{
+			return DataSilosRecordUpdate(record);
+		}
+        return false;
+    },	
+
+    type: 'DataSilos'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-11-17 10:24:50&lt;/sys_created_on&gt;&lt;sys_id&gt;ad7322b2db37fc904647dad1f39619eb&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;DataSilos&lt;/sys_name&gt;&lt;sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="DataSilos WORK IN PROGRESS"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_ad7322b2db37fc904647dad1f39619eb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-17 10:24:50&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-248713962</payload_hash>
+        <record_name>DataSilos</record_name>
+        <reverted_from/>
+        <source>db7cdcd91b773090edf3642aab4bcb7a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:24:50</sys_created_on>
+        <sys_id>ad7322b2db37fc904647dad1f39619ef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d2d6d80070000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:24:50</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>257322b20537fc90b8482278d884fbef</update_guid>
+        <update_guid_history>257322b20537fc90b8482278d884fbef:-248713962</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:30:15</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>36513bb0619349f9a1c37798879bd481</sys_id>
+        <sys_metadata>ad7322b2db37fc904647dad1f39619eb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_script_include_ad7322b2db37fc904647dad1f39619eb</sys_update_name>
+        <sys_update_version display_value="sys_script_include_ad7322b2db37fc904647dad1f39619eb">ad7322b2db37fc904647dad1f39619ef</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:30:15</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

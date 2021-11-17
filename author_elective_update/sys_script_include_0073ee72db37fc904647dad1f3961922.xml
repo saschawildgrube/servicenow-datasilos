@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.DataSilosGetRelatedRecords</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>false</client_callable>
+        <description>The DataSilosGetRelatedRecords function is called by the DataSilos extension point instance class and returns an array of related records to the given record. If the record does not have any related records the function should return an empty array. If the function returns false, the default DataSilos function or other extensions will provide the related records.</description>
+        <name>DataSilosGetRelatedRecords</name>
+        <script><![CDATA[function DataSilosGetRelatedRecords(record)
+{
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var RenderValue = x_snc_devtools.RenderValue;
+
+	var aRelatedRecords = [];
+
+	var strTable = x_snc_datasilos.GetSupportedTableFromRecord(record);
+
+	if (strTable == 'incident')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'incident_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'change_request')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'change_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'problem')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'problem_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'sc_request')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'sc_req_item')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'sc_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	return false;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:24:44</sys_created_on>
+        <sys_id>0073ee72db37fc904647dad1f3961922</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>DataSilosGetRelatedRecords</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_0073ee72db37fc904647dad1f3961922</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:24:50</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_script_include_0073ee72db37fc904647dad1f3961922</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_snc_datasilos.DataSilosGetRelatedRecords&lt;/api_name&gt;&lt;caller_access&gt;1&lt;/caller_access&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;The DataSilosGetRelatedRecords function is called by the DataSilos extension point instance class and returns an array of related records to the given record. If the record does not have any related records the function should return an empty array. If the function returns false, the default DataSilos function or other extensions will provide the related records.&lt;/description&gt;&lt;name&gt;DataSilosGetRelatedRecords&lt;/name&gt;&lt;script&gt;&lt;![CDATA[function DataSilosGetRelatedRecords(record)
+{
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
+	var RenderValue = x_snc_devtools.RenderValue;
+
+	var aRelatedRecords = [];
+
+	var strTable = x_snc_datasilos.GetSupportedTableFromRecord(record);
+
+	if (strTable == 'incident')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'incident_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'change_request')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'change_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'problem')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'problem_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'sc_request')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'sc_req_item')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	if (strTable == 'sc_task')
+	{
+		// Add your code here...
+		return aRelatedRecords;
+	}
+	
+	return false;
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-11-17 10:24:44&lt;/sys_created_on&gt;&lt;sys_id&gt;0073ee72db37fc904647dad1f3961922&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;DataSilosGetRelatedRecords&lt;/sys_name&gt;&lt;sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="DataSilos WORK IN PROGRESS"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_0073ee72db37fc904647dad1f3961922&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-17 10:24:50&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-675598744</payload_hash>
+        <record_name>DataSilosGetRelatedRecords</record_name>
+        <reverted_from/>
+        <source>db7cdcd91b773090edf3642aab4bcb7a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:24:50</sys_created_on>
+        <sys_id>d17322b2db37fc904647dad1f39619d9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d2d6d7e5b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:24:50</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>597322b23637fc9094b4f561249650d8</update_guid>
+        <update_guid_history>597322b23637fc9094b4f561249650d8:-675598744,117322b2e437fc90be3a02464b44f7a8:152972175,017322b23e37fc9017e7560e00bbc26b:-1407260617,c57322b2e437fc904fe2d6f17f9a6b3a:587086300,747322b2b737fc909df8ad6635178016:-1984401092,e473ee723837fc905cad5352d6d5b4d9:269368422,ac73ee72a037fc90239e2db9f46abca8:1708330225,1c73ee723d37fc904f2466e9e785f484:1846986038,9873ee724637fc905ab7ae2ce515f360:265226815,8473ee724b37fc90045ed839141fba25:1102575794</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-17 10:30:46</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>4e5f6e05ba174590b25ec2c77f619d84</sys_id>
+        <sys_metadata>0073ee72db37fc904647dad1f3961922</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilosGetRelatedRecords</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_script_include_0073ee72db37fc904647dad1f3961922</sys_update_name>
+        <sys_update_version display_value="sys_script_include_0073ee72db37fc904647dad1f3961922">d17322b2db37fc904647dad1f39619d9</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-17 10:30:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
