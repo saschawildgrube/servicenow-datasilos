@@ -51,6 +51,8 @@
 	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group.</p>
 	<p><b>Fulfiller:</b>&#160;Users in groups that are associated to a silo as type "Fulfiller" can see all records that have been initially assigned to groups that are associated to the same silo. And they see all records that have ever been assigned directly assigned to their group. As a result, fulfillers have an overview of all work that originates from the same silo. However, fulfillers do not see any records that have been created in another silo and assigned to another team within the fulfiller's silo.</p>
 	<p><b>Supervisor:</b>&#160;Users in groups that are associated to a silo as type "Supervisor" can see all records that have ever been assigned to any group of the same silo. As a result, supervisors have an overview of all work originating and/or that is conducted in their silos. This includes all records that have been created in other silos and that have been assigned to the supervisor's silo.</p>
+	<p>A hierarchy or network of silos can be defined. Silo-to-silo relationships can be defined between "super" silos to "sub" silos. Supervisors in the "super" silo are granted access to all records whitelisted for the "sub" silo. These relationships can be bi-directional, so both strict hierarchies and all other forms of networks can be described.</p>
+	<p>Note that silo-to-silo relationships are not inherited. If silo "A" supervisors can access sub silo "B" records, and silo "B" supervisors have access to silo "C" records, silo "A" supervisor do not automatically get access to silo "C" records - unless a relationship between silo "A" and silo "C" is explicitly defined.</p>
 
 	<h3>Security clearance dimension</h3>
 	<p>Access to records can also be controlled based on individual user security clearance levels. The security clearance level is a numeric value. All users and all records have level 0 by default. If a record is set to a higher level, it can only be seen by users who have an equal or higher security clearance level.</p>
@@ -299,6 +301,7 @@ Best regards,
 	<ol>
 		<li>Assign the x_snc_datasilos.manager role to users who are tasked to configure the silos.</li>
 		<li>As a data silos manager go to the "Data Silos" module and configure all data silos. Add the corresponding groups to each data silo. Groups associated to a data silo are either&#160;<b>Member</b>,&#160;<b>Fulfiller</b>&#160;or&#160;<b>Supervisor</b>&#160;groups. This can also be done automatically or via data import.</li>
+		<li>Setup silo-to-silo relationships where appropriate. Supervisors in a super silo also get access to the associated sub silo.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to technical users where applicable. They will not be affected by any filtering.</li>
 		<li>Assign the x_snc_datasilos.sentinel role to users who are tasked to create reports and hence must access all data where applicable.</li>
 		<li>Go to "Options" and choose if the maintenance jobs should be active or not. As a general rule of thumb, it's always a good idea to let them run UNLESS they cause a performance degradation. If there are already records in the tables in scope, the maintenance jobs need to run and process every record at least once to make sure all records are initialized (and hence visible). After initial processing of all existing records, the business rules on the affected tables should ensure that all records are visible to eligible users, however sometimes unexpected situations occur - like an import of data from an external system without triggering business rules etc. The maintenance jobs make sure that such events don't leave records invisible to users.</li>
@@ -804,13 +807,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>564</sys_mod_count>
+        <sys_mod_count>566</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-17 10:10:46</sys_updated_on>
+        <sys_updated_on>2021-11-17 15:28:34</sys_updated_on>
     </sys_ui_page>
 </record_update>
