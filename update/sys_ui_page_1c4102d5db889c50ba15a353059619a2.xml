@@ -395,16 +395,9 @@ Best regards,
 	<h5>Procedure</h5>
 	<ol>
 		<li>Identify the specific user record.</li>
-		<li>Check if the user has the x_snc_datasilos.sentinel role. If so, the user should not be affected by DataSilos filtering. The root cause is very likely somewhere else.</li>
-		<li>Seek the record in the list view of the containing table using the DataSilos view.</li>
-		<li>Check if the user has an equal or higher security clearance level as the record. If the user has a lower security clearance level than the record, the user is not allowed to see the record.</li>
-		<li>If the record is set to be globally visible, the user should see the record.</li>
-		<li>Check if the user is referenced in one of the user fields (e.g. caller, opened_by). Consider the specific configuration for the table as such fields may differ depending on table and configuration.</li>
-		<li>Identify the groups of that user.</li>
-		<li>Identify the silos that are associated with the user's group(s).</li>
-		<li>Check the supervisor and group whitelist to see if the user's groups and associated silos match. Keep in mind that a user's group must be a "supervisor" group in a silo so that a user gets access via the silo whitelist.</li>
-		<li>If the whitelisted silos or groups do not match expectations, the logic that populate the whitelists should be reviewed. Note that if a DataSilos extension sets the ghost field to true for a record, the default DataSilos whitelist population will not be applied.</li>
-		<li>If at least one of the filtering factors (user reference fields, group whitelist, supervisor whitelist, global visibility) in combination with the security clearance level should allow the user to see the record, but the user cannot access the record, then it is very likely that other (non-DataSilos) related business rules or ACLs block the access to that record.</li>
+		<li>Copy the user's Sys ID.</li>
+		<li>Navigate to the record. From the form context menu, select "DataSilos Access Analysis" and enter the Sys ID (or user name or email address). The function will explain if and why a user can or cannot see a record based on DataSilos filter mechanisms.</li>
+		<li>If the analysis states that the user should be able to see the record (based on DataSilos controlled criteria) but the user cannot access the record, then it is very likely that other (non-DataSilos) related business rules, domain separation or ACLs block the user from accessing that record.</li>
 	</ol>
 	<h4>ATF test "DataSilos - Test data sanity" fails</h4>
 	<h5>Symptoms</h5>
@@ -443,11 +436,11 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 	<h3>Extension of scope</h3> 
 	<p>You can extend the scope of the DataSilos application by adding the filtering logic to more tables. You might also modify the regular behavior of DataSilos when working with tables already supported by DataSilos. In either scenario you need to create a DataSilos plugin application. Before you start the implementation, perform the following steps:</p>
 	<ol>
-		<li>Check if there is a more recent version of DataSilos available that may already cover the new requirements.</li>
-		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Eventually analysis or development work can be re-used or at least knowledge can be shared. Maybe the feature you are considering is already work in progress.</li>
-		<li>Identify the specific data (tables) that requires protection.</li>
-		<li>Identify the rules to be used to control access.</li>
-		<li>Identify where data is coming from. Is it manual input from users or is data provided via integrations?</li>
+		<li>Check if there is a more recent version of DataSilos available that may already cover your requirements.</li>
+		<li>Get in touch with the author of the DataSilos application and check if there is work in progress on a new version of DataSilos. Eventually analysis or development work can be re-used or at least knowledge can be shared. Maybe the feature you are considering is already being worked on.</li>
+		<li>Identify the specific tables that require protection.</li>
+		<li>Identify the rules to be used to control access. Is all the information available that is required to apply these rules?</li>
+		<li>Identify data sources. Is it based on manual input from users or is data provided via integrations?</li>
 		<li>Verify if these sources provide the necessary details that are required to derive the visibility rules.</li>
 	</ol>
 	<p>After a decision has been made to creat a DataSilos plugin application perform the following steps:</p>
@@ -473,11 +466,11 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 			docapi.RenderInstallationInstructionsBackgroundScript('Now build the boiler-plate code and prepare the implementation of your new DataSilos plugin application. Replace x_abc_your_app_scope by the actual scope identifier of your new application.', 'x_abc_your_app_scope.AppBuilder();', 'x_abc_your_app_scope');
 		]</g2:no_escape>
 
-		<li>Modify or add your specific code in script include "DataSilosGetConfig". For example you can specifiy fields the reference users or groups which should impact the visibility of records.</li>
+		<li>Modify or add your specific code in script include "DataSilosGetConfig". For example, you can specifiy fields that reference users or groups which should impact the visibility of records. You can also modify the configuration of tables which are supported by DataSilos directly. Please note that the modifications to the config object are applied AFTER system properties are read. That means that your implementation has full control over the actual configuration and can override system properties - that may be convenient during development, but it may be confusing for operations teams.</li>
 		<li>Modify or add your specific code in script include "DataSilosGetRelatedRecords". Use this function to identify records that are related to a record. By specifying related records you can automatically derive visibility from one record to be applied to its related records (e.g. the task records associated to a story record, etc.).</li>
-		<li>Modify or add your specific code in script include "DataSilosRecordInsert" to specify what should happen when a record is inserted.</li>
-		<li>Modify or add your specific code in script include "DataSilosRecordUpdate" to specify what should happen when a record is updated or maintained on a regular basis.</li>
-		<li>Modify the DataSilos ui list view for the supported tables.</li>
+		<li>Modify or add your specific code in script include "DataSilosRecordInsert" to specify what should happen when a record is inserted. If the default behavior should be applied to a table, no implementation is required.</li>
+		<li>Modify or add your specific code in script include "DataSilosRecordUpdate" to specify what should happen when a record is updated or maintained on a regular basis. If the default behavior should be applied to a table, no implementation is required.</li>
+		<li>Modify the DataSilos UI list view for the supported tables. It is recommended at add all columns that can help operations teams to understand whether a record should or should not be visible to a user. Whatever column is being used in your visibility rules should be displayed in your UI list view.</li>
 		<li>Create ATF tests. The following tests can (and should) be used as templates:</li>
 <pre>
 DataSilos - installation
@@ -491,7 +484,7 @@ DataSilos - incident_task - installation
 DataSilos - incident_task - basic
 DataSilos - incident_task - cross-silo
 </pre>
-		<li>Write documentation</li>
+		<li>Write documentation. Your documentation should be targeted to both developers who might be tasked to extend the application later and to operations teams who need to resolve operational issues and user requests and questions.</li>
 	</ol>
 	
 	<h3>Test Steps</h3>
@@ -807,13 +800,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>567</sys_mod_count>
+        <sys_mod_count>572</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-18 12:54:56</sys_updated_on>
+        <sys_updated_on>2021-11-18 15:11:47</sys_updated_on>
     </sys_ui_page>
 </record_update>

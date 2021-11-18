@@ -7,10 +7,29 @@
         <client_callable>false</client_callable>
         <description>Performs an analysis on a list of users against a list of records. Can these users see these records?</description>
         <name>AccessAnalysis</name>
-        <script><![CDATA[function AccessAnalysis(aUsers,records)
+        <script><![CDATA[/*
+// Access Analysis Template Code:
+	
+var aUsers = [
+	'admin'
+	];
+var records = {
+   incident: [
+		'12345678901234567890123456789012'
+		]
+};
+var result = x_snc_datasilos.AccessAnalysis(aUsers,records);
+x_snc_devtools.Log(
+	'DataSilos: AccessAnalysis: '
+	+x_snc_devtools.RenderValue(result,false,true));
+*/
+
+
+function AccessAnalysis(aUsers,records)
 {
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
 	var GetUserRecord = x_snc_devtools.GetUserRecord;
@@ -43,6 +62,8 @@
 		
 			user.user_name = GetStringValue(grUser.user_name);
 			user.name = GetStringValue(grUser.name);
+			
+			user.security_clearance = GetIntegerValue(grUser.x_snc_datasilos_security_clearance);
 
 			user.groups = [];
 			var aGroups = GetGroupsFromUser(strUserSysId);
@@ -186,15 +207,16 @@
 						record.supervisor_whitelist = RecordGetSupervisorWhitelistValue(grRecord);
 						record.fulfiller_whitelist = RecordGetFulfillerWhitelistValue(grRecord);
 						record.group_whitelist = RecordGetGroupWhitelistValue(grRecord);
+						record.security_clearance = RecordGetSecurityClearanceValue(grRecord);
 					
 						// Get the reason for visibility
 						var strExplanation = '';
-						strExplanation += 'Checked record: '+RenderRecordSummary(grRecord)+'\n';
+						strExplanation += 'Checked record: '+RenderRecordSummary(grRecord)+'';
 						var nReasons = 0;
 						if (bAccess == true)
 						{
 							
-							strExplanation += 'The user '+user.user_name+' ('+strUserSysId+') can potentially access the record.';
+							strExplanation += '\nThe user '+user.user_name+' ('+strUserSysId+') can potentially access the record.';
 							if (IsActive() == false)
 							{
 								strExplanation += '\nDataSilos is inactive.';
@@ -208,12 +230,12 @@
 							}
 							if (user.admin == true)
 							{
-								strExplanation += '\nThe user has the admin role.';
+								strExplanation += '\nThe user has the admin role. No filtering is applied.';
 								nReasons++;
 							}
 							if (user.sentinel == true)
 							{
-								strExplanation += '\nThe user has the sentinel role.';
+								strExplanation += '\nThe user has the sentinel role. No filtering is applied';
 								nReasons++;
 							}
 							if (record.global == true)
@@ -272,8 +294,27 @@
 						}
 						else
 						{
-							strExplanation += 'User '+user.user_name+' ('+strUserSysId+') can NOT access the record due to DataSilos filtering.';
+							strExplanation += '\nUser '+user.user_name+' ('+strUserSysId+') can NOT access the record due to DataSilos filtering.';
 						}
+						
+						if (IsSecurityClearanceActive())
+						{
+							strExplanation += '\nSecurity clearance-based filtering is active.';
+						}
+						else
+						{
+							strExplanation += '\nSecurity clearance-based filtering is NOT active. So neither the user\'s nor the record\'s securty clearance impact the result.';
+						}
+						strExplanation += '\nUser\'s level is '+user.security_clearance+', record\'s level is '+record.security_clearance+'.';
+						if (user.security_clearance < record.security_clearance)
+						{
+							strExplanation += '\nThe user\'s security clearance is lower than the record\'s. Security clearance-based filtering does NOT allow access.' ;
+						}
+						else
+						{
+							strExplanation += '\nThe user\'s security clearance is equal or higher than the record\'s. Security clearance-based filtering allows access.' ;
+						}
+					
 						record.explanation = strExplanation;
 					}
 						
@@ -296,13 +337,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-01-27 14:00:33</sys_created_on>
         <sys_id>47e091541b0ee814a89720a8ec4bcb3a</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_mod_count>71</sys_mod_count>
         <sys_name>AccessAnalysis</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_47e091541b0ee814a89720a8ec4bcb3a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-28 10:07:23</sys_updated_on>
+        <sys_updated_on>2021-11-18 15:48:20</sys_updated_on>
     </sys_script_include>
 </record_update>
