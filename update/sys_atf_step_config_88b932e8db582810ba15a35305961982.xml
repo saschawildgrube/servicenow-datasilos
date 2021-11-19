@@ -29,6 +29,7 @@ generateDescription();]]></description_generator>
 	var StringRemoveCharacters = x_snc_devtools.StringRemoveCharacters;&#13;
 	var GetArrayValue = x_snc_devtools.GetArrayValue;&#13;
 	var IsTableSupported = x_snc_datasilos.IsTableSupported;&#13;
+	var GetBusinessRuleName = x_snc_datasilos.GetBusinessRuleName;&#13;
 &#13;
 	&#13;
 	stepResult.setSuccess();&#13;
@@ -707,14 +708,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>125</sys_mod_count>
+        <sys_mod_count>126</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-11 09:01:29</sys_updated_on>
+        <sys_updated_on>2021-11-19 12:36:59</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">32cab51a1b663010edf3642aab4bcbb8</type>
         <wizard_redirect/>
