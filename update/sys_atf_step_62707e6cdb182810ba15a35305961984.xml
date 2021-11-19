@@ -17,9 +17,9 @@
         <sys_id>62707e6cdb182810ba15a35305961984</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>DataSilos - IsTableActive</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_62707e6cdb182810ba15a35305961984</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-02 16:05:15</sys_updated_on>
