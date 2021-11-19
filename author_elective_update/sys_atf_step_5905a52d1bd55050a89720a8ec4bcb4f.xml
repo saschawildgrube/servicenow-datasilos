@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from display_value="">0c7d1e681bb49410a89720a8ec4bcbdc</copied_from>
+        <description>Validate there are not any records in 'change_request' matching query:
+Sys ID = {{invalid step_id=5905a52d1bd55050a89720a8ec4bcb0d.}}
+With a failure timeout of 5 Seconds</description>
+        <display_name>Record Query (Deprecated)</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>User ALPHA_MEMBER checks for change request ALPHA_FULFILLER</notes>
+        <order>12</order>
+        <snapshot/>
+        <step_config display_value="Record Query (Deprecated)">0270b8005f30220012b44adb7f46666a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:40:20</sys_created_on>
+        <sys_id>5905a52d1bd55050a89720a8ec4bcb4f</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>Record Query (Deprecated)</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_5905a52d1bd55050a89720a8ec4bcb4f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-09 14:55:08</sys_updated_on>
+        <table>change_request</table>
+        <test display_value="DataSilos - change_request - basic">6005a9e91bd55050a89720a8ec4bcb09</test>
+        <timeout>1970-01-01 00:00:05</timeout>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=5905a52d1bd55050a89720a8ec4bcb4f"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:40:21</sys_created_on>
+        <sys_id>1505a52d1bd55050a89720a8ec4bcb51</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:40:21</sys_updated_on>
+        <value>sys_id={{step['5905a52d1bd55050a89720a8ec4bcb0d'].record_id}}^EQ</value>
+        <variable display_value="">cf167c405f30220012b44adb7f46660d</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:40:21</sys_created_on>
+        <sys_id>5105a52d1bd55050a89720a8ec4bcb51</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:47:25</sys_updated_on>
+        <value>change_request</value>
+        <variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:40:20</sys_created_on>
+        <sys_id>9d05a52d1bd55050a89720a8ec4bcb50</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:40:20</sys_updated_on>
+        <value>1</value>
+        <variable display_value="">9459c28673103300f660eeadfff6a7dd</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:40:20</sys_created_on>
+        <sys_id>d905a52d1bd55050a89720a8ec4bcb50</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:40:20</sys_updated_on>
+        <value>no_records_match_query</value>
+        <variable display_value="">dd091e22675003007ba405225685ef69</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=5905a52d1bd55050a89720a8ec4bcb4f"/>
+    <sys_element_mapping action="DELETE">
+        <field>field_values</field>
+        <id>5905a52d1bd55050a89720a8ec4bcb4f</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:40:21</sys_created_on>
+        <sys_id>1905a52d1bd55050a89720a8ec4bcb51</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:40:21</sys_updated_on>
+        <table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table>
+        <value>sys_id={{step['5905a52d1bd55050a89720a8ec4bcb0d'].record_id}}^EQ</value>
+    </sys_element_mapping>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_atf_step_5905a52d1bd55050a89720a8ec4bcb4f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from display_value="">0c7d1e681bb49410a89720a8ec4bcbdc</copied_from><description>Validate there are not any records in 'change_request' matching query:
+Sys ID = {{invalid step_id=5905a52d1bd55050a89720a8ec4bcb0d.}}
+With a failure timeout of 5 Seconds</description><display_name>Record Query (Deprecated)</display_name><inputs/><inputs/><mugshots_cache_json/><notes>User ALPHA_MEMBER checks for change request ALPHA_FULFILLER</notes><order>12</order><snapshot/><step_config display_value="Record Query (Deprecated)">0270b8005f30220012b44adb7f46666a</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:40:20</sys_created_on><sys_id>5905a52d1bd55050a89720a8ec4bcb4f</sys_id><sys_mod_count>31</sys_mod_count><sys_name>Record Query (Deprecated)</sys_name><sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_atf_step_5905a52d1bd55050a89720a8ec4bcb4f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-11-09 14:55:08</sys_updated_on><table>change_request</table><test display_value="DataSilos - change_request - basic">6005a9e91bd55050a89720a8ec4bcb09</test><timeout>1970-01-01 00:00:05</timeout><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=5905a52d1bd55050a89720a8ec4bcb4f"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key><order>400</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:40:21</sys_created_on><sys_id>1505a52d1bd55050a89720a8ec4bcb51</sys_id><sys_mod_count>1</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:40:21</sys_updated_on><value>sys_id={{step['5905a52d1bd55050a89720a8ec4bcb0d'].record_id}}^EQ</value><variable display_value="">cf167c405f30220012b44adb7f46660d</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key><order>300</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:40:21</sys_created_on><sys_id>5105a52d1bd55050a89720a8ec4bcb51</sys_id><sys_mod_count>1</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:47:25</sys_updated_on><value>change_request</value><variable display_value="">6fe5f8405f30220012b44adb7f4666e4</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:40:20</sys_created_on><sys_id>9d05a52d1bd55050a89720a8ec4bcb50</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:40:20</sys_updated_on><value>1</value><variable display_value="">9459c28673103300f660eeadfff6a7dd</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>5905a52d1bd55050a89720a8ec4bcb4f</document_key><order>200</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:40:20</sys_created_on><sys_id>d905a52d1bd55050a89720a8ec4bcb50</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:40:20</sys_updated_on><value>no_records_match_query</value><variable display_value="">dd091e22675003007ba405225685ef69</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="id=5905a52d1bd55050a89720a8ec4bcb4f"/><sys_element_mapping action="INSERT_OR_UPDATE"><field>field_values</field><id>5905a52d1bd55050a89720a8ec4bcb4f</id><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:40:21</sys_created_on><sys_id>1905a52d1bd55050a89720a8ec4bcb51</sys_id><sys_mod_count>1</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:40:21</sys_updated_on><table>var__m_atf_input_variable_0270b8005f30220012b44adb7f46666a</table><value>sys_id={{step['5905a52d1bd55050a89720a8ec4bcb0d'].record_id}}^EQ</value></sys_element_mapping></record_update>]]></payload>
+        <payload_hash>1425934763</payload_hash>
+        <record_name>Record Query (Deprecated)</record_name>
+        <reverted_from/>
+        <source>4f3a46ea1b627010edf3642aab4bcb4a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-09 14:55:08</sys_created_on>
+        <sys_id>b294129cdbb738504647dad1f39619e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d0532161f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-09 14:55:08</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>ba94129cecb7385000fbba72ae0035df</update_guid>
+        <update_guid_history>ba94129cecb7385000fbba72ae0035df:1425934763,fe94129ce4b738504b5326ae8a18c79e:-453411231,6694129ca2b738500998cce344c7f44c:1274797410,1294de5c2cb738500da0d645b9c900aa:1803608258,9694de5c8db73850ba7f648f38c2e321:-1962548190,f5949e5cd6b73850aabce38360d1a749:-1433737342,11945e5c17b7385011b135325da54668:-904926494,8f6a46ee45627010c5397ca60ee817d9:0,fef9426e15627010f87872bf59c6977d:586144278</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-09 14:55:08</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>890d2f0f6b8f4bfe9356f9504a888f19</sys_id>
+        <sys_metadata>5905a52d1bd55050a89720a8ec4bcb4f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Record Query</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_5905a52d1bd55050a89720a8ec4bcb4f</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_5905a52d1bd55050a89720a8ec4bcb4f">b294129cdbb738504647dad1f39619e0</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-09 14:55:08</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

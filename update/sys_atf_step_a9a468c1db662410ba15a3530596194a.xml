@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Update">0e30a3ebdbdeac14ba15a3530596191a</copied_from>
+        <copied_from/>
         <description>Update a record in 'sys_user' with the following values:
 DataSilos Security Clearance = 1
 Confirm the record was successfully updated
@@ -13,21 +13,21 @@ See the documentation for Test Design Considerations</description>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Set security clearance level to 1 for user ALPHA_SC_1</notes>
-        <order>8</order>
+        <order>7</order>
         <snapshot/>
         <step_config display_value="Record Update">17a72288df60220062fe6c7a4df26397</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-23 15:11:47</sys_created_on>
         <sys_id>a9a468c1db662410ba15a3530596194a</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Record Update</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_a9a468c1db662410ba15a3530596194a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-24 12:03:17</sys_updated_on>
+        <sys_updated_on>2021-11-18 16:28:46</sys_updated_on>
         <table>sys_user</table>
         <test display_value="DataSilos - incident_task - security clearance">59a428c1db662410ba15a35305961962</test>
         <timeout/>

@@ -44,15 +44,25 @@
 		grSilosToGroups.query();
 		while (grSilosToGroups.next())
 		{
-			aUserSilos.push(grSilosToGroups.getValue('datasilo'));
+			var strSiloSysId = grSilosToGroups.getValue('datasilo');
+			aUserSilos.push(strSiloSysId);
+			
+			// If we just added a supervisor silo, check for supersilo relationships and add sub silos to the user's silo list
+			if (grSilosToGroups.getValue('type') == 'supervisor')
+			{
+				var grSilosToSilos = new GlideRecord('x_snc_datasilos_m2m_datasilos_datasilos');
+				grSilosToSilos.addQuery('datasilo_super','=',strSiloSysId);
+				grSilosToSilos.query();
+				while (grSilosToSilos.next())
+				{
+					aUserSilos.push(grSilosToSilos.getValue('datasilo_sub'));
+				}
+			}
 		}
 	}
-	//Debug('GetSilosFromUserByTypes: aUserSilos: '+RenderValue(aUserSilos));
 	
 	// Remove duplicates
 	aUserSilos = ArrayUnique(aUserSilos);
-	
-	//Debug('GetSilosFromUserByTypes: aUserSilos after ArrayUnique: '+RenderValue(aUserSilos));
 	
 	return aUserSilos;
 }]]></script>
@@ -60,13 +70,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-30 14:38:36</sys_created_on>
         <sys_id>af529502db529450ba15a35305961922</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>GetSilosFromUserByTypes</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_af529502db529450ba15a35305961922</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-23 17:29:51</sys_updated_on>
+        <sys_updated_on>2021-11-17 14:58:00</sys_updated_on>
     </sys_script_include>
 </record_update>

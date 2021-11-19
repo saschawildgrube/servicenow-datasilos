@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
         <api_name>x_snc_datasilos.CreateTestData</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Creates test data records for various scenarios. Do not use on production environments!</description>
         <name>CreateTestData</name>
-        <script><![CDATA[function CreateTestData()
+        <script><![CDATA[function CreateTestData(strPrefix)
 {
-	
-	
-	var testdata = new DataSilosTestDataAPI('_TEST_DATASILOS_'); //
-	
-	//testdata.SetPrefix('_TEST_DATASILOS_');
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var RecordSetValue = x_snc_devtools.RecordSetValue;
+
+	strPrefix = GetStringValue(strPrefix);
+	if (strPrefix == '')
+	{
+		strPrefix = '_TEST_DATASILOS_';
+	}
+		
+	var testdata = new DataSilosTestDataAPI(strPrefix);
 	
 	// Users
+	testdata.CreateUser('CALLER',null);
+	testdata.CreateUser('SPECTATOR','itil');
+	testdata.CreateUser('SENTINEL',['itil','x_snc_datasilos.sentinel']);
+	//testdata.CreateUser('ADMIN',['admin']); // This does not work. Why?
+	
 	testdata.CreateUser('ALICE',['itil']);
 	testdata.CreateUser('AMBER',['itil']);
 	testdata.CreateUser('ALBERT',['itil']);
@@ -28,7 +38,6 @@
 	testdata.CreateUser('GERRY',['itil']);
 	testdata.CreateUser('GANDALF',['itil']);
 	
-	testdata.CreateUser('CALLER',null);
 
 	// Groups
 	testdata.CreateGroup('TEAM_ALPHA_MEMBER',['ALICE']);
@@ -49,10 +58,11 @@
 	testdata.CreateSilo('SILO_GAMMA',['TEAM_GAMMA_MEMBER'],['TEAM_GAMMA_FULFILLER'],['TEAM_GAMMA_SUPERVISOR']);
 	
 	// Incidents
-	testdata.CreateIncident('A','CALLER','TEAM_ALPHA_MEMBER');
-	testdata.CreateIncident('B','CALLER','TEAM_BETA_MEMBER');
-	testdata.CreateIncident('C','CALLER','TEAM_GAMMA_MEMBER');
-
+	testdata.CreateIncident('A','ALICE','CALLER','TEAM_ALPHA_MEMBER');
+	testdata.CreateIncident('B','BOB','CALLER','TEAM_BETA_MEMBER');
+	testdata.CreateIncident('C','GEMMA','CALLER','TEAM_GAMMA_MEMBER');	
+	RecordSetValue('incident',testdata.CreateIncident('GLOBAL','ALICE','CALLER','TEAM_ALPHA_MEMBER'),'x_snc_datasilos_global','true');
+	
 	// Problems
 	testdata.CreateProblem('A','CALLER','TEAM_ALPHA_MEMBER');
 	testdata.CreateProblem('B','CALLER','TEAM_BETA_MEMBER');
@@ -65,13 +75,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>71</sys_mod_count>
+        <sys_mod_count>81</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-16 16:43:24</sys_updated_on>
+        <sys_updated_on>2021-10-22 14:38:32</sys_updated_on>
     </sys_script_include>
 </record_update>

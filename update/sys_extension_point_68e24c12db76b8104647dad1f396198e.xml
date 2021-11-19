@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_extension_point">
+    <sys_extension_point action="INSERT_OR_UPDATE">
+        <api_name>x_snc_datasilos.DataSilos</api_name>
+        <description>This extension point allows plugin apps to extend DataSilos' capabilities.</description>
+        <example><![CDATA[var DataSilos = Class.create();
+DataSilos.prototype = {
+    initialize: function() {
+    },
+
+    GetConfig: function(config)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_this_app_scope.DataSilosGetConfig))
+		{
+			config = DataSilosGetConfig(config);
+		}
+        return config;
+    },
+	
+    GetRelatedRecords: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_this_app_scope.DataSilosGetRelatedRecords))
+		{
+			return DataSilosGetRelatedRecords(record);
+		}
+        return false;
+    },		
+
+    RecordInitialize: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_this_app_scope.DataSilosRecordInsert))
+		{
+			return DataSilosRecordInsert(record);
+		}
+        return false;
+    },		
+	
+    RecordUpdate: function(record)
+	{
+		var IsValidFunction = x_snc_devtools.IsValidFunction;
+		if (IsActive() && IsValidFunction(x_this_app_scope.DataSilosRecordUpdate))
+		{
+			return DataSilosRecordUpdate(record);
+		}
+        return false;
+    },	
+
+    type: 'DataSilos'
+};]]></example>
+        <name>DataSilos</name>
+        <restrict_scope>false</restrict_scope>
+        <sys_class_name>sys_extension_point</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-26 16:25:11</sys_created_on>
+        <sys_id>68e24c12db76b8104647dad1f396198e</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>DataSilos</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_extension_point_68e24c12db76b8104647dad1f396198e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-16 16:23:21</sys_updated_on>
+    </sys_extension_point>
+</record_update>

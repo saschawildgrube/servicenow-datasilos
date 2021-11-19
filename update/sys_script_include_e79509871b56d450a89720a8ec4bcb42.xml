@@ -7,35 +7,29 @@
         <client_callable>false</client_callable>
         <description>The function returns the sys_id of a silo based on a given silo name. It returns false if no silo can be found.</description>
         <name>GetSiloByName</name>
-        <script><![CDATA[function GetSiloByName(strDataSiloName)
+        <script><![CDATA[function GetSiloByName(strName)
 {
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
 	var GetStringValue = x_snc_devtools.GetStringValue;
-	var IsValidSysId = x_snc_devtools.IsValidSysId;
 
-	var grDataSilo = new GlideRecord('x_snc_datasilos_datasilos');
-	grDataSilo.addQuery('name','=',strDataSiloName);
-	grDataSilo.query();
-	if (grDataSilo.next())
+	var vResult = GetSiloRecordByName(strName);
+	if (IsValidRecord(vResult) == false)
 	{
-		var strDataSiloSysId = GetStringValue(grDataSilo.sys_id);
-		if (IsValidSysId(strDataSiloSysId) == true)
-		{
-			return strDataSiloSysId;
-		}
+		return false;
 	}
-	return false;
+	return GetStringValue(vResult.sys_id);
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-02 16:17:43</sys_created_on>
         <sys_id>e79509871b56d450a89720a8ec4bcb42</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>GetSiloByName</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_e79509871b56d450a89720a8ec4bcb42</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-10-02 12:44:58</sys_updated_on>
+        <sys_updated_on>2021-10-21 14:31:50</sys_updated_on>
     </sys_script_include>
 </record_update>

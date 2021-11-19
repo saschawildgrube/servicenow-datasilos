@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Query">074f65691b195050a89720a8ec4bcb39</copied_from>
+        <copied_from/>
         <description>Validate there is at least one record in 'sys_user_group' matching query:
 Name = _ATF_DATASILOS_ALPHA
 With a failure timeout of 5 Seconds</description>
-        <display_name>Record Query</display_name>
+        <display_name>Record Query (Deprecated)</display_name>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Get group ALPHA</notes>
@@ -16,14 +16,14 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 11:50:33</sys_created_on>
         <sys_id>c56f5c491bb51050a89720a8ec4bcb43</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>Record Query</sys_name>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Record Query (Deprecated)</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_c56f5c491bb51050a89720a8ec4bcb43</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:17:59</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:01</sys_updated_on>
         <table>sys_user_group</table>
         <test display_value="DataSilos - problem_task - basic">f86f1c091bb51050a89720a8ec4bcb61</test>
         <timeout>1970-01-01 00:00:05</timeout>

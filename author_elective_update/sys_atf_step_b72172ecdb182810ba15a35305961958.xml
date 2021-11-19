@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if DataSilos is globally active and if the table [change_request] is active.
+</description>
+        <display_name>DataSilos - IsTableActive</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="DataSilos - IsTableActive">d41a2e6cdbd42810ba15a35305961970</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 15:47:48</sys_created_on>
+        <sys_id>b72172ecdb182810ba15a35305961958</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DataSilos - IsTableActive</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_b72172ecdb182810ba15a35305961958</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 16:09:30</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - change_request - basic">6005a9e91bd55050a89720a8ec4bcb09</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=b72172ecdb182810ba15a35305961958"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>b72172ecdb182810ba15a35305961958</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 15:47:50</sys_created_on>
+        <sys_id>004136ecdb182810ba15a35305961965</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 15:47:50</sys_updated_on>
+        <value>change_request</value>
+        <variable display_value="">23cd2a68db182810ba15a35305961936</variable>
+    </sys_variable_value>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_atf_step_b72172ecdb182810ba15a35305961958</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Checks if DataSilos is globally active and if the table [change_request] is active.
+</description>
+        <display_name>DataSilos - IsTableActive</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="DataSilos - IsTableActive">d41a2e6cdbd42810ba15a35305961970</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 15:47:48</sys_created_on>
+        <sys_id>b72172ecdb182810ba15a35305961958</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DataSilos - IsTableActive</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_b72172ecdb182810ba15a35305961958</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 16:09:30</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - change_request - basic">6005a9e91bd55050a89720a8ec4bcb09</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=b72172ecdb182810ba15a35305961958"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>b72172ecdb182810ba15a35305961958</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-11-02 15:47:50</sys_created_on>
+        <sys_id>004136ecdb182810ba15a35305961965</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-11-02 15:47:50</sys_updated_on>
+        <value>change_request</value>
+        <variable display_value="">23cd2a68db182810ba15a35305961936</variable>
+    </sys_variable_value>
+</record_update>]]></payload>
+        <payload_hash>-1885928436</payload_hash>
+        <record_name>DataSilos - IsTableActive</record_name>
+        <reverted_from/>
+        <source>905a8aae1b627010edf3642aab4bcbc8</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-15 10:38:37</sys_created_on>
+        <sys_id>dd7acaee1b627010edf3642aab4bcb19</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17be9097b0f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-15 10:38:37</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>5d7acaeed5627010390c3dfdf92c0619</update_guid>
+        <update_guid_history>5d7acaeed5627010390c3dfdf92c0619:0,700a466e2d627010259b8aba16a12dff:1365475101</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-09 14:55:11</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>1928ea616e234cce87e3db2da54a9004</sys_id>
+        <sys_metadata>b72172ecdb182810ba15a35305961958</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - IsTableActive</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_b72172ecdb182810ba15a35305961958</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_b72172ecdb182810ba15a35305961958">dd7acaee1b627010edf3642aab4bcb19</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-09 14:55:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

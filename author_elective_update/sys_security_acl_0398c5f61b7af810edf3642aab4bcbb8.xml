@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description/>
+        <name>incident.x_snc_datasilos_fulfiller_whitelist</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-28 10:45:24</sys_created_on>
+        <sys_id>0398c5f61b7af810edf3642aab4bcbb8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>incident.x_snc_datasilos_fulfiller_whitelist</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_security_acl_0398c5f61b7af810edf3642aab4bcbb8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-28 10:45:24</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_security_acl_0398c5f61b7af810edf3642aab4bcbb8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description/><name>incident.x_snc_datasilos_fulfiller_whitelist</name><operation display_value="read">read</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-09-28 10:45:24</sys_created_on><sys_id>0398c5f61b7af810edf3642aab4bcbb8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>incident.x_snc_datasilos_fulfiller_whitelist</sys_name><sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_security_acl_0398c5f61b7af810edf3642aab4bcbb8</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-09-28 10:45:24</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>1018484634</payload_hash>
+        <record_name>incident.x_snc_datasilos_fulfiller_whitelist</record_name>
+        <reverted_from/>
+        <source>4f3a46ea1b627010edf3642aab4bcb4a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-28 10:45:24</sys_created_on>
+        <sys_id>57a809f61b7af810edf3642aab4bcb62</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c2c025d1d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-28 10:45:24</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>5fa809f6a97af810fe31c7192b78ae61</update_guid>
+        <update_guid_history>5fa809f6a97af810fe31c7192b78ae61:1018484634</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-28 10:48:34</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>3dea87f7be284e0c918234cf3d38e310</sys_id>
+        <sys_metadata>0398c5f61b7af810edf3642aab4bcbb8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>incident.x_snc_datasilos_fulfiller_whitelist</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent display_value="">a29341f21b7af810edf3642aab4bcba4</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_security_acl_0398c5f61b7af810edf3642aab4bcbb8</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_0398c5f61b7af810edf3642aab4bcbb8">57a809f61b7af810edf3642aab4bcb62</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-28 10:48:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

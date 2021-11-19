@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <copied_from/>
+        <description>Impersonate the user: {{invalid step_id=e6f356981b515c10a89720a8ec4bcb3f.}}</description>
+        <display_name>Impersonate</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Impersonate user ALPHA_MEMBER</notes>
+        <order>2</order>
+        <snapshot/>
+        <step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:04:25</sys_created_on>
+        <sys_id>ebbc15211bd55050a89720a8ec4bcb21</sys_id>
+        <sys_mod_count>65</sys_mod_count>
+        <sys_name>Impersonate</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_ebbc15211bd55050a89720a8ec4bcb21</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-16 17:18:04</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - incident - cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=ebbc15211bd55050a89720a8ec4bcb21"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>ebbc15211bd55050a89720a8ec4bcb21</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:04:28</sys_created_on>
+        <sys_id>33cc95211bd55050a89720a8ec4bcbb0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:04:28</sys_updated_on>
+        <value/>
+        <variable display_value="">586e2c4253e0220002c6435723dc3415</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=ebbc15211bd55050a89720a8ec4bcb21"/>
+    <sys_element_mapping action="DELETE">
+        <field>user</field>
+        <id>ebbc15211bd55050a89720a8ec4bcb21</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-09 09:04:28</sys_created_on>
+        <sys_id>bfcc95211bd55050a89720a8ec4bcbaf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-06-09 09:04:28</sys_updated_on>
+        <table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table>
+        <value>{{step['e6f356981b515c10a89720a8ec4bcb3f'].first_record}}</value>
+    </sys_element_mapping>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_atf_step_ebbc15211bd55050a89720a8ec4bcb21</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><copied_from/><description>Impersonate the user: {{invalid step_id=e6f356981b515c10a89720a8ec4bcb3f.}}</description><display_name>Impersonate</display_name><inputs/><inputs/><mugshots_cache_json/><notes>Impersonate user ALPHA_MEMBER</notes><order>2</order><snapshot/><step_config display_value="Impersonate">071ee5b253331200040729cac2dc348d</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:04:25</sys_created_on><sys_id>ebbc15211bd55050a89720a8ec4bcb21</sys_id><sys_mod_count>65</sys_mod_count><sys_name>Impersonate</sys_name><sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_atf_step_ebbc15211bd55050a89720a8ec4bcb21</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-11-16 17:18:04</sys_updated_on><table/><test display_value="DataSilos - incident - cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=ebbc15211bd55050a89720a8ec4bcb21"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>ebbc15211bd55050a89720a8ec4bcb21</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:04:28</sys_created_on><sys_id>33cc95211bd55050a89720a8ec4bcbb0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:04:28</sys_updated_on><value/><variable display_value="">586e2c4253e0220002c6435723dc3415</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="id=ebbc15211bd55050a89720a8ec4bcb21"/><sys_element_mapping action="INSERT_OR_UPDATE"><field>user</field><id>ebbc15211bd55050a89720a8ec4bcb21</id><sys_created_by>admin</sys_created_by><sys_created_on>2020-06-09 09:04:28</sys_created_on><sys_id>bfcc95211bd55050a89720a8ec4bcbaf</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-06-09 09:04:28</sys_updated_on><table>var__m_atf_input_variable_071ee5b253331200040729cac2dc348d</table><value>{{step['e6f356981b515c10a89720a8ec4bcb3f'].first_record}}</value></sys_element_mapping></record_update>]]></payload>
+        <payload_hash>1792622700</payload_hash>
+        <record_name>Impersonate</record_name>
+        <reverted_from/>
+        <source>db7cdcd91b773090edf3642aab4bcb7a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-16 17:18:04</sys_created_on>
+        <sys_id>0578faa21b337c90edf3642aab4bcb6e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17d29c178150000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-16 17:18:04</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>0d78faa2eb337c909dfb27ccc28ca86d</update_guid>
+        <update_guid_history>0d78faa2eb337c909dfb27ccc28ca86d:1792622700,f478faa24c337c90e16c94ebc5cd8544:-222573617,2478baa23f337c90dc2b8aeee5149b82:2137962000,44787aa265337c908af9af030616e463:203530321,23683aa214337c90fa1f42f7907ad740:-1730901358,8f68f6a2d5337c902f1de31d8ace41d6:1444941716,b668f6a299337c90f07404b053726861:-489489963,9268b6a272337c9039c060761bed44bb:1871045654,496836a2b0337c9044e692015eabf681:1809797808,e468f2a22f337c90bc7fca49ea15b3b3:-124633871,8155fae643ff3c902aa75e7e2f9455e0:-2059065550,1e7a4eeed5627010fc877611ae33f0ad:0,0a0a0a6e396270101a6356a4268f03b0:-1806824519</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-16 17:18:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>04b252a0418941f496713f8190110a90</sys_id>
+        <sys_metadata>ebbc15211bd55050a89720a8ec4bcb21</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Impersonate</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_atf_step_ebbc15211bd55050a89720a8ec4bcb21</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_ebbc15211bd55050a89720a8ec4bcb21">0578faa21b337c90edf3642aab4bcb6e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-16 17:18:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

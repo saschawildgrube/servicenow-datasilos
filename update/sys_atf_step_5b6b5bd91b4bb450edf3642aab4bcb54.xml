@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-06 15:54:14</sys_created_on>
+        <sys_id>5b6b5bd91b4bb450edf3642aab4bcb54</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_5b6b5bd91b4bb450edf3642aab4bcb54</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-06 16:04:15</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - ModifyACLScript">715bd7d91b4bb450edf3642aab4bcb59</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=5b6b5bd91b4bb450edf3642aab4bcb54"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>5b6b5bd91b4bb450edf3642aab4bcb54</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-06 15:54:14</sys_created_on>
+        <sys_id>151c5bd91b4bb450edf3642aab4bcb04</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-06 15:54:14</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>5b6b5bd91b4bb450edf3642aab4bcb54</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-10-06 15:54:14</sys_created_on>
+        <sys_id>d91c5bd91b4bb450edf3642aab4bcb04</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-06 16:04:15</sys_updated_on>
+        <value>(function(outputs, steps, stepResult, assertEqual)&#13;
+{&#13;
+	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
+	&#13;
+	test.SetResult(true);&#13;
+&#13;
+	function TestCase_ModifyACLScript(strScript, strExpected)&#13;
+	{&#13;
+		test.TestCase(&#13;
+			'Function ModifyACLScript()',&#13;
+			ModifyACLScript,&#13;
+			{&#13;
+				'Script': strScript &#13;
+			},&#13;
+			strExpected,&#13;
+			null);&#13;
+	}&#13;
+&#13;
+&#13;
+	var strExpected = "answer = x_snc_datasilos.ExecuteACL(current);";&#13;
+	TestCase_ModifyACLScript(null,strExpected);&#13;
+	TestCase_ModifyACLScript('',strExpected);&#13;
+	TestCase_ModifyACLScript('    ',strExpected);&#13;
+	&#13;
+&#13;
+	var strExpected = ""&#13;
+		+"var bAnswer = false;\n"&#13;
+		+"bAnswer = SomeFunction();\n"&#13;
+		+"if (bAnswer == true)\n"&#13;
+		+"{\n"&#13;
+		+"\tbAnswer = x_snc_datasilos.ExecuteACL(current);\n"&#13;
+		+"}\n"&#13;
+		+"answer = bAnswer;";		&#13;
+	TestCase_ModifyACLScript("SomeFunction();",strExpected);&#13;
+	TestCase_ModifyACLScript("answer = SomeFunction();",strExpected);&#13;
+	&#13;
+	&#13;
+	var strExpected = ""&#13;
+			+"var bAnswer = false;\n"&#13;
+			+"function GetAnswer()\n"&#13;
+			+"{\n"&#13;
+			+"\tvar answer = false;\n"&#13;
+			+"var value = SomeFunction();\n"&#13;
+			+"answer = SomeOtherFunction(value);\n"&#13;
+			+"\treturn answer;\n"&#13;
+			+"}\n"&#13;
+			+"bAnswer = GetAnswer();\n"&#13;
+			+"if (bAnswer == true)\n"&#13;
+			+"{\n"&#13;
+			+"\tbAnswer = x_snc_datasilos.ExecuteACL(current);\n"&#13;
+			+"}\n"&#13;
+			+"answer = bAnswer;";	&#13;
+&#13;
+	var strScript = ""&#13;
+		+"var value = SomeFunction();\n"&#13;
+		+"answer = SomeOtherFunction(value);";&#13;
+	&#13;
+	TestCase_ModifyACLScript(strScript,strExpected);&#13;
+&#13;
+&#13;
+	&#13;
+	return test.GetResult();&#13;
+	&#13;
+})(outputs, steps, stepResult, assertEqual);</value>
+        <variable display_value="">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+</record_update>

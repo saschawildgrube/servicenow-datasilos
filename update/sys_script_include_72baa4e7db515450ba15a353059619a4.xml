@@ -16,15 +16,15 @@
 	var IsValidSysId = x_snc_devtools.IsValidSysId;
 	var transactionCache = new x_snc_devtools.TransactionCacheAPI('DATASILOS');
 
-	//return true;
+	var strTable = record.getRecordClassName(); 
 	
 	function Log(strText)
 	{
-		x_snc_datasilos.Log('ExecuteACL: '+strTable+': '+record.number+': '+strText);
+		x_snc_datasilos.Log('ExecuteACL: '+strTable+': '+record.sys_id+': '+strText);
 	}
 	function Debug(strText)
 	{
-		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.number+': '+strText);
+		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.sys_id+': '+strText);
 	}
 	
 	if (IsActive() == false)
@@ -39,7 +39,6 @@
 	}
 
 	
-	var strTable = record.getRecordClassName(); 
 	
 	//Debug('IsTableActive("'+strTable+'") = '+IsTableActive(strTable));
 	//Debug('IsValidDatabaseView("'+strTable+'") = '+IsValidDatabaseView(strTable));
@@ -59,48 +58,49 @@
 		grDbView.query();
 		if (grDbView.next())
 		{
-			Debug('Database view: '+strTable+' is a database view: '+RenderValue(grDbView));
+			//Debug('Database view: '+strTable+' is a database view: '+RenderValue(grDbView));
 			var grDbViewTable = new GlideRecord('sys_db_view_table');
 			grDbViewTable.addQuery('view',grDbView.sys_id);
 			grDbViewTable.query();
 			while (grDbViewTable.next())
 			{
-				var strViewTable = ''+grDbViewTable.table;
-				if (IsTableActive(strViewTable) == true)
+				var strViewTable = GetStringValue(grDbViewTable.table);
+				var strSupportedViewTable = GetSupportedTable(strViewTable);
+				if (IsTableActive(strSupportedViewTable) == true)
 				{
-					//Debug('Database view: '+strClassName+': Found active table: '+RenderValue(grDbViewTable));
-					Debug('Database view: '+strTable+': Found active table: '+strViewTable);
+					//Debug('Database view: '+strTable+': Found active table: '+strSupportedViewTable);
 					var strPrefix = ''+grDbViewTable.variable_prefix;
 
-					var strRelatedRecordSysId = record.getValue(strPrefix+'_sys_id'); 
+					var strRecordSysId = record.getValue(strPrefix+'_sys_id'); 
 					
-					if (IsValidSysId(strRelatedRecordSysId) == false)
+					if (IsValidSysId(strRecordSysId) == false)
 					{
 						return true;
 					}
 
-					var grRelatedRecord = new GlideRecord(strViewTable);
-					if (grRelatedRecord.get(strRelatedRecordSysId) == false)
+					var grRecord = new GlideRecord(strSupportedViewTable);
+					if (grRecord.get(strRecordSysId) == false)
 					{
-						Debug('Database view: '+strTable+': returns false');
+						//Debug('Database view: '+strTable+': returns false');
 						return false;   
 					}
 				}
 			}
-			Debug('Database view: '+strTable+': returns true');
+			//Debug('Database view: '+strTable+': returns true');
 			return true;
 		}
 		else
 		{
-			Debug('Database view: '+strTable+' is NOT a database view: we return true');
+			//Debug('Database view: '+strTable+' is NOT a database view: we return true');
 			return true;
 		}
 	}
 
+	var strTable = GetSupportedTable(strTable);
 	
 	if (IsTableActive(strTable) == false)
 	{
-		Debug('IsTableActive("'+strTable+'") returned false. So we allow access!');
+		//Debug('IsTableActive("'+strTable+'") returned false. So we allow access!');
 		return true;
 	}
 	
@@ -116,10 +116,10 @@
 		return true;
 	}
 	
-	var strValue = GetStringValue(transactionCache.GetItem(strUserSysId+'_'+record.number));
+	var strValue = GetStringValue(transactionCache.GetItem(strUserSysId+'_'+record.sys_id));
 	if (strValue != '')
 	{
-		//Debug('Cached value for '+record.number+' is '+strValue);
+		//Debug('Cached value for '+record.sys_id+' is '+strValue);
 		if (strValue == '1')
 		{
 			return true;
@@ -160,7 +160,7 @@
 	// Refer to https://hi.service-now.com/kb_view.do?sysparm_article=KB0529493
 	if (IsRecordComplete(record) == false)
 	{
-		Debug('IsRecordComplete returned false');
+		//Debug('IsRecordComplete returned false');
 		var strSysId = GetStringValue(record.sys_id);
 		var grRecordComplete = new GlideRecord(strTable);
 		if (grRecordComplete.get('sys_id',strSysId))
@@ -172,6 +172,8 @@
 			return false;
 		}
 	}	
+	
+	/*
 
 	var grRecord = new GlideRecord(strTable);
 	PrepareQuery(grRecord);
@@ -180,7 +182,11 @@
 	
 	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
 	
-	transactionCache.SetItem(strUserSysId+'_'+record.number, (bMatch)?('1'):('0') );
+	*/
+	
+	var bMatch = RecordCheckFilter(record);
+	
+	transactionCache.SetItem(strUserSysId+'_'+record.sys_id, (bMatch)?('1'):('0') );
 	
 	return bMatch;
 }
@@ -189,13 +195,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>86</sys_mod_count>
+        <sys_mod_count>94</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-06-24 08:26:51</sys_updated_on>
+        <sys_updated_on>2021-10-27 12:45:49</sys_updated_on>
     </sys_script_include>
 </record_update>

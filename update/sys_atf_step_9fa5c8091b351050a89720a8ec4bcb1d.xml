@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="">e312349cdb505c90ba15a3530596193a</copied_from>
+        <copied_from/>
         <description>Insert a record into 'problem' with the following values:
 Problem statement = _ATF_DATASILOS_ALPHA_MEMBER
-and Assignment group = {{Step 7: Record Query.First record}}
+and Assignment group = {{Step 7: Record Query (Deprecated).First record}}
 Confirm the record was successfully inserted</description>
         <display_name>Record Insert</display_name>
         <inputs/>
@@ -18,14 +18,14 @@ Confirm the record was successfully inserted</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 09:58:12</sys_created_on>
         <sys_id>9fa5c8091b351050a89720a8ec4bcb1d</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>Record Insert</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_9fa5c8091b351050a89720a8ec4bcb1d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:14:57</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:22</sys_updated_on>
         <table>problem</table>
         <test display_value="DataSilos - problem - basic">7ea588091b351050a89720a8ec4bcb57</test>
         <timeout/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Impersonate">7f14ece61bd490d0a89720a8ec4bcb55</copied_from>
-        <description>Impersonate the user: {{Step 10: Record Query.First record}}</description>
+        <copied_from/>
+        <description>Impersonate the user: {{Step 10: Record Query (Deprecated).First record}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
         <inputs/>
@@ -15,14 +15,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 10:29:20</sys_created_on>
         <sys_id>13cc40811b751050a89720a8ec4bcbe6</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Impersonate</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_13cc40811b751050a89720a8ec4bcbe6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:15:46</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:12</sys_updated_on>
         <table/>
         <test display_value="DataSilos - problem - cross-silo">f9cc00811b751050a89720a8ec4bcba2</test>
         <timeout/>

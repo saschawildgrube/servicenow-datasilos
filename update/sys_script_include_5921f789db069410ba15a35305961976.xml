@@ -28,6 +28,7 @@
 		var aUserSilos = GetSilosFromGroup(strGroupSysId);
 
 		var aSupervisorSilosToAdd = [];
+		var aFulfillerSilosToAdd = [];
 		var aGroupsToAdd = [];
 		
 		if ((aUserSilos.length > 0) && (aTypes.length > 0))
@@ -39,6 +40,10 @@
 				if (strType == 'supervisor')
 				{
 					aSupervisorSilosToAdd = aUserSilos;
+				}
+				else if (strType == 'fulfiller')
+				{
+					aFulfillerSilosToAdd = aUserSilos;
 				}
 				else
 				{
@@ -63,8 +68,14 @@
 		{
 			RecordAddGroupToWhitelist(record,aGroupsToAdd[nIndexGroup]);
 		}
+		
+		// Apply the fulfiller silos to the record's fulfiller silo whitelist
+		for (var nIndexFulfillerSilo = 0; nIndexFulfillerSilo < aFulfillerSilosToAdd.length; nIndexFulfillerSilo++)
+		{
+			RecordAddSiloToFulfillerWhitelist(record,aFulfillerSilosToAdd[nIndexFulfillerSilo]);
+		}	
 	
-		// Apply the supervisor silo to the record's supervisor silo whitelist
+		// Apply the supervisor silos to the record's supervisor silo whitelist
 		for (var nIndexSupervisorSilo = 0; nIndexSupervisorSilo < aSupervisorSilosToAdd.length; nIndexSupervisorSilo++)
 		{
 			RecordAddSiloToSupervisorWhitelist(record,aSupervisorSilosToAdd[nIndexSupervisorSilo]);
@@ -76,13 +87,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-15 13:24:03</sys_created_on>
         <sys_id>5921f789db069410ba15a35305961976</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>RecordUpdateWhitelistsFromGroupByTypes</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_5921f789db069410ba15a35305961976</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-16 13:07:25</sys_updated_on>
+        <sys_updated_on>2021-09-28 12:59:43</sys_updated_on>
     </sys_script_include>
 </record_update>

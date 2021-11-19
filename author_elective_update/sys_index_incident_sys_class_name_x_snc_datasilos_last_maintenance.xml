@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_index">
+    <sys_index action="DELETE">
+        <col_name_string>sys_class_name,x_snc_datasilos_last_maintenance</col_name_string>
+        <index_col_name>f7b471d61b223010edf3642aab4bcbd8,afd9ceea1b627010edf3642aab4bcbb3</index_col_name>
+        <logical_table_name>incident</logical_table_name>
+        <sys_class_name>sys_index</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-24 10:32:48</sys_created_on>
+        <sys_id>f36f90e51b763810edf3642aab4bcbcb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>incident</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_index_incident_sys_class_name_x_snc_datasilos_last_maintenance</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-24 10:32:48</sys_updated_on>
+        <table display_value="Incident" name="incident">37a83d561b263010edf3642aab4bcb05</table>
+        <unique_index>false</unique_index>
+    </sys_index>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sys_index_incident_sys_class_name_x_snc_datasilos_last_maintenance</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_index"><sys_index action="INSERT_OR_UPDATE"><col_name_string>sys_class_name,x_snc_datasilos_last_maintenance</col_name_string><index_col_name>f7b471d61b223010edf3642aab4bcbd8,afd9ceea1b627010edf3642aab4bcbb3</index_col_name><logical_table_name>incident</logical_table_name><sys_class_name>sys_index</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-09-24 10:32:48</sys_created_on><sys_id>f36f90e51b763810edf3642aab4bcbcb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>incident</sys_name><sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package><sys_policy/><sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope><sys_update_name>sys_index_incident_sys_class_name_x_snc_datasilos_last_maintenance</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-09-24 10:32:48</sys_updated_on><table display_value="Incident" name="incident">37a83d561b263010edf3642aab4bcb05</table><unique_index>false</unique_index></sys_index></record_update>]]></payload>
+        <payload_hash>1613766398</payload_hash>
+        <record_name>Incident: sys_class_name, DataSilos Last Maintenance</record_name>
+        <reverted_from/>
+        <source>4f3a46ea1b627010edf3642aab4bcb4a</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-24 10:32:49</sys_created_on>
+        <sys_id>bb6f90e51b763810edf3642aab4bcbce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17c175d64a50000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-24 10:32:49</sys_updated_on>
+        <type>Indexes</type>
+        <update_guid>ff6f90e59376381085a9b4117e6708cd</update_guid>
+        <update_guid_history>ff6f90e59376381085a9b4117e6708cd:1613766398</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-27 16:23:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_index">sys_index</sys_db_object>
+        <sys_id>01f0918c23a44a80800de296dca6a100</sys_id>
+        <sys_metadata>f36f90e51b763810edf3642aab4bcbcb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>incident</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sys_index_incident_sys_class_name_x_snc_datasilos_last_maintenance</sys_update_name>
+        <sys_update_version display_value="sys_index_incident_sys_class_name_x_snc_datasilos_last_maintenance">bb6f90e51b763810edf3642aab4bcbce</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-27 16:23:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

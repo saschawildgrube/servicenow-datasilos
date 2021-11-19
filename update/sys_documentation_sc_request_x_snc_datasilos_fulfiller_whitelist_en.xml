@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="x_snc_datasilos_fulfiller_whitelist" label="DataSilos Fulfiller Whitelist" language="en" table="sc_request">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>x_snc_datasilos_fulfiller_whitelist</element>
+            <help/>
+            <hint/>
+            <label>DataSilos Fulfiller Whitelist</label>
+            <language>en</language>
+            <name>sc_request</name>
+            <plural>DataSilos Fulfiller Whitelists</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-09-28 11:50:14</sys_created_on>
+            <sys_id>f487d5b21bbaf810edf3642aab4bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>DataSilos Fulfiller Whitelist</sys_name>
+            <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+            <sys_update_name>sys_documentation_sc_request_x_snc_datasilos_fulfiller_whitelist_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-09-28 11:50:14</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

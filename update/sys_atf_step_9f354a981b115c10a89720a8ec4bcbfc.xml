@@ -7,21 +7,21 @@
         <inputs/>
         <mugshots_cache_json/>
         <notes>Create test data</notes>
-        <order>2</order>
+        <order>1</order>
         <snapshot/>
         <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 14:48:51</sys_created_on>
         <sys_id>9f354a981b115c10a89720a8ec4bcbfc</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_9f354a981b115c10a89720a8ec4bcbfc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 15:41:20</sys_updated_on>
+        <sys_updated_on>2021-11-16 17:16:58</sys_updated_on>
         <table/>
         <test display_value="DataSilos - incident - cross-silo">0fd21ca61b9490d0a89720a8ec4bcbbe</test>
         <timeout/>
@@ -36,28 +36,96 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-05 14:49:00</sys_created_on>
         <sys_id>a7458e981b115c10a89720a8ec4bcbf7</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-06-08 17:38:36</sys_updated_on>
-        <value>var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
+        <sys_updated_on>2021-11-16 17:16:58</sys_updated_on>
+        <value>(function(outputs, steps, stepResult, assertEqual)&#13;
+{&#13;
+	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	&#13;
+	AppSetProperty('active','true'); &#13;
+	AppSetProperty('tables.incident.active','true'); &#13;
+	AppSetProperty('tables.incident.columns.whitelist_trigger.sys_user_group','assignment_group'); &#13;
+	AppSetProperty('tables.incident.columns.instant_access.sys_user','opened_by,caller_id'); &#13;
+	&#13;
+	&#13;
+	var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
 &#13;
-testdata.CreateUser('CALLER',[]);&#13;
-testdata.CreateUser('ALPHA_MEMBER',['itil']);&#13;
-testdata.CreateUser('ALPHA_FULFILLER',['itil']);&#13;
-testdata.CreateUser('ALPHA_SUPERVISOR',['itil']);&#13;
-testdata.CreateGroup('ALPHA_MEMBER',['ALPHA_MEMBER']);&#13;
-testdata.CreateGroup('ALPHA_FULFILLER',['ALPHA_FULFILLER']);&#13;
-testdata.CreateGroup('ALPHA_SUPERVISOR',['ALPHA_SUPERVISOR']);&#13;
-testdata.CreateSilo('ALPHA',['ALPHA_MEMBER'],['ALPHA_FULFILLER'],['ALPHA_SUPERVISOR']);&#13;
-testdata.CreateUser('BETA_MEMBER',['itil']);&#13;
-testdata.CreateUser('BETA_FULFILLER_1',['itil']);&#13;
-testdata.CreateUser('BETA_FULFILLER_2',['itil']);&#13;
-testdata.CreateUser('BETA_SUPERVISOR',['itil']);&#13;
-testdata.CreateGroup('BETA_MEMBER',['BETA_MEMBER']);&#13;
-testdata.CreateGroup('BETA_FULFILLER_1',['BETA_FULFILLER_1']);&#13;
-testdata.CreateGroup('BETA_FULFILLER_2',['BETA_FULFILLER_2']);&#13;
-testdata.CreateGroup('BETA_SUPERVISOR',['BETA_SUPERVISOR']);&#13;
-testdata.CreateSilo('BETA',['BETA_MEMBER'],['BETA_FULFILLER_1','BETA_FULFILLER_2'],['BETA_SUPERVISOR']);</value>
+	var strUserSpectator = testdata.CreateUser('SPECTATOR',[]);&#13;
+	var strUserCaller = testdata.CreateUser('CALLER',['itil']);&#13;
+	var strUserAlphaMember = testdata.CreateUser('ALPHA_MEMBER',['itil']);&#13;
+	var strUserAlphaFulfiller = testdata.CreateUser('ALPHA_FULFILLER',['itil']);&#13;
+	var strUserAlphaSupervisor = testdata.CreateUser('ALPHA_SUPERVISOR',['itil']);&#13;
+	var strGroupAlphaMember = testdata.CreateGroup('ALPHA_MEMBER',['ALPHA_MEMBER']);&#13;
+	var strGroupAlphaFulfiller = testdata.CreateGroup('ALPHA_FULFILLER',['ALPHA_FULFILLER']);&#13;
+	var strGroupAlphaSupervisor = testdata.CreateGroup('ALPHA_SUPERVISOR',['ALPHA_SUPERVISOR']);&#13;
+	var strSiloAlpha = testdata.CreateSilo('ALPHA',['ALPHA_MEMBER'],['ALPHA_FULFILLER'],['ALPHA_SUPERVISOR']);&#13;
+	&#13;
+	var strUserBetaMember = testdata.CreateUser('BETA_MEMBER',['itil']);&#13;
+	var strUserBetaFulfiller1 = testdata.CreateUser('BETA_FULFILLER_1',['itil']);&#13;
+	var strUserBetaFulfiller2 = testdata.CreateUser('BETA_FULFILLER_2',['itil']);&#13;
+	var strUserBetaSupervisor = testdata.CreateUser('BETA_SUPERVISOR',['itil']);&#13;
+	var strGroupBetaMember = testdata.CreateGroup('BETA_MEMBER',['BETA_MEMBER']);&#13;
+	var strGroupBetaFulfiller1 = testdata.CreateGroup('BETA_FULFILLER_1',['BETA_FULFILLER_1']);&#13;
+	var strGroupBetaFulfiller2 = testdata.CreateGroup('BETA_FULFILLER_2',['BETA_FULFILLER_2']);&#13;
+	var strGroupBetaSupervisor = testdata.CreateGroup('BETA_SUPERVISOR',['BETA_SUPERVISOR']);&#13;
+	var strSiloBeta = testdata.CreateSilo('BETA',['BETA_MEMBER'],['BETA_FULFILLER_1','BETA_FULFILLER_2'],['BETA_SUPERVISOR']);	&#13;
+	&#13;
+	&#13;
+	var strIncidentMember = testdata.CreateIncident('ALPHA_MEMBER','ALPHA_MEMBER','CALLER','ALPHA_MEMBER');&#13;
+	var strIncidentFulfiller = testdata.CreateIncident('ALPHA_FULFILLER','ALPHA_FULFILLER','CALLER','ALPHA_FULFILLER');&#13;
+&#13;
+	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
+	&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserCaller,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaMember,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller1,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller2,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaSupervisor,'incident','',strIncidentMember,false);&#13;
+	&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserCaller,'incident','',strIncidentFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'incident','',strIncidentFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'incident','',strIncidentFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaMember,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller1,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller2,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaSupervisor,'incident','',strIncidentFulfiller,false);&#13;
+&#13;
+	test.Log('Assign incident "Member" to BETA_FULFILLER_1');&#13;
+	x_snc_devtools.RecordSetValue('incident',strIncidentMember,'assignment_group',strGroupBetaFulfiller1);&#13;
+	&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserCaller,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaMember,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller1,'incident','',strIncidentMember,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller2,'incident','',strIncidentMember,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaSupervisor,'incident','',strIncidentMember,true);&#13;
+	&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserCaller,'incident','',strIncidentFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaMember,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaFulfiller,'incident','',strIncidentFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserAlphaSupervisor,'incident','',strIncidentFulfiller,true);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaMember,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller1,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaFulfiller2,'incident','',strIncidentFulfiller,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserBetaSupervisor,'incident','',strIncidentFulfiller,false);&#13;
+	&#13;
+	&#13;
+	test.Log(RenderValue(testdata.GetAllData(),true));&#13;
+	&#13;
+	return test.GetResult();&#13;
+	&#13;
+})(outputs, steps, stepResult, assertEqual);</value>
         <variable display_value="">989d9e235324220002c6435723dc3484</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">

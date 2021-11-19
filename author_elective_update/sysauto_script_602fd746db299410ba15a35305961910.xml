@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="DELETE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time/>
+        <name>DataSilos - CreateTestData</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2020-06-23 18:06:31</run_start>
+        <run_time>1969-12-31 23:00:00</run_time>
+        <run_type>on_demand</run_type>
+        <script><![CDATA[/*
+WARNING: This script requires "Application Access" for "read", "create" and "delete" for the following tables:
+* sys_user
+* sys_user_group
+* incident
+*/
+var Debug = x_snc_devtools.Debug;
+Debug('DataSilos: CreateTestData: START');
+CreateTestData();
+Debug('DataSilos: CreateTestData: END');]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-06-23 18:06:44</sys_created_on>
+        <sys_id>602fd746db299410ba15a35305961910</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>DataSilos - CreateTestData</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sysauto_script_602fd746db299410ba15a35305961910</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-07-02 08:20:37</sys_updated_on>
+        <time_zone/>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
+        <file_path/>
+        <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
+        <instance_name>wildgrubedevparis</instance_name>
+        <name>sysauto_script_602fd746db299410ba15a35305961910</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sysauto_script"&gt;
+    &lt;sysauto_script action="INSERT_OR_UPDATE"&gt;
+        &lt;active&gt;true&lt;/active&gt;
+        &lt;business_calendar/&gt;
+        &lt;condition/&gt;
+        &lt;conditional&gt;false&lt;/conditional&gt;
+        &lt;entered_time/&gt;
+        &lt;name&gt;DataSilos - CreateTestData&lt;/name&gt;
+        &lt;run_as display_value="System Administrator"&gt;6816f79cc0a8016401c5a33be04be441&lt;/run_as&gt;
+        &lt;run_as_tz/&gt;
+        &lt;run_dayofmonth&gt;1&lt;/run_dayofmonth&gt;
+        &lt;run_dayofweek&gt;1&lt;/run_dayofweek&gt;
+        &lt;run_period/&gt;
+        &lt;run_start&gt;2020-06-23 18:06:31&lt;/run_start&gt;
+        &lt;run_time&gt;1969-12-31 23:00:00&lt;/run_time&gt;
+        &lt;run_type&gt;on_demand&lt;/run_type&gt;
+        &lt;script&gt;&lt;![CDATA[/*
+WARNING: This script requires "Application Access" for "read", "create" and "delete" for the following tables:
+* sys_user
+* sys_user_group
+* incident
+*/
+var Debug = x_snc_devtools.Debug;
+Debug('DataSilos: CreateTestData: START');
+CreateTestData();
+Debug('DataSilos: CreateTestData: END');]]&gt;&lt;/script&gt;
+        &lt;sys_class_name&gt;sysauto_script&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2020-06-23 18:06:44&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;602fd746db299410ba15a35305961910&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;
+        &lt;sys_name&gt;DataSilos - CreateTestData&lt;/sys_name&gt;
+        &lt;sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="DataSilos WORK IN PROGRESS"&gt;dafbffebdbb78450ba15a353059619eb&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sysauto_script_602fd746db299410ba15a35305961910&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2020-07-02 08:20:37&lt;/sys_updated_on&gt;
+        &lt;time_zone/&gt;
+        &lt;upgrade_safe&gt;false&lt;/upgrade_safe&gt;
+    &lt;/sysauto_script&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-1570877585</payload_hash>
+        <record_name>DataSilos - CreateTestData</record_name>
+        <reverted_from/>
+        <source>905a8aae1b627010edf3642aab4bcbc8</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>current</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-15 10:39:06</sys_created_on>
+        <sys_id>509aca221ba27010edf3642aab4bcbeb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17be909e9a70000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-15 10:39:06</sys_updated_on>
+        <type>Scheduled Script Execution</type>
+        <update_guid>dc9aca2287a270105fa3ab83c8c274ea</update_guid>
+        <update_guid_history>dc9aca2287a270105fa3ab83c8c274ea:0,db1a46ae696270104493e63f2e7bc852:1633033264</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-22 15:01:07</sys_created_on>
+        <sys_db_object display_value="" name="sysauto_script">sysauto_script</sys_db_object>
+        <sys_id>ea628b95111945c8a9c4e47cd02aa624</sys_id>
+        <sys_metadata>602fd746db299410ba15a35305961910</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DataSilos - CreateTestData</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
+        <sys_update_name>sysauto_script_602fd746db299410ba15a35305961910</sys_update_name>
+        <sys_update_version display_value="sysauto_script_602fd746db299410ba15a35305961910">509aca221ba27010edf3642aab4bcbeb</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-22 15:01:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

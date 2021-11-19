@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_snc_datasilos.GetStatusDatabaseIndexes</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns an object with current status information about the database indexes.</description>
+        <name>GetStatusDatabaseIndexes</name>
+        <script><![CDATA[function GetStatusDatabaseIndexes()
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
+	var GetValue = x_snc_devtools.GetValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	
+	var status = GetConfig();
+
+	var aTables = GetKeys(GetValue(status,'tables'));
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		var strTable = aTables[nTable];
+		var table = GetValue(status,'tables',strTable); 
+
+		var indexes = {};
+		
+		// Last Maintenance
+		
+		// Determine the storage column alias
+		// Get existing database indexes
+		// check if a fitting index is present
+		
+/*		
+		var grIndex = new GlideRecord('v_index_creator');
+		grIndex.addQuery('table','=','37a83d561b263010edf3642aab4bcb05');
+		grIndex.query();
+		while(grIndex.next())
+		{
+			Debug(RenderValue(grIndex));
+
+		}
+*/		
+		
+		// Global Visibility
+		
+		// Security Clearance
+		
+		table['indexes'] = {};
+	}
+	
+	return status;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-24 09:04:23</sys_created_on>
+        <sys_id>e83b8ce11b363810edf3642aab4bcb86</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>GetStatusDatabaseIndexes</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_e83b8ce11b363810edf3642aab4bcb86</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-10-26 09:59:11</sys_updated_on>
+    </sys_script_include>
+</record_update>

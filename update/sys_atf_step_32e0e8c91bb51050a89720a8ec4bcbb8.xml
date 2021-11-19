@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
-        <copied_from display_value="Record Query">f7b1f52d1b195050a89720a8ec4bcb39</copied_from>
+        <copied_from/>
         <description>Validate there is at least one record in 'sys_user' matching query:
 Name = _ATF_DATASILOS_ALPHA_SUPERVISOR
 With a failure timeout of 5 Seconds</description>
-        <display_name>Record Query</display_name>
+        <display_name>Record Query (Deprecated)</display_name>
         <inputs/>
         <mugshots_cache_json/>
         <notes>Get user ALPHA_SUPERVISOR</notes>
@@ -16,14 +16,14 @@ With a failure timeout of 5 Seconds</description>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-02 11:57:14</sys_created_on>
         <sys_id>32e0e8c91bb51050a89720a8ec4bcbb8</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>Record Query</sys_name>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Record Query (Deprecated)</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_32e0e8c91bb51050a89720a8ec4bcbb8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-11-02 16:20:09</sys_updated_on>
+        <sys_updated_on>2021-11-11 09:47:23</sys_updated_on>
         <table>sys_user</table>
         <test display_value="DataSilos - problem_task - cross-silo">7ee0e8c91bb51050a89720a8ec4bcb46</test>
         <timeout>1970-01-01 00:00:05</timeout>

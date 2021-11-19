@@ -7,10 +7,29 @@
         <client_callable>false</client_callable>
         <description>Performs an analysis on a list of users against a list of records. Can these users see these records?</description>
         <name>AccessAnalysis</name>
-        <script><![CDATA[function AccessAnalysis(aUsers,records)
+        <script><![CDATA[/*
+// Access Analysis Template Code:
+	
+var aUsers = [
+	'admin'
+	];
+var records = {
+   incident: [
+		'12345678901234567890123456789012'
+		]
+};
+var result = x_snc_datasilos.AccessAnalysis(aUsers,records);
+x_snc_devtools.Log(
+	'DataSilos: AccessAnalysis: '
+	+x_snc_devtools.RenderValue(result,false,true));
+*/
+
+
+function AccessAnalysis(aUsers,records)
 {
 	var GetArrayValue = x_snc_devtools.GetArrayValue;
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
 	var GetGroupsFromUser = x_snc_devtools.GetGroupsFromUser;
 	var GetBoolValue = x_snc_devtools.GetBoolValue;
 	var GetUserRecord = x_snc_devtools.GetUserRecord;
@@ -18,7 +37,11 @@
 	var GetValue = x_snc_devtools.GetValue;
 	var RenderValue = x_snc_devtools.RenderValue;
 	var PerformanceQuery = x_snc_devtools.PerformanceQuery;
-
+	var GetRecord = x_snc_devtools.GetRecord;
+	var GetRolesFromUser = x_snc_devtools.GetRolesFromUser;
+	var IsValidColumn = x_snc_devtools.IsValidColumn;
+	var RenderRecordSummary = x_snc_devtools.RenderRecordSummary;
+	
 	var result = {};
 	
 	result.users = [];
@@ -39,6 +62,8 @@
 		
 			user.user_name = GetStringValue(grUser.user_name);
 			user.name = GetStringValue(grUser.name);
+			
+			user.security_clearance = GetIntegerValue(grUser.x_snc_datasilos_security_clearance);
 
 			user.groups = [];
 			var aGroups = GetGroupsFromUser(strUserSysId);
@@ -62,8 +87,27 @@
 				user.groups.push(group);
 			}
 
-			user.silos = [];
-			var aSilos = GetSilosFromUser(strUserSysId);
+			user.supervisor_silos = [];
+			var aSilos = GetSilosFromUserByTypes(strUserSysId,['supervisor']);
+			for (var nSilo = 0; nSilo < aSilos.length; nSilo++)
+			{
+				var strSiloSysId = aSilos[nSilo];
+				var silo = {};
+				silo.sys_id = strSiloSysId;
+				var grSilo = new GlideRecord('x_snc_datasilos_datasilos');
+				if (grSilo.get(strSiloSysId))
+				{
+					silo.name = GetStringValue(grSilo.getValue('name'))
+				}
+				else
+				{
+					silo.name = 'INVALID';
+				}
+				user.supervisor_silos.push(silo);
+			}
+
+			user.fulfiller_silos = [];
+			var aSilos = GetSilosFromUserByTypes(strUserSysId,['fulfiller']);
 			for (var nSilo = 0; nSilo < aSilos.length; nSilo++)
 			{
 				var strSiloSysId = aSilos[nSilo];
@@ -78,26 +122,201 @@
 				{
 					silo.name = 'INVALID';
 				}
-				user.silos.push(silo);
+				user.fulfiller_silos.push(silo);
 			}
+
+			user.member_silos = [];
+			var aSilos = GetSilosFromUserByTypes(strUserSysId,['member']);
+			for (var nSilo = 0; nSilo < aSilos.length; nSilo++)
+			{
+				var strSiloSysId = aSilos[nSilo];
+				var silo = {};
+				silo.sys_id = strSiloSysId;
+				var grSilo = new GlideRecord('x_snc_datasilos_datasilos');
+				if (grSilo.get(strSiloSysId))
+				{
+					silo.name = grSilo.getValue('name')
+				}
+				else
+				{
+					silo.name = 'INVALID';
+				}
+				user.member_silos.push(silo);
+			}
+	
 			
+			
+			user.admin = false;
+			user.sentinel = false;
+			var aRoles = GetRolesFromUser(strUserSysId);
+			for (var nRole = 0; nRole < aRoles.length; nRole++)
+			{
+				var strRoleSysId = aRoles[nRole];
+				var grRole = GetRecord('sys_user_role',strRoleSysId);
+				if (grRole != false)
+				{
+					if (grRole.name == 'admin')
+					{
+						user.admin = true;
+					}
+					if (grRole.name == 'x_snc_datasilos.sentinel')
+					{
+						user.sentinel = true;
+					}
+				}
+				
+			}
 			
 			user.tables = {};
 			var aTables = GetKeys(records);
-			for (var nTable = 0; nTable < aTables.length; aTables++)
+			for (var nTable = 0; nTable < aTables.length; nTable++)
 			{
 				var strTable = aTables[nTable];
 				var aRecordSysIds = GetArrayValue(GetValue(records,strTable));
 		
+				var aUserColumns = GetArrayValue(GetConfigValue('tables',strTable,'columns','instant_access','sys_user'));
+				
 				var aRecords = [];
 				for (var nRecord = 0; nRecord < aRecordSysIds.length; nRecord++)
 				{
 					var strRecordSysId = aRecordSysIds[nRecord];
 					var record = {};
-					record.sys_id = strRecordSysId;
-					var queryresult = PerformanceQuery('', strTable, 'sys_id='+strRecordSysId, '', 1, strUserSysId, 0);
-					var nRecordsFound = queryresult.records;
-					record.access = (nRecordsFound == 1)?(true):(false);
+
+					var grRecord = GetRecord(strTable,strRecordSysId);
+					if (grRecord == false)
+					{
+						record.sys_id = 'invalid';
+						record.explanation = 'Record does not exist.';
+					}
+					else
+					{
+						record.sys_id = strRecordSysId;
+						record.display = grRecord.getDisplayValue();
+						record.summary = RenderRecordSummary(grRecord);
+						if (IsValidColumn(strTable,'short_description'))
+						{
+							record.short_description = GetStringValue(grRecord.short_description);
+						}
+						
+						var bAccess = RecordCheckAccess(grRecord,strUserSysId);
+						
+						record.access = bAccess;
+					
+						record.global = RecordGetGlobalValue(grRecord);
+						record.supervisor_whitelist = RecordGetSupervisorWhitelistValue(grRecord);
+						record.fulfiller_whitelist = RecordGetFulfillerWhitelistValue(grRecord);
+						record.group_whitelist = RecordGetGroupWhitelistValue(grRecord);
+						record.security_clearance = RecordGetSecurityClearanceValue(grRecord);
+					
+						// Get the reason for visibility
+						var strExplanation = '';
+						strExplanation += 'Checked record: '+RenderRecordSummary(grRecord)+'';
+						var nReasons = 0;
+						if (bAccess == true)
+						{
+							
+							strExplanation += '\nThe user '+user.user_name+' ('+strUserSysId+') can potentially access the record.';
+							if (IsActive() == false)
+							{
+								strExplanation += '\nDataSilos is inactive.';
+								nReasons++;
+							}
+							var strSupportedTable = GetSupportedTable(strTable);
+							if (IsTableActive(strSupportedTable) == false)
+							{
+								strExplanation += '\nThe filtering on the supported table ['+strSupportedTable+'] is inactive.';
+								nReasons++;
+							}
+							if (user.admin == true)
+							{
+								strExplanation += '\nThe user has the admin role. No filtering is applied.';
+								nReasons++;
+							}
+							if (user.sentinel == true)
+							{
+								strExplanation += '\nThe user has the sentinel role. No filtering is applied';
+								nReasons++;
+							}
+							if (record.global == true)
+							{
+								strExplanation += '\nThe record is globally visible.';
+								nReasons++;
+							}
+							
+							for (var nSilo = 0; nSilo < user.supervisor_silos.length; nSilo++)
+							{
+								if (record.supervisor_whitelist.indexOf(user.supervisor_silos[nSilo].sys_id) != -1)
+								{
+									strExplanation += '\nSupervisor silo '+user.supervisor_silos[nSilo].name+' is whitelisted.';
+									nReasons++;
+								}
+							}
+							
+							for (var nSilo = 0; nSilo < user.fulfiller_silos.length; nSilo++)
+							{
+								if (record.fulfiller_whitelist.indexOf(user.fulfiller_silos[nSilo].sys_id) != -1)
+								{
+									strExplanation += '\nFulfiller silo '+user.fulfiller_silos[nSilo].name+' is whitelisted.';
+									nReasons++;
+								}
+							}
+
+							for (var nGroup = 0; nGroup < user.groups.length; nGroup++)
+							{
+								if (record.group_whitelist.indexOf(user.groups[nGroup].sys_id) != -1)
+								{
+									strExplanation += '\nGroup '+user.groups[nGroup].name+' is whitelisted.';
+									nReasons++;
+								}
+							}
+							
+							for (var nUserColumn = 0; nUserColumn < aUserColumns.length; nUserColumn++)
+							{
+								var strUserColumn = aUserColumns[nUserColumn];
+								if (user.sys_id == GetStringValue(grRecord.getValue(strUserColumn)))
+								{
+									strExplanation += '\nThe user is directly associated to the record in column "'+strUserColumn+'".';
+									nReasons++;
+								}
+							}
+						
+							if (nReasons == 0)
+							{
+								strExplanation += '\nNo reason was found why the user should see the record. That indicates a technical defect!';
+							}
+							else
+							{
+								strExplanation += '\nFound '+nReasons+' reason(s) why the user can access the record.';
+								strExplanation += '\nNote that other security rules may prevent the user from accessing the record.';
+							}
+						
+						}
+						else
+						{
+							strExplanation += '\nUser '+user.user_name+' ('+strUserSysId+') can NOT access the record due to DataSilos filtering.';
+						}
+						
+						if (IsSecurityClearanceActive())
+						{
+							strExplanation += '\nSecurity clearance-based filtering is active.';
+						}
+						else
+						{
+							strExplanation += '\nSecurity clearance-based filtering is NOT active. So neither the user\'s nor the record\'s securty clearance impact the result.';
+						}
+						strExplanation += '\nUser\'s level is '+user.security_clearance+', record\'s level is '+record.security_clearance+'.';
+						if (user.security_clearance < record.security_clearance)
+						{
+							strExplanation += '\nThe user\'s security clearance is lower than the record\'s. Security clearance-based filtering does NOT allow access.' ;
+						}
+						else
+						{
+							strExplanation += '\nThe user\'s security clearance is equal or higher than the record\'s. Security clearance-based filtering allows access.' ;
+						}
+					
+						record.explanation = strExplanation;
+					}
+						
 					aRecords.push(record);
 				}
 				user.tables[strTable] = aRecords;
@@ -117,13 +336,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-01-27 14:00:33</sys_created_on>
         <sys_id>47e091541b0ee814a89720a8ec4bcb3a</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>72</sys_mod_count>
         <sys_name>AccessAnalysis</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_47e091541b0ee814a89720a8ec4bcb3a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-09-21 16:28:53</sys_updated_on>
+        <sys_updated_on>2021-11-18 16:17:38</sys_updated_on>
     </sys_script_include>
 </record_update>
