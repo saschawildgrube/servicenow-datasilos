@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Status" max_length="40" name="x_snc_datasilos_status" type="collection">
+        <element label="Backmarker" max_length="40" name="backmarker" read_only="true" type="glide_date_time"/>
+        <element label="Hidden" max_length="40" name="hidden" read_only="true" type="integer"/>
+        <element display="true" label="Table" max_length="80" name="table" read_only="true" type="table_name"/>
+        <element label="Total" max_length="40" name="total" read_only="true" type="integer"/>
+        <element label="Unmaintained" max_length="40" name="unmaintained" read_only="true" type="integer"/>
+    </element>
+</database>
