@@ -2,7 +2,7 @@
     <sys_atf_step action="INSERT_OR_UPDATE">
         <active>true</active>
         <copied_from/>
-        <description>Checks if the scoped app "DevTools" is installed in a compatible version to: 1.27.1
+        <description>Checks if the scoped app "DevTools" is installed in a compatible version to: 1.28.0
 </description>
         <display_name>DevTools - Check scoped app dependency</display_name>
         <inputs/>
@@ -15,14 +15,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-19 22:31:13</sys_created_on>
         <sys_id>f95f6db8db4b2050ba15a353059619d1</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>DevTools - Check scoped app dependency</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_f95f6db8db4b2050ba15a353059619d1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-19 09:33:05</sys_updated_on>
+        <sys_updated_on>2021-11-26 16:43:22</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Installation">37c8042e1b5490d0a89720a8ec4bcb36</test>
         <timeout/>
@@ -51,10 +51,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-03-19 22:31:13</sys_created_on>
         <sys_id>706fedf8db4b2050ba15a353059619e5</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-19 09:33:05</sys_updated_on>
-        <value>1.27.1</value>
+        <sys_updated_on>2021-11-26 16:43:22</sys_updated_on>
+        <value>1.28.0</value>
         <variable display_value="">fc5964cadb3da490ba15a353059619b3</variable>
     </sys_variable_value>
 </record_update>
