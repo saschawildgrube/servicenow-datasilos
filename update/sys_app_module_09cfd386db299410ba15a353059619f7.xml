@@ -26,7 +26,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>09cfd386db299410ba15a353059619f7</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Scheduled Jobs</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -34,11 +34,11 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_09cfd386db299410ba15a353059619f7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-04-23 08:42:33</sys_updated_on>
+        <sys_updated_on>2021-11-30 09:50:25</sys_updated_on>
         <timeline_page/>
         <title>Scheduled Jobs</title>
         <uncancelable>false</uncancelable>
-        <view_name>DataSilos</view_name>
+        <view_name>DevTools</view_name>
         <window_name/>
     </sys_app_module>
 </record_update>
