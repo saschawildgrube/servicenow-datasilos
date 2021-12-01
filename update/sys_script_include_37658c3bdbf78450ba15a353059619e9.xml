@@ -15,15 +15,14 @@
 	var BusinessRuleGetOperation = x_snc_devtools.BusinessRuleGetOperation;
 	var IsValidDatabaseView = x_snc_devtools.IsValidDatabaseView;
 	
-	
+
+	var strTable = current.getRecordClassName(); 
+	var strOperation = BusinessRuleGetOperation(current);
+
 	function Log(strText)
 	{
 		x_snc_datasilos.Log('ExecuteBusinessRule: '+strTable+': '+strOperation+': '+strText);
 	}
-	
-	var strTable = current.getRecordClassName(); 
-	
-	var strOperation = BusinessRuleGetOperation(current);
 	
 	if (strOperation == 'query')
 	{
@@ -36,11 +35,12 @@
 		{
 			return;
 		}
-
+		
 		if (gs.hasRole('admin') == true)
 		{
 			return;
 		}		
+		
 		if (IsUserSentinel() == true)
 		{
 			return;
@@ -53,7 +53,7 @@
 				var grDbView = new GlideRecord('sys_db_view');
 				grDbView.addQuery('name',strTable);
 				grDbView.query();
-				if (grDbView.next() == true)
+				if (grDbView.next())
 				{
 					var grDbViewTable = new GlideRecord('sys_db_view_table');
 					grDbViewTable.addQuery('view',grDbView.sys_id);
@@ -102,6 +102,7 @@
 		}
 		
 		PrepareQuery(current);
+	
 		return;
 	}
 
@@ -122,7 +123,7 @@
 		RecordInsert(current);
 		return;
 	}
-
+	
 	if (strOperation == 'update')
 	{
 		RecordUpdate(current);
@@ -134,13 +135,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>148</sys_mod_count>
+        <sys_mod_count>158</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-30 10:27:52</sys_updated_on>
+        <sys_updated_on>2021-12-01 17:23:04</sys_updated_on>
     </sys_script_include>
 </record_update>
