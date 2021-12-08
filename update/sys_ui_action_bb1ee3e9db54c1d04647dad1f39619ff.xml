@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>datasilos_maintenance</action_name>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments>Enables users with the DataSilos manager role to trigger the maintenance of the current record to make sure that data changes are reflected in the record's visibility rules. </comments>
+        <condition>UiActionIsVisible('maintenance',current)</condition>
+        <form_action>true</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>true</form_context_menu>
+        <form_link>true</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style>unstyled</form_style>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>DataSilos Maintenance</name>
+        <onclick>onDataSilosAccessAnalysis()</onclick>
+        <order>25001</order>
+        <script><![CDATA[if (IsUserGhost() == true)
+{
+	gs.addErrorMessage('DataSilos: Record maintenance has NOT been triggered. Your user has the x_snc_datasilos.ghost role. This prevents any update of the record\'s visibility configuration.');
+}
+else
+{
+	var bUpdate = RecordMaintenance(current);
+	if (bUpdate == true)
+	{
+		current.update();
+		gs.addInfoMessage('DataSilos: Record maintenance has been triggered. Visibility configuration has changed and the record was updated.');
+	}
+	else
+	{
+		gs.addInfoMessage('DataSilos: Record maintenance has been triggered. Visibility configuration has not changed. The record has not been updated.');
+	}
+}
+x_snc_devtools.RedirectToRecord(current);
+
+]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-12-08 15:10:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bb1ee3e9db54c1d04647dad1f39619ff</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>DataSilos Maintenance</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_ui_action_bb1ee3e9db54c1d04647dad1f39619ff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-12-08 15:27:57</sys_updated_on>
+        <table>global</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>true</ui16_compatible>
+    </sys_ui_action>
+</record_update>
