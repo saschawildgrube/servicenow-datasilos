@@ -14,14 +14,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-12-01 17:34:59</sys_created_on>
         <sys_id>0a3bcc2b1b048d50edf3642aab4bcb69</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_0a3bcc2b1b048d50edf3642aab4bcb69</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-12-01 17:35:44</sys_updated_on>
+        <sys_updated_on>2021-12-01 17:38:54</sys_updated_on>
         <table/>
         <test display_value="DataSilos - Ready">f80b0c2b1b048d50edf3642aab4bcb40</test>
         <timeout/>
@@ -36,9 +36,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-12-01 17:34:59</sys_created_on>
         <sys_id>7e2c486b1b048d50edf3642aab4bcbc6</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-12-01 17:35:44</sys_updated_on>
+        <sys_updated_on>2021-12-01 17:38:54</sys_updated_on>
         <value>(function(outputs, steps, stepResult, assertEqual)&#13;
 {&#13;
 	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
@@ -47,7 +47,7 @@
 &#13;
 	if (x_snc_devtools.IsUserHasRoleExactly('x_snc_datasilos.ghost') == true)&#13;
 	{&#13;
-		test.Log('The user running the tests has the x_snc_datasilos.ghost role. That will not work!');&#13;
+		test.Log('FAILED: The user running the tests has the x_snc_datasilos.ghost role. That will not work!');&#13;
 		test.SetResult(false);&#13;
 	}&#13;
 &#13;
