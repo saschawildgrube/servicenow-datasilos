@@ -6,7 +6,7 @@
         <client_script_v2><![CDATA[function onClick(g_form) {
 
 }]]></client_script_v2>
-        <comments>Enables users with the DataSilos manager role to trigger the maintenance of the current record to make sure that data changes are reflected in the record's visibility rules. </comments>
+        <comments>Enables users with the DataSilos manager role to trigger the maintenance of the current record to make sure that data changes are reflected in the record's visibility configuration. </comments>
         <condition>UiActionIsVisible('maintenance',current)</condition>
         <form_action>true</form_action>
         <form_button>false</form_button>
@@ -59,7 +59,7 @@ x_snc_devtools.RedirectToRecord(current);
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>bb1ee3e9db54c1d04647dad1f39619ff</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>DataSilos Maintenance</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -67,7 +67,7 @@ x_snc_devtools.RedirectToRecord(current);
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_action_bb1ee3e9db54c1d04647dad1f39619ff</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-12-08 15:27:57</sys_updated_on>
+        <sys_updated_on>2021-12-08 15:37:17</sys_updated_on>
         <table>global</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>true</ui16_compatible>
