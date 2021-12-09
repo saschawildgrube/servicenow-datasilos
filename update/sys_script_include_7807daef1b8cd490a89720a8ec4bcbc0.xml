@@ -24,6 +24,7 @@
 	testdata.CreateUser('CALLER',null);
 	testdata.CreateUser('SPECTATOR','itil');
 	testdata.CreateUser('SENTINEL',['itil','x_snc_datasilos.sentinel']);
+	testdata.CreateUser('MANAGER',['itil','x_snc_datasilos.manager']);
 	//testdata.CreateUser('ADMIN',['admin']); // This does not work. Why?
 	
 	testdata.CreateUser('ALICE',['itil']);
@@ -75,13 +76,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-14 15:19:33</sys_created_on>
         <sys_id>7807daef1b8cd490a89720a8ec4bcbc0</sys_id>
-        <sys_mod_count>81</sys_mod_count>
+        <sys_mod_count>82</sys_mod_count>
         <sys_name>CreateTestData</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_7807daef1b8cd490a89720a8ec4bcbc0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-22 14:38:32</sys_updated_on>
+        <sys_updated_on>2021-11-26 16:20:41</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetCurrentStatus</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns an object with current status information (which also contains the current configuration).</description>
+        <name>GetCurrentStatus</name>
+        <script><![CDATA[function GetCurrentStatus()
+{
+	var GetStringValue = x_snc_devtools.GetStringValue;
+	var GetValue = x_snc_devtools.GetValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+
+	var status = GetConfig();
+
+	var aTables = GetKeys(GetValue(status,'tables'));
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		var strTable = aTables[nTable];
+		var table = GetValue(status,'tables',strTable); 
+
+		var grTotal = new GlideAggregate(strTable);
+		grTotal.addAggregate('COUNT');
+		grTotal.query();
+		var nTotal = 0;
+		if (grTotal.next())
+		{
+			nTotal = grTotal.getAggregate('COUNT');
+		}
+		table['total'] = nTotal; 
+
+		var grHidden = new GlideAggregate(strTable);
+		grHidden.addQuery(GetScopeFromTable(strTable)+'_global',false);
+		grHidden.addQuery(GetScopeFromTable(strTable)+'_group_whitelist','');
+		grHidden.addQuery(GetScopeFromTable(strTable)+'_fulfiller_whitelist','');
+		grHidden.addQuery(GetScopeFromTable(strTable)+'_supervisor_whitelist','');
+		grHidden.addAggregate('COUNT');
+		grHidden.query();
+		var nHidden = 0;
+		if (grHidden.next())
+		{
+			nHidden = grHidden.getAggregate('COUNT');
+		}
+		table['hidden'] = nHidden; 
+		
+		var grUnmaintained = new GlideAggregate(strTable);
+		grUnmaintained.addQuery(GetScopeFromTable(strTable)+'_last_maintenance',null);
+		grUnmaintained.addAggregate('COUNT');
+		grUnmaintained.query();
+		var nUnmaintained = 0;
+		if (grUnmaintained.next())
+		{
+			nUnmaintained = grUnmaintained.getAggregate('COUNT');
+		}
+		table['unmaintained'] = nUnmaintained; 
+
+		var strBackmarker = '';
+		if (nUnmaintained == 0)
+		{
+			var grBackmarker = new GlideRecord(strTable);
+			grBackmarker.orderBy(GetScopeFromTable(strTable)+'_last_maintenance');
+			grBackmarker.setLimit(1);
+			grBackmarker.query();
+			if (grBackmarker.next())
+			{
+				strBackmarker = GetStringValue(grBackmarker.getValue(GetScopeFromTable(strTable)+'_last_maintenance'));
+			}
+		}
+		table['backmarker'] = strBackmarker; 
+	}
+	
+	return status;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-26 15:02:27</sys_created_on>
+        <sys_id>7f4939b5db040d104647dad1f3961927</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GetCurrentStatus</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_7f4939b5db040d104647dad1f3961927</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-26 16:10:35</sys_updated_on>
+    </sys_script_include>
+</record_update>

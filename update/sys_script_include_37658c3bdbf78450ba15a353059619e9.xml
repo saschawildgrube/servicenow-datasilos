@@ -15,19 +15,14 @@
 	var BusinessRuleGetOperation = x_snc_devtools.BusinessRuleGetOperation;
 	var IsValidDatabaseView = x_snc_devtools.IsValidDatabaseView;
 	
-	
+
+	var strTable = current.getRecordClassName(); 
+	var strOperation = BusinessRuleGetOperation(current);
+
 	function Log(strText)
 	{
 		x_snc_datasilos.Log('ExecuteBusinessRule: '+strTable+': '+strOperation+': '+strText);
 	}
-	function Debug(strText)
-	{
-		x_snc_datasilos.Debug('ExecuteBusinessRule: '+strTable+': '+strOperation+': '+strText);
-	}
-	
-	var strTable = current.getRecordClassName(); 
-	
-	var strOperation = BusinessRuleGetOperation(current);
 	
 	if (strOperation == 'query')
 	{
@@ -40,15 +35,14 @@
 		{
 			return;
 		}
-
+		
 		if (gs.hasRole('admin') == true)
 		{
-			//Debug('User has the admin role. Filters are not applied.');
 			return;
 		}		
+		
 		if (IsUserSentinel() == true)
 		{
-			//Debug('User has the sentinel role. Filters are not applied.');
 			return;
 		}		
 		
@@ -56,18 +50,11 @@
 		{
 			if (IsDatabaseViewsActive() == true)
 			{
-				Debug('We dont know the table. Are we are called from a database view?');
 				var grDbView = new GlideRecord('sys_db_view');
 				grDbView.addQuery('name',strTable);
 				grDbView.query();
-				if (grDbView.next() == false)
+				if (grDbView.next())
 				{
-					Debug('"'+strTable+'" is NOT supported and NOT a database view: Is it a derived table?');
-					//return;
-				}
-				else
-				{
-					//Debug('Database view: '+strTable+' is a database view: '/*+RenderValue(grDbView)*/);
 					var grDbViewTable = new GlideRecord('sys_db_view_table');
 					grDbViewTable.addQuery('view',grDbView.sys_id);
 					grDbViewTable.query();
@@ -78,7 +65,6 @@
 						if (IsTableActive(strSupportedViewTable) == true)
 						{
 							var strPrefix = ''+grDbViewTable.variable_prefix;
-							Debug('Database view: '+strTable+': Found active table: '+strSupportedViewTable+': Prefix: '+strPrefix);
 
 							var bLeftJoin = GetBoolValue(grDbViewTable.left_join);
 							var bWhereClause = GetBoolValue(GetStringValue(grDbViewTable.where_clause).length);
@@ -92,46 +78,43 @@
 							PrepareQuery(current,strSupportedViewTable,strPrefix,false,bAllowEmptySysId);
 						}
 					}
-					//Debug('New query: '+current.getEncodedQuery());
 					return;
 				}
 			}
 		}
 		
-		strTable = GetSupportedTable(strTable);
+		var strSupportedTable = GetSupportedTable(strTable);
 		
-		if (IsTableActive(strTable) == false)
+		if (IsTableActive(strSupportedTable) == false)
 		{
 			return;
 		}
 
-		var bAvoidExpensiveQueries = GetBoolValue(GetConfigValue('tables',strTable,'avoid_expensive_queries'));
+		var bAvoidExpensiveQueries = GetBoolValue(GetConfigValue('tables',strSupportedTable,'avoid_expensive_queries'));
 		if (bAvoidExpensiveQueries == true)
 		{
 			var strEncodedQuery = GetStringValue(current.getEncodedQuery());
 
-			if (IsExpensiveQuery(strTable,strEncodedQuery) == true)
+			if (IsExpensiveQuery(strSupportedTable,strEncodedQuery) == true)
 			{
-				//Debug('The query has been identified as "expensive". No filtering takes place:\n'+current.getEncodedQuery());
 				return;
 			}
 		}
 		
 		PrepareQuery(current);
-		//Debug('Query updated: '+current.getEncodedQuery());
+	
 		return;
 	}
 
-	strTable = GetSupportedTable(strTable);
+	var strSupportedTable = GetSupportedTable(strTable);
 	
-	if (IsTableSupported(strTable) == false)
+	if (IsTableSupported(strSupportedTable) == false)
 	{
 		return;
 	}
 	
 	if (IsUserGhost() == true)
 	{
-		//Debug('User has the x_snc_datasilos.ghost role. No changes are made during insert or update.');
 		return;
 	}
 	
@@ -140,7 +123,7 @@
 		RecordInsert(current);
 		return;
 	}
-
+	
 	if (strOperation == 'update')
 	{
 		RecordUpdate(current);
@@ -152,13 +135,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-02 12:55:57</sys_created_on>
         <sys_id>37658c3bdbf78450ba15a353059619e9</sys_id>
-        <sys_mod_count>142</sys_mod_count>
+        <sys_mod_count>158</sys_mod_count>
         <sys_name>ExecuteBusinessRule</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37658c3bdbf78450ba15a353059619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-29 13:15:36</sys_updated_on>
+        <sys_updated_on>2021-12-01 17:23:04</sys_updated_on>
     </sys_script_include>
 </record_update>

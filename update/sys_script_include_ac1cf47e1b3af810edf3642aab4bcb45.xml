@@ -7,7 +7,7 @@
         <client_callable>false</client_callable>
         <description>The function turns an existing scoped app into a DataSilos plugin app and adds all components required to support a given set of tables.</description>
         <name>AppBuilder</name>
-        <script>function AppBuilder(strAppSysIdOrScopeName,aTables)&#13;
+        <script>function AppBuilder(strAppSysIdOrScopeName,aTables,strAppMenuSeparator,nAppMenuOrderStart)&#13;
 {&#13;
 /*&#13;
 	x_snc_datasilos.AppBuilder('x_snc_datasilos',[&#13;
@@ -22,7 +22,9 @@
 		'sc_task']);&#13;
 &#13;
 	x_snc_datasilos.AppBuilder('x_snc_datasilosci',[&#13;
-		'cmdb_ci']);&#13;
+		'cmdb_ci'],&#13;
+		'CMDB',&#13;
+		10000);&#13;
 */	&#13;
 	&#13;
 	&#13;
@@ -30,6 +32,7 @@
 	&#13;
 	&#13;
 	var GetStringValue = x_snc_devtools.GetStringValue;&#13;
+	var GetIntegerValue = x_snc_devtools.GetIntegerValue;&#13;
 	var GetArrayValue = x_snc_devtools.GetArrayValue;&#13;
 	var RenderValue = x_snc_devtools.RenderValue;&#13;
 	var IsValidTable = x_snc_devtools.IsValidTable;&#13;
@@ -39,6 +42,13 @@
 	var IsValidSysId = x_snc_devtools.IsValidSysId;&#13;
 	var RecordGetValue = x_snc_devtools.RecordGetValue;&#13;
 &#13;
+&#13;
+	strAppSysIdOrScopeName = GetStringValue(strAppSysIdOrScopeName);&#13;
+	aTables = GetArrayValue(aTables);&#13;
+	strAppMenuSeparator = GetStringValue(strAppMenuSeparator);&#13;
+	nAppMenuOrderStart = GetIntegerValue(nAppMenuOrderStart);&#13;
+	&#13;
+	&#13;
 	var strTable = '';&#13;
 	&#13;
 	function Log(strText)&#13;
@@ -51,9 +61,19 @@
 		x_snc_datasilos.Log('AppBuilder: '+strTableLog+strText);&#13;
 	}&#13;
 	&#13;
+	var strParentAppScope = 'x_snc_datasilos';&#13;
+	if (strAppSysIdOrScopeName == 'x_snc_datasilos' || strAppSysIdOrScopeName == 'dafbffebdbb78450ba15a353059619eb')&#13;
+	{&#13;
+		strParentAppScope = '';&#13;
+		strAppMenuSeparator = '';&#13;
+	}&#13;
+&#13;
+	&#13;
 	var grApp = x_snc_devtools.AppBuilder(&#13;
 		strAppSysIdOrScopeName,&#13;
-		'949c7f2fdbb78450ba15a353059619d6'); // DataSilos application menu&#13;
+		strParentAppScope,&#13;
+		strAppMenuSeparator,&#13;
+		nAppMenuOrderStart); &#13;
 	if (grApp == false)&#13;
 	{&#13;
 		Log('Error: x_snc_devtools.AppBuilder returned false.');&#13;
@@ -982,13 +1002,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>97</sys_mod_count>
+        <sys_mod_count>100</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-17 10:29:52</sys_updated_on>
+        <sys_updated_on>2021-11-29 16:14:02</sys_updated_on>
     </sys_script_include>
 </record_update>

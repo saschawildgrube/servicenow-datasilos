@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.UpdateStatus</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Gets the current status and stores the results in the status table.</description>
+        <name>UpdateStatus</name>
+        <script><![CDATA[function UpdateStatus()
+{
+	var GetValue = x_snc_devtools.GetValue;
+	var GetKeys = x_snc_devtools.GetKeys;
+	var RecordQueryOrInsert = x_snc_devtools.RecordQueryOrInsert;
+	
+	var status = GetCurrentStatus();
+	
+	var aTables = GetKeys(GetValue(status,'tables'));
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		var strTable = aTables[nTable];
+		var table = GetValue(status,'tables',strTable);
+		
+		RecordQueryOrInsert('x_snc_datasilos_status',
+			{
+				table: strTable
+			},
+			{
+				total: table.total,
+				hidden: table.hidden,
+				unmaintained: table.unmaintained,
+				backmarker: table.backmarker,
+			},
+			true);
+	}
+	return status;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-26 15:15:34</sys_created_on>
+        <sys_id>614b3139db040d104647dad1f3961973</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>UpdateStatus</sys_name>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_614b3139db040d104647dad1f3961973</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-26 15:42:59</sys_updated_on>
+    </sys_script_include>
+</record_update>

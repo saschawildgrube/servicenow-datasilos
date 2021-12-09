@@ -22,29 +22,15 @@
 	{
 		x_snc_datasilos.Log('ExecuteACL: '+strTable+': '+record.sys_id+': '+strText);
 	}
-	function Debug(strText)
-	{
-		x_snc_datasilos.Debug('ExecuteACL: '+strTable+': '+record.sys_id+': '+strText);
-	}
 	
 	if (IsActive() == false)
 	{
-		//Debug('IsActive() returned false.');
 		return true;
 	}		
 	if (record.isNewRecord() == true)
 	{
-		//Debug('record.isNewRecord() == true');
 		return true;
 	}
-
-	
-	
-	//Debug('IsTableActive("'+strTable+'") = '+IsTableActive(strTable));
-	//Debug('IsValidDatabaseView("'+strTable+'") = '+IsValidDatabaseView(strTable));
-	//Debug('IsDatabaseViewsActive() = '+IsDatabaseViewsActive());
-	//Debug(RenderValue(record,true));
-
 	
 	if (IsValidDatabaseView(strTable) == true)
 	{
@@ -58,7 +44,6 @@
 		grDbView.query();
 		if (grDbView.next())
 		{
-			//Debug('Database view: '+strTable+' is a database view: '+RenderValue(grDbView));
 			var grDbViewTable = new GlideRecord('sys_db_view_table');
 			grDbViewTable.addQuery('view',grDbView.sys_id);
 			grDbViewTable.query();
@@ -68,7 +53,6 @@
 				var strSupportedViewTable = GetSupportedTable(strViewTable);
 				if (IsTableActive(strSupportedViewTable) == true)
 				{
-					//Debug('Database view: '+strTable+': Found active table: '+strSupportedViewTable);
 					var strPrefix = ''+grDbViewTable.variable_prefix;
 
 					var strRecordSysId = record.getValue(strPrefix+'_sys_id'); 
@@ -81,17 +65,14 @@
 					var grRecord = new GlideRecord(strSupportedViewTable);
 					if (grRecord.get(strRecordSysId) == false)
 					{
-						//Debug('Database view: '+strTable+': returns false');
 						return false;   
 					}
 				}
 			}
-			//Debug('Database view: '+strTable+': returns true');
 			return true;
 		}
 		else
 		{
-			//Debug('Database view: '+strTable+' is NOT a database view: we return true');
 			return true;
 		}
 	}
@@ -100,7 +81,6 @@
 	
 	if (IsTableActive(strTable) == false)
 	{
-		//Debug('IsTableActive("'+strTable+'") returned false. So we allow access!');
 		return true;
 	}
 	
@@ -112,14 +92,12 @@
 	var strValueNoFilter = GetStringValue(transactionCache.GetItem(strUserSysId+'_nofilter'));
 	if (strValueNoFilter == '1')
 	{
-		//Debug('Cached value for noFilter is '+strValueNoFilter);
 		return true;
 	}
 	
 	var strValue = GetStringValue(transactionCache.GetItem(strUserSysId+'_'+record.sys_id));
 	if (strValue != '')
 	{
-		//Debug('Cached value for '+record.sys_id+' is '+strValue);
 		if (strValue == '1')
 		{
 			return true;
@@ -134,7 +112,6 @@
 	{
 		if (gs.hasRole('admin') == true)
 		{
-			//Debug('User has the admin role. Filters are not applied.');
 			transactionCache.SetItem(strUserSysId+'_nofilter','1');
 			return true;
 		}
@@ -142,13 +119,11 @@
 		{
 			if (IsUserSentinel() == true)
 			{
-				//Debug('User has the sentinel role. Filters are not applied.');
 				transactionCache.SetItem(strUserSysId+'_nofilter','1');
 				return true;
 			}		
 			else
 			{
-				//Debug('User is neither admin nor sentinel: nofilter cache value is set to 0.');
 				transactionCache.SetItem(strUserSysId+'_nofilter','0');
 			}
 		}
@@ -160,7 +135,6 @@
 	// Refer to https://hi.service-now.com/kb_view.do?sysparm_article=KB0529493
 	if (IsRecordComplete(record) == false)
 	{
-		//Debug('IsRecordComplete returned false');
 		var strSysId = GetStringValue(record.sys_id);
 		var grRecordComplete = new GlideRecord(strTable);
 		if (grRecordComplete.get('sys_id',strSysId))
@@ -173,17 +147,6 @@
 		}
 	}	
 	
-	/*
-
-	var grRecord = new GlideRecord(strTable);
-	PrepareQuery(grRecord);
-	
-	var strEncodedQuery = grRecord.getEncodedQuery();
-	
-	var bMatch = GlideFilter.checkRecord(record,strEncodedQuery);
-	
-	*/
-	
 	var bMatch = RecordCheckFilter(record);
 	
 	transactionCache.SetItem(strUserSysId+'_'+record.sys_id, (bMatch)?('1'):('0') );
@@ -195,13 +158,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-06-15 10:33:31</sys_created_on>
         <sys_id>72baa4e7db515450ba15a353059619a4</sys_id>
-        <sys_mod_count>94</sys_mod_count>
+        <sys_mod_count>97</sys_mod_count>
         <sys_name>ExecuteACL</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_72baa4e7db515450ba15a353059619a4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-27 12:45:49</sys_updated_on>
+        <sys_updated_on>2021-11-30 10:27:30</sys_updated_on>
     </sys_script_include>
 </record_update>
