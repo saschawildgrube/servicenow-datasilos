@@ -106,7 +106,7 @@
         <update_guid_history>706a42eede627010276890e5fc8b9ed0:0,60f90e2eb1627010787aa945324c9f85:-1851114561</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="sys_user_group">1282fd35dbd7b8d04647dad1f396196e</sys_audit_delete>
+        <sys_audit_delete display_value="">1282fd35dbd7b8d04647dad1f396196e</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-20 07:45:45</sys_created_on>

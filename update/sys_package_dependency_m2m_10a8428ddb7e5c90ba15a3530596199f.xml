@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
     <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
-        <dependency display_value="Change Request" source="com.snc.change_request">acb87d561b263010edf3642aab4bcb56</dependency>
+        <dependency display_value="Change Request" source="com.snc.change_request">fd0c3ed9db140110b652edb30596192d</dependency>
         <min_version>1.0.0</min_version>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 12:33:08</sys_created_on>
