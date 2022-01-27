@@ -124,11 +124,10 @@
 		<li>Are there any before/query business rules that serve comparable purposes? Should they be replaced?</li>
 		<li>Are there any customized ACLs in place?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
-		<li>How many records exist in the affected tables? If there are more than a million, expect a performance impact and validate carefully!</li>
 		<li>Which database views exist that contain tables which are in scope? Should data segregation be applied to views?</li>
 		
 		<!-- PERFORMANCE -->
-		<li>How many records are in the tables in scope. Any number higher than approx. two Million should raise concerns as queries might become slow. Can records be archived?</li>
+		<li>How many records are in the tables in scope? Any number higher than approx. two Million should raise concerns as queries might become slow. Can records be archived?</li>
 		<li>How many database indexes are "left" on the tables in scope? Often there is a maximum of 64 indexes per physical database table. Are there enough indexes left to apply recommended optimizations?</li>
 		
 		<!-- REPORTING AND PA -->
@@ -825,13 +824,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>593</sys_mod_count>
+        <sys_mod_count>594</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-01-14 14:30:30</sys_updated_on>
+        <sys_updated_on>2022-01-27 16:11:14</sys_updated_on>
     </sys_ui_page>
 </record_update>
