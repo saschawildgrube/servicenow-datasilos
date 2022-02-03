@@ -108,9 +108,9 @@
             <sys_id>963dbd79db040d104647dad1f3961942</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_datasilos_status</sys_name>
-            <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+            <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
             <sys_policy/>
-            <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+            <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_datasilos_status_null</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2021-11-26 15:19:33</sys_updated_on>
