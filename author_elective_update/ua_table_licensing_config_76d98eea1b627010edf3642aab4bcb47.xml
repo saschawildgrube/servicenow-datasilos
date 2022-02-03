@@ -24,7 +24,7 @@
     </ua_table_licensing_config>
     <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
         <file_path/>
         <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
         <instance_name>wildgrubedevparis</instance_name>
@@ -36,13 +36,13 @@
         <source>79d0c2121b223010edf3642aab4bcb46</source>
         <source_table>sys_upgrade_history</source_table>
         <state>previous</state>
-        <sys_created_by/>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-14 15:18:07</sys_created_on>
         <sys_id>971a46ae1b627010edf3642aab4bcb6f</sys_id>
-        <sys_mod_count/>
+        <sys_mod_count>0</sys_mod_count>
         <sys_recorded_at>17be4e2ff980000000</sys_recorded_at>
-        <sys_updated_by/>
-        <sys_updated_on/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-12-09 16:17:20</sys_updated_on>
         <type>Table Subscription Configuration</type>
         <update_guid>571a46aea86270108bb8bdbe819e286f</update_guid>
         <update_guid_history>571a46aea86270108bb8bdbe819e286f:-551391692</update_guid_history>
@@ -57,10 +57,10 @@
         <sys_metadata>76d98eea1b627010edf3642aab4bcb47</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>u_imp_tmpl_x_snc_datasilos_m2m_groups_datasilos</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_parent/>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
         <sys_update_name>ua_table_licensing_config_76d98eea1b627010edf3642aab4bcb47</sys_update_name>
         <sys_update_version display_value="ua_table_licensing_config_76d98eea1b627010edf3642aab4bcb47">971a46ae1b627010edf3642aab4bcb6f</sys_update_version>
