@@ -45,7 +45,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-18 17:56:51</sys_updated_on>
         <value>incident</value>
-        <variable display_value="">90144b535320220002c6435723dc3488</variable>
+        <variable display_value="Table">90144b535320220002c6435723dc3488</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
@@ -59,7 +59,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-18 17:56:51</sys_updated_on>
         <value>1</value>
-        <variable display_value="">e6e3c7535320220002c6435723dc3496</variable>
+        <variable display_value="Enforce security">e6e3c7535320220002c6435723dc3496</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
@@ -73,7 +73,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-06-18 17:56:51</sys_updated_on>
         <value>record_successfully_inserted</value>
-        <variable display_value="">9024a37f671003007ba405225685efe5</variable>
+        <variable display_value="Assert type">9024a37f671003007ba405225685efe5</variable>
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
@@ -87,7 +87,7 @@ Confirm the record was successfully inserted</description>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2020-11-03 16:40:36</sys_updated_on>
         <value>short_description=_ATF_DATASILOS_TEST^assignment_group={{step['cfa640451b186810a89720a8ec4bcb21'].first_record}}^caller_id={{step['09bba5e4db251010ba15a3530596199f'].first_record}}^EQ</value>
-        <variable display_value="">dd54cf535320220002c6435723dc34fd</variable>
+        <variable display_value="Field values">dd54cf535320220002c6435723dc34fd</variable>
     </sys_variable_value>
     <sys_element_mapping action="delete_multiple" query="id=83cc2d28db251010ba15a3530596197c"/>
     <sys_element_mapping action="INSERT_OR_UPDATE">

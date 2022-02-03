@@ -75,7 +75,7 @@
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
-				'Paris,Quebec,Rome',
+				'Quebec,Rome',
 				true,
 				AppGetDependencies());
 		]</g2:no_escape>	
@@ -124,11 +124,10 @@
 		<li>Are there any before/query business rules that serve comparable purposes? Should they be replaced?</li>
 		<li>Are there any customized ACLs in place?</li>
 		<li>Which integrations exist and how will (or should) they be impacted? Keep in mind that technical users used for integrations will also be affected by access restrictions applied by DataSilos.</li>
-		<li>How many records exist in the affected tables? If there are more than a million, expect a performance impact and validate carefully!</li>
 		<li>Which database views exist that contain tables which are in scope? Should data segregation be applied to views?</li>
 		
 		<!-- PERFORMANCE -->
-		<li>How many records are in the tables in scope. Any number higher than approx. two Million should raise concerns as queries might become slow. Can records be archived?</li>
+		<li>How many records are in the tables in scope? Any number higher than approx. two Million should raise concerns as queries might become slow. Can records be archived?</li>
 		<li>How many database indexes are "left" on the tables in scope? Often there is a maximum of 64 indexes per physical database table. Are there enough indexes left to apply recommended optimizations?</li>
 		
 		<!-- REPORTING AND PA -->
@@ -325,13 +324,7 @@ Best regards,
 	</ol>
 
 	<h2>Roles</h2>
-	<p>DataSilos supports the following roles:</p>
-	<ul>
-		<li><b>x_snc_datasilos.admin</b>&#160;A user that has access to all DataSilo administration and configuration modules. Includes the&#160;<b>x_snc_datasilos.manager</b>&#160;role.</li>
-		<li><b>x_snc_datasilos.manager</b>&#160;A user that can configure data silos and assign groups to data silos.</li>
-		<li><b>x_snc_datasilos.sentinel</b>&#160;A user that is NOT impacted by any filtering by DataSilos. This is suitable for users that should have global access (e.g. for reporting) or technical users (for integrations).</li>
-		<li><b>x_snc_datasilos.ghost</b>&#160;A user that can create and modify records without impacting the whitelist.</li>
-	</ul>
+	<g2:no_escape>$[docapi.RenderRoles()]</g2:no_escape>	
 
 	<h2>UI Actions</h2>
 	<g2:no_escape>$[docapi.RenderUIActions()]</g2:no_escape>		
@@ -459,11 +452,16 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 		[
 			'table1',
 			'table2'
-		]);				
+		],
+		'Your App', // The title of the submenu section
+		20000 // The order where your submenu should start
+		);				
 }
 </pre>
 		<li>Replace "x_abc_your_app_scope" by the actual app scope identifier.</li>
 		<li>Add the tables to be supported into the array. Note that you do not need to add tables which are already supported by DataSilos in order to implement deviating behavior for visibility rules.</li>
+		<li>Replace "Your App" with a suitable caption for the sub menu within the DataSilos menu.</li>
+		<li>Replace "20000" with a reasonable order number where the sub menu should be positioned. Values must be equal or greater than 10000. Please note that if other developers who create DataSilos plugins make the same or very similar choices, there might be collisions - but they can easily be resolved later.</li>
 			
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsBackgroundScript('Now build the boiler-plate code and prepare the implementation of your new DataSilos plugin application. Replace x_abc_your_app_scope by the actual scope identifier of your new application.', 'x_abc_your_app_scope.AppBuilder();', 'x_abc_your_app_scope');
@@ -501,6 +499,16 @@ DataSilos - incident_task - cross-silo
 	
 	<h2>Release notes</h2>
 
+	<h3>3.2.0 - 2022-02-03</h3>
+	<ol>
+		<li>Paris is no longer actively supported.</li>
+		<li>DevTools 1.32.0 is now required.</li> 
+		<li>AccessAnalysis() and the corresponding UI action "DataSilos Access Analysis" now also consider domain separation.</li>
+		<li>Roles section in the documentation is now using DocumentationAPI::RenderRoles() function.</li>
+		<li>AppBuilder() now checks if a sub menu title is specified and if the sub menu start order is 10000 or higher.</li>
+		<li>AppSetDefaults() now sets the "log.active" system property properly.</li> 
+	</ol>
+	
 	<h3>3.1.0 - 2021-12-09</h3>
 	<ol>
 		<li>DevTools 1.30.0 is now required.</li> 
@@ -816,13 +824,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>585</sys_mod_count>
+        <sys_mod_count>595</sys_mod_count>
         <sys_name>start</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-12-09 14:50:22</sys_updated_on>
+        <sys_updated_on>2022-02-03 13:28:12</sys_updated_on>
     </sys_ui_page>
 </record_update>

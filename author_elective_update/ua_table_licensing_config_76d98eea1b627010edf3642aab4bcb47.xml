@@ -36,13 +36,13 @@
         <source>79d0c2121b223010edf3642aab4bcb46</source>
         <source_table>sys_upgrade_history</source_table>
         <state>previous</state>
-        <sys_created_by/>
+        <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-14 15:18:07</sys_created_on>
         <sys_id>971a46ae1b627010edf3642aab4bcb6f</sys_id>
-        <sys_mod_count/>
+        <sys_mod_count>0</sys_mod_count>
         <sys_recorded_at>17be4e2ff980000000</sys_recorded_at>
-        <sys_updated_by/>
-        <sys_updated_on/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-12-09 16:17:20</sys_updated_on>
         <type>Table Subscription Configuration</type>
         <update_guid>571a46aea86270108bb8bdbe819e286f</update_guid>
         <update_guid_history>571a46aea86270108bb8bdbe819e286f:-551391692</update_guid_history>

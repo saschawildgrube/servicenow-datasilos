@@ -85,7 +85,7 @@
         <update_guid_history>629b297e577ef810714cbb27263b474f:1896594561,446b257e577ef8108d64f0f5f3caba52:1442395441,f86a42ee9162701099b942819421f6ed:0,38f90e2e5d6270102ffdefcdf0293eb9:1823962995</update_guid_history>
     </sys_update_version>
     <sys_metadata_delete action="INSERT_OR_UPDATE">
-        <sys_audit_delete display_value="ITSM ACLs">9db54b7ddbd3f8d04647dad1f3961967</sys_audit_delete>
+        <sys_audit_delete display_value="">9db54b7ddbd3f8d04647dad1f3961967</sys_audit_delete>
         <sys_class_name>sys_metadata_delete</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-20 13:49:09</sys_created_on>
