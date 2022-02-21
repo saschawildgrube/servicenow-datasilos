@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="all_tables.query_hints=true,email_client=true,hasWorkflow=true,live_feed=true,query_hints=true" audit="true" extends="task" label="Incident" max_length="40" name="incident" sizeclass="177" text_index="true" type="collection">
+    <element attributes="all_tables.query_hints=true,email_client=true,hasWorkflow=true,live_feed=true,query_hints=true" audit="true" extends="task" label="Incident" max_length="40" name="incident" sizeclass="184" text_index="true" type="collection">
         <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" calculation="&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;" label="DataSilos Fulfiller Whitelist" max_length="4000" name="x_snc_datasilos_fulfiller_whitelist" reference="x_snc_datasilos_datasilos" reference_cascade_rule="none" type="glide_list"/>
         <element label="DataSilos Ghost" max_length="40" name="x_snc_datasilos_ghost" type="boolean"/>
         <element label="DataSilos Global Visibility" max_length="40" name="x_snc_datasilos_global" type="boolean"/>
