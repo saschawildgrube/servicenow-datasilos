@@ -41,7 +41,7 @@
 	var GlideRecordUpdate = x_snc_devtools.GlideRecordUpdate;&#13;
 	var IsValidSysId = x_snc_devtools.IsValidSysId;&#13;
 	var RecordGetValue = x_snc_devtools.RecordGetValue;&#13;
-&#13;
+	var GetRecord = x_snc_devtools.GetRecord;&#13;
 &#13;
 	strAppSysIdOrScopeName = GetStringValue(strAppSysIdOrScopeName);&#13;
 	aTables = GetArrayValue(aTables);&#13;
@@ -260,12 +260,35 @@
 		{&#13;
 			Log('Working on table "'+strTable+'"...');&#13;
 &#13;
-&#13;
+			var strTableScope = '';&#13;
+			var grSDO = new GlideRecord('sys_db_object');&#13;
+			grSDO.addQuery('name','=',strTable);&#13;
+			grSDO.query();&#13;
+			if (grSDO.next())&#13;
+			{&#13;
+				var grScope = GetRecord('sys_scope',grSDO.sys_scope);&#13;
+				if (grScope != null)&#13;
+				{&#13;
+					strTableScope = GetStringValue(grScope.scope);&#13;
+				}&#13;
+			}&#13;
+			&#13;
+			function MakeColumnName(strColumn)&#13;
+			{&#13;
+				&#13;
+				if (strAppScope == strTableScope)&#13;
+				{&#13;
+					return strColumn;&#13;
+				}&#13;
+				return strAppScope + '_' + strColumn;&#13;
+			}&#13;
+			&#13;
+			var strColumn = MakeColumnName('global');&#13;
 			&#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','=',strAppScope+'_global');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -281,7 +304,7 @@
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Global Visibility';&#13;
 				grSD.default_value = 'false';&#13;
-				grSD.element = strAppScope+'_global';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'boolean';&#13;
 				grSD.name = strTable;&#13;
 				grSD.reference = null;&#13;
@@ -299,12 +322,12 @@
 			&#13;
 			&#13;
 			&#13;
-			&#13;
+			strColumn = MakeColumnName('supervisor_whitelist');&#13;
 			&#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','=',strAppScope+'_supervisor_whitelist');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -321,7 +344,7 @@
 				grSD.audit = false;&#13;
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Supervisor Whitelist';&#13;
-				grSD.element = strAppScope+'_supervisor_whitelist';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'glide_list';&#13;
 				grSD.max_length = 4000;&#13;
 				grSD.name = strTable;&#13;
@@ -341,12 +364,12 @@
 			}&#13;
 			&#13;
 			&#13;
-			&#13;
+			strColumn = MakeColumnName('fulfiller_whitelist');&#13;
 			&#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','=',strAppScope+'_fulfiller_whitelist');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -362,7 +385,7 @@
 				grSD.attributes = 'edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true';&#13;
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Fulfiller Whitelist';&#13;
-				grSD.element = strAppScope+'_fulfiller_whitelist';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'glide_list';&#13;
 				grSD.max_length = 4000;&#13;
 				grSD.name = strTable;&#13;
@@ -382,12 +405,12 @@
 			}&#13;
 &#13;
 &#13;
-			&#13;
+			strColumn = MakeColumnName('group_whitelist');&#13;
 			&#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','=',strAppScope+'_group_whitelist');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -403,7 +426,7 @@
 				grSD.attributes = 'edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true';&#13;
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Group Whitelist';&#13;
-				grSD.element = strAppScope+'_group_whitelist';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'glide_list';&#13;
 				grSD.max_length = 4000;&#13;
 				grSD.name = strTable;&#13;
@@ -422,11 +445,12 @@
 			}&#13;
 			&#13;
 			&#13;
+			strColumn = MakeColumnName('security_clearance');&#13;
 			&#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','=',strAppScope+'_security_clearance');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -442,7 +466,7 @@
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Security Clearance';&#13;
 				grSD.default_value = '0';&#13;
-				grSD.element = strAppScope+'_security_clearance';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'integer';&#13;
 				grSD.name = strTable;&#13;
 				grSD.sys_scope = strAppSysId;&#13;
@@ -456,12 +480,12 @@
 				AppBuilderAddFieldACL(strAppScope, strTable, 'security_clearance', strFieldSysId, 'write');&#13;
 			}	&#13;
 			&#13;
-		&#13;
+			strColumn = MakeColumnName('ghost');&#13;
 			&#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','ENDSWITH','_ghost');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -477,7 +501,7 @@
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Ghost';&#13;
 				grSD.default_value = 'false';&#13;
-				grSD.element = strAppScope+'_ghost';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'boolean';&#13;
 				grSD.name = strTable;&#13;
 				grSD.sys_scope = strAppSysId;&#13;
@@ -491,11 +515,12 @@
 				AppBuilderAddFieldACL(strAppScope, strTable, 'ghost', strFieldSysId, 'write');&#13;
 			}&#13;
 			&#13;
+			strColumn = MakeColumnName('last_maintenance');&#13;
 &#13;
 			var strFieldSysId = '';&#13;
 			var grSD = new GlideRecord('sys_dictionary');&#13;
 			grSD.addQuery('name','=',strTable);&#13;
-			grSD.addQuery('element','=',strAppScope+'_last_maintenance');&#13;
+			grSD.addQuery('element','=',strColumn);&#13;
 			grSD.query();&#13;
 			if (grSD.getRowCount() != 0)&#13;
 			{&#13;
@@ -511,7 +536,7 @@
 				grSD.calculation = "&lt;![CDATA[ (function calculatedFieldValue(current) { // Add your code here return ''; // return the calculated value })(current); ]]&gt;";&#13;
 				grSD.column_label = 'DataSilos Last Maintenance';&#13;
 				grSD.default_value = '';&#13;
-				grSD.element = strAppScope+'_last_maintenance';&#13;
+				grSD.element = strColumn;&#13;
 				grSD.internal_type = 'glide_date_time';&#13;
 				grSD.name = strTable;&#13;
 				grSD.sys_scope = strAppSysId;&#13;
@@ -952,7 +977,7 @@
 		strOperation = GetStringValue(strOperation);&#13;
 &#13;
 		Log('Working on ACL for "'+strOperation+'" operation...');&#13;
-		var strAclName = strTable+'.'+strAppScope+'_'+strFieldName;&#13;
+		var strAclName = strTable+'.'+MakeColumnName(strFieldName);&#13;
 		var strAclSysId = '';&#13;
 		var grSSA = new GlideRecord('sys_security_acl');&#13;
 		grSSA.addQuery('type','=','record');&#13;
@@ -1015,13 +1040,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>101</sys_mod_count>
+        <sys_mod_count>105</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-01-10 09:53:07</sys_updated_on>
+        <sys_updated_on>2022-02-23 09:55:17</sys_updated_on>
     </sys_script_include>
 </record_update>
