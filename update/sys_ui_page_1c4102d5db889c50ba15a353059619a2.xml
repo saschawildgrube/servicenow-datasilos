@@ -116,6 +116,7 @@
 		<li>Who is responsible to define the data silos and can provide a mapping to groups? In large organizations this might be a challenging task - especially if there are multiple systems of record from which organization data is retrieved and imported into the ServiceNow instance.</li>
 		<li>Who should be responsible to maintain the silo configuration? Which processes might be affected? What must happen if new groups are being created in the future?</li>
 		<li>Should data silo configuration be automated - maybe as part of existing processes that integrate organizational data into the platform?</li>
+		<li>Should all groups be considered for filtering? Are there groups which should be ignored?</li>
 		<li>Does a process exist to manage groups? Consider the process implications once a group must also be assigned to a silo.</li> 
 		<li>Do naming conventions exist? How should group silos be named?</li>
 		<li>What should happen with records in supported tables that do not have an assignment group - and hence may be invisible to most users?</li>
@@ -147,6 +148,7 @@
 	<ol>
 		<li>As the CISO I must ensure that incidents/problems/changes/... are only visible to specific groups of users.</li>
 		<li>As the CISO I must ensure that specific rules are applied to control the initial visibility of records.</li>
+		<li>As the CISO I must ensure that specific groups are NOT considered to control visibility.</li>
 		<li>As the CISO I want to allow users who raised an incident/problem/change/... to access it.</li>
 		<li>As the CISO I must ensure that users can only access records according to their security clearance level.</li>
 		<li>As the CHRO I demand that only entitled users can access records that contain sensitive HR-related data.</li>
@@ -513,6 +515,7 @@ DataSilos - incident_task - cross-silo
 		<li>GetSupportedTable() now uses transaction caching to avoid repetitive database queries and function calls.</li>
 		<li>AppBuilder() now considers tables that are in the scope of the application.</li>
 		<li>The "Start" page has been renamed to "Manual".</li>
+		<li>The group filter is now considered in the "Analysis" and "User Stories" chapters in the manual.</li>
 	</ol>
 
 	
@@ -841,13 +844,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>602</sys_mod_count>
+        <sys_mod_count>604</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-02-23 15:46:10</sys_updated_on>
+        <sys_updated_on>2022-02-28 15:53:45</sys_updated_on>
     </sys_ui_page>
 </record_update>
