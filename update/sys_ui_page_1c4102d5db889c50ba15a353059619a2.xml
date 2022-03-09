@@ -514,6 +514,7 @@ DataSilos - incident_task - cross-silo
 		<li>DevTools 1.33.0 is now required.</li> 
 		<li>UI Action "DataSilos Maintenance" is now using DevTools' GlideRecordUpdate() in ghost mode to update records - which allows updating records in scoped tables which are not configured for cross-scope access.</li> 
 		<li>GetSupportedTable() now uses transaction caching to avoid repetitive database queries and function calls.</li>
+		<li>Functions PrepareQuery(), RecordCheckFilter() and RecordCheckAccess() no longer default to the current users if no or an invalid user id is provided.</li>
 		<li>AppBuilder() now considers tables that are in the scope of the application.</li>
 		<li>The "Start" page has been renamed to "Manual".</li>
 		<li>The label of the field storing a user's security clearance level has been renamed to "User Security Clearance" - otherwise one could confuse it with the field the stores the security clearance level of the record itself - if a plugin supports filtering the sys_user table.</li>
@@ -846,13 +847,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>607</sys_mod_count>
+        <sys_mod_count>608</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-03-07 16:09:03</sys_updated_on>
+        <sys_updated_on>2022-03-09 17:30:10</sys_updated_on>
     </sys_ui_page>
 </record_update>
