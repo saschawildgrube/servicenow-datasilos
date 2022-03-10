@@ -61,7 +61,7 @@
     </sys_app_module>
     <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
         <file_path/>
         <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
         <instance_name>wildgrubedevparis</instance_name>
@@ -94,10 +94,10 @@
         <sys_metadata>928017841b695010a89720a8ec4bcbbd</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>ITSM ACLs</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_parent/>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
         <sys_update_name>sys_app_module_928017841b695010a89720a8ec4bcbbd</sys_update_name>
         <sys_update_version display_value="sys_app_module_928017841b695010a89720a8ec4bcbbd">ea9b297e1b7ef810edf3642aab4bcb4f</sys_update_version>

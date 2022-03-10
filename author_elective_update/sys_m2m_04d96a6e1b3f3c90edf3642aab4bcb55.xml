@@ -22,7 +22,7 @@
     </sys_m2m>
     <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
         <file_path/>
         <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
         <instance_name>wildgrubedevparis</instance_name>
@@ -55,10 +55,10 @@
         <sys_metadata>04d96a6e1b3f3c90edf3642aab4bcb55</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_datasilos_m2m_datasilos_datasilos</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_parent/>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
         <sys_update_name>sys_m2m_04d96a6e1b3f3c90edf3642aab4bcb55</sys_update_name>
         <sys_update_version display_value="sys_m2m_04d96a6e1b3f3c90edf3642aab4bcb55">a42aea6e1b3f3c90edf3642aab4bcbf9</sys_update_version>
