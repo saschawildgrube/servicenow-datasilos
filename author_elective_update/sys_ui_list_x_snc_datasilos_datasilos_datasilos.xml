@@ -61,7 +61,7 @@
     </sys_ui_list>
 <sys_update_version action="INSERT_OR_UPDATE">
         <action>DELETE</action>
-        <application display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</application>
+        <application display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</application>
         <file_path/>
         <instance_id>6b513d92dbe2fc100b9d21c4059619eb</instance_id>
         <instance_name>wildgrubedevparis</instance_name>
@@ -155,10 +155,10 @@
         <sys_metadata>2439d1e31b88d490a89720a8ec4bcbc0</sys_metadata>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_snc_datasilos_datasilos</sys_name>
-        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
-        <sys_parent display_value="Data Silos">6ad94eea1b627010edf3642aab4bcbc7</sys_parent>
+        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_parent display_value="">6ad94eea1b627010edf3642aab4bcbc7</sys_parent>
         <sys_policy/>
-        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_scope_delete display_value="">13d28564f033417896743d5e7fb82131</sys_scope_delete>
         <sys_update_name>sys_ui_list_x_snc_datasilos_datasilos_datasilos</sys_update_name>
         <sys_update_version display_value="sys_ui_list_x_snc_datasilos_datasilos_datasilos">e38a8a221ba27010edf3642aab4bcb31</sys_update_version>

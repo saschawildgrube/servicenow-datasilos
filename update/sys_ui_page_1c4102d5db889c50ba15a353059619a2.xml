@@ -4,7 +4,7 @@
         <client_script/>
         <description/>
         <direct>false</direct>
-        <endpoint>x_snc_datasilos_start.do</endpoint>
+        <endpoint>x_snc_datasilos_manual.do</endpoint>
         <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 <div style="padding-left: 20px;">
@@ -35,7 +35,7 @@
 		<li>Visibility of data should be controlled by specific user roles</li>
 	</ul>
 	
-	<h2>Supported processes</h2>
+	<h2>Supported Processes</h2>
 	<ol>
 		<li>Incident</li>
 		<li>Change Request</li>
@@ -54,7 +54,7 @@
 	<p>A hierarchy or network of silos can be defined. Silo-to-silo relationships can be defined between "super" silos to "sub" silos. Supervisors in the "super" silo are granted access to all records whitelisted for the "sub" silo. These relationships can be bi-directional, so both strict hierarchies and all other forms of networks can be described.</p>
 	<p>Note that silo-to-silo relationships are not inherited. If silo "A" supervisors can access sub silo "B" records, and silo "B" supervisors have access to silo "C" records, silo "A" supervisor do not automatically get access to silo "C" records - unless a relationship between silo "A" and silo "C" is explicitly defined.</p>
 
-	<h3>Security clearance dimension</h3>
+	<h3>Security Clearance Dimension</h3>
 	<p>Access to records can also be controlled based on individual user security clearance levels. The security clearance level is a numeric value. All users and all records have level 0 by default. If a record is set to a higher level, it can only be seen by users who have an equal or higher security clearance level.</p>
 	<p>DataSilos does not actively set the security clearance level when records or users are created. This should be done by a customer specific customization. But whenever two records are linked (like an incident task being associated to an incident) the highest security clearance level requirement of all related record is inherited. As a result, all related records will then have the highest security clearance level requirement of all related records.</p>
 	<p>Security clearance-based filtering and the organizational dimension are combined. If one of the two denies access, no access is granted. This may result in records not being visible even to the user who created it.</p>
@@ -71,7 +71,7 @@
 		<li>When ACLs are used to control access based on a general access rule, these rules must be checked in every ACL on a given table. If just one ACL does not also check the filtering rule, access might be granted to users which should not access the record. DataSilos uses ATF tests to verify that all ACLs of a table are configured correctly and can help to prevent that future changes open up security issues.</li>
 	</ol>
 	
-	<h2>System requirements</h2>
+	<h2>System Requirements</h2>
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
@@ -92,7 +92,7 @@
 	<p>Database views need to be protected explicitly. The before query business rule of a table are not triggered if a database view is used to retrieve data from a table. ACLs are triggered when records are retrieved through a database view - but the records being presented to the ACL script are incomplete, so specific logic must be applied when checking records within database views.</p>
 	<p>In order to apply the filtering on records when using database views DataSilos uses a background job to configure business rules for all databse views automatically. In addition it adds the fields to the table view configuration of a databse view if required. As a result, no additional manual configuration is required to protect data delivered via database views.</p> 
 	
-	<h2>Implementation guide</h2>
+	<h2>Implementation Guide</h2>
 	<h3>Analysis</h3>
 	<p>The following aspects and topics should be considered when implementing the DataSilos application:</p>
 	<ol>
@@ -105,6 +105,7 @@
 		<li>HR, information security or other special stakeholder groups might have additional requirements. Have these been considered?</li>
 		<li>Are security clearance levels of individual users to be considered to access records?</li> 
 		<li>How should external suppliers and vendors be affected? The specific rights and roles of users associated to external suppliers and vendors should be considered.</li>
+		<li>If Domain Separation is already installed or the plan is to use both solutions in combination: Which specific security aspects should be covered by Domain Separation and which should be covered by DataSilos?</li> 
 		
 		<!-- BASE DATA QUALITY -->
 		<li>Does the existing group structure support the later silo configuration? Are groups missing? Are there duplicates?</li>
@@ -115,6 +116,7 @@
 		<li>Who is responsible to define the data silos and can provide a mapping to groups? In large organizations this might be a challenging task - especially if there are multiple systems of record from which organization data is retrieved and imported into the ServiceNow instance.</li>
 		<li>Who should be responsible to maintain the silo configuration? Which processes might be affected? What must happen if new groups are being created in the future?</li>
 		<li>Should data silo configuration be automated - maybe as part of existing processes that integrate organizational data into the platform?</li>
+		<li>Should all groups be considered for filtering? Are there groups which should be ignored?</li>
 		<li>Does a process exist to manage groups? Consider the process implications once a group must also be assigned to a silo.</li> 
 		<li>Do naming conventions exist? How should group silos be named?</li>
 		<li>What should happen with records in supported tables that do not have an assignment group - and hence may be invisible to most users?</li>
@@ -141,11 +143,12 @@
 		<li>Consider that before DataSilos is activated, existing records must be initialized - i.e. their whitelists must be populated so that visibility is not prevented for users who should have access. Do existing records have sufficient information to apply the visibility rules? Can all records be updated? Would such updates trigger unnecessary notifications?</li>
 	
 	</ol>
-	<h3>User stories</h3>
+	<h3>User Stories</h3>
 	<p>The following list of user stories is a recommendation based on previous DataSilos implementations. It should be extended and modified based on the findings of the analysis.</p>
 	<ol>
 		<li>As the CISO I must ensure that incidents/problems/changes/... are only visible to specific groups of users.</li>
 		<li>As the CISO I must ensure that specific rules are applied to control the initial visibility of records.</li>
+		<li>As the CISO I must ensure that specific groups are NOT considered to control visibility.</li>
 		<li>As the CISO I want to allow users who raised an incident/problem/change/... to access it.</li>
 		<li>As the CISO I must ensure that users can only access records according to their security clearance level.</li>
 		<li>As the CHRO I demand that only entitled users can access records that contain sensitive HR-related data.</li>
@@ -182,7 +185,7 @@
 		<li>As the incident manager I want to make specific incidents (e.g. major incidents or incidents with the highest priority) visible to everyone in the organization.</li>
 		<li>As the one responsible for reporting and performance analytics I want to make sure that reports and dashboards work as expected.</li>
 	</ol>
-	<h3>Preparing validation</h3>
+	<h3>Preparing Validation</h3>
 	<p>The following spects should be considered for testing and validation:</p>
 	<ol>
 		<li>DataSilos modifies queries being sent to the database in order to implement the visibility filtering. These modifications come at a performance cost. Depending on how many teams (and silos) a user is a member of and depending on how many records are in the table, the performance impact might be visible to users. IT IS STRONGLY RECOMMENDED TO PERFORM A REALISTIC LOAD TEST! A simulation of actual user behavior in a production-like instance with production-like configuration can show if the performance impact is acceptable.</li>
@@ -203,7 +206,7 @@
 				'DevTools',
 				'https://github.com/saschawildgrube/servicenow-devtools');
 		]</g2:no_escape>
-		<li>Follow the installation instruction contained in "DevTools/Start".</li>
+		<li>Follow the installation instruction contained in "DevTools/Manual".</li>
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsImportFromSourceControl(
 				'DataSilos',
@@ -357,7 +360,7 @@ Best regards,
 	
 	
 	<h2>Runbook</h2>
-	<h3>Incident models</h3>
+	<h3>Incident Models</h3>
 	<h4>Instance not responding / Severe performance issue</h4>
 	<h5>Symptoms</h5>
 	<ul>
@@ -412,7 +415,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 </pre>
 	</ol>
 	
-	<h2>Developer guide</h2>
+	<h2>Developer Guide</h2>
 	<h3>Entry points</h3>
 	<p>The DataSilos application is implemented in a number of script includes. Most of which contain a single function. The following script includes (i.e. functions) serve as entry points to the application. All other functions are then called from these entry points:</p>
 	<ol>
@@ -423,7 +426,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 	</ol>
 	<p>For a more detailed description refer to the DataSilos API Reference below.</p> 
 	
-	<h3>DataSilos API reference</h3>
+	<h3>DataSilos API Reference</h3>
 	<p>The following functions can be used to extend and modify out of the box behavior without making any changes to the core implementation. This allows for extensions which are compatible to future versions.</p> 
 	<p>
 	<g2:no_escape>$[docapi.RenderScriptIncludes()]</g2:no_escape>
@@ -497,8 +500,28 @@ DataSilos - incident_task - cross-silo
 	<g2:no_escape>$[docapi.RenderLicense()]</g2:no_escape>
 
 	
-	<h2>Release notes</h2>
+	<h2>Release Notes</h2>
 
+	<!--
+	<h3>3.TODO - 2022-TODO</h3>
+	<ol>
+		<li>TODO</li> 
+	</ol>
+-->
+
+	<h3>3.3.0 - 2022-03-10</h3>
+	<ol>
+		<li>DevTools 1.34.0 is now required.</li> 
+		<li>UI Action "DataSilos Maintenance" is now using DevTools' GlideRecordUpdate() in ghost mode to update records - which allows updating records in scoped tables which are not configured for cross-scope access.</li> 
+		<li>GetSupportedTable() now uses transaction caching to avoid repetitive database queries and function calls.</li>
+		<li>Functions PrepareQuery(), RecordCheckFilter() and RecordCheckAccess() no longer default to the current users if no or an invalid user id is provided.</li>
+		<li>AppBuilder() now considers tables that are in the scope of the application.</li>
+		<li>The "Start" page has been renamed to "Manual".</li>
+		<li>The label of the field storing a user's security clearance level has been renamed to "User Security Clearance" - otherwise one could confuse it with the field the stores the security clearance level of the record itself - if a plugin supports filtering the sys_user table.</li>
+		<li>The group filter is now considered in the "Analysis" and "User Stories" chapters in the manual.</li>
+	</ol>
+
+	
 	<h3>3.2.0 - 2022-02-03</h3>
 	<ol>
 		<li>Paris is no longer actively supported.</li>
@@ -818,19 +841,19 @@ while (grSSA.next())
 <span style="visibility: hidden;">_CUT_HERE_</span>
 </div>
 </j:jelly>]]></html>
-        <name>start</name>
+        <name>manual</name>
         <processing_script/>
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>595</sys_mod_count>
-        <sys_name>start</sys_name>
+        <sys_mod_count>609</sys_mod_count>
+        <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-02-03 13:28:12</sys_updated_on>
+        <sys_updated_on>2022-03-10 09:31:00</sys_updated_on>
     </sys_ui_page>
 </record_update>
