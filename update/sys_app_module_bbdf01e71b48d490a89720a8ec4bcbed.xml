@@ -15,7 +15,7 @@
         <name>x_snc_datasilos_datasilos</name>
         <order>50</order>
         <override_menu_roles>false</override_menu_roles>
-        <query>&amp;sysparm_view_forced=true</query>
+        <query/>
         <report/>
         <roles>x_snc_datasilos.manager</roles>
         <sys_class_name>sys_app_module</sys_class_name>
@@ -24,7 +24,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>bbdf01e71b48d490a89720a8ec4bcbed</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Data Silos</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -32,11 +32,11 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_bbdf01e71b48d490a89720a8ec4bcbed</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-22 13:19:24</sys_updated_on>
+        <sys_updated_on>2022-03-10 09:22:02</sys_updated_on>
         <timeline_page/>
         <title>Data Silos</title>
         <uncancelable>false</uncancelable>
-        <view_name>DataSilos</view_name>
+        <view_name/>
         <window_name/>
     </sys_app_module>
 </record_update>
