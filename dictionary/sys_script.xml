@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="all_tables.text_index_translations=true,update_synch=true" audit="true" extends="sys_metadata" label="Business Rule" max_length="40" name="sys_script" read_roles="business_rule_admin" sizeclass="3362" text_index="true" type="collection">
+    <element attributes="all_tables.text_index_translations=true,update_synch=true" audit="true" extends="sys_metadata" label="Business Rule" max_length="40" name="sys_script" read_roles="business_rule_admin" sizeclass="3366" text_index="true" type="collection">
         <element label="Created by DataSilos" max_length="40" name="x_snc_datasilos_created" type="boolean"/>
     </element>
 </database>
