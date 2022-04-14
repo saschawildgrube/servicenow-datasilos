@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetAllActiveTables</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns the name of all active tables as an array.</description>
+        <name>GetAllActiveTables</name>
+        <script><![CDATA[function GetAllActiveTables()
+{
+	var aTables = x_snc_datasilos.GetAllSupportedTables();
+	var aActiveTables = Array();
+	for (var nTable = 0; nTable < aTables.length; nTable++)
+	{
+		if (x_snc_datasilos.GetConfigValue('tables',aTables[nTable],'active') == true)
+		{
+			aActiveTables.push(aTables[nTable]);
+		}
+	}
+	return aActiveTables;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-04-14 14:57:10</sys_created_on>
+        <sys_id>bafce526db760d10bcced03cd39619b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetAllActiveTables</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_bafce526db760d10bcced03cd39619b4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-04-14 14:57:10</sys_updated_on>
+    </sys_script_include>
+</record_update>
