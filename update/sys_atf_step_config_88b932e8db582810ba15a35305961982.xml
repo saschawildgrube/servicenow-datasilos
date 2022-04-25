@@ -30,11 +30,13 @@ generateDescription();]]></description_generator>
 	var GetArrayValue = x_snc_devtools.GetArrayValue;&#13;
 	var IsTableSupported = x_snc_datasilos.IsTableSupported;&#13;
 	var GetBusinessRuleName = x_snc_datasilos.GetBusinessRuleName;&#13;
+	var GetAppRecord = x_snc_devtools.GetAppRecord;&#13;
 &#13;
 	&#13;
 	stepResult.setSuccess();&#13;
 &#13;
-	var strDataSilosAppSysId = 'dafbffebdbb78450ba15a353059619eb';&#13;
+	var grDataSilosApp = GetAppRecord('x_snc_datasilos');&#13;
+	var strDataSilosAppSysId = grDataSilosApp.sys_id;&#13;
 &#13;
 	var strAppSysId = GetStringValue(inputs.u_application);&#13;
 	var strTable = GetStringValue(inputs.u_table);&#13;
@@ -708,14 +710,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>126</sys_mod_count>
+        <sys_mod_count>127</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-19 12:36:59</sys_updated_on>
+        <sys_updated_on>2022-04-25 07:41:02</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">ee6efe9ddb540110b652edb305961948</type>
         <wizard_redirect/>
