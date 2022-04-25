@@ -12,28 +12,36 @@
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var GetIntegerValue = x_snc_devtools.GetIntegerValue;
 	var RenderValue = x_snc_devtools.RenderValue;	
+	var GlideRecordQuery = x_snc_devtools.GlideRecordQuery;
 	
-	strUserSysId = GetStringValue(strUserSysId);
-	var grUser = new GlideRecord('sys_user');
-	if (grUser.get(strUserSysId) == false)
-	{
-		return 0;
-	}
-	
-	var nUserSecurityClearance = GetIntegerValue(grUser.getValue('x_snc_datasilos_security_clearance'));
+	var transactionCache = new x_snc_devtools.TransactionCacheAPI('DATASILOS');
+	var nUserSecurityClearance = transactionCache.GetItem('user_security_clearance_'+strUserSysId);
+	if (nUserSecurityClearance == null)
+	{	
+		nUserSecurityClearance = 0;
+		strUserSysId = GetStringValue(strUserSysId);
+		var grUser = new GlideRecord('sys_user');
+		grUser.addQuery('sys_id','=',strUserSysId);
+		GlideRecordQuery(grUser,true);
+		if (grUser.next() == true)
+		{
+			nUserSecurityClearance = GetIntegerValue(grUser.getValue('x_snc_datasilos_security_clearance'));	
+		}
+		transactionCache.SetItem('user_security_clearance_'+strUserSysId,nUserSecurityClearance);
+	}		
 	return nUserSecurityClearance;
 }]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-02-19 12:17:43</sys_created_on>
         <sys_id>a07617ebdb9eac14ba15a35305961902</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>GetSecurityClearanceFromUser</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_a07617ebdb9eac14ba15a35305961902</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-30 10:24:16</sys_updated_on>
+        <sys_updated_on>2022-04-20 14:12:46</sys_updated_on>
     </sys_script_include>
 </record_update>

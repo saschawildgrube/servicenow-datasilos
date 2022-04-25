@@ -87,10 +87,10 @@
 					grBR.when = 'before';
 					grBR.advanced = 'true';
 					grBR.action_query = 'true';
-					grBR.script = "" 
-						+"(function executeRule(current, previous)"
-						+"{"
-						+"   x_snc_datasilos.ExecuteBusinessRule(current, previous);"
+					grBR.script =  
+						"(function executeRule(current, previous)\n"
+						+"{\n"
+						+"   x_snc_datasilos.ExecuteBusinessRule(current, previous);\n"
 						+"})(current, previous);";
 					if (bInsert == true)
 					{
@@ -140,7 +140,8 @@
 
 					// Iterate over referenced tables
 					var aInstantAccess = GetConfigValue('tables',strTable,'columns','instant_access');
-					Object.keys(aInstantAccess).forEach( function(strReferencedTable)
+					var aKeys = Object.keys(aInstantAccess);
+					aKeys.forEach( function(strReferencedTable)
 					{
 						var aFields = GetArrayValue(GetConfigValue('tables',strTable,'columns','instant_access',strReferencedTable));
 						for (nField = 0; nField < aFields.length; nField++)
@@ -173,9 +174,7 @@
 		{
 			GlideRecordDelete(grBR);
 		}
-		
-		
-		
+	
 	}
 	Log('Completed.');
 
@@ -185,13 +184,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-05-18 12:45:13</sys_created_on>
         <sys_id>fc9620ccdb143490bc44d844ca9619d6</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>MaintenanceDatabaseViews</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
-        <sys_policy>read</sys_policy>
+        <sys_policy>protected</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_fc9620ccdb143490bc44d844ca9619d6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-11-30 10:25:23</sys_updated_on>
+        <sys_updated_on>2022-04-25 07:29:20</sys_updated_on>
     </sys_script_include>
 </record_update>

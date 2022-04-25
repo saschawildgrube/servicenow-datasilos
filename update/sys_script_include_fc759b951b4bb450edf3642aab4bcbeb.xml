@@ -22,8 +22,8 @@
 	
 	if (strScript.indexOf('\n') == -1)
 	{
-		var strScriptSingleLine = ""
-			+"var bAnswer = false;\n"
+		var strScriptSingleLine = 
+			"var bAnswer = false;\n"
 			+"bAnswer = {CODE}\n"
 			+"if (bAnswer == true)\n"
 			+"{\n"
@@ -35,14 +35,15 @@
 		var strScriptNoWhitespaces = StringRemoveCharacters(strScript,' \t');
 		if (strScriptNoWhitespaces.indexOf('answer=') == 0)
 		{
-			strScriptNoAnswer = strScript.replace('answer =','').trim();
+			strScriptNoAnswer = strScript.replace('answer =','');
+			strScriptNoAnswer = strScriptNoAnswer.trim();
 		}
 		return strScriptSingleLine.replace('{CODE}',strScriptNoAnswer);
 	}
 	else
 	{
-		var strScriptMultiLine = ""
-			+"var bAnswer = false;\n"
+		var strScriptMultiLine = 
+			"var bAnswer = false;\n"
 			+"function GetAnswer()\n"
 			+"{\n"
 			+"\tvar answer = false;\n"
@@ -66,13 +67,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-06 15:25:16</sys_created_on>
         <sys_id>fc759b951b4bb450edf3642aab4bcbeb</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>ModifyACLScript</sys_name>
         <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_fc759b951b4bb450edf3642aab4bcbeb</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-10-06 16:02:16</sys_updated_on>
+        <sys_updated_on>2022-04-25 07:39:09</sys_updated_on>
     </sys_script_include>
 </record_update>
