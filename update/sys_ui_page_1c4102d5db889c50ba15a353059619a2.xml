@@ -514,6 +514,11 @@ DataSilos - incident_task - cross-silo
 		<li>DevTools 1.38.0 is now required.</li> 
 	</ol>	
 	
+	<h3>3.4.1 - 2022-04-25</h3>
+	<ol>
+		<li>Regression defect caused extension points to be ignored. This has been fixed.</li>
+	</ol>
+	
 	<h3>3.4.0 - 2022-04-25</h3>
 	<ol>
 		<li>DevTools 1.37.0 is now required.</li>
@@ -861,13 +866,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>619</sys_mod_count>
+        <sys_mod_count>620</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-04-25 08:49:10</sys_updated_on>
+        <sys_updated_on>2022-04-25 12:52:00</sys_updated_on>
     </sys_ui_page>
 </record_update>
