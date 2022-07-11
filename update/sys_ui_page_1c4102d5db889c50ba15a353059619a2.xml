@@ -515,6 +515,7 @@ DataSilos - incident_task - cross-silo
 	<ol>
 		<li>DevTools 1.38.0 is now required.</li> 
 		<li>The MainenanceACL() function unintentionally modified the script contained in non-record type ACLs for a filtered table. This has been fixed.</li> 
+		<li>Added display of Domain Separation status per table on the Status page.</li>
 		<li>Added guidance on adding test steps in the installation and implementation tests when extending the scope.</li>
 	</ol>	
 	
@@ -870,13 +871,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>624</sys_mod_count>
+        <sys_mod_count>625</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-06-13 16:46:28</sys_updated_on>
+        <sys_updated_on>2022-07-11 12:37:56</sys_updated_on>
     </sys_ui_page>
 </record_update>
