@@ -127,8 +127,8 @@
 			grSSI.sys_scope = strAppSysId;&#13;
 			grSSI.access = 'public';&#13;
 			grSSI.caller_access = '1';&#13;
-			grSSI.script = ""&#13;
-				+"function DataSilosGetConfig(config)\n"&#13;
+			grSSI.script =&#13;
+				"function DataSilosGetConfig(config)\n"&#13;
 				+"{\n"&#13;
 				+"\treturn config;\n"&#13;
 				+"}";&#13;
@@ -156,8 +156,8 @@
 			grSSI.sys_scope = strAppSysId;&#13;
 			grSSI.access = 'public';&#13;
 			grSSI.caller_access = '1';&#13;
-			grSSI.script = ""&#13;
-				+"function DataSilosGetRelatedRecords(record)\n"&#13;
+			grSSI.script = &#13;
+				"function DataSilosGetRelatedRecords(record)\n"&#13;
 				+"{\n"&#13;
 				+"\tvar IsValidRecord = x_snc_devtools.IsValidRecord;\n"&#13;
 				+"\tvar RenderValue = x_snc_devtools.RenderValue;\n"&#13;
@@ -193,8 +193,8 @@
 			grSSI.sys_scope = strAppSysId;&#13;
 			grSSI.access = 'public';&#13;
 			grSSI.caller_access = '1';&#13;
-			grSSI.script = ""&#13;
-				+"function DataSilosRecordInsert(record)\n"&#13;
+			grSSI.script = &#13;
+				"function DataSilosRecordInsert(record)\n"&#13;
 				+"{\n"&#13;
 				+"\tvar IsValidRecord = x_snc_devtools.IsValidRecord;\n"&#13;
 				+"\tvar RenderValue = x_snc_devtools.RenderValue;\n"&#13;
@@ -229,8 +229,8 @@
 			grSSI.sys_scope = strAppSysId;&#13;
 			grSSI.access = 'public';&#13;
 			grSSI.caller_access = '1';&#13;
-			grSSI.script = ""&#13;
-				+"function DataSilosRecordUpdate(record)\n"&#13;
+			grSSI.script =&#13;
+				"function DataSilosRecordUpdate(record)\n"&#13;
 				+"{\n"&#13;
 				+"\tvar IsValidRecord = x_snc_devtools.IsValidRecord;\n"&#13;
 				+"\tvar RenderValue = x_snc_devtools.RenderValue;\n"&#13;
@@ -579,8 +579,8 @@
 				grSA.run_time = '1969-12-31 23:00:00';&#13;
 				grSA.run_period.setDateNumericValue(600000); // 10 minutes&#13;
 				grSA.run_type = 'periodically';&#13;
-				var strScript = ""&#13;
-					+"var grRecords = new GlideRecord('"+strTable+"');\n"&#13;
+				var strScript = &#13;
+					"var grRecords = new GlideRecord('"+strTable+"');\n"&#13;
 					+"x_snc_datasilos.Maintenance(grRecords);";&#13;
 				grSA.script = strScript;				&#13;
 				var strJobSysId = GlideRecordInsert(grSA);&#13;
@@ -613,8 +613,8 @@
 				grBR.when = 'before';&#13;
 				grBR.order = 10000;&#13;
 				grBR.collection = strTable;&#13;
-				var strScript = ""&#13;
-					+"(function executeRule(current, previous /*null when async*/) {\n"&#13;
+				var strScript = &#13;
+					"(function executeRule(current, previous /*null when async*/) {\n"&#13;
 					+"\tx_snc_datasilos.ExecuteBusinessRule(current, previous);\n"&#13;
 					+"})(current, previous);";&#13;
 				grBR.script = strScript;				&#13;
@@ -643,8 +643,8 @@
 					}&#13;
 					if (strScript.indexOf("config['tables']['"+strTable+"'] =") == -1)&#13;
 					{&#13;
-						strScriptTableConfig = ""&#13;
-							+"config['tables']['"+strTable+"'] =\n"&#13;
+						strScriptTableConfig = &#13;
+							"config['tables']['"+strTable+"'] =\n"&#13;
 							+"\t{\n"&#13;
 							+"\t\t'scope': '"+strAppScope+"',\n"&#13;
 							+"\t\t'active': true,\n"&#13;
@@ -690,8 +690,8 @@
 					}&#13;
 					if (strScript.indexOf("if (strTable == '"+strTable+"')") == -1)&#13;
 					{&#13;
-						strScriptTableConfig = ""&#13;
-							+"if (strTable == '"+strTable+"')\n"&#13;
+						strScriptTableConfig =&#13;
+							"if (strTable == '"+strTable+"')\n"&#13;
 							+"\t{\n"&#13;
 							+"\t\t// Add your code here...\n"&#13;
 							+"\t\treturn aRelatedRecords;\n"&#13;
@@ -726,8 +726,8 @@
 					}&#13;
 					if (strScript.indexOf("if (strTable == '"+strTable+"')") == -1)&#13;
 					{&#13;
-						strScriptTableConfig = ""&#13;
-							+"if (strTable == '"+strTable+"')\n"&#13;
+						strScriptTableConfig = &#13;
+							"if (strTable == '"+strTable+"')\n"&#13;
 							+"\t{\n"&#13;
 							+"\t\t//Add your code here...\n"&#13;
 							+"\t\tbResult = true;\n"&#13;
@@ -761,8 +761,8 @@
 					}&#13;
 					if (strScript.indexOf("if (strTable == '"+strTable+"')") == -1)&#13;
 					{&#13;
-						strScriptTableConfig = ""&#13;
-							+"if (strTable == '"+strTable+"')\n"&#13;
+						strScriptTableConfig = &#13;
+							"if (strTable == '"+strTable+"')\n"&#13;
 							+"\t{\n"&#13;
 							+"\t\t//Add your code here...\n"&#13;
 							+"\t\tbResult = true;\n"&#13;
@@ -872,8 +872,8 @@
 			{&#13;
 				Log('Modifying script include AppGetDependencies to add dependency to DataSilos...');&#13;
 &#13;
-				strScriptDataSilosDependency = ""&#13;
-					+"\t,\n"&#13;
+				strScriptDataSilosDependency =&#13;
+					"\t,\n"&#13;
 					+"\t\t{\n"&#13;
 					+"\t\t\tname: 'DataSilos',\n"&#13;
 					+"\t\t\tversion: '"+strDataSilosVersion+"',\n"&#13;
@@ -1040,13 +1040,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>105</sys_mod_count>
+        <sys_mod_count>106</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-02-23 09:55:17</sys_updated_on>
+        <sys_updated_on>2022-07-11 12:55:05</sys_updated_on>
     </sys_script_include>
 </record_update>
