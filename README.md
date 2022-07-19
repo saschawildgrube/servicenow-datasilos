@@ -28,8 +28,8 @@ If you find yourself unable to import your repository due to the presence of fil
    * Problem Tasks
    * Text Index
    * Incident
-   * System Import Sets
    * Service Management Basics
+   * System Import Sets
    * System (apps/system1)
    * Service Catalog Platform
    * Problem Management

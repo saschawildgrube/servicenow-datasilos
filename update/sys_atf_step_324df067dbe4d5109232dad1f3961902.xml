@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-07-13 13:52:13</sys_created_on>
+        <sys_id>324df067dbe4d5109232dad1f3961902</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_atf_step_324df067dbe4d5109232dad1f3961902</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-07-13 14:10:20</sys_updated_on>
+        <table/>
+        <test display_value="DataSilos - AccessAnalysisForUserAndRecord">393d7067dbe4d5109232dad1f39619c8</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=324df067dbe4d5109232dad1f3961902"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>324df067dbe4d5109232dad1f3961902</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-07-13 13:52:13</sys_created_on>
+        <sys_id>bf4df067dbe4d5109232dad1f396191d</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-07-13 14:10:20</sys_updated_on>
+        <value>(function(outputs, steps, stepResult, assertEqual)&#13;
+{&#13;
+	var RenderValue = x_snc_devtools.RenderValue;&#13;
+	var GetStringValue = x_snc_devtools.GetStringValue;&#13;
+	var IsObject = x_snc_devtools.IsObject;&#13;
+	var GetValue = x_snc_devtools.GetValue;&#13;
+	var GetUserRecord = x_snc_devtools.GetUserRecord;&#13;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;&#13;
+	&#13;
+	AppSetProperty('active','true'); &#13;
+	AppSetProperty('tables.incident.active','true'); &#13;
+	AppSetProperty('tables.incident.columns.instant_access.sys_user','opened_by,caller_id'); &#13;
+	&#13;
+	&#13;
+	var testdata = new DataSilosTestDataAPI('_ATF_DATASILOS_');&#13;
+&#13;
+	var strUserSpectator = testdata.CreateUser('SPECTATOR',[]);&#13;
+	var strUserCaller = testdata.CreateUser('CALLER',['itil']);&#13;
+	&#13;
+	var strIncident = testdata.CreateIncident('TEST','','CALLER','');&#13;
+&#13;
+	var test = new x_snc_devtools.TestAPI(outputs, steps, stepResult, assertEqual);&#13;
+	&#13;
+	&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserSpectator,'incident','',strIncident,false);&#13;
+	test.TestCase_IsRecordAccessibleByUser(strUserCaller,'incident','',strIncident,true);&#13;
+&#13;
+&#13;
+	function TestCase_AccessAnalysisForUserAndRecord(strUser, strTable, strRecord, vExpected)&#13;
+	{&#13;
+		function TestCase_AccessAnalysisForUserAndRecord_CheckResult(vInput,vExpected,vResult)&#13;
+		{&#13;
+			if (IsValidRecord(GetUserRecord(GetValue(vInput,'User'))) == false)&#13;
+			{&#13;
+				if (vResult == false)&#13;
+				{&#13;
+					return true;&#13;
+				}&#13;
+				return false;&#13;
+			}&#13;
+			if (IsObject(vResult) == false)&#13;
+			{&#13;
+				return false;&#13;
+			}&#13;
+			var bAccess = GetValue(vResult,'access');&#13;
+			if (vExpected != bAccess)&#13;
+			{&#13;
+				return false;&#13;
+			}&#13;
+			var strExplanation = GetStringValue(GetValue(vResult,'explanation'));&#13;
+			if (vExpected == true)&#13;
+			{&#13;
+				if (strExplanation.indexOf('can potentially access the record') == -1)&#13;
+				{&#13;
+					return false;&#13;
+				}&#13;
+			}&#13;
+			if (vExpected == false)&#13;
+			{&#13;
+				if (strExplanation.indexOf('can NOT access the record due to DataSilos filtering') == -1)&#13;
+				{&#13;
+					return false;&#13;
+				}&#13;
+			}&#13;
+			return true;&#13;
+		}&#13;
+		&#13;
+		test.TestCase(&#13;
+			'Function AccessAnalysisForUserAndRecord()',&#13;
+			AccessAnalysisForUserAndRecord,&#13;
+			{&#13;
+				'User': strUser,&#13;
+				'Table': strTable,&#13;
+				'Record': strRecord&#13;
+			},&#13;
+			vExpected,&#13;
+			TestCase_AccessAnalysisForUserAndRecord_CheckResult);&#13;
+	}&#13;
+&#13;
+	TestCase_AccessAnalysisForUserAndRecord('','incident',strIncident,false);&#13;
+	TestCase_AccessAnalysisForUserAndRecord(strUserSpectator,'incident',strIncident,false);&#13;
+	TestCase_AccessAnalysisForUserAndRecord(strUserCaller,'incident',strIncident,true);&#13;
+	&#13;
+&#13;
+	&#13;
+	test.Log(RenderValue(testdata.GetAllData(),true));&#13;
+	&#13;
+	return test.GetResult();&#13;
+	&#13;
+})(outputs, steps, stepResult, assertEqual);</value>
+        <variable display_value="Test script">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>324df067dbe4d5109232dad1f3961902</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-07-13 13:52:13</sys_created_on>
+        <sys_id>f74df067dbe4d5109232dad1f396191d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-07-13 13:52:13</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="Jasmine version">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+</record_update>

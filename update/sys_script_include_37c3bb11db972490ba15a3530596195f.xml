@@ -17,6 +17,9 @@
 	var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
 	var GetInstanceListPath = x_snc_devtools.GetInstanceListPath;
 	var RenderDateTimeUser = x_snc_devtools.RenderDateTimeUser;
+	var GetAppName = x_snc_devtools.GetAppName;
+	var IsDomainSeparationInstalled = x_snc_devtools.IsDomainSeparationInstalled;
+	var IsTableDomainSeparated = x_snc_devtools.IsTableDomainSeparated;
 
 
 	
@@ -51,6 +54,20 @@
 		return strHtml;
 	}
 	
+	function HtmlRenderSpanDomainSeparationStatus(strTable)
+	{
+		if (IsDomainSeparationInstalled() == false)
+		{
+			return '<span style="color: grey;">NOT INSTALLED</span>';
+		}
+		var bSeparated = IsTableDomainSeparated(strTable);
+		if (bSeparated == true)
+		{
+			return '<span style="color: green;">YES</span>';
+		}
+		return '<span style="color: black;">NO</span>';
+	}
+	
 
 	var strHtml = '';
 		
@@ -77,6 +94,7 @@
 			strHtmlTables += '<th>Backmarker</th>';
 			strHtmlTables += '<th></th>';
 			strHtmlTables += '<th>Updated</th>';
+			strHtmlTables += '<th>Domain Separation</th>';
 
 	strHtmlTables += '</td>';
 
@@ -85,7 +103,7 @@
 		var strTable = aTables[nTable];
 		strHtmlTables += '<tr>';
 
-		var strPath = GetInstanceListPath(strTable,'DataSilos');
+		var strPath = GetInstanceListPath(strTable,GetViewForTable(strTable));
 		
 		strHtmlTables += '<td>';
 			strHtmlTables += HtmlRenderLink('/'+strPath,strTable,true);
@@ -132,21 +150,21 @@
 		strHtmlTables += '<td>';
 
 		var strEncodedQuery = 'operation=read^name='+strTable+'^ORname='+strTable+'.*';
-		var strPath = GetInstanceListPath('sys_security_acl','DataSilos',strEncodedQuery);
+		var strPath = GetInstanceListPath('sys_security_acl',GetViewForTable('sys_security_acl'),strEncodedQuery);
 		strHtmlTables += HtmlRenderLink(
 			'/'+strPath,
 			'ACLs',true);
 		strHtmlTables += '&#160;|&#160;';
 
 		var strEncodedQuery = 'when=before^action_query=true^collection='+strTable;
-		var strPath = GetInstanceListPath('sys_script','DataSilos',strEncodedQuery);
+		var strPath = GetInstanceListPath('sys_script',GetViewForTable('sys_script'),strEncodedQuery);
 		strHtmlTables += HtmlRenderLink(
 			'/'+strPath,
 			'Before query business rules',true);
 		strHtmlTables += '&#160;|&#160;';		
 		
 		var strEncodedQuery = 'table='+strTable;
-		var strPath = GetInstanceListPath('sys_db_view_table','DataSilos',strEncodedQuery);
+		var strPath = GetInstanceListPath('sys_db_view_table',GetViewForTable('sys_db_view_table'),strEncodedQuery);
 		strHtmlTables += HtmlRenderLink(
 			'/'+strPath,
 			'DB Views',true);
@@ -158,7 +176,7 @@
 		if (grTable.next())
 		{
 			var strEncodedQuery = 'table='+grTable.sys_id;
-			var strPath = GetInstanceListPath('v_index_creator','DataSilos',strEncodedQuery);
+			var strPath = GetInstanceListPath('v_index_creator',GetViewForTable('v_index_creator'),strEncodedQuery);
 			strHtmlTables += HtmlRenderLink(
 				'/'+strPath,
 				'Indexes',true);
@@ -167,7 +185,7 @@
 		
 		
 		var strEncodedQuery = 'table_name='+strTable+'^element_nameSTARTSWITH'+GetScopeFromTable(strTable);
-		var strPath = GetInstanceListPath('sys_storage_alias','DevTools',strEncodedQuery);
+		var strPath = GetInstanceListPath('sys_storage_alias',GetViewForTable('sys_storage_alias'),strEncodedQuery);
 		strHtmlTables += HtmlRenderLink(
 			'/'+strPath,
 			'Aliases',true);
@@ -182,9 +200,11 @@
 			strHtmlTables += strUpdated;
 		strHtmlTables += '</td>';	
 	
-	
+		strHtmlTables += '<td>';
+			strHtmlTables += HtmlRenderSpanDomainSeparationStatus(strTable);
 		strHtmlTables += '</td>';
-	
+		
+		
 		strHtmlTables += '</tr>';
 	}
 	strHtmlTables += '</tbody></table>';
@@ -196,13 +216,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>65</sys_mod_count>
         <sys_name>HtmlRenderStatus</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-12-08 16:16:36</sys_updated_on>
+        <sys_updated_on>2022-07-13 12:43:59</sys_updated_on>
     </sys_script_include>
 </record_update>

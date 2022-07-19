@@ -90,10 +90,10 @@ generateDescription();]]></description_generator>
 &#13;
 		// Check if there is a test step that checks for the installation of ACLs for the table&#13;
 		var grSAS = new GlideRecord('sys_atf_step');&#13;
-		grSAS.addQuery('step_config','=','5f42f662db23d810ba15a353059619cd'); // DataSilos - Check ACLs&#13;
+		grSAS.addQuery('step_config.name','=','DataSilos - Check ACLs');&#13;
 		grSAS.addQuery('active','=',true);&#13;
 		grSAS.addQuery('description','CONTAINS','Checks if all ACLs are correctly configured for table: ['+strTable+']');&#13;
-		grSAS.addQuery('sys_scope',strAppSysId);&#13;
+		grSAS.addQuery('sys_scope','=',strAppSysId);&#13;
 		grSAS.query();&#13;
 		if (grSAS.getRowCount() != 1)&#13;
 		{&#13;
@@ -101,20 +101,6 @@ generateDescription();]]></description_generator>
 			stepResult.setFailed();&#13;
 		}		&#13;
 		&#13;
-		// Check if there is a test step that checks for the table cross scope access&#13;
-/*&#13;
-		var grSAS = new GlideRecord('sys_atf_step');&#13;
-		grSAS.addQuery('step_config','=','8d6e6be5db28e850ba15a35305961936'); // DevTools - Check table cross scope access&#13;
-		grSAS.addQuery('active','=',true);&#13;
-		grSAS.addQuery('description','CONTAINS','Checks if full cross scope access is configured for table: ['+strTable+']');&#13;
-		grSAS.addQuery('sys_scope',strAppSysId);&#13;
-		grSAS.query();&#13;
-		if (grSAS.getRowCount() != 1)&#13;
-		{&#13;
-			strMessage += 'There should be exactly one test step to check cross scope access for table "'+strTable+'"!\n';&#13;
-			stepResult.setFailed();&#13;
-		}			&#13;
-	*/	&#13;
 		&#13;
 		// Check ACL functions&#13;
 		function CheckFieldACLs(strTable,strField)&#13;
@@ -123,7 +109,6 @@ generateDescription();]]></description_generator>
 			{&#13;
 				function CheckACLRole(grSSA, strRole)&#13;
 				{&#13;
-					//strMessage += x_snc_devtools.RenderValue(grSSA) + '\n';&#13;
 					var grSUR = new GlideRecord('sys_user_role');&#13;
 					grSUR.addQuery('name','=',strRole);&#13;
 					grSUR.query();&#13;
@@ -710,18 +695,19 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>127</sys_mod_count>
+        <sys_mod_count>132</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-04-25 07:41:02</sys_updated_on>
+        <sys_updated_on>2022-07-13 11:56:50</sys_updated_on>
         <template_reminder>TBD</template_reminder>
-        <type display_value="Test Step" name="sys_atf_step">ee6efe9ddb540110b652edb305961948</type>
+        <type display_value="Test Step" name="sys_atf_step">1211b97721963010c0a0a40cdfd1e48d</type>
         <wizard_redirect/>
     </sys_atf_step_config>
     <sys_translated_text action="delete_multiple" query="documentkey=88b932e8db582810ba15a35305961982"/>
     <sys_variable_value action="delete_multiple" query="document_key=88b932e8db582810ba15a35305961982"/>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_88b932e8db582810ba15a35305961982^id=88b932e8db582810ba15a35305961982"/>
 </record_update>

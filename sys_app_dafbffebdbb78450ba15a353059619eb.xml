@@ -31,13 +31,14 @@
         <sys_id>dafbffebdbb78450ba15a353059619eb</sys_id>
         <sys_mod_count>86</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-04-25 12:46:33</sys_updated_on>
+        <sys_updated_on>2022-04-25 08:48:07</sys_updated_on>
+
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>3.4.1</version>
-    </sys_app>
+        <version>3.5.0</version>
+     </sys_app>
 </record_update>
