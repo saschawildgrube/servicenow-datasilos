@@ -14,7 +14,7 @@
         <license_model>none</license_model>
         <logo/>
         <menu display_value="DataSilos">949c7f2fdbb78450ba15a353059619d6</menu>
-        <name>DataSilos WORK IN PROGRESS</name>
+        <name>DataSilos</name>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
         <runtime_access_tracking>permissive</runtime_access_tracking>
