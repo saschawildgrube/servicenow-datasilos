@@ -428,9 +428,14 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 	
 	<h3>DataSilos API Reference</h3>
 	<p>The following functions can be used to extend and modify out of the box behavior without making any changes to the core implementation. This allows for extensions which are compatible to future versions.</p> 
+
+	<h4>Script Includes</h4>
 	<p>
 	<g2:no_escape>$[docapi.RenderScriptIncludes()]</g2:no_escape>
 	</p>
+	
+	<h4>Extension Points</h4>
+	<g2:no_escape>$[docapi.RenderExtensionPoints()]</g2:no_escape>		
 	
 	<h3>Extension of scope</h3> 
 	<p>You can extend the scope of the DataSilos application by adding the filtering logic to more tables. You might also modify the regular behavior of DataSilos when working with tables already supported by DataSilos. In either scenario you need to create a DataSilos plugin application. Before you start the implementation, perform the following steps:</p>
@@ -464,7 +469,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 		<li>Replace "x_abc_your_app_scope" by the actual app scope identifier.</li>
 		<li>Replace "Your App" with a suitable caption for the sub menu within the DataSilos menu.</li>
 		<li>Replace "20000" with a reasonable order number where the sub menu should be positioned. Values must be equal or greater than 10000. Please note that if other developers who create DataSilos plugins make the same or very similar choices, there might be collisions - but they can easily be resolved later.</li>
-		<li>Add the tables to be supported into the array. Note that you do not need to add tables which are already supported by DataSilos in order to implement deviating behavior for visibility rules. Also keep in mind that if a parent table is already supported, you should not add a derived table either.</li>			
+		<li>Add the tables to be supported into the array. Note that you do not need to add tables which are already supported by DataSilos in order to implement deviating behavior for visibility rules. Also keep in mind that if a parent table is already supported, you should not add any derived tables either.</li>			
 		<g2:no_escape>$[
 			docapi.RenderInstallationInstructionsBackgroundScript('Now build the boiler-plate code and prepare the implementation of your new DataSilos plugin application. Replace x_abc_your_app_scope by the actual scope identifier of your new application.', 'x_abc_your_app_scope.AppBuilder();', 'x_abc_your_app_scope');
 		]</g2:no_escape>
@@ -513,6 +518,8 @@ DataSilos - incident_task - cross-silo
 	<h3>3.6.0 - 2022-TODO</h3>
 	<ol>
 		<li>The ATF test step config "DataSilos - Check ACLs" would also look at ACLs which are not of type "record" - which may lead to false negative test results.</li> 
+		<li>Added documentation on extension points.</li>
+		<li>Improved documentation on extending the scope: which tables should be added, which should not.</li>
 	</ol>
 	
 	<h3>3.5.0 - 2022-07-19</h3>
@@ -879,13 +886,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>635</sys_mod_count>
+        <sys_mod_count>640</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-08-03 13:22:37</sys_updated_on>
+        <sys_updated_on>2022-08-04 09:03:02</sys_updated_on>
     </sys_ui_page>
 </record_update>
