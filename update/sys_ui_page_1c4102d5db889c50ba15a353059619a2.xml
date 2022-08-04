@@ -373,7 +373,7 @@ Best regards,
 		<li>Independently of whether DataSilos is the root cause, deactivating DataSilos completely may be considered as an emergency option. This should be aligned with stakeholders as this will (temporarily) expose the organization to legal or compliance risks.</li>
 		<li>Deactivate DataSilos by setting the&#160;<a href="/sys_properties.do?sys_id=c7949581db805c50ba15a353059619da" target="_blank">x_snc_datasilos.active</a>&#160;property to "false".</li>
 	</ol>
-	<h4>Technical integration does not longer work as expected</h4>
+	<h4>Technical integration does no longer work as expected</h4>
 	<h5>Symptoms</h5>
 	<ul>
 		<li>A technical integration has suddenly stopped to work as expected.</li>
@@ -886,13 +886,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>640</sys_mod_count>
+        <sys_mod_count>641</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-08-04 09:03:02</sys_updated_on>
+        <sys_updated_on>2022-08-04 11:13:44</sys_updated_on>
     </sys_ui_page>
 </record_update>
