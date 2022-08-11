@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_datasilos.GetPluginStatus</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Retrieves the additional status data from plugins through the DataSilos extension point,</description>
+        <name>GetPluginStatus</name>
+        <script><![CDATA[function GetPluginStatus()
+{
+	var IsValidFunction = x_snc_devtools.IsValidFunction;	
+	var SetValue = x_snc_devtools.SetValue;
+	
+	var plugin_status = {};
+	plugin_status = SetValue({},plugin_status,'columns'); 
+	plugin_status = SetValue({},plugin_status,'tables'); 
+
+	
+	var gsep = new GlideScriptedExtensionPoint();
+	var eps = gsep.getExtensions('DataSilos');
+	for (var nEP = 0; nEP < eps.length; nEP++)
+	{
+		var ep = eps[nEP];
+		if (IsValidFunction(ep.GetStatus))
+		{
+			var plugin_status_new = ep.GetStatus(plugin_status);
+			if (plugin_status_new != false)
+			{
+				plugin_status = plugin_status_new;
+			}
+		}
+	}	
+		
+
+	/*
+
+	plugin_status = SetValue('Test 1',plugin_status,'columns','test1','header'); 
+	plugin_status = SetValue('right',plugin_status,'columns','test1','textalign'); 
+	plugin_status = SetValue('23',plugin_status,'tables','incident','test1'); 
+	plugin_status = SetValue('10113',plugin_status,'tables','problem','test1'); 
+	
+	
+	plugin_status = SetValue('Test 2',plugin_status,'columns','test2','header'); 
+	
+	plugin_status = SetValue('Hello Incident',plugin_status,'tables','incident','test2'); 	
+	plugin_status = SetValue('Hello Problem',plugin_status,'tables','problem','test2'); 	
+	
+	//plugin_status.columns.test1.header = 'Test1';
+	
+	Debug(x_snc_devtools.RenderValue(plugin_status));
+	*/
+	
+	return plugin_status;
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-10 09:00:17</sys_created_on>
+        <sys_id>e3b604ecdb55d150dcbdd03cd39619f9</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>GetPluginStatus</sys_name>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_update_name>sys_script_include_e3b604ecdb55d150dcbdd03cd39619f9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-10 11:18:28</sys_updated_on>
+    </sys_script_include>
+</record_update>
