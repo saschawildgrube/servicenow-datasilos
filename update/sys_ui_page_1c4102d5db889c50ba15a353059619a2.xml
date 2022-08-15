@@ -447,7 +447,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 		<li>Identify data sources. Is it based on manual input from users or is data provided via integrations?</li>
 		<li>Verify if these sources provide the necessary details that are required to derive the visibility rules.</li>
 	</ol>
-	<p>After a decision has been made to creat a DataSilos plugin application perform the following steps:</p>
+	<p>After a decision has been made to create a DataSilos plugin application perform the following steps:</p>
 	<ol>
 		<li>Create a new scoped application in Studio.</li>
 		<li>Identify the affected tables</li>
@@ -893,13 +893,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>647</sys_mod_count>
+        <sys_mod_count>648</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-08-11 14:50:08</sys_updated_on>
+        <sys_updated_on>2022-08-15 09:17:02</sys_updated_on>
     </sys_ui_page>
 </record_update>
