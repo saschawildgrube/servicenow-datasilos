@@ -32,31 +32,42 @@
         <script><![CDATA[function onDataSilosAccessAnalysis()
 {
 	var strTable = GetCurrentRecordTableName();
-	var strSysId = GetCurrentRecordSysId();
+	var strSysId = GetCurrentRecordSysId();	
 	
-	if (strSysId == '' || strTable == '')
+	function StateStart()
 	{
-		alert('\nDataSilos Access Analysis:\nError: Could not identify record to analyse.');
-		return;
+		if (strSysId == '' || strTable == '')
+		{
+			DoModalMessage('DataSilos Access Analysis','Error: Could not identify record to analyse.',StateFinish);
+			return;
+		}
+		DoModalPrompt('DataSilos Access Analysis','Please enter a user\'s Sys ID or name:','',StateAccessAnalysis);
 	}
 	
-	var strUser = prompt('\nDataSilos Access Analysis:\nPlease enter a user\'s SysID or name:');
-	if (strUser == null)
+	function StateAccessAnalysis(strUser)
 	{
-		return;
+		if (strUser == false)
+		{
+			return;
+		}
+		var ga = new GlideAjax('DataSilosClientAPI');
+		ga.addParam('sysparm_name','AccessAnalysisForUserAndRecord');
+		ga.addParam('sysparm_user',strUser);
+		ga.addParam('sysparm_table',strTable);
+		ga.addParam('sysparm_record',strSysId);
+		ga.getXML(StateResponse);
 	}
 	
-	var ga = new GlideAjax('DataSilosClientAPI');
-	ga.addParam('sysparm_name','AccessAnalysisForUserAndRecord');
-	ga.addParam('sysparm_user',strUser);
-	ga.addParam('sysparm_table',strTable);
-	ga.addParam('sysparm_record',strSysId);
-	ga.getXML(CallbackResponse);
-	function CallbackResponse(response)
+	function StateResponse(response)
 	{
 		var strResult = response.responseXML.documentElement.getAttribute('answer');
-		alert('\nDataSilos Access Analysis:\n'+strResult);
+		DoModalMessage('DataSilos Access Analysis',strResult,StateFinish);
 	}
+	
+	function StateFinish()
+	{}
+	
+	StateStart();
 }]]></script>
         <show_insert>false</show_insert>
         <show_multiple_update>false</show_multiple_update>
@@ -68,15 +79,15 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6a0bb4a7dbd738104647dad1f396192f</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>61</sys_mod_count>
         <sys_name>DataSilos Access Analysis</sys_name>
         <sys_overrides/>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_action_6a0bb4a7dbd738104647dad1f396192f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-08-10 12:33:47</sys_updated_on>
+        <sys_updated_on>2022-09-07 20:29:11</sys_updated_on>
         <table>global</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>true</ui16_compatible>
