@@ -359,11 +359,20 @@ generateDescription();]]></description_generator>
 		var strFieldName = strScopePrefix+'_security_clearance'; &#13;
 		var grSD = new GlideRecord('sys_dictionary');&#13;
 		grSD.addQuery('name','=',strTable);&#13;
+		/*&#13;
+			The table sys_user is special: if client decide to filter the sys_user (or one of its derived)&#13;
+			tables they might want to expose the field to non-admin users and give it a different name&#13;
+			and also define a choice list for the security clearance levels.&#13;
+		*/&#13;
+		if (strTable != 'sys_user')&#13;
+		{&#13;
+			grSD.addQuery('column_label','=','DataSilos Security Clearance');&#13;
+			grSD.addQuery('choice','=',null);&#13;
+		}&#13;
 		grSD.addQuery('element','=',strFieldName);&#13;
 		grSD.addQuery('internal_type','=','integer');&#13;
 		grSD.addQuery('active','=',true);&#13;
 		grSD.addQuery('display','=',0);&#13;
-		grSD.addQuery('column_label','=','DataSilos Security Clearance');&#13;
 		grSD.addQuery('default_value','=','0');&#13;
 		grSD.addQuery('mandatory','=',0);&#13;
 		grSD.addQuery('reference','=',null);&#13;
@@ -371,7 +380,6 @@ generateDescription();]]></description_generator>
 		grSD.addQuery('audit','=',0);&#13;
 		grSD.addQuery('sys_scope','=',strAppSysId);&#13;
 		grSD.addQuery('reference_qual_condition','=',null);&#13;
-		grSD.addQuery('choice','=',null);&#13;
 		grSD.addQuery('text_index','=',0);&#13;
 		grSD.addQuery('function_definition','=',null);&#13;
 		grSD.query();&#13;
@@ -695,14 +703,14 @@ generateDescription();]]></description_generator>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 16:24:42</sys_created_on>
         <sys_id>88b932e8db582810ba15a35305961982</sys_id>
-        <sys_mod_count>132</sys_mod_count>
+        <sys_mod_count>133</sys_mod_count>
         <sys_name>DataSilos - Check table implementation</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_88b932e8db582810ba15a35305961982</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-07-13 11:56:50</sys_updated_on>
+        <sys_updated_on>2022-09-12 15:16:26</sys_updated_on>
         <template_reminder>TBD</template_reminder>
         <type display_value="Test Step" name="sys_atf_step">1211b97721963010c0a0a40cdfd1e48d</type>
         <wizard_redirect/>
