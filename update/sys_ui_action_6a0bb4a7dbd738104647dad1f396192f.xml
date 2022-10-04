@@ -31,6 +31,7 @@
         <order>25000</order>
         <script><![CDATA[function onDataSilosAccessAnalysis()
 {
+
 	var strTable = GetCurrentRecordTableName();
 	var strSysId = GetCurrentRecordSysId();	
 	
@@ -48,19 +49,20 @@
 	{
 		if (strUser == false)
 		{
+			alert('No User Id provided...');
 			return;
 		}
-		var ga = new GlideAjax('DataSilosClientAPI');
-		ga.addParam('sysparm_name','AccessAnalysisForUserAndRecord');
-		ga.addParam('sysparm_user',strUser);
-		ga.addParam('sysparm_table',strTable);
-		ga.addParam('sysparm_record',strSysId);
-		ga.getXML(StateResponse);
+		ServerRequest('x_snc_datasilos.DataSilosClientAPI','AccessAnalysisForUserAndRecord',
+		{
+			user: strUser,
+			table: strTable,
+			record: strSysId
+		},StateResponse);
+		
 	}
 	
-	function StateResponse(response)
+	function StateResponse(strResult)
 	{
-		var strResult = response.responseXML.documentElement.getAttribute('answer');
 		DoModalMessage('DataSilos Access Analysis',strResult,StateFinish);
 	}
 	
@@ -79,7 +81,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6a0bb4a7dbd738104647dad1f396192f</sys_id>
-        <sys_mod_count>61</sys_mod_count>
+        <sys_mod_count>74</sys_mod_count>
         <sys_name>DataSilos Access Analysis</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -87,7 +89,7 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_action_6a0bb4a7dbd738104647dad1f396192f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-07 20:29:11</sys_updated_on>
+        <sys_updated_on>2022-10-04 07:51:06</sys_updated_on>
         <table>global</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>true</ui16_compatible>
