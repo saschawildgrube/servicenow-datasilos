@@ -16,10 +16,12 @@
 	var GetStringValue = x_snc_devtools.GetStringValue;
 	var HtmlRenderLink = x_snc_devtools.HtmlRenderLink;
 	var GetInstanceListPath = x_snc_devtools.GetInstanceListPath;
+	var GetInstanceRecordPath = x_snc_devtools.GetInstanceRecordPath;
 	var RenderDateTimeUser = x_snc_devtools.RenderDateTimeUser;
 	var GetAppName = x_snc_devtools.GetAppName;
 	var IsDomainSeparationInstalled = x_snc_devtools.IsDomainSeparationInstalled;
 	var IsTableDomainSeparated = x_snc_devtools.IsTableDomainSeparated;
+	var IsValidRecord = x_snc_devtools.IsValidRecord;
 
 
 	
@@ -172,6 +174,18 @@
 			'Before query BRs',true);
 		strHtmlTables += '&#160;|&#160;';		
 		
+		var strEncodedQuery = 'when=before^action_query=true^collection='+strTable;
+		var grTable = new GlideRecord('sys_db_object');
+		grTable.get('name',strTable);
+		if (IsValidRecord(grTable) == true)
+		{
+			var strPath = GetInstanceRecordPath('sys_db_object',grTable.sys_id);
+			strHtmlTables += HtmlRenderLink(
+				'/'+strPath,
+				'Table Config',true);
+			strHtmlTables += '&#160;|&#160;';		
+		}
+		
 		var strEncodedQuery = 'table='+strTable;
 		var strPath = GetInstanceListPath('sys_db_view_table',GetViewForTable('sys_db_view_table'),strEncodedQuery);
 		strHtmlTables += HtmlRenderLink(
@@ -238,13 +252,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-04-03 07:45:03</sys_created_on>
         <sys_id>37c3bb11db972490ba15a3530596195f</sys_id>
-        <sys_mod_count>74</sys_mod_count>
+        <sys_mod_count>77</sys_mod_count>
         <sys_name>HtmlRenderStatus</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_37c3bb11db972490ba15a3530596195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-14 13:44:25</sys_updated_on>
+        <sys_updated_on>2022-11-07 15:39:00</sys_updated_on>
     </sys_script_include>
 </record_update>
