@@ -268,6 +268,20 @@
 			grSSI.script =&#13;
 				"function DataSilosGetStatus(status)\n"&#13;
 				+"{\n"&#13;
+				+"\tvar SetValue = x_snc_devtools.SetValue;\n"&#13;
+				+"\tvar GetAllSupportedTables = x_snc_datasilos.GetAllSupportedTables;\n"&#13;
+				+"\t\n"&#13;
+				+"\t// Define a new column 'demo'\n"&#13;
+				+"\tSetValue('Demo',status,'columns','demo','header');\n"&#13;
+				+"\t\n"&#13;
+				+"\tvar aTables = GetAllSupportedTables();\n"&#13;
+				+"\tfor (var nTable = 0; nTable &lt; aTables.length; nTable++)\n"&#13;
+				+"\t{\n"&#13;
+				+"\t\tvar strTable = aTables[nTable];\n"&#13;
+				+"\t\t// Add some meaningful status information or useful links for each table:\n"&#13;
+				+"\t\tSetValue('Add some meaningful information about table '+strTable,status,'tables',strTable,'demo');\n"&#13;
+				+"\t}\n"&#13;
+				+"\t\n"&#13;
 				+"\treturn status;\n"&#13;
 				+"}";&#13;
 			strSSI = GlideRecordInsert(grSSI);&#13;
@@ -754,7 +768,11 @@
 					{&#13;
 						Log('ERROR: Script include "DataSilosRecordInsert" DOES NOT SEEM TO BE IMPLEMENTED CORRECTLY...');&#13;
 					}&#13;
-					if (strScript.indexOf("if (strTable == '"+strTable+"')") == -1)&#13;
+					if (strScript.indexOf('return bResult;') == -1)&#13;
+					{&#13;
+						Log('ERROR: Script include "DataSilosRecordInsert" DOES NOT SEEM TO BE IMPLEMENTED CORRECTLY...');&#13;
+					}						&#13;
+					if (strScript.indexOf("strTable == '"+strTable+"'") == -1)&#13;
 					{&#13;
 						strScriptTableConfig = &#13;
 							"if (strTable == '"+strTable+"')\n"&#13;
@@ -789,7 +807,11 @@
 					{&#13;
 						Log('ERROR: Script include "DataSilosRecordUpdate" DOES NOT SEEM TO BE IMPLEMENTED CORRECTLY...');&#13;
 					}&#13;
-					if (strScript.indexOf("if (strTable == '"+strTable+"')") == -1)&#13;
+					if (strScript.indexOf('return bResult;') == -1)&#13;
+					{&#13;
+						Log('ERROR: Script include "DataSilosRecordUpdate" DOES NOT SEEM TO BE IMPLEMENTED CORRECTLY...');&#13;
+					}					&#13;
+					if (strScript.indexOf("strTable == '"+strTable+"'") == -1)&#13;
 					{&#13;
 						strScriptTableConfig = &#13;
 							"if (strTable == '"+strTable+"')\n"&#13;
@@ -1070,13 +1092,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-28 09:53:31</sys_created_on>
         <sys_id>ac1cf47e1b3af810edf3642aab4bcb45</sys_id>
-        <sys_mod_count>107</sys_mod_count>
+        <sys_mod_count>115</sys_mod_count>
         <sys_name>AppBuilder</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_ac1cf47e1b3af810edf3642aab4bcb45</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-08-10 11:22:40</sys_updated_on>
+        <sys_updated_on>2022-11-07 16:24:36</sys_updated_on>
     </sys_script_include>
 </record_update>
