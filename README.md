@@ -25,12 +25,11 @@ If you find yourself unable to import your repository due to the presence of fil
    2.3 Re-import the application from source control
    Currently listed dependencies:
    * Change Request
-   * Service Management Basics
-   * System Import Sets
-   * Incident
    * Problem Tasks
-   * System (apps/system1)
-   * DevTools WORK IN PROGRESS
    * Text Index
-   * Problem Management
+   * Incident
+   * System Import Sets
+   * Service Management Basics
+   * System (apps/system1)
    * Service Catalog Platform
+   * Problem Management
