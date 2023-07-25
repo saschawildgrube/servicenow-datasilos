@@ -45,7 +45,7 @@
 	
 	<h2>How DataSilos controls access</h2>
 	
-	<h3>Organizational dimension</h3>
+	<h3>Organizational Dimension</h3>
 	<p>In the organizational dimension user access to records is controlled on the basis of a user's group memberships and whether the user is directly associated to a record (e.g. because the user created the record).</p>  
 	<p>Users are members of groups. Groups can be associated to data silos by a silo manager. Each association between a group and a data silo has a type. Whether an individual user can see a record of a supported process depends on the type of their group's association with a silo.</p>
 	<p><b>Member:</b>&#160;Users in groups that are associated to a silo as type "Member" can only see those records that are or were directly assigned to that group.</p>
@@ -75,20 +75,20 @@
 	<ul>
 		<g2:no_escape>$[
 			docapi.RenderSystemRequirements(
-				'San Diego, Tokyo',
+				'Tokyo, Utah',
 				true,
 				AppGetDependencies());
 		]</g2:no_escape>	
 	</ul>
 	
-	<h2>Protection mechanisms</h2>
+	<h2>Protection Mechanisms</h2>
 	<p>The following mechanism are applied to enforce the filtering:</p> 
-	<h3>Before query business rules</h3>
+	<h3>Before Query Business Rules</h3>
 	<p>DataSilos has business rules that modify the query which is used to retrieve data for a table in scope from the database. Before query business rules are triggered whenever a user or background job requests data explicitly from a table. However, before query business rules are not triggered if data from a table is integrated into the response for a different table - e.g. if fields from a referenced record are used in a list view or form.</p>
 	<h3>ACLs</h3>
 	<p>Since before query business rules are not always triggered when retrieving data from a given table, ACLs are in place to perform a check on every single record that is delivered back from the database. This inlcudes cases where fields are joined from other tables via dot-walking or reference fields.</p>
 	<p>It's in the nature of ACLs to allow access to a table, record, or specific field if there is at least one ACL that grants access. This means that the DataSilos specific logic must be considered in every single ACL of a table in scope. And that implies that the protection mechanism is always in danger to be compromised by later changes to the platform. New or changed features might require new ACLs to be added or existing ones to be modified. A developer who is not aware of the role ACLs play for DataSilos filtering might easily remove (or not add) the required logic to the ACL script. To mitigate this, DataSilos contains ATF tests that check the configuration of all relevant ACLs. However, it is crucial that these tests are execute as part of the regular development and deployment process.</p>
-	<h3>Database view protection</h3>
+	<h3>Database View Protection</h3>
 	<p>Database views need to be protected explicitly. The before query business rule of a table are not triggered if a database view is used to retrieve data from a table. ACLs are triggered when records are retrieved through a database view - but the records being presented to the ACL script are incomplete, so specific logic must be applied when checking records within database views.</p>
 	<p>In order to apply the filtering on records when using database views DataSilos uses a background job to configure business rules for all databse views automatically. In addition it adds the fields to the table view configuration of a databse view if required. As a result, no additional manual configuration is required to protect data delivered via database views.</p> 
 	
@@ -335,14 +335,14 @@ Best regards,
 	<h3>UI Actions</h3>
 	<g2:no_escape>$[docapi.RenderUIActions()]</g2:no_escape>		
 	
-	<h3>Configuration options</h3>
+	<h3>Configuration Options</h3>
 	<g2:no_escape>$[docapi.RenderProperties()]</g2:no_escape>
 	
 	<h3>Scheduled Jobs</h3>
 	<g2:no_escape>$[docapi.RenderScheduledJobs()]</g2:no_escape>
 	
 	
-	<h3>Table columns</h3>
+	<h3>Table Columns</h3>
 	<p>Each supported table is equipped with several new columns to support DataSilos filtering:</p>
 	<ul>
 		<li><b>x_snc_datasilos_global</b>&#160;The global visibility flag controls if this record should be globally visible - i.e. it can be seen by all users without any exception. This flag can be useful to make very important incidents public to everyone.</li>
@@ -423,7 +423,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 	</ol>
 	
 	<h2>Developer Guide</h2>
-	<h3>Entry points</h3>
+	<h3>Entry Points</h3>
 	<p>The DataSilos application is implemented in a number of script includes. Most of which contain a single function. The following script includes (i.e. functions) serve as entry points to the application. All other functions are then called from these entry points:</p>
 	<ol>
 		<li>ExecuteBusinessRule</li>
@@ -444,7 +444,7 @@ x_snc_datasilos.Log('After DeleteAllData(): '+x_snc_devtools.RenderValue(testdat
 	<h4>Extension Points</h4>
 	<g2:no_escape>$[docapi.RenderExtensionPoints()]</g2:no_escape>		
 	
-	<h3>Extension of scope</h3> 
+	<h3>Extension of Scope</h3> 
 	<p>You can extend the scope of the DataSilos application by adding the filtering logic to more tables. You might also modify the regular behavior of DataSilos when working with tables already supported by DataSilos. In either scenario you need to create a DataSilos plugin application. Before you start the implementation, perform the following steps:</p>
 	<ol>
 		<li>Check if there is a more recent version of DataSilos available that may already cover your requirements.</li>
@@ -921,13 +921,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>671</sys_mod_count>
+        <sys_mod_count>674</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-05-06 10:48:18</sys_updated_on>
+        <sys_updated_on>2023-07-25 20:02:15</sys_updated_on>
     </sys_ui_page>
 </record_update>
