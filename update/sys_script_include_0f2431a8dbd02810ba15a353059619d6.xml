@@ -5,13 +5,21 @@
         <api_name>x_snc_datasilos.IsExpensiveQuery</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>The function analyses the given query and either considers it as "expensive" and returns true, or not and returns false.&#13;
+Expensive queries are likely to have a significant performance impact when combined with datasilos based filtering.&#13;
+Configuration allows to skip the query based filtering in case of expensive queries and to enforce filtering based on ACLs only.</description>
         <name>IsExpensiveQuery</name>
-        <script><![CDATA[function IsExpensiveQuery(strTable,strEncodedQuery)
+        <script><![CDATA[function IsExpensiveQuery(strTable,strEncodedQuery,strUserSysId)
 {
 	var GetStringValue = x_snc_devtools.GetStringValue;
+	var IsValidSysId = x_snc_devtools.IsValidSysId;
 	
 	strEncodedQuery = GetStringValue(strEncodedQuery);
+	strUserSysId = GetStringValue(strUserSysId);
+	if (IsValidSysId(strUserSysId) == false)
+	{
+		strUserSysId = gs.getUserID();
+	}
 
 	// If the query just returns one specific record, it is NOT expensive
 	if (strEncodedQuery.startsWith('sys_id=') == true)
@@ -38,7 +46,7 @@
 	}
 	
 	// If the query filters for one of the user's groups explicitly, we also consider it expensive.
-	var aGroups = GetGroupsFromUser(gs.getUserID());
+	var aGroups = GetGroupsFromUser(strUserSysId);
 	for (var nGroup = 0; nGroup < aGroups.length; nGroup++)
 	{
 		if (strEncodedQuery.includes('assignment_group='+aGroups[nGroup]) == true)
@@ -60,13 +68,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-11-02 11:21:31</sys_created_on>
         <sys_id>0f2431a8dbd02810ba15a353059619d6</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>IsExpensiveQuery</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_0f2431a8dbd02810ba15a353059619d6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-01 14:26:42</sys_updated_on>
+        <sys_updated_on>2023-07-26 13:32:35</sys_updated_on>
     </sys_script_include>
 </record_update>

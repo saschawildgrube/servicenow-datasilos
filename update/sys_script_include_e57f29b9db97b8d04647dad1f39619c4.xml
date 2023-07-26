@@ -5,7 +5,7 @@
         <api_name>x_snc_datasilos.GetLinkDirectory</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Provides the DataSilos specific categories for the link directory.</description>
         <name>GetLinkDirectory</name>
         <script><![CDATA[function GetLinkDirectory()
 {
@@ -53,13 +53,13 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-10-20 07:34:26</sys_created_on>
         <sys_id>e57f29b9db97b8d04647dad1f39619c4</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>GetLinkDirectory</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_include_e57f29b9db97b8d04647dad1f39619c4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-12-08 13:39:17</sys_updated_on>
+        <sys_updated_on>2023-07-17 11:10:38</sys_updated_on>
     </sys_script_include>
 </record_update>
