@@ -13,7 +13,7 @@
         <client_callable>false</client_callable>
         <collection>sysapproval_approver</collection>
         <condition/>
-        <description/>
+        <description>Apply DataSilos filtering and special handling for approvals.</description>
         <execute_function>false</execute_function>
         <filter_condition/>
         <is_rest>false</is_rest>
@@ -36,7 +36,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a5af370ddbd8a810ba15a35305961957</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>DataSilos - sysapproval_approver</sys_name>
         <sys_overrides/>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
@@ -44,7 +44,7 @@
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_script_a5af370ddbd8a810ba15a35305961957</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-03-24 15:32:02</sys_updated_on>
+        <sys_updated_on>2023-07-26 13:24:21</sys_updated_on>
         <template/>
         <when>before</when>
         <x_snc_datasilos_created>false</x_snc_datasilos_created>
