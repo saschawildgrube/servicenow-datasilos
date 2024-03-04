@@ -326,6 +326,29 @@ Best regards,
 		<li>If this does not resolve the issue, deactivate all "DataSilos" business rules and UNDO all changes done to ACLs.</li>
 		<li>If this still does not resolve issues - the root cause is probably somewhere else. However, at this point one could remove the DataSilos application as a whole – BUT KEEP IN MIND THAT THIS WILL IRREVOCABLY DELETE ALL WHITELIST INFORMATION!</li>
 	</ol>
+	
+	<h3>Uninstall</h3>
+	<p>DataSilos modifies ACLs in various tables outside the DataSilos scope. Hence uninstalling the application is NOT sufficient to remove DataSilos from an instance. Follow these steps to uninstall DataSilos:</p>
+	<ol>
+		<li>Deactivate the scheduled job&#160;<a href="/sysauto_script.do?sys_id=2d0f7525dbb43058bc44d844ca961934" target="_blank">DataSilos - Maintenance</a>. This is to prevent any further updates to ACLs.</li>
+		<li>Run the following script as a background script to undo any modifications to ACLs made by DataSilos:<pre>
+var grACL = new GlideRecord('sys_security_acl');
+grACL.addQuery('script','CONTAINS','x_snc_datasilos.ExecuteACL(current)');
+grACL.addQuery('script','DOES NOT CONTAIN','/* x_snc_datasilos.ExecuteACL(current) */');
+grACL.query();
+while (grACL.next())
+{
+    gs.info('ACL: '+grACL.sys_id+ ': ' + grACL.getDisplayValue());
+    gs.info('Current script: '+grACL.script);
+    var strScript = grACL.getValue('script');
+    var strScriptNew = strScript.replace('x_snc_datasilos.ExecuteACL(current)','true /* x_snc_datasilos.ExecuteACL(current) */');
+    gs.info('New script: '+strScriptNew);
+    grACL.script = strScriptNew;
+    grACL.update();
+}</pre>
+		</li>
+		<li>Delete the application "DataSilos" from the instance via Studio.</li>
+	</ol>
 
 	<h2>Reference</h2>
 	
@@ -522,7 +545,8 @@ DataSilos - incident_task - cross-silo
 -->
 	<h3>3.9.0 - 2023-TODO</h3>
 	<ol>
-		<li>Removed the deactivation of the OOTB business rule that prevents before query business rules on cross-scope tables from MaintenanceDatabaseViews() as this is already done by DevTools' AppInstall() script.</li> 
+		<li>Removed the deactivation of the OOTB business rule that prevents before query business rules on cross-scope tables from MaintenanceDatabaseViews() as this is already done by DevTools' AppInstall() script.</li>
+		<li>Added chapter "Uninstall" to the manual.</li>
 	</ol>
 	
 	<h3>3.8.0 - 2023-07-26</h3>
@@ -926,13 +950,13 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>678</sys_mod_count>
+        <sys_mod_count>680</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-12-19 10:05:02</sys_updated_on>
+        <sys_updated_on>2024-03-04 08:40:26</sys_updated_on>
     </sys_ui_page>
 </record_update>
