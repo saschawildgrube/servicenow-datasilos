@@ -13,9 +13,9 @@
         <sys_id>01a01fb01b7b6410f28a0d81ec4bcb46</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>x_snc_datasilos.tables.change_task.avoid_expensive_queries</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_properties_01a01fb01b7b6410f28a0d81ec4bcb46</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2021-06-21 08:26:46</sys_updated_on>

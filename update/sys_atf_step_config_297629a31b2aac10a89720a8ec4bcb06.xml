@@ -38,9 +38,9 @@ generateDescription();]]></description_generator>
         <sys_id>297629a31b2aac10a89720a8ec4bcb06</sys_id>
         <sys_mod_count>8</sys_mod_count>
         <sys_name>DataSilos - Log test data</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_atf_step_config_297629a31b2aac10a89720a8ec4bcb06</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2022-04-25 07:38:07</sys_updated_on>

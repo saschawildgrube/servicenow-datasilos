@@ -6,9 +6,9 @@
         <sys_id>9c710a019718b110a6a07767f053afbf</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>DataSilos Access Analysis.x_snc_datasilos.manager</sys_name>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_ui_action display_value="DataSilos Access Analysis">6a0bb4a7dbd738104647dad1f396192f</sys_ui_action>
         <sys_update_name>sys_ui_action_role_9c710a019718b110a6a07767f053afbf</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>

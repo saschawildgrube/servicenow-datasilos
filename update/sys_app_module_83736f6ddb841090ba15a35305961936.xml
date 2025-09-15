@@ -5,7 +5,7 @@
         <assessment/>
         <device_type/>
         <filter table="syslog_app_scope">sys_created_onONLast 30 minutes@javascript:gs.beginningOfLast30Minutes()@javascript:gs.endOfLast30Minutes()^sys_scope=dafbffebdbb78450ba15a353059619eb^EQ<item endquery="false" field="sys_created_on" goto="false" newquery="false" operator="ON" or="false" value="Last 30 minutes@javascript:gs.beginningOfLast30Minutes()@javascript:gs.endOfLast30Minutes()"/>
-            <item display_table="sys_scope" display_value="DataSilos" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="dafbffebdbb78450ba15a353059619eb"/>
+            <item display_table="sys_scope" display_value="DataSilos WORK IN PROGRESS" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="dafbffebdbb78450ba15a353059619eb"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <hint/>
@@ -31,9 +31,9 @@
         <sys_mod_count>17</sys_mod_count>
         <sys_name>Log</sys_name>
         <sys_overrides/>
-        <sys_package display_value="DataSilos" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
+        <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
-        <sys_scope display_value="DataSilos">dafbffebdbb78450ba15a353059619eb</sys_scope>
+        <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_app_module_83736f6ddb841090ba15a35305961936</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2023-05-06 10:50:04</sys_updated_on>
