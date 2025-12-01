@@ -603,7 +603,7 @@ DataSilos - incident_task - cross-silo
 
 	<h3>4.3.0 - TODO</h3>
 	<ol>
-		<li>TODO: Document changes here...</li>
+		<li>MaintenanceDatabaseIndexes() now logs success or failure when creating database indexes.</li>
 	</ol>
 
 
@@ -1083,14 +1083,14 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>770</sys_mod_count>
+        <sys_mod_count>771</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-09-15 14:22:04</sys_updated_on>
+        <sys_updated_on>2025-12-01 16:55:35</sys_updated_on>
     </sys_ui_page>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>1c4102d5db889c50ba15a353059619a2</id>
