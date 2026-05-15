@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>A user that is NOT impacted by any filtering by DataSilos. This is suitable for users that should have global access (e.g. for reporting) or technical users (for integrations).</description>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>rj7fWIC2lFn80vJHaIhJ0+DxX1avQgRhvHzqymWW/3Y=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_snc_datasilos.sentinel</name>

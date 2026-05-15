@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>Users with that role do not trigger business rules when creating or updating records.</description>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>Kfeju3KsUZio43T+3gu9mM1J2PgCnIDh0MDUvBkMKgI=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_snc_datasilos.ghost</name>

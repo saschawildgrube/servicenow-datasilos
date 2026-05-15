@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>A user that can configure data silos and assign groups to data silos.</description>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>u8KeQXCJR+NI6w2KZj4laY3b2VJ3muwe8uVyPR4/12g=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_snc_datasilos.manager</name>

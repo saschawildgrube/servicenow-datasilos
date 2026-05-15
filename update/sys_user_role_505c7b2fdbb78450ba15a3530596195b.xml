@@ -4,6 +4,7 @@
         <can_delegate>true</can_delegate>
         <description>A user that has access to all DataSilo administration and configuration modules. Includes the x_snc_datasilos.manager role.</description>
         <elevated_privilege>false</elevated_privilege>
+        <federated_id>JueY0uWX+ILwj/LMgHqk07IY2JM9zgCJotEBJ9IWykA=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_snc_datasilos.admin</name>
