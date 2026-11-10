@@ -45,7 +45,7 @@ generateDescription();]]></description_generator>
         <sys_updated_by>admin</sys_updated_by>
         <sys_updated_on>2022-04-25 07:38:07</sys_updated_on>
         <template_reminder>TBD</template_reminder>
-        <type display_value="Test Step" name="sys_atf_step">c599bb38e1d312105590bd68cbbecbee</type>
+        <type display_value="Test Step" name="sys_atf_step">8e0d0d86c3a503104b4f311f050131e1</type>
         <wizard_redirect/>
     </sys_atf_step_config>
     <sys_translated_text action="delete_multiple" query="documentkey=297629a31b2aac10a89720a8ec4bcb06"/>

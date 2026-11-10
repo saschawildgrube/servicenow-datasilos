@@ -447,7 +447,7 @@ while (grBR.next())
 	
 	<h2>Runbook</h2>
 	<h3>Incident Models</h3>
-	<h4>Instance not responding / Severe performance issue</h4>
+	<h4>Instance not responding / Severe performance degradation</h4>
 	<h5>Symptoms</h5>
 	<ul>
 		<li>The instance is completely unavailable.</li>
@@ -458,6 +458,30 @@ while (grBR.next())
 	<ol>
 		<li>Independently of whether DataSilos is the root cause, deactivating DataSilos completely may be considered as an emergency option. This should be aligned with stakeholders as this will (temporarily) expose the organization to legal or compliance risks.</li>
 		<li>Deactivate DataSilos by setting the&#160;<a href="/sys_properties.do?sys_id=c7949581db805c50ba15a353059619da" target="_blank">x_snc_datasilos.active</a>&#160;property to "false".</li>
+
+<!--
+
+1.	First analysis: Do all supported tables have an index on the field “x_snc_datasilos_last_maintenance”. If not, that may easily tear the database apart, as the absence of an index on that field turn the maintenance queries into very costly ones, which are then run at a high pace.
+2.	As a short-term mitigation, turn off the jobs entirely – there is a system property in DataSilos by which you can deactivate the maintenance activity, but not the filtering: x_snc_datasilos.maintenance.active
+IF this resolves the resource consumption and performance issue immediately THEN
+3.	Try to “throttle” the maintenance jobs by letting it process fewer records and shorter runtime for in each 10 minute iteration. See Script Include “x_snc_datasilos.Maintenance” where the RecordBulkProcessor() function is called.
+Reduce the number of records to be processed to only 1000 and let it run for only 3 minutes.
+Then reactivate the maintenance system property and see how the resource consumption changes – does it peak after each full 10 minutes for about 3 minutes and then flattens out for the remaining minutes?
+That would again confirm the observation that its really the maintenance jobs. 
+4.	If again this confirms the hypothesis, then we would need to figure out WHICH table causes the high load. Reactivate the jobs fully, then deactivate job by job, wait for about 20 minutes between each to see if any of them has a significant effect.
+5.	Once we know which maintenance job on which table is causing the effect, further analysis can be narrowed down to changes on that particular table (or tables).
+6.	You mentioned that the observation started just a few das ago.
+What has changed then?
+Was an upgrade installed?
+Was a plugin installed?
+Was a customization deployed?
+Was a new table added to the supported tables?
+Were indices removed from supported tables?
+Were new records created – eventually as part of onboarding a new tenant?
+
+-->
+
+
 	</ol>
 	<h4>Technical integration does no longer work as expected</h4>
 	<h5>Symptoms</h5>
@@ -1083,14 +1107,14 @@ while (grSSA.next())
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-04-07 13:52:45</sys_created_on>
         <sys_id>1c4102d5db889c50ba15a353059619a2</sys_id>
-        <sys_mod_count>771</sys_mod_count>
+        <sys_mod_count>772</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="DataSilos WORK IN PROGRESS" source="x_snc_datasilos">dafbffebdbb78450ba15a353059619eb</sys_package>
         <sys_policy/>
         <sys_scope display_value="DataSilos WORK IN PROGRESS">dafbffebdbb78450ba15a353059619eb</sys_scope>
         <sys_update_name>sys_ui_page_1c4102d5db889c50ba15a353059619a2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-01 16:55:35</sys_updated_on>
+        <sys_updated_on>2026-10-26 16:10:21</sys_updated_on>
     </sys_ui_page>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>1c4102d5db889c50ba15a353059619a2</id>

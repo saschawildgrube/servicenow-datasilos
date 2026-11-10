@@ -3,7 +3,7 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_snc_datasilos_datasilos" element="NULL" name="x_snc_datasilos_datasilos" parent="NULL" relationship="NULL" sys_domain="global" view="a6b3b370e11312105590bd68cbbecb62">c05cf865db9c50d0ba15a35305961903</list_id>
+            <list_id display_value="x_snc_datasilos_datasilos" element="NULL" name="x_snc_datasilos_datasilos" parent="NULL" relationship="NULL" sys_domain="global" view="68a68142c32103104b4f311f050131eb">c05cf865db9c50d0ba15a35305961903</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
@@ -40,7 +40,7 @@
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2020-04-20 13:39:42</sys_updated_on>
             <sys_user/>
-            <view display_value="Reference List" name="sys_ref_list">a6b3b370e11312105590bd68cbbecb62</view>
+            <view display_value="Reference List" name="sys_ref_list">68a68142c32103104b4f311f050131eb</view>
             <view_name/>
         </sys_ui_list>
     </sys_ui_list>

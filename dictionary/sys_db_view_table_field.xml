@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="all_tables.text_index_translations=true,update_synch=true" db_object_id="87c3bb70e11312105590bd68cbbecbec" extends="sys_metadata" label="View Field" max_length="40" name="sys_db_view_table_field" text_index="true" type="collection">
+    <element attributes="all_tables.text_index_translations=true,update_synch=true" db_object_id="4ab6cd42c32103104b4f311f05013106" extends="sys_metadata" label="View Field" max_length="40" name="sys_db_view_table_field" text_index="true" type="collection">
         <element label="Created by DataSilos" max_length="40" name="x_snc_datasilos_created" type="boolean"/>
     </element>
 </database>

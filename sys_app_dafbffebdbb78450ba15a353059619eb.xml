@@ -23,6 +23,7 @@
         <scope>x_snc_datasilos</scope>
         <scoped_administration>false</scoped_administration>
         <short_description>A lightweight approach to data segregation.</short_description>
+        <sn_managed>false</sn_managed>
         <source>x_snc_datasilos</source>
         <store_correlation_id/>
         <store_url/>

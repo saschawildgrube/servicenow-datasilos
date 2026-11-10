@@ -6,6 +6,7 @@
         <package_class>sys_app</package_class>
         <reason>DataSilos uses numerous functions defined in DevTools.</reason>
         <repo_url>https://github.com/saschawildgrube/servicenow-devtools.git</repo_url>
+        <source/>
         <sys_class_name>x_snc_devtools_dependency</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-12-13 15:21:33</sys_created_on>

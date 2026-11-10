@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
     <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
-        <dependency display_value="Problem Tasks" source="com.snc.problem_task">0c3933b4e1d312105590bd68cbbecba7</dependency>
+        <dependency display_value="Problem Tasks" source="com.snc.problem_task">88acc942c3a503104b4f311f050131ed</dependency>
         <min_version>1.0.0</min_version>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-08-21 12:43:32</sys_created_on>

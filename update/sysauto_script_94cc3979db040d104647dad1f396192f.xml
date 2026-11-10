@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
     <sysauto_script action="INSERT_OR_UPDATE">
         <active>true</active>
+        <advanced>false</advanced>
         <business_calendar/>
         <condition/>
         <conditional>false</conditional>
+        <entered_run_end/>
+        <entered_run_start/>
         <entered_time>1970-01-01 01:00:00</entered_time>
         <max_drift/>
         <name>DataSilos - Update Status</name>
         <offset/>
         <offset_type>0</offset_type>
+        <repeat_every/>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
         <run_dayofmonth>13</run_dayofmonth>
         <run_dayofweek>3</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month/>
         <run_period>1970-01-01 00:05:00</run_period>
         <run_start>2021-11-26 15:17:29</run_start>
         <run_time>1970-01-01 00:00:00</run_time>
         <run_type>periodically</run_type>
+        <run_weekinmonth/>
         <script><![CDATA[UpdateStatus();]]></script>
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
